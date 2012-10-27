@@ -9,7 +9,8 @@ https://savannah.cern.ch/bugs/?91183:
 	When creating a proxy from a certificate without a KeyUsage extension VOMS creates an invalid proxy
 
 http://issues.cnaf.infn.it/browse/VOMS-128:
-	VOMS does not use certificate signature algorithm when creating a proxy
+	VOMS does not use certificate signature algorithm when creating a proxy. This breaks SHA-2 support
+	in the VOMS server and APIs.
 
 Installation and configuration:
 
