@@ -1,0 +1,20 @@
+What's new:
+
+This release provides bug fixes for the following issues:
+
+http://issues.cnaf.infn.it/browse/VOMS-95: 
+	VOMS Java APIs do not enforce certificate CRLs
+
+https://savannah.cern.ch/bugs/?91183: 
+	When creating a proxy from a certificate without a KeyUsage extension VOMS creates an invalid proxy
+
+http://issues.cnaf.infn.it/browse/VOMS-128:
+	VOMS does not use certificate signature algorithm when creating a proxy
+
+Installation and configuration:
+
+After the packages are upgrade services that rely on the APIs should be restarted.
+
+Known issues:
+
+None.

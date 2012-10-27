@@ -1,0 +1,16 @@
+Features: 
+
+No new features are provided in this release.
+
+Bug Fixes:
+
+- Immediate: None
+
+- High
+https://savannah.cern.ch/bugs/?91183
+http://issues.cnaf.infn.it/browse/VOMS-95
+
+- Medium
+http://issues.cnaf.infn.it/browse/VOMS-128
+
+- Low

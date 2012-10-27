@@ -1,0 +1,58 @@
+Binaries:
+
+- SL5:
+voms-2.0.9-1.el5.x86_64.rpm
+voms-clients-2.0.9-1.el5.x86_64.rpm
+voms-debuginfo-2.0.9-1.el5.x86_64.rpm
+voms-devel-2.0.9-1.el5.x86_64.rpm
+voms-doc-2.0.9-1.el5.x86_64.rpm
+voms-server-2.0.9-1.el5.x86_64.rpm
+voms-api-java-2.0.9-1.el5.noarch.rpm
+voms-api-java-javadoc-2.0.9-1.el5.noarch.rpm
+
+- SL6
+
+voms-2.0.9-1.el6.x86_64.rpm
+voms-clients-2.0.9-1.el6.x86_64.rpm
+voms-debuginfo-2.0.9-1.el6.x86_64.rpm
+voms-devel-2.0.9-1.el6.x86_64.rpm
+voms-doc-2.0.9-1.el6.noarch.rpm
+voms-server-2.0.9-1.el6.x86_64.rpm
+voms-api-java-2.0.9-1.el6.noarch.rpm
+voms-api-java-javadoc-2.0.9-1.el6.noarch.rpm
+
+- Deb6:
+
+libvomsapi1_2.0.9-1_amd64.deb
+voms-clients_2.0.9-1_amd64.deb
+voms-dev_2.0.9-1_amd64.deb
+voms-server_2.0.9-1_amd64.deb
+
+Binary tarballs:
+
+N/A
+
+Sources:
+
+voms-2.0.9-1.src.rpm
+voms-api-java-2.0.9-1.sl5.src.rpm
+voms-api-java-2.0.9-1.sl6.src.rpm
+
+Source tarballs:
+
+voms-2.0.9-1.el5.x86_64.tar.gz
+voms-api-java-2.0.9-1.el5.noarch.tar.gz
+voms-api-java-javadoc-2.0.9-1.el5.noarch.tar.gz
+voms-clients-2.0.9-1.el5.x86_64.tar.gz
+voms-debuginfo-2.0.9-1.el5.x86_64.tar.gz
+voms-devel-2.0.9-1.el5.x86_64.tar.gz
+voms-doc-2.0.9-1.el5.x86_64.tar.gz
+voms-server-2.0.9-1.el5.x86_64.tar.gz
+voms-2.0.9-1.el6.x86_64.tar.gz
+voms-api-java-2.0.9-1.el6.noarch.tar.gz
+voms-api-java-javadoc-2.0.9-1.el6.noarch.tar.gz
+voms-clients-2.0.9-1.el6.x86_64.tar.gz
+voms-debuginfo-2.0.9-1.el6.x86_64.tar.gz
+voms-devel-2.0.9-1.el6.x86_64.tar.gz
+voms-doc-2.0.9-1.el6.noarch.tar.gz
+voms-server-2.0.9-1.el6.x86_64.tar.gz
