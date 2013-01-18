@@ -1,0 +1,202 @@
+[root@sl6 ~]# wget http://emisoft.web.cern.ch/emisoft/dist/EMI/1/sl5/x86_64/updates/emi-release-1.0.1-1.sl5.noarch.rpm
+--2013-01-18 12:35:05--  http://emisoft.web.cern.ch/emisoft/dist/EMI/1/sl5/x86_64/updates/emi-release-1.0.1-1.sl5.noarch.rpm
+Resolving emisoft.web.cern.ch... 137.138.139.27
+Connecting to emisoft.web.cern.ch|137.138.139.27|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 4981 (4.9K) [application/x-rpm]
+Saving to: `emi-release-1.0.1-1.sl5.noarch.rpm'
+
+     0K ....                                                  100% 32.0M=0s
+
+2013-01-18 12:35:05 (32.0 MB/s) - `emi-release-1.0.1-1.sl5.noarch.rpm' saved [4981/4981]
+
+[root@sl6 ~]# rpm -i emi-release-1.0.1-1.sl5.noarch.rpm
+warning: emi-release-1.0.1-1.sl5.noarch.rpm: Header V3 DSA signature: NOKEY, key ID df9e12ef
+[root@sl6 ~]# wget http://download.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+--2013-01-18 12:35:05--  http://download.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+Resolving download.fedoraproject.org... 80.239.156.215, 85.236.55.6, 209.132.181.16, ...
+Connecting to download.fedoraproject.org|80.239.156.215|:80... connected.
+HTTP request sent, awaiting response... 302 FOUND
+Location: http://ftp.heanet.ie/pub/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm [following]
+--2013-01-18 12:35:06--  http://ftp.heanet.ie/pub/fedora/epel/5/x86_64/epel-release-5-4.noarch.rpm
+Resolving ftp.heanet.ie... 193.1.193.64, 2001:770:18:aa40::c101:c140
+Connecting to ftp.heanet.ie|193.1.193.64|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 12232 (12K) [application/x-redhat-package-manager]
+Saving to: `epel-release-5-4.noarch.rpm'
+
+     0K .......... .                                          100%  136K=0.09s
+
+2013-01-18 12:35:06 (136 KB/s) - `epel-release-5-4.noarch.rpm' saved [12232/12232]
+
+[root@sl6 ~]# rpm -i epel-release-5-4.noarch.rpm
+warning: epel-release-5-4.noarch.rpm: Header V3 DSA signature: NOKEY, key ID 217521f6
+[root@sl6 ~]# yum install -y voms-api-java
+Loaded plugins: kernel-module, priorities, protectbase
+Excluding Packages from SL 5 base
+Finished
+Reducing SL 5 base jdk to included packages only
+Finished
+Excluding Packages from SL 5 security updates
+Finished
+Reducing SL 5 security updates jdk only to included packages only
+Finished
+200 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-api-java.noarch 0:2.0.9-1.el5 set to be updated
+--> Processing Dependency: bouncycastle = 1.45 for package: voms-api-java
+--> Processing Dependency: jakarta-commons-cli for package: voms-api-java
+--> Processing Dependency: log4j for package: voms-api-java
+--> Processing Dependency: jakarta-commons-lang for package: voms-api-java
+--> Running transaction check
+---> Package bouncycastle.i386 0:1.45-6.el5 set to be updated
+--> Processing Dependency: java >= 1:1.6 for package: bouncycastle
+---> Package jakarta-commons-cli.i386 0:1.0-6jpp_10.el5 set to be updated
+--> Processing Dependency: jakarta-commons-logging for package: jakarta-commons-cli
+---> Package jakarta-commons-lang.i386 0:2.1-5jpp.1 set to be updated
+---> Package log4j.i386 0:1.2.13-3jpp.2 set to be updated
+--> Running transaction check
+---> Package jakarta-commons-logging.i386 0:1.0.4-6jpp.1 set to be updated
+---> Package java-1.6.0-openjdk.i386 1:1.6.0.0-1.28.1.10.10.el5_8 set to be updated
+--> Processing Dependency: tzdata-java for package: java-1.6.0-openjdk
+--> Running transaction check
+---> Package tzdata-java.i386 0:2012i-2.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package              Arch   Version                        Repository     Size
+================================================================================
+Installing:
+ voms-api-java        noarch 2.0.9-1.el5                    EMI-1-updates 154 k
+Installing for dependencies:
+ bouncycastle         i386   1.45-6.el5                     epel          3.6 M
+ jakarta-commons-cli  i386   1.0-6jpp_10.el5                epel           67 k
+ jakarta-commons-lang i386   2.1-5jpp.1                     sl-base       460 k
+ jakarta-commons-logging
+                      i386   1.0.4-6jpp.1                   sl-base       105 k
+ java-1.6.0-openjdk   i386   1:1.6.0.0-1.28.1.10.10.el5_8   sl-security    37 M
+ log4j                i386   1.2.13-3jpp.2                  sl-base       634 k
+ tzdata-java          i386   2012i-2.el5                    sl-security   183 k
+
+Transaction Summary
+================================================================================
+Install       8 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 43 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           1.1 MB/s |  43 MB     00:37     
+warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID 217521f6
+Importing GPG key 0x217521F6 "Fedora EPEL <epel@fedoraproject.org>" from /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
+warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID df9e12ef
+Importing GPG key 0xDF9E12EF "Doina Cristina Aiftimiei (EMI Release Manager) <aiftim@pd.infn.it>" from /etc/pki/rpm-gpg/RPM-GPG-KEY-emi
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+
+  Installing     : jakarta-commons-lang                                     1/8 
+
+  Installing     : log4j                                                    2/8 
+
+  Installing     : jakarta-commons-logging                                  3/8 
+
+  Installing     : tzdata-java                                              4/8 
+
+  Installing     : java-1.6.0-openjdk                                       5/8 
+
+  Installing     : bouncycastle                                             6/8 
+
+  Installing     : jakarta-commons-cli                                      7/8 
+
+  Installing     : voms-api-java                                            8/8 
+
+Installed:
+  voms-api-java.noarch 0:2.0.9-1.el5                                            
+
+Dependency Installed:
+  bouncycastle.i386 0:1.45-6.el5                                                
+  jakarta-commons-cli.i386 0:1.0-6jpp_10.el5                                    
+  jakarta-commons-lang.i386 0:2.1-5jpp.1                                        
+  jakarta-commons-logging.i386 0:1.0.4-6jpp.1                                   
+  java-1.6.0-openjdk.i386 1:1.6.0.0-1.28.1.10.10.el5_8                          
+  log4j.i386 0:1.2.13-3jpp.2                                                    
+  tzdata-java.i386 0:2012i-2.el5                                                
+
+Complete!
+[root@sl6 ~]# rpm -e emi-release
+[root@sl6 ~]# wget --no-check-certificate https://twiki.cern.ch/twiki/pub/EMI/EMI1Updates/emi-1-testing.repo -O /etc/yum.repos.d/emi-1-testing.repo
+--2013-01-18 12:36:08--  https://twiki.cern.ch/twiki/pub/EMI/EMI1Updates/emi-1-testing.repo
+Resolving twiki.cern.ch... 137.138.6.21
+Connecting to twiki.cern.ch|137.138.6.21|:443... connected.
+WARNING: cannot verify twiki.cern.ch's certificate, issued by `/C=US/O=VeriSign, Inc./OU=VeriSign Trust Network/OU=Terms of use at https://www.verisign.com/rpa (c)10/CN=VeriSign Class 3 Secure Server CA - G3':
+  Unable to locally verify the issuer's authority.
+HTTP request sent, awaiting response... 200 OK
+Length: 2097 (2.0K) [application/octet-stream]
+Saving to: `/etc/yum.repos.d/emi-1-testing.repo'
+
+     0K ..                                                    100% 16.1M=0s
+
+2013-01-18 12:36:08 (16.1 MB/s) - `/etc/yum.repos.d/emi-1-testing.repo' saved [2097/2097]
+
+[root@sl6 ~]# yum clean all
+Loaded plugins: kernel-module, priorities, protectbase
+Cleaning up Everything
+[root@sl6 ~]# yum update -y --nogpgcheck voms-api-java
+Loaded plugins: kernel-module, priorities, protectbase
+Excluding Packages from SL 5 base
+Finished
+Reducing SL 5 base jdk to included packages only
+Finished
+Excluding Packages from SL 5 security updates
+Finished
+Reducing SL 5 security updates jdk only to included packages only
+Finished
+4001 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Update Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-api-java.noarch 0:2.0.10-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package            Arch        Version           Repository               Size
+================================================================================
+Updating:
+ voms-api-java      noarch      2.0.10-1.el5      EMI-1-testing-base      155 k
+
+Transaction Summary
+================================================================================
+Install       0 Package(s)
+Upgrade       1 Package(s)
+
+Total download size: 155 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+
+  Updating       : voms-api-java                                            1/2 
+
+  Cleanup        : voms-api-java                                            2/2 
+
+Updated:
+  voms-api-java.noarch 0:2.0.10-1.el5                                           
+
+Complete!
