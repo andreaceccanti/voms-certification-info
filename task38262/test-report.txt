@@ -1,0 +1,124 @@
+*********************************
+EMI Test Report Template 
+*********************************
+
+- Product: VOMS
+
+- Release Task: https://savannah.cern.ch/task/?24846
+
+- ETICS Subsystem Configuration Name: emi.voms-EMI2_FINAL
+
+- VCS Tag: 2_0_8
+
+- EMI Major Release: EMI 2
+
+- Platforms: SL5_x86_64, SL6_x86_64
+
+- Author: Andrea Ceccanti
+
+- Date: 07/05/2012
+
+- Test Report Template : v. 3.2
+
+*************
+Summary 
+*************
+
+1. Deployment tests: 
+   1.1. Clean Installation - PASS
+   1.2. Upgrade Installation - PASS
+2. Static Code Analysis - NA
+3. Unit Tests Execution - YES
+4. System tests:
+  4.1. Functionality tests - PASS
+  4.2. Regression tests - PASS
+  4.3. Standard Conformance tests - NA
+  4.4. Performance tests - NA
+  4.5. Scalability tests - NA
+  4.6. Integration tests - PASS
+
+REMARKS:
+
+Unit tests are part of the VOMS core functional test suite.
+
+*************************** Detailed Testing Report ***************************************
+
+1. Deployment log 
+************************
+
+1.1. Clean Installation
+-----------------------------
+- YUM/APT Testing Repo file contents:
+
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_140233_VOMS_EMI2_SL5_64-CERTIFICATION_TASK_24846-24847.log
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_135719_VOMS_EMI2_SL6-64-CERTIFICATION_TASK_24846-24847.log
+
+- YUM/APT Install command:
+
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_140233_VOMS_EMI2_SL5_64-CERTIFICATION_TASK_24846-24847.log
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_135719_VOMS_EMI2_SL6-64-CERTIFICATION_TASK_24846-24847.log
+
+- YUM/APT log:
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_140233_VOMS_EMI2_SL5_64-CERTIFICATION_TASK_24846-24847.log
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_135719_VOMS_EMI2_SL6-64-CERTIFICATION_TASK_24846-24847.log
+
+- Configuration log:
+
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_140233_VOMS_EMI2_SL5_64-CERTIFICATION_TASK_24846-24847.log
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_135719_VOMS_EMI2_SL6-64-CERTIFICATION_TASK_24846-24847.log
+
+
+1.2. Upgrade Installation
+--------------------------------
+- YUM/APT Production Repo file contents:
+
+As installed by the emi-release package.
+
+- YUM/APT Install command:
+
+N/A
+
+- YUM/APT Testing Repo file contents:
+
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/yum-sl5-repos.tar.gz
+
+- YUM/APT Upgrade command:
+
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/yum-update-sl5.log
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/yum-update-sl5-oracle.log
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/oracle-db-upgrade.log
+
+- YUM/APT log:
+
+- Configuration log:
+
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/yaim-update-sl5.log
+https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/yaim-update-sl5-oracle.log
+
+2. Static Code Analysis
+******************************
+- URL where static code analysis results can be accessed
+
+3. Unit Tests
+*****************
+- URL pointing to the results of the Unit Tests.
+
+http://dl.dropbox.com/u/1716999/cert/certification_task24846_24847/SL5/voms-reports/index.html
+http://dl.dropbox.com/u/1716999/cert/certification_task24846_24847/SL6/voms-reports/index.html
+
+- Code Coverage %, if available.
+
+N/A
+
+4. System tests 
+*********************
+- URL where the tests/testsuite can be accessed:
+https://github.com/italiangrid/voms/tree/EMI2/testsuite
+https://twiki.cern.ch/twiki/pub/EMI/TestReportForTask18702/voms-admin-testsuite.tar.gz
+
+- URL where the test results can be accessed:
+
+http://dl.dropbox.com/u/1716999/cert/certification_task24846_24847/SL5/voms-reports/index.html
+http://dl.dropbox.com/u/1716999/cert/certification_task24846_24847/SL6/voms-reports/index.html
+https://wiki.italiangrid.it/twiki/bin/view/VOMS/CertificationTask24846_24847#SL5_x86_64_AN3
+https://wiki.italiangrid.it/twiki/bin/view/VOMS/CertificationTask24846_24847#SL5_x86_64_AN4

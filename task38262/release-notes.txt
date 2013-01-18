@@ -1,0 +1,26 @@
+==========
+What's new
+==========
+
+This release provides VOMS Java APIs v. 2.0.10-1 addressing the following issues:
+
+http://issues.cnaf.infn.it/browse/VOMS-131: 
+    A vulnerability has been found in VOMS Java APIs
+
+For vulnerability solved more information will be published when
+appropriate at this URL:
+
+    https://wiki.egi.eu/wiki/SVG:Advisory-SVG-2012-4598
+
+==================
+Installation and configuration
+==================
+
+After the packages are upgrade services that rely on the APIs should be restarted.
+
+========
+Known issues
+========
+
+None.
+
