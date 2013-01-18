@@ -1,0 +1,10 @@
+Source RPMs:
+voms-api-java-2.0.10-1.sl5.src.rpm
+
+RPMs:
+voms-api-java-2.0.10-1.el5.noarch.rpm
+voms-api-java-javadoc-2.0.10-1.el5.noarch.rpm
+
+Tarballs:
+voms-api-java-2.0.10-1.el5.noarch.tar.gz
+voms-api-java-javadoc-2.0.10-1.el5.noarch.tar.gz

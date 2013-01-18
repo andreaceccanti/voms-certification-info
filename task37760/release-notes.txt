@@ -1,0 +1,16 @@
+# What's new
+
+This release provides bug fixes for the following issues:
+
+http://issues.cnaf.infn.it/browse/VOMS-131:
+    A vulnerability has been found in VOMS Java APIs	
+
+More information will be provided by EGI SVG at this URL : <to_be_filled_by_rm>
+
+# Installation and configuration:
+
+After the packages are upgrade services that rely on the APIs should be restarted.
+
+# Known issues:
+
+None.

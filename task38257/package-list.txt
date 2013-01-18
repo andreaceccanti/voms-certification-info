@@ -1,0 +1,26 @@
+Binaries:
+
+- SL5:
+voms-api-java-2.0.10-1.el5.noarch.rpm
+voms-api-java-javadoc-2.0.10-1.el5.noarch.rpm
+
+- SL6
+
+voms-api-java-2.0.10-1.el6.noarch.rpm
+voms-api-java-javadoc-2.0.10-1.el6.noarch.rpm
+
+Binary tarballs:
+
+N/A
+
+Sources:
+
+voms-api-java-2.0.10-1.sl5.src.rpm
+voms-api-java-2.0.10-1.sl6.src.rpm
+
+Source tarballs:
+
+voms-api-java-2.0.10-1.el5.noarch.tar.gz
+voms-api-java-javadoc-2.0.10-1.el5.noarch.tar.gz
+voms-api-java-2.0.10-1.el6.noarch.tar.gz
+voms-api-java-javadoc-2.0.10-1.el6.noarch.tar.gz

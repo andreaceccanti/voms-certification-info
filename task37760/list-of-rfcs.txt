@@ -1,0 +1,14 @@
+Features: 
+
+No new features are provided in this release.
+
+Bug Fixes:
+
+- Immediate: None
+
+- High
+
+http://issues.cnaf.infn.it/browse/VOMS-131
+
+- Medium: None
+- Low: None
