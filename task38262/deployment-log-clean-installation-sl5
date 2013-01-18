@@ -1,0 +1,119 @@
+[root@sl6 ~]# wget --no-check-certificate https://twiki.cern.ch/twiki/pub/EMI/EMI1Updates/emi-1-testing.repo -O /etc/yum.repos.d/emi-1-testing.repo
+--2013-01-18 12:39:08--  https://twiki.cern.ch/twiki/pub/EMI/EMI1Updates/emi-1-testing.repo
+Resolving twiki.cern.ch... 137.138.6.21
+Connecting to twiki.cern.ch|137.138.6.21|:443... connected.
+WARNING: cannot verify twiki.cern.ch's certificate, issued by `/C=US/O=VeriSign, Inc./OU=VeriSign Trust Network/OU=Terms of use at https://www.verisign.com/rpa (c)10/CN=VeriSign Class 3 Secure Server CA - G3':
+  Unable to locally verify the issuer's authority.
+HTTP request sent, awaiting response... 200 OK
+Length: 2097 (2.0K) [application/octet-stream]
+Saving to: `/etc/yum.repos.d/emi-1-testing.repo'
+
+     0K ..                                                    100% 6.42M=0s
+
+2013-01-18 12:39:08 (6.42 MB/s) - `/etc/yum.repos.d/emi-1-testing.repo' saved [2097/2097]
+
+[root@sl6 ~]# wget http://download.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+--2013-01-18 12:39:08--  http://download.fedoraproject.org/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm
+Resolving download.fedoraproject.org... 85.236.55.6, 80.239.156.215, 209.132.181.16, ...
+Connecting to download.fedoraproject.org|85.236.55.6|:80... connected.
+HTTP request sent, awaiting response... 302 FOUND
+Location: http://ftp.cica.es/epel/5/x86_64/epel-release-5-4.noarch.rpm [following]
+--2013-01-18 12:39:09--  http://ftp.cica.es/epel/5/x86_64/epel-release-5-4.noarch.rpm
+Resolving ftp.cica.es... 150.214.5.134, 2a00:9ac0:c1ca:6::134
+Connecting to ftp.cica.es|150.214.5.134|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 12232 (12K) [text/plain]
+Saving to: `epel-release-5-4.noarch.rpm'
+
+     0K .......... .                                          100%  166K=0.07s
+
+2013-01-18 12:39:14 (166 KB/s) - `epel-release-5-4.noarch.rpm' saved [12232/12232]
+
+[root@sl6 ~]# rpm -i epel-release-5-4.noarch.rpm
+	package epel-release-5-4.noarch is already installed
+[root@sl6 ~]# yum install -y --nogpgcheck voms-api-java
+Loaded plugins: kernel-module
+Excluding Packages from SL 5 base
+Finished
+Reducing SL 5 base jdk to included packages only
+Finished
+Excluding Packages from SL 5 security updates
+Finished
+Reducing SL 5 security updates jdk only to included packages only
+Finished
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-api-java.noarch 0:2.0.10-1.el5 set to be updated
+--> Processing Dependency: bouncycastle = 1.45 for package: voms-api-java
+--> Processing Dependency: jakarta-commons-cli for package: voms-api-java
+--> Processing Dependency: log4j for package: voms-api-java
+--> Processing Dependency: jakarta-commons-lang for package: voms-api-java
+--> Running transaction check
+---> Package bouncycastle.i386 0:1.45-6.el5 set to be updated
+--> Processing Dependency: java >= 1:1.6 for package: bouncycastle
+---> Package jakarta-commons-cli.i386 0:1.0-6jpp_10.el5 set to be updated
+--> Processing Dependency: jakarta-commons-logging for package: jakarta-commons-cli
+---> Package jakarta-commons-lang.i386 0:2.1-5jpp.1 set to be updated
+---> Package log4j.i386 0:1.2.13-3jpp.2 set to be updated
+--> Running transaction check
+---> Package jakarta-commons-logging.i386 0:1.0.4-6jpp.1 set to be updated
+---> Package java-1.6.0-openjdk.i386 1:1.6.0.0-1.28.1.10.10.el5_8 set to be updated
+--> Processing Dependency: tzdata-java for package: java-1.6.0-openjdk
+--> Running transaction check
+---> Package tzdata-java.i386 0:2012i-2.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                  Arch    Version             Repository           Size
+================================================================================
+Installing:
+ voms-api-java            noarch  2.0.10-1.el5        EMI-1-testing-base  155 k
+Installing for dependencies:
+ bouncycastle             i386    1.45-6.el5          extras              3.6 M
+ jakarta-commons-cli      i386    1.0-6jpp_10.el5     extras               67 k
+ jakarta-commons-lang     i386    2.1-5jpp.1          core                460 k
+ jakarta-commons-logging  i386    1.0.4-6jpp.1        core                105 k
+ java-1.6.0-openjdk       i386    1:1.6.0.0-1.28.1.10.10.el5_8
+                                                      sl-security          37 M
+ log4j                    i386    1.2.13-3jpp.2       core                634 k
+ tzdata-java              i386    2012i-2.el5         sl-security         183 k
+
+Transaction Summary
+================================================================================
+Install       8 Package(s)
+Upgrade       0 Package(s)
+
+Total size: 43 M
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : tzdata-java                                              1/8 
+  Installing     : java-1.6.0-openjdk                                       2/8 
+  Installing     : jakarta-commons-lang                                     3/8 
+  Installing     : bouncycastle                                             4/8 
+  Installing     : log4j                                                    5/8 
+  Installing     : jakarta-commons-logging                                  6/8 
+  Installing     : jakarta-commons-cli                                      7/8 
+  Installing     : voms-api-java                                            8/8 
+
+Installed:
+  voms-api-java.noarch 0:2.0.10-1.el5                                           
+
+Dependency Installed:
+  bouncycastle.i386 0:1.45-6.el5                                                
+  jakarta-commons-cli.i386 0:1.0-6jpp_10.el5                                    
+  jakarta-commons-lang.i386 0:2.1-5jpp.1                                        
+  jakarta-commons-logging.i386 0:1.0.4-6jpp.1                                   
+  java-1.6.0-openjdk.i386 1:1.6.0.0-1.28.1.10.10.el5_8                          
+  log4j.i386 0:1.2.13-3jpp.2                                                    
+  tzdata-java.i386 0:2012i-2.el5                                                
+
+Complete!
