@@ -49,77 +49,56 @@ Unit tests are part of the VOMS core functional test suite.
 1.1. Clean Installation
 -----------------------------
 - YUM/APT Testing Repo file contents:
-
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_140233_VOMS_EMI2_SL5_64-CERTIFICATION_TASK_24846-24847.log
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_135719_VOMS_EMI2_SL6-64-CERTIFICATION_TASK_24846-24847.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task38262/deployment-log-clean-installation-sl5
 
 - YUM/APT Install command:
-
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_140233_VOMS_EMI2_SL5_64-CERTIFICATION_TASK_24846-24847.log
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_135719_VOMS_EMI2_SL6-64-CERTIFICATION_TASK_24846-24847.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task38262/deployment-log-clean-installation-sl5
 
 - YUM/APT log:
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_140233_VOMS_EMI2_SL5_64-CERTIFICATION_TASK_24846-24847.log
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_135719_VOMS_EMI2_SL6-64-CERTIFICATION_TASK_24846-24847.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task38262/deployment-log-clean-installation-sl5
 
 - Configuration log:
-
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_140233_VOMS_EMI2_SL5_64-CERTIFICATION_TASK_24846-24847.log
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/20120426_135719_VOMS_EMI2_SL6-64-CERTIFICATION_TASK_24846-24847.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task38262/deployment-log-clean-installation-sl5
 
 
 1.2. Upgrade Installation
 --------------------------------
 - YUM/APT Production Repo file contents:
-
-As installed by the emi-release package.
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task38262/deployment-log-clean-installation-sl5
 
 - YUM/APT Install command:
-
-N/A
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task38262/deployment-log-clean-installation-sl5
 
 - YUM/APT Testing Repo file contents:
-
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/yum-sl5-repos.tar.gz
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task38262/deployment-log-clean-installation-sl5
 
 - YUM/APT Upgrade command:
-
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/yum-update-sl5.log
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/yum-update-sl5-oracle.log
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/oracle-db-upgrade.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task38262/deployment-log-clean-installation-sl5
 
 - YUM/APT log:
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task38262/deployment-log-clean-installation-sl5
 
 - Configuration log:
-
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/yaim-update-sl5.log
-https://wiki.italiangrid.it/twiki/pub/VOMS/CertificationTask24846_24847/yaim-update-sl5-oracle.log
-
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task38262/deployment-log-clean-installation-sl5
 
 2. Static Code Analysis
 ******************************
-- URL where static code analysis results can be accessed
+N/A
 
 3. Unit Tests
 *****************
 
 - URL pointing to the results of the Unit Tests.
-
 http://radiohead.cnaf.infn.it:9999/job/voms-api-java_2_0_SNAPSHOT/lastSuccessfulBuild/testReport/
 
 - Code Coverage %, if available.
-
 N/A
 
 4. System tests 
 *********************
 - URL where the tests/testsuite can be accessed:
-https://github.com/italiangrid/voms/tree/EMI2/testsuite
+http://radiohead.cnaf.infn.it:9999/job/voms-api-java_2_0_SNAPSHOT/lastSuccessfulBuild/testReport/
 
 - URL where the test results can be accessed:
-
-http://dl.dropbox.com/u/1716999/cert/certification_task24846_24847/SL5/voms-reports/index.html
-http://dl.dropbox.com/u/1716999/cert/certification_task24846_24847/SL6/voms-reports/index.html
-https://wiki.italiangrid.it/twiki/bin/view/VOMS/CertificationTask24846_24847#SL5_x86_64_AN3
-https://wiki.italiangrid.it/twiki/bin/view/VOMS/CertificationTask24846_24847#SL5_x86_64_AN4
+http://radiohead.cnaf.infn.it:9999/job/voms-api-java_2_0_SNAPSHOT/lastSuccessfulBuild/testReport/
 

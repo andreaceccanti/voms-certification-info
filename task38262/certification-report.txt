@@ -3,21 +3,19 @@
 **********************************
 - Product: VOMS
 
-- Release Task: https://savannah.cern.ch/task/?38257
+- Release Task: https://savannah.cern.ch/task/?38262
 
-- ETICS Subsystem Configuration Name: 
-
-emi.voms-task38257
+- ETICS Subsystem Configuration Name: emi.voms-task38262
 
 - VCS Tag: 2_0_10
 
 - EMI Major Release: EMI 2
 
-- Platforms: SL5_x86_64, SL6_x86_64
+- Platforms: SL5_x86_64
 
-- Author: Andrea Ceccanti 
+- Author: Valerio Venturi 
 
-- Date: 
+- Date: 21/1/2013
 
 - Certification Report Template : v. 3.3
 
@@ -40,9 +38,9 @@ emi.voms-task38257
     4.3. debs [ Yes ]
 
 5. Source packages are available in EMI registered repo: 
-    5.1. rpms [ No ]
-    5.2. tarballs [ No ]
-    5.3. debs [ No ]
+    5.1. rpms [ Yes ]
+    5.2. tarballs [ Yes ]
+    5.3. debs [ Yes ]
 
 6. List of binary packages are specified in the Release Task: [ Yes ]
 7. List of source packages are specified in the Release Task: [ Yes ]
