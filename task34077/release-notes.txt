@@ -1,0 +1,17 @@
+==========
+What's new
+==========
+
+
+==================
+Installation and configuration
+==================
+
+After the packages are upgrade services that rely on the APIs should be restarted.
+
+========
+Known issues
+========
+
+None.
+
