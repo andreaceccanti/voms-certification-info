@@ -1,0 +1,185 @@
+[root@pacciani ~]# wget http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo -O /etc/yum.repos.d/emi-3-rc-sl5.repo
+--2013-01-23 16:35:03--  http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo
+Resolving eticssoft.web.cern.ch... 137.138.139.19
+Connecting to eticssoft.web.cern.ch|137.138.139.19|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1574 (1.5K) [text/plain]
+Saving to: `/etc/yum.repos.d/emi-3-rc-sl5.repo'
+
+     0K .                                                     100% 71.5M=0s
+
+2013-01-23 16:35:03 (71.5 MB/s) - `/etc/yum.repos.d/emi-3-rc-sl5.repo' saved [1574/1574]
+
+[root@pacciani ~]# yum install -y emi-release
+Loaded plugins: kernel-module
+Repository EGI-trustanchors is listed more than once in the configuration
+Excluding Packages from SL 5 base
+Finished
+Reducing SL 5 base jdk to included packages only
+Finished
+Excluding Packages from SL 5 security updates
+Finished
+Reducing SL 5 security updates jdk only to included packages only
+Finished
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:3.0.0-1.el5 set to be updated
+--> Processing Dependency: yum-protectbase for package: emi-release
+--> Processing Dependency: yum-priorities for package: emi-release
+--> Running transaction check
+---> Package yum-priorities.noarch 0:1.1.16-21.el5 set to be updated
+---> Package yum-protectbase.noarch 0:1.1.16-21.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package             Arch       Version            Repository              Size
+================================================================================
+Installing:
+ emi-release         noarch     3.0.0-1.el5        EMI-3-testing-base     4.7 k
+Installing for dependencies:
+ yum-priorities      noarch     1.1.16-21.el5      core                    16 k
+ yum-protectbase     noarch     1.1.16-21.el5      core                    14 k
+
+Transaction Summary
+================================================================================
+Install       3 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 34 k
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           196 kB/s |  34 kB     00:00     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : yum-protectbase                                          1/3 
+  Installing     : yum-priorities                                           2/3 
+  Installing     : emi-release                                              3/3 
+
+Installed:
+  emi-release.noarch 0:3.0.0-1.el5                                              
+
+Dependency Installed:
+  yum-priorities.noarch 0:1.1.16-21.el5  yum-protectbase.noarch 0:1.1.16-21.el5 
+
+Complete!
+[root@pacciani ~]# wget http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo -O /etc/yum.repos.d/voms.repo
+--2013-01-23 16:35:31--  http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo
+Resolving radiohead.cnaf.infn.it... 131.154.101.150
+Connecting to radiohead.cnaf.infn.it|131.154.101.150|:9999... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 155 [application/octet-stream]
+Saving to: `/etc/yum.repos.d/voms.repo'
+
+     0K                                                       100%  291K=0.001s
+
+2013-01-23 16:35:31 (291 KB/s) - `/etc/yum.repos.d/voms.repo' saved [155/155]
+
+[root@pacciani ~]# yum clean all
+Loaded plugins: kernel-module, priorities, protectbase
+Repository EGI-trustanchors is listed more than once in the configuration
+Cleaning up Everything
+[root@pacciani ~]# yum install -y --nogpgcheck voms-clients3
+Loaded plugins: kernel-module, priorities, protectbase
+Repository EGI-trustanchors is listed more than once in the configuration
+Excluding Packages from SL 5 base
+Finished
+Reducing SL 5 base jdk to included packages only
+Finished
+Excluding Packages from SL 5 security updates
+Finished
+Reducing SL 5 security updates jdk only to included packages only
+Finished
+4523 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients3.noarch 0:3.0.0-1.sl5 set to be updated
+--> Processing Dependency: voms-api-java3 for package: voms-clients3
+--> Processing Dependency: java-1.6.0-openjdk for package: voms-clients3
+--> Processing Dependency: jakarta-commons-io for package: voms-clients3
+--> Running transaction check
+---> Package jakarta-commons-io.noarch 0:1.4-3.el5 set to be updated
+---> Package java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.28.1.10.10.el5_8 set to be updated
+--> Processing Dependency: tzdata-java for package: java-1.6.0-openjdk
+---> Package voms-api-java3.noarch 0:3.0.0-1.sl5 set to be updated
+--> Processing Dependency: bouncycastle146-mail for package: voms-api-java3
+--> Processing Dependency: canl-java for package: voms-api-java3
+--> Running transaction check
+---> Package bouncycastle146-mail.noarch 0:1.46-1 set to be updated
+--> Processing Dependency: bouncycastle146 = 1.46 for package: bouncycastle146-mail
+---> Package canl-java.noarch 0:1.1.0-0.sl5 set to be updated
+---> Package tzdata-java.x86_64 0:2012i-2.el5 set to be updated
+--> Running transaction check
+---> Package bouncycastle146.noarch 0:1.46-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                 Arch      Version          Repository             Size
+================================================================================
+Installing:
+ voms-clients3           noarch    3.0.0-1.sl5      VOMS                  123 k
+Installing for dependencies:
+ bouncycastle146         noarch    1.46-1.el5       EMI-3-testing-base    1.9 M
+ bouncycastle146-mail    noarch    1.46-1           VOMS                  475 k
+ canl-java               noarch    1.1.0-0.sl5      VOMS                  261 k
+ jakarta-commons-io      noarch    1.4-3.el5        epel                  105 k
+ java-1.6.0-openjdk      x86_64    1:1.6.0.0-1.28.1.10.10.el5_8
+                                                    sl-security            36 M
+ tzdata-java             x86_64    2012i-2.el5      sl-security           183 k
+ voms-api-java3          noarch    3.0.0-1.sl5      VOMS                  120 k
+
+Transaction Summary
+================================================================================
+Install       8 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 39 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           1.4 MB/s |  39 MB     00:28     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : jakarta-commons-io                                       1/8 
+  Installing     : tzdata-java                                              2/8 
+  Installing     : java-1.6.0-openjdk                                       3/8 
+  Installing     : bouncycastle146                                          4/8 
+  Installing     : bouncycastle146-mail                                     5/8 
+  Installing     : canl-java                                                6/8 
+  Installing     : voms-api-java3                                           7/8 
+  Installing     : voms-clients3                                            8/8 
+
+Installed:
+  voms-clients3.noarch 0:3.0.0-1.sl5                                            
+
+Dependency Installed:
+  bouncycastle146.noarch 0:1.46-1.el5                                           
+  bouncycastle146-mail.noarch 0:1.46-1                                          
+  canl-java.noarch 0:1.1.0-0.sl5                                                
+  jakarta-commons-io.noarch 0:1.4-3.el5                                         
+  java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.28.1.10.10.el5_8                        
+  tzdata-java.x86_64 0:2012i-2.el5                                              
+  voms-api-java3.noarch 0:3.0.0-1.sl5                                           
+
+Complete!
+[root@pacciani ~]# cp /usr/share/igi-test-ca/test0.cert.pem .
+[root@pacciani ~]# chmod 400 test0.cert.pem
+[root@pacciani ~]# cp /usr/share/igi-test-ca/test0.key.pem .
+[root@pacciani ~]# chmod 400 test0.key.pem
+[root@pacciani ~]# printf pass | voms-proxy-init --cert test0.cert.pem --key test0.key.pem --pwstdin
+No credentials found!

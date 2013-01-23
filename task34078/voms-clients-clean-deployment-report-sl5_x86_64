@@ -1,0 +1,157 @@
+[root@pacciani ~]# wget http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo -O /etc/yum.repos.d/emi-3-rc-sl5.repo
+--2013-01-23 14:39:04--  http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo
+Resolving eticssoft.web.cern.ch... 137.138.139.19
+Connecting to eticssoft.web.cern.ch|137.138.139.19|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1574 (1.5K) [text/plain]
+Saving to: `/etc/yum.repos.d/emi-3-rc-sl5.repo'
+
+     0K .                                                     100% 53.6M=0s
+
+2013-01-23 14:39:05 (53.6 MB/s) - `/etc/yum.repos.d/emi-3-rc-sl5.repo' saved [1574/1574]
+
+[root@pacciani ~]# yum install -y emi-release
+Loaded plugins: kernel-module
+Repository EGI-trustanchors is listed more than once in the configuration
+Excluding Packages from SL 5 base
+Finished
+Reducing SL 5 base jdk to included packages only
+Finished
+Excluding Packages from SL 5 security updates
+Finished
+Reducing SL 5 security updates jdk only to included packages only
+Finished
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:3.0.0-1.el5 set to be updated
+--> Processing Dependency: yum-protectbase for package: emi-release
+--> Processing Dependency: yum-priorities for package: emi-release
+--> Running transaction check
+---> Package yum-priorities.noarch 0:1.1.16-21.el5 set to be updated
+---> Package yum-protectbase.noarch 0:1.1.16-21.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package             Arch       Version            Repository              Size
+================================================================================
+Installing:
+ emi-release         noarch     3.0.0-1.el5        EMI-3-testing-base     4.7 k
+Installing for dependencies:
+ yum-priorities      noarch     1.1.16-21.el5      core                    16 k
+ yum-protectbase     noarch     1.1.16-21.el5      core                    14 k
+
+Transaction Summary
+================================================================================
+Install       3 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 34 k
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           146 kB/s |  34 kB     00:00     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : yum-protectbase                                          1/3 
+  Installing     : yum-priorities                                           2/3 
+  Installing     : emi-release                                              3/3 
+
+Installed:
+  emi-release.noarch 0:3.0.0-1.el5                                              
+
+Dependency Installed:
+  yum-priorities.noarch 0:1.1.16-21.el5  yum-protectbase.noarch 0:1.1.16-21.el5 
+
+Complete!
+[root@pacciani ~]# wget http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo -O /etc/yum.repos.d/voms.repo
+--2013-01-23 14:39:26--  http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo
+Resolving radiohead.cnaf.infn.it... 131.154.101.150
+Connecting to radiohead.cnaf.infn.it|131.154.101.150|:9999... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 155 [application/octet-stream]
+Saving to: `/etc/yum.repos.d/voms.repo'
+
+     0K                                                       100%  198K=0.001s
+
+2013-01-23 14:39:26 (198 KB/s) - `/etc/yum.repos.d/voms.repo' saved [155/155]
+
+[root@pacciani ~]# yum clean all
+Loaded plugins: kernel-module, priorities, protectbase
+Repository EGI-trustanchors is listed more than once in the configuration
+Cleaning up Everything
+[root@pacciani ~]# yum install -y --nogpgcheck voms-clients
+Loaded plugins: kernel-module, priorities, protectbase
+Repository EGI-trustanchors is listed more than once in the configuration
+Excluding Packages from SL 5 base
+Finished
+Reducing SL 5 base jdk to included packages only
+Finished
+Excluding Packages from SL 5 security updates
+Finished
+Reducing SL 5 security updates jdk only to included packages only
+Finished
+4523 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients.x86_64 0:2.0.10-1 set to be updated
+--> Processing Dependency: voms = 2.0.10-1 for package: voms-clients
+--> Processing Dependency: libvomsapi.so.1()(64bit) for package: voms-clients
+--> Running transaction check
+---> Package voms.x86_64 0:2.0.10-1 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package               Arch            Version              Repository     Size
+================================================================================
+Installing:
+ voms-clients          x86_64          2.0.10-1             VOMS          172 k
+Installing for dependencies:
+ voms                  x86_64          2.0.10-1             VOMS          164 k
+
+Transaction Summary
+================================================================================
+Install       2 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 337 k
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           316 kB/s | 337 kB     00:01     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : voms                                                     1/2 
+  Installing     : voms-clients                                             2/2 
+
+Installed:
+  voms-clients.x86_64 0:2.0.10-1                                                
+
+Dependency Installed:
+  voms.x86_64 0:2.0.10-1                                                        
+
+Complete!
+[root@pacciani ~]# cp /usr/share/igi-test-ca/test0.cert.pem .
+[root@pacciani ~]# chmod 400 test0.cert.pem
+[root@pacciani ~]# cp /usr/share/igi-test-ca/test0.key.pem .
+[root@pacciani ~]# chmod 400 test0.key.pem
+wrong pass phrase
+Function: proxy_init_cred
+Your identity: /C=IT/O=IGI/CN=test0
+Creating proxy ........................................................................................... Done
+
+Your proxy is valid until Thu Jan 24 02:40:23 2013
