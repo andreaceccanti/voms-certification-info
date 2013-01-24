@@ -9,7 +9,7 @@
 
 - VCS Tag: 2_0_10
 
-- EMI Major Release: EMI 2
+- EMI Major Release: EMI 1
 
 - Platforms: SL5_x86_64
 
