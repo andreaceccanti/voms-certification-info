@@ -1,0 +1,158 @@
+[root@tuneyards ~]# sh voms-clients-clean-deployment.sh voms-clients
+voms-clients clean deployment test
+EMI repo URL: http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl6.repo
+VOMS repo URL: http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL6/lastSuccessfulBuild/artifact/voms.repo
+[root@tuneyards.cnaf.infn.it ~]# wget -q http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl6.repo -O /etc/yum.repos.d/test_emi.repo
+[root@tuneyards.cnaf.infn.it ~]# wget -q http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL6/lastSuccessfulBuild/artifact/voms.repo -O /etc/yum.repos.d/test_voms.repo
+[root@tuneyards.cnaf.infn.it ~]# echo >> /etc/yum.repos.d/test_voms.repo; echo 'priority=1' >> /etc/yum.repos.d/test_voms.repo
+[root@tuneyards.cnaf.infn.it ~]# yum clean all
+Loaded plugins: security
+Cleaning repos: EGI-trustanchors EMI-3-testing-base EMI-3-testing-third-party Oracle-11 VOMS core epel extras sl sl-security
+Cleaning up Everything
+[root@tuneyards.cnaf.infn.it ~]# yum -y install emi-release
+Loaded plugins: security
+EGI-trustanchors                                                                                                                                            |  951 B     00:00     
+EGI-trustanchors/primary                                                                                                                                    |  31 kB     00:00     
+EGI-trustanchors                                                                                                                                                           217/217
+EMI-3-testing-base                                                                                                                                          | 1.9 kB     00:00     
+EMI-3-testing-base/primary_db                                                                                                                               | 589 kB     00:00     
+EMI-3-testing-third-party                                                                                                                                   | 1.9 kB     00:00     
+EMI-3-testing-third-party/primary_db                                                                                                                        |  52 kB     00:00     
+Oracle-11                                                                                                                                                   | 1.9 kB     00:00     
+Oracle-11/primary_db                                                                                                                                        | 3.3 kB     00:00     
+VOMS                                                                                                                                                        |  951 B     00:00     
+VOMS/primary                                                                                                                                                | 5.0 kB     00:00     
+VOMS                                                                                                                                                                         19/19
+core                                                                                                                                                        | 3.2 kB     00:00     
+core/primary_db                                                                                                                                             | 4.2 MB     00:00     
+epel/metalink                                                                                                                                               |  18 kB     00:00     
+epel                                                                                                                                                        | 4.3 kB     00:00     
+epel/primary_db                                                                                                                                             | 5.0 MB     00:00     
+extras                                                                                                                                                      | 4.3 kB     00:00     
+extras/primary_db                                                                                                                                           | 5.0 MB     00:30     
+sl                                                                                                                                                          | 3.2 kB     00:00     
+sl/primary_db                                                                                                                                               | 4.2 MB     00:03     
+sl-security                                                                                                                                                 | 1.9 kB     00:00     
+sl-security/primary_db                                                                                                                                      | 3.6 MB     00:01     
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:3.0.0-1.el6 will be installed
+--> Processing Dependency: yum-priorities for package: emi-release-3.0.0-1.el6.noarch
+--> Processing Dependency: yum-protectbase for package: emi-release-3.0.0-1.el6.noarch
+--> Running transaction check
+---> Package yum-plugin-priorities.noarch 0:1.1.30-14.el6 will be installed
+---> Package yum-plugin-protectbase.noarch 0:1.1.30-14.el6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===================================================================================================================================================================================
+ Package                                           Arch                              Version                                   Repository                                     Size
+===================================================================================================================================================================================
+Installing:
+ emi-release                                       noarch                            3.0.0-1.el6                               EMI-3-testing-base                            5.1 k
+Installing for dependencies:
+ yum-plugin-priorities                             noarch                            1.1.30-14.el6                             core                                           21 k
+ yum-plugin-protectbase                            noarch                            1.1.30-14.el6                             core                                           19 k
+
+Transaction Summary
+===================================================================================================================================================================================
+Install       3 Package(s)
+
+Total download size: 46 k
+Installed size: 53 k
+Downloading Packages:
+(1/3): emi-release-3.0.0-1.el6.noarch.rpm                                                                                                                   | 5.1 kB     00:00     
+(2/3): yum-plugin-priorities-1.1.30-14.el6.noarch.rpm                                                                                                       |  21 kB     00:00     
+(3/3): yum-plugin-protectbase-1.1.30-14.el6.noarch.rpm                                                                                                      |  19 kB     00:00     
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                              293 kB/s |  46 kB     00:00     
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : yum-plugin-priorities-1.1.30-14.el6.noarch                                                                                                                      1/3 
+  Installing : yum-plugin-protectbase-1.1.30-14.el6.noarch                                                                                                                     2/3 
+  Installing : emi-release-3.0.0-1.el6.noarch                                                                                                                                  3/3 
+  Verifying  : emi-release-3.0.0-1.el6.noarch                                                                                                                                  1/3 
+  Verifying  : yum-plugin-protectbase-1.1.30-14.el6.noarch                                                                                                                     2/3 
+  Verifying  : yum-plugin-priorities-1.1.30-14.el6.noarch                                                                                                                      3/3 
+
+Installed:
+  emi-release.noarch 0:3.0.0-1.el6                                                                                                                                                 
+
+Dependency Installed:
+  yum-plugin-priorities.noarch 0:1.1.30-14.el6                                            yum-plugin-protectbase.noarch 0:1.1.30-14.el6                                           
+
+Complete!
+[root@tuneyards.cnaf.infn.it ~]# yum -y install voms-clients
+Loaded plugins: priorities, protectbase, security
+EMI-3-base                                                                                                                                                  | 1.9 kB     00:00     
+EMI-3-base/primary_db                                                                                                                                       | 1.1 kB     00:00     
+EMI-3-contribs                                                                                                                                              | 1.9 kB     00:00     
+EMI-3-contribs/primary_db                                                                                                                                   | 1.1 kB     00:00     
+EMI-3-third-party                                                                                                                                           | 1.9 kB     00:00     
+EMI-3-third-party/primary_db                                                                                                                                |  40 kB     00:00     
+EMI-3-updates                                                                                                                                               | 1.9 kB     00:00     
+EMI-3-updates/primary_db                                                                                                                                    | 1.1 kB     00:00     
+406 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients.x86_64 0:2.0.10-1.el6 will be installed
+--> Processing Dependency: voms(x86-64) = 2.0.10-1.el6 for package: voms-clients-2.0.10-1.el6.x86_64
+--> Processing Dependency: libvomsapi.so.1()(64bit) for package: voms-clients-2.0.10-1.el6.x86_64
+--> Running transaction check
+---> Package voms.x86_64 0:2.0.10-1.el6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===================================================================================================================================================================================
+ Package                                       Arch                                    Version                                         Repository                             Size
+===================================================================================================================================================================================
+Installing:
+ voms-clients                                  x86_64                                  2.0.10-1.el6                                    VOMS                                  104 k
+Installing for dependencies:
+ voms                                          x86_64                                  2.0.10-1.el6                                    VOMS                                  136 k
+
+Transaction Summary
+===================================================================================================================================================================================
+Install       2 Package(s)
+
+Total download size: 240 k
+Installed size: 770 k
+Downloading Packages:
+(1/2): voms-2.0.10-1.el6.x86_64.rpm                                                                                                                         | 136 kB     00:00     
+(2/2): voms-clients-2.0.10-1.el6.x86_64.rpm                                                                                                                 | 104 kB     00:00     
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                              9.5 MB/s | 240 kB     00:00     
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : voms-2.0.10-1.el6.x86_64                                                                                                                                        1/2 
+  Installing : voms-clients-2.0.10-1.el6.x86_64                                                                                                                                2/2 
+  Verifying  : voms-clients-2.0.10-1.el6.x86_64                                                                                                                                1/2 
+  Verifying  : voms-2.0.10-1.el6.x86_64                                                                                                                                        2/2 
+
+Installed:
+  voms-clients.x86_64 0:2.0.10-1.el6                                                                                                                                               
+
+Dependency Installed:
+  voms.x86_64 0:2.0.10-1.el6                                                                                                                                                       
+
+Complete!
+[root@tuneyards.cnaf.infn.it ~]# mkdir -p .globus
+[root@tuneyards.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.cert.pem .globus/usercert.pem
+[root@tuneyards.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.key.pem .globus/userkey.pem
+[root@tuneyards.cnaf.infn.it ~]# chmod 600 .globus/usercert.pem
+[root@tuneyards.cnaf.infn.it ~]# chmod 400 .globus/userkey.pem
+[root@tuneyards.cnaf.infn.it ~]# echo 'pass' | voms-proxy-init --pwstdin --cert .globus/usercert.pem --key .globus/userkey.pem
+Your identity: /C=IT/O=IGI/CN=test0
+Creating proxy .......................................................................... Done
+
+Your proxy is valid until Sat Jan 26 21:41:48 2013
+VOMS clients succesfully deployed
