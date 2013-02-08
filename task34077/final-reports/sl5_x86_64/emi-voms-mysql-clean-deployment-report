@@ -13,7 +13,7 @@ Cleaning up Everything
 Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
               : protectbase, security, verify, versionlock
 Repository EGI-trustanchors is listed more than once in the configuration
-4533 packages excluded due to repository priority protections
+4588 packages excluded due to repository priority protections
 0 packages excluded due to repository protections
 Reading version lock configuration
 Setting up Install Process
@@ -54,7 +54,7 @@ Complete!
 Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
               : protectbase, security, verify, versionlock
 Repository EGI-trustanchors is listed more than once in the configuration
-4647 packages excluded due to repository priority protections
+4702 packages excluded due to repository priority protections
 0 packages excluded due to repository protections
 Reading version lock configuration
 Setting up Install Process
@@ -222,7 +222,7 @@ Upgrade       1 Package(s)
 Total download size: 109 M
 Downloading Packages:
 --------------------------------------------------------------------------------
-Total                                           2.9 MB/s | 109 MB     00:38     
+Total                                           6.6 MB/s | 109 MB     00:16     
 warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID df9e12ef
 Importing GPG key 0xDF9E12EF "Doina Cristina Aiftimiei (EMI Release Manager) <aiftim@pd.infn.it>" from /etc/pki/rpm-gpg/RPM-GPG-KEY-emi
 Running rpm_check_debug
@@ -497,12 +497,43 @@ VO emi3 configuration completed succesfully.
 Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
               : protectbase, security, verify, versionlock
 Repository EGI-trustanchors is listed more than once in the configuration
-4647 packages excluded due to repository priority protections
+4702 packages excluded due to repository priority protections
 0 packages excluded due to repository protections
 Reading version lock configuration
 Setting up Install Process
-Package ca_INFN-CA-2006-1.52-1.noarch already installed and latest version
-Nothing to do
+Resolving Dependencies
+--> Running transaction check
+---> Package ca_INFN-CA-2006.noarch 0:1.52-1 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package               Arch         Version        Repository              Size
+================================================================================
+Installing:
+ ca_INFN-CA-2006       noarch       1.52-1         EGI-trustanchors       5.2 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 5.2 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : ca_INFN-CA-2006                                          1/1 
+
+Installed:
+  ca_INFN-CA-2006.noarch 0:1.52-1                                               
+
+Complete!
 [root@jen01.cnaf.infn.it ~]# voms-config-info-providers -s local -e
 Will install providers for voms-admin
 Creating conf file /etc/glite/info/service/glite-info-glue2-voms.conf
@@ -527,24 +558,24 @@ Starting voms-admin( emi3 ): [60G[  [1;32mOK[0;39m  ]
 [root@jen01.cnaf.infn.it ~]# voms-admin --vo emi3 list-groups
  /emi3
 [root@jen01.cnaf.infn.it ~]# wget --no-check-certificate https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
---2013-02-07 12:15:56--  https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
-Resolving raw.github.com... 199.27.76.130
-Connecting to raw.github.com|199.27.76.130|:443... connected.
+--2013-02-08 10:54:57--  https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
+Resolving raw.github.com... 199.27.73.193
+Connecting to raw.github.com|199.27.73.193|:443... connected.
 WARNING: certificate common name `*.a.ssl.fastly.net' doesn't match requested host name `raw.github.com'.
 HTTP request sent, awaiting response... 200 OK
 Length: 1186 (1.2K) [text/plain]
 Saving to: `populate-vo.sh'
 
-     0K .                                                     100% 21.8M=0s
+     0K .                                                     100% 21.3M=0s
 
-2013-02-07 12:15:56 (21.8 MB/s) - `populate-vo.sh' saved [1186/1186]
+2013-02-08 10:54:58 (21.3 MB/s) - `populate-vo.sh' saved [1186/1186]
 
 [root@jen01.cnaf.infn.it ~]# sh populate-vo.sh emi3
 [root@jen01.cnaf.infn.it ~]# yum -y install voms-clients3
 Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
               : protectbase, security, verify, versionlock
 Repository EGI-trustanchors is listed more than once in the configuration
-4647 packages excluded due to repository priority protections
+4702 packages excluded due to repository priority protections
 0 packages excluded due to repository protections
 Reading version lock configuration
 Setting up Install Process
@@ -590,7 +621,7 @@ Upgrade       0 Package(s)
 Total download size: 2.9 M
 Downloading Packages:
 --------------------------------------------------------------------------------
-Total                                           1.2 MB/s | 2.9 MB     00:02     
+Total                                           1.4 MB/s | 2.9 MB     00:02     
 Running rpm_check_debug
 Running Transaction Test
 Finished Transaction Test
@@ -630,7 +661,7 @@ Remote VOMS server contacted succesfully.
 
 Created proxy in /tmp/x509up_u0.
 
-Your proxy is valid until Fri Feb 08 00:16:24 CET 2013
+Your proxy is valid until Fri Feb 08 22:55:21 CET 2013
 [root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
 Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
 Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
@@ -641,7 +672,7 @@ WARNING: proxy lifetime limited to issuing credential lifetime.
 
 Created proxy in /tmp/x509up_u0.
 
-Your proxy is valid until Fri Feb 08 00:16:23 CET 2013
+Your proxy is valid until Fri Feb 08 22:55:20 CET 2013
 [root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
 Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
 Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
@@ -652,7 +683,7 @@ WARNING: proxy lifetime limited to issuing credential lifetime.
 
 Created proxy in /tmp/x509up_u0.
 
-Your proxy is valid until Fri Feb 08 00:16:22 CET 2013
+Your proxy is valid until Fri Feb 08 22:55:19 CET 2013
 [root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
 Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
 Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
@@ -663,7 +694,7 @@ WARNING: proxy lifetime limited to issuing credential lifetime.
 
 Created proxy in /tmp/x509up_u0.
 
-Your proxy is valid until Fri Feb 08 00:16:21 CET 2013
+Your proxy is valid until Fri Feb 08 22:55:18 CET 2013
 [root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
 Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
 Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
@@ -674,7 +705,7 @@ WARNING: proxy lifetime limited to issuing credential lifetime.
 
 Created proxy in /tmp/x509up_u0.
 
-Your proxy is valid until Fri Feb 08 00:16:20 CET 2013
+Your proxy is valid until Fri Feb 08 22:55:17 CET 2013
 [root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
 Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
 Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
@@ -685,7 +716,7 @@ WARNING: proxy lifetime limited to issuing credential lifetime.
 
 Created proxy in /tmp/x509up_u0.
 
-Your proxy is valid until Fri Feb 08 00:16:19 CET 2013
+Your proxy is valid until Fri Feb 08 22:55:16 CET 2013
 [root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
 Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
 Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
@@ -696,7 +727,7 @@ WARNING: proxy lifetime limited to issuing credential lifetime.
 
 Created proxy in /tmp/x509up_u0.
 
-Your proxy is valid until Fri Feb 08 00:16:18 CET 2013
+Your proxy is valid until Fri Feb 08 22:55:15 CET 2013
 [root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
 Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
 Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
@@ -707,7 +738,7 @@ WARNING: proxy lifetime limited to issuing credential lifetime.
 
 Created proxy in /tmp/x509up_u0.
 
-Your proxy is valid until Fri Feb 08 00:16:17 CET 2013
+Your proxy is valid until Fri Feb 08 22:55:14 CET 2013
 [root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
 Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
 Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
@@ -718,7 +749,7 @@ WARNING: proxy lifetime limited to issuing credential lifetime.
 
 Created proxy in /tmp/x509up_u0.
 
-Your proxy is valid until Fri Feb 08 00:16:16 CET 2013
+Your proxy is valid until Fri Feb 08 22:55:13 CET 2013
 [root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
 Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
 Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
@@ -729,7 +760,7 @@ WARNING: proxy lifetime limited to issuing credential lifetime.
 
 Created proxy in /tmp/x509up_u0.
 
-Your proxy is valid until Fri Feb 08 00:16:15 CET 2013
+Your proxy is valid until Fri Feb 08 22:55:12 CET 2013
 [root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
 Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
 Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
@@ -740,7 +771,7 @@ WARNING: proxy lifetime limited to issuing credential lifetime.
 
 Created proxy in /tmp/x509up_u0.
 
-Your proxy is valid until Fri Feb 08 00:16:14 CET 2013
+Your proxy is valid until Fri Feb 08 22:55:11 CET 2013
 [root@jen01.cnaf.infn.it ~]# service vomses start
 Starting vomses: [60G[  [1;32mOK[0;39m  ]
 VOMS succesfully deployed!
