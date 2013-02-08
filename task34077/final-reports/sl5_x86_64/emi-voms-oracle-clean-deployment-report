@@ -1,0 +1,804 @@
+emi-voms-mysql clean deployment test
+EMI repo URL: http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo
+VOMS repo URL: http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo
+[root@jen01.cnaf.infn.it ~]# wget -q http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo -O /etc/yum.repos.d/test_emi.repo
+[root@jen01.cnaf.infn.it ~]# wget -q http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo -O /etc/yum.repos.d/test_voms.repo
+[root@jen01.cnaf.infn.it ~]# echo >> /etc/yum.repos.d/test_voms.repo; echo 'priority=1' >> /etc/yum.repos.d/test_voms.repo
+[root@jen01.cnaf.infn.it ~]# yum clean all
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+Cleaning up Everything
+[root@jen01.cnaf.infn.it ~]# yum -y install emi-release
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4588 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:3.0.0-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch        Version             Repository               Size
+================================================================================
+Installing:
+ emi-release      noarch      3.0.0-1.el5         EMI-3-testing-base      4.7 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 4.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : emi-release                                              1/1 
+
+Installed:
+  emi-release.noarch 0:3.0.0-1.el5                                              
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum -y install emi-voms-oracle
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4702 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-voms-oracle.noarch 0:1.1.0-1.el5 set to be updated
+--> Processing Dependency: voms-admin-server for package: emi-voms-oracle
+--> Processing Dependency: voms-oracle-plugin for package: emi-voms-oracle
+--> Processing Dependency: fetch-crl for package: emi-voms-oracle
+--> Processing Dependency: bdii for package: emi-voms-oracle
+--> Processing Dependency: voms-server for package: emi-voms-oracle
+--> Processing Dependency: glite-info-provider-service for package: emi-voms-oracle
+--> Processing Dependency: voms-admin-client for package: emi-voms-oracle
+--> Running transaction check
+---> Package bdii.noarch 0:5.2.17-1.el5 set to be updated
+--> Processing Dependency: glue-schema >= 2.0.0 for package: bdii
+--> Processing Dependency: openldap2.4-servers for package: bdii
+--> Processing Dependency: openldap-clients for package: bdii
+--> Processing Dependency: openldap-servers for package: bdii
+--> Processing Dependency: expect for package: bdii
+--> Processing Dependency: openldap2.4-clients for package: bdii
+---> Package fetch-crl.noarch 0:2.8.5-1.el5 set to be updated
+---> Package glite-info-provider-service.noarch 0:1.12.0-1.el5 set to be updated
+---> Package voms-admin-client.noarch 0:2.0.18-1 set to be updated
+--> Processing Dependency: python-ZSI for package: voms-admin-client
+--> Processing Dependency: PyXML for package: voms-admin-client
+--> Processing Dependency: python-simplejson for package: voms-admin-client
+---> Package voms-admin-server.noarch 0:3.0.0-1 set to be updated
+--> Processing Dependency: python(abi) = 2.6 for package: voms-admin-server
+--> Processing Dependency: java-1.6.0-openjdk-devel for package: voms-admin-server
+---> Package voms-oracle-plugin.x86_64 0:3.1.15-2 set to be updated
+---> Package voms-server.x86_64 0:2.0.10-1 set to be updated
+--> Processing Dependency: voms = 2.0.10-1 for package: voms-server
+--> Processing Dependency: libvomsapi.so.1()(64bit) for package: voms-server
+--> Running transaction check
+---> Package PyXML.x86_64 0:0.8.4-6.el5 set to be updated
+---> Package expect.x86_64 0:5.43.0-8.el5 set to be updated
+---> Package glue-schema.noarch 0:2.0.10-1.el5 set to be updated
+---> Package java-1.6.0-openjdk-devel.x86_64 1:1.6.0.0-1.30.1.11.5.el5 set to be updated
+--> Processing Dependency: java-1.6.0-openjdk = 1:1.6.0.0-1.30.1.11.5.el5 for package: java-1.6.0-openjdk-devel
+--> Processing Dependency: libjli.so(SUNWprivate_1.1)(64bit) for package: java-1.6.0-openjdk-devel
+--> Processing Dependency: libjli.so()(64bit) for package: java-1.6.0-openjdk-devel
+---> Package openldap-clients.x86_64 0:2.3.43-25.el5_8.1 set to be updated
+--> Processing Dependency: openldap = 2.3.43-25.el5_8.1 for package: openldap-clients
+---> Package openldap-servers.x86_64 0:2.3.43-25.el5_8.1 set to be updated
+--> Processing Dependency: libltdl.so.3()(64bit) for package: openldap-servers
+---> Package openldap2.4-clients.x86_64 0:2.4.22-1.el5 set to be updated
+--> Processing Dependency: lib64ldap2.4_2 = 2.4.22-1.el5 for package: openldap2.4-clients
+--> Processing Dependency: liblber-2.4.so.2()(64bit) for package: openldap2.4-clients
+--> Processing Dependency: libldap-2.4.so.2()(64bit) for package: openldap2.4-clients
+---> Package openldap2.4-servers.x86_64 0:2.4.22-1.el5 set to be updated
+--> Processing Dependency: cyrus-sasl = 2.1.22 for package: openldap2.4-servers
+--> Processing Dependency: openldap2.4-extra-schemas >= 1.3-7 for package: openldap2.4-servers
+--> Processing Dependency: openldap2.4-extra-schemas >= 1.3-7 for package: openldap2.4-servers
+--> Processing Dependency: libodbc.so.1()(64bit) for package: openldap2.4-servers
+---> Package python-ZSI.noarch 0:2.0-7.el5 set to be updated
+---> Package python-simplejson.x86_64 0:2.0.9-8.el5 set to be updated
+---> Package python26.x86_64 0:2.6.8-2.el5 set to be updated
+--> Processing Dependency: libpython2.6.so.1.0()(64bit) for package: python26
+--> Processing Dependency: libffi.so.5()(64bit) for package: python26
+---> Package voms.x86_64 0:2.0.10-1 set to be updated
+--> Running transaction check
+---> Package cyrus-sasl.x86_64 0:2.1.22-7.el5_8.1 set to be updated
+---> Package java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.30.1.11.5.el5 set to be updated
+--> Processing Dependency: libjpeg = 6b for package: java-1.6.0-openjdk
+--> Processing Dependency: jpackage-utils >= 1.7.3-1jpp.2 for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2(ALSA_0.9)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2(ALSA_0.9.0rc4)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libpng12.so.0(PNG12_0)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: tzdata-java for package: java-1.6.0-openjdk
+--> Processing Dependency: libfreetype.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXtst.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXrender.so.1()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libjpeg.so.62()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libpng12.so.0()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXi.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libgif.so.4()(64bit) for package: java-1.6.0-openjdk
+---> Package lib64ldap2.4_2.x86_64 0:2.4.22-1.el5 set to be updated
+--> Processing Dependency: openldap2.4 >= 2.1.25-4mdk for package: lib64ldap2.4_2
+---> Package libffi.x86_64 0:3.0.5-1.el5 set to be updated
+---> Package libtool-ltdl.x86_64 0:1.5.22-7.el5_4 set to be updated
+---> Package openldap.x86_64 0:2.3.43-25.el5_8.1 set to be updated
+---> Package openldap2.4-extra-schemas.noarch 0:1.3-10.el5 set to be updated
+---> Package python26-libs.x86_64 0:2.6.8-2.el5 set to be updated
+---> Package unixODBC-libs.x86_64 0:2.2.11-10.el5 set to be updated
+--> Running transaction check
+---> Package alsa-lib.x86_64 0:1.0.17-1.el5 set to be updated
+---> Package freetype.x86_64 0:2.2.1-32.el5_9.1 set to be updated
+---> Package giflib.x86_64 0:4.1.3-7.3.3.el5 set to be updated
+---> Package jpackage-utils.noarch 0:1.7.3-1jpp.3.el5 set to be updated
+---> Package libXi.x86_64 0:1.0.1-4.el5_4 set to be updated
+---> Package libXrender.x86_64 0:0.9.1-3.1 set to be updated
+---> Package libXtst.x86_64 0:1.0.1-3.1 set to be updated
+---> Package libjpeg.x86_64 0:6b-37 set to be updated
+---> Package libpng.x86_64 2:1.2.10-17.el5_8 set to be updated
+---> Package openldap2.4.x86_64 0:2.4.22-1.el5 set to be updated
+---> Package tzdata-java.x86_64 0:2012j-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                     Arch   Version            Repository          Size
+================================================================================
+Installing:
+ emi-voms-oracle             noarch 1.1.0-1.el5        EMI-3-testing-base 2.2 k
+Installing for dependencies:
+ PyXML                       x86_64 0.8.4-6.el5        sl5x               1.0 M
+ alsa-lib                    x86_64 1.0.17-1.el5       sl5x               414 k
+ bdii                        noarch 5.2.17-1.el5       EMI-3-testing-base  23 k
+ cyrus-sasl                  x86_64 2.1.22-7.el5_8.1   sl5x               1.2 M
+ expect                      x86_64 5.43.0-8.el5       sl5x               160 k
+ fetch-crl                   noarch 2.8.5-1.el5        epel                24 k
+ freetype                    x86_64 2.2.1-32.el5_9.1   sl5x-security      312 k
+ giflib                      x86_64 4.1.3-7.3.3.el5    sl5x                39 k
+ glite-info-provider-service noarch 1.12.0-1.el5       EMI-3-testing-base  67 k
+ glue-schema                 noarch 2.0.10-1.el5       EMI-3-testing-base  34 k
+ java-1.6.0-openjdk          x86_64 1:1.6.0.0-1.30.1.11.5.el5
+                                                       sl5x                36 M
+ java-1.6.0-openjdk-devel    x86_64 1:1.6.0.0-1.30.1.11.5.el5
+                                                       sl5x                12 M
+ jpackage-utils              noarch 1.7.3-1jpp.3.el5   sl5x                61 k
+ lib64ldap2.4_2              x86_64 2.4.22-1.el5       EMI-3-third-party  300 k
+ libXi                       x86_64 1.0.1-4.el5_4      sl5x                26 k
+ libXrender                  x86_64 0.9.1-3.1          sl5x                28 k
+ libXtst                     x86_64 1.0.1-3.1          sl5x                16 k
+ libffi                      x86_64 3.0.5-1.el5        epel                24 k
+ libjpeg                     x86_64 6b-37              sl5x               139 k
+ libpng                      x86_64 2:1.2.10-17.el5_8  sl5x               235 k
+ libtool-ltdl                x86_64 1.5.22-7.el5_4     sl5x                38 k
+ openldap-clients            x86_64 2.3.43-25.el5_8.1  sl5x               224 k
+ openldap-servers            x86_64 2.3.43-25.el5_8.1  sl5x               2.2 M
+ openldap2.4                 x86_64 2.4.22-1.el5       EMI-3-third-party   40 k
+ openldap2.4-clients         x86_64 2.4.22-1.el5       EMI-3-third-party  298 k
+ openldap2.4-extra-schemas   noarch 1.3-10.el5         EMI-3-third-party   46 k
+ openldap2.4-servers         x86_64 2.4.22-1.el5       EMI-3-third-party  2.1 M
+ python-ZSI                  noarch 2.0-7.el5          epel               574 k
+ python-simplejson           x86_64 2.0.9-8.el5        sl5x               141 k
+ python26                    x86_64 2.6.8-2.el5        epel               6.5 M
+ python26-libs               x86_64 2.6.8-2.el5        epel               695 k
+ tzdata-java                 x86_64 2012j-1.el5        sl5x-security      183 k
+ unixODBC-libs               x86_64 2.2.11-10.el5      sl5x               554 k
+ voms                        x86_64 2.0.10-1           VOMS               164 k
+ voms-admin-client           noarch 2.0.18-1           VOMS                93 k
+ voms-admin-server           noarch 3.0.0-1            VOMS                33 M
+ voms-oracle-plugin          x86_64 3.1.15-2           VOMS                56 k
+ voms-server                 x86_64 2.0.10-1           VOMS               198 k
+Updating for dependencies:
+ openldap                    x86_64 2.3.43-25.el5_8.1  sl5x               306 k
+
+Transaction Summary
+================================================================================
+Install      39 Package(s)
+Upgrade       1 Package(s)
+
+Total download size: 99 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                            11 MB/s |  99 MB     00:08     
+warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID df9e12ef
+Importing GPG key 0xDF9E12EF "Doina Cristina Aiftimiei (EMI Release Manager) <aiftim@pd.infn.it>" from /etc/pki/rpm-gpg/RPM-GPG-KEY-emi
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Updating       : openldap                                                1/41 
+  Installing     : libtool-ltdl                                            2/41 
+  Installing     : PyXML                                                   3/41 
+  Installing     : openldap-servers                                        4/41 
+  Installing     : openldap-clients                                        5/41 
+  Installing     : cyrus-sasl                                              6/41 
+  Installing     : voms                                                    7/41 
+  Installing     : voms-server                                             8/41 
+  Installing     : libpng                                                  9/41 
+  Installing     : libjpeg                                                10/41 
+  Installing     : alsa-lib                                               11/41 
+  Installing     : libXtst                                                12/41 
+  Installing     : freetype                                               13/41 
+  Installing     : expect                                                 14/41 
+  Installing     : giflib                                                 15/41 
+  Installing     : libffi                                                 16/41 
+  Installing     : python-simplejson                                      17/41 
+  Installing     : unixODBC-libs                                          18/41 
+  Installing     : libXrender                                             19/41 
+  Installing     : libXi                                                  20/41 
+  Installing     : voms-oracle-plugin                                     21/41 
+  Installing     : python-ZSI                                             22/41 
+  Installing     : voms-admin-client                                      23/41 
+  Installing     : glite-info-provider-service                            24/41 
+  Installing     : jpackage-utils                                         25/41 
+  Installing     : fetch-crl                                              26/41 
+  Installing     : glue-schema                                            27/41 
+  Installing     : tzdata-java                                            28/41 
+  Installing     : java-1.6.0-openjdk                                     29/41 
+  Installing     : java-1.6.0-openjdk-devel                               30/41 
+  Installing     : lib64ldap2.4_2                                         31/41 
+  Installing     : python26                                               32/41 
+  Installing     : python26-libs                                          33/41 
+  Installing     : voms-admin-server                                      34/41 
+  Installing     : openldap2.4-clients                                    35/41 
+  Installing     : openldap2.4                                            36/41 
+  Installing     : openldap2.4-extra-schemas                              37/41useradd: user ldap exists
+Adding user ldap to group ldap
+ 
+  Installing     : openldap2.4-servers                                    38/41Generating self-signed certificate...
+To generate a self-signed certificate, you can use the utility
+/usr/share/openldap2.4/gencert.sh...
+ 
+  Installing     : bdii                                                   39/41 
+  Installing     : emi-voms-oracle                                        40/41 
+  Cleanup        : openldap                                               41/41 
+
+Installed:
+  emi-voms-oracle.noarch 0:1.1.0-1.el5                                          
+
+Dependency Installed:
+  PyXML.x86_64 0:0.8.4-6.el5                                                    
+  alsa-lib.x86_64 0:1.0.17-1.el5                                                
+  bdii.noarch 0:5.2.17-1.el5                                                    
+  cyrus-sasl.x86_64 0:2.1.22-7.el5_8.1                                          
+  expect.x86_64 0:5.43.0-8.el5                                                  
+  fetch-crl.noarch 0:2.8.5-1.el5                                                
+  freetype.x86_64 0:2.2.1-32.el5_9.1                                            
+  giflib.x86_64 0:4.1.3-7.3.3.el5                                               
+  glite-info-provider-service.noarch 0:1.12.0-1.el5                             
+  glue-schema.noarch 0:2.0.10-1.el5                                             
+  java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.30.1.11.5.el5                           
+  java-1.6.0-openjdk-devel.x86_64 1:1.6.0.0-1.30.1.11.5.el5                     
+  jpackage-utils.noarch 0:1.7.3-1jpp.3.el5                                      
+  lib64ldap2.4_2.x86_64 0:2.4.22-1.el5                                          
+  libXi.x86_64 0:1.0.1-4.el5_4                                                  
+  libXrender.x86_64 0:0.9.1-3.1                                                 
+  libXtst.x86_64 0:1.0.1-3.1                                                    
+  libffi.x86_64 0:3.0.5-1.el5                                                   
+  libjpeg.x86_64 0:6b-37                                                        
+  libpng.x86_64 2:1.2.10-17.el5_8                                               
+  libtool-ltdl.x86_64 0:1.5.22-7.el5_4                                          
+  openldap-clients.x86_64 0:2.3.43-25.el5_8.1                                   
+  openldap-servers.x86_64 0:2.3.43-25.el5_8.1                                   
+  openldap2.4.x86_64 0:2.4.22-1.el5                                             
+  openldap2.4-clients.x86_64 0:2.4.22-1.el5                                     
+  openldap2.4-extra-schemas.noarch 0:1.3-10.el5                                 
+  openldap2.4-servers.x86_64 0:2.4.22-1.el5                                     
+  python-ZSI.noarch 0:2.0-7.el5                                                 
+  python-simplejson.x86_64 0:2.0.9-8.el5                                        
+  python26.x86_64 0:2.6.8-2.el5                                                 
+  python26-libs.x86_64 0:2.6.8-2.el5                                            
+  tzdata-java.x86_64 0:2012j-1.el5                                              
+  unixODBC-libs.x86_64 0:2.2.11-10.el5                                          
+  voms.x86_64 0:2.0.10-1                                                        
+  voms-admin-client.noarch 0:2.0.18-1                                           
+  voms-admin-server.noarch 0:3.0.0-1                                            
+  voms-oracle-plugin.x86_64 0:3.1.15-2                                          
+  voms-server.x86_64 0:2.0.10-1                                                 
+
+Dependency Updated:
+  openldap.x86_64 0:2.3.43-25.el5_8.1                                           
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum -y install oracle-instantclient-basic
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4702 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package oracle-instantclient-basic.x86_64 0:11.2.0.3.0-5.slc5 set to be updated
+--> Processing Dependency: libaio.so.1(LIBAIO_0.4)(64bit) for package: oracle-instantclient-basic
+--> Processing Dependency: libaio.so.1(LIBAIO_0.1)(64bit) for package: oracle-instantclient-basic
+--> Processing Dependency: libaio.so.1()(64bit) for package: oracle-instantclient-basic
+--> Running transaction check
+---> Package libaio.x86_64 0:0.3.106-5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                      Arch     Version                Repository   Size
+================================================================================
+Installing:
+ oracle-instantclient-basic   x86_64   11.2.0.3.0-5.slc5      Oracle-11    57 M
+Installing for dependencies:
+ libaio                       x86_64   0.3.106-5              sl5x         19 k
+
+Transaction Summary
+================================================================================
+Install       2 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 57 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                            13 MB/s |  57 MB     00:04     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : libaio                                                   1/2 
+  Installing     : oracle-instantclient-basic                               2/2 
+
+Installed:
+  oracle-instantclient-basic.x86_64 0:11.2.0.3.0-5.slc5                         
+
+Dependency Installed:
+  libaio.x86_64 0:0.3.106-5                                                     
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# cp tnsnames.ora /etc/voms
+[root@jen01.cnaf.infn.it ~]# mkdir -p /usr/lib64/oracle/11.2.0.3.0/client/lib64/log/diag/clients
+[root@jen01.cnaf.infn.it ~]# chmod 777 /usr/lib64/oracle/11.2.0.3.0/client/lib64/log/diag/clients
+[root@jen01.cnaf.infn.it ~]# voms-configure install --vo emi3     --admin-port 16000     --core-port 15000     --hostname jen01.cnaf.infn.it     --dbtype oracle     --dbname voms     --deploy-database     --dbusername admin_25     --dbpassword pwd     --mail-from andrea.ceccanti@cnaf.infn.it     --smtp-host postino.cnaf.infn.it
+Configuring VOMS admin service for vo emi3
+Creating VOMS services certificate in /etc/grid-security/vomscert.pem, /etc/grid-security/vomskey.pem
+Deploying database for VO emi3
+Checking database connectivity...
+Database contacted succesfully
+Checking database existence...
+No voms-admin database found.
+Checking that the database is writable...
+Database is writable.
+create table acl2 (acl_id number(19,0) not null, group_id number(19,0) not null, defaultACL number(1,0) not null, role_id number(19,0), primary key (acl_id), unique (group_id, defaultACL, role_id))
+create table acl2_permissions (acl_id number(19,0) not null, permissions number(10,0), admin_id number(19,0) not null, primary key (acl_id, admin_id))
+create table admins (adminid number(19,0) not null, dn varchar2(255 char) not null, email_address varchar2(255 char), ca number(5,0) not null, primary key (adminid), unique (dn, ca))
+create table attributes (a_id number(19,0) not null, a_name varchar2(255 char) not null unique, a_desc clob, a_uniq number(1,0) default 0, primary key (a_id))
+create table aup (id number(19,0) not null, name varchar2(255 char) not null unique, description varchar2(255 char), reacceptancePeriod number(10,0) not null, primary key (id))
+create table aup_acc_record (id number(19,0) not null, aup_version_id number(19,0) not null, usr_id number(19,0) not null, last_acceptance_date timestamp not null, valid number(1,0), primary key (id), unique (aup_version_id, usr_id))
+create table aup_version (id number(19,0) not null, aup_id number(19,0) not null, version varchar2(255 char) not null, url varchar2(255 char), text varchar2(255 char), creationTime timestamp not null, lastForcedReacceptanceTime timestamp, active number(1,0) not null, primary key (id), unique (aup_id, version))
+create table ca (cid number(5,0) not null, subject_string varchar2(255 char) not null unique, description varchar2(255 char), creation_time timestamp not null, primary key (cid))
+create table capabilities (cid number(19,0) not null, capability varchar2(255 char) not null, primary key (cid))
+create table certificate (id number(19,0) not null, creation_time timestamp not null, subject_string varchar2(255 char) not null, suspended number(1,0) not null, suspended_reason varchar2(255 char), suspension_reason_code varchar2(255 char), ca_id number(5,0) not null, usr_id number(19,0) not null, primary key (id), unique (ca_id, subject_string))
+create table certificate_request (certificate raw(255), certificateIssuer varchar2(255 char) not null, certificateSubject varchar2(255 char) not null, request_id number(19,0) not null, primary key (request_id))
+create table group_attrs (a_id number(19,0) not null, g_id number(19,0) not null, a_value varchar2(255 char), primary key (a_id, g_id))
+create table group_membership_req (groupName varchar2(255 char) not null, request_id number(19,0) not null, primary key (request_id))
+create table groups (gid number(19,0) not null, dn varchar2(255 char) not null unique, description varchar2(255 char), parent number(19,0), must number(1,0) not null, restricted number(1,0), primary key (gid))
+create table m (mapping_id number(19,0) not null, userid number(19,0) not null, gid number(19,0) not null, rid number(19,0), cid number(19,0), primary key (mapping_id), unique (userid, gid, rid))
+create table memb_req (id number(19,0) not null, creation_date timestamp not null, evaluation_date timestamp, status number(10,0) not null, confirm_id varchar2(255 char) not null, dn varchar2(255 char) not null, ca varchar2(255 char) not null, cn varchar2(255 char), mail varchar2(255 char) not null, primary key (id))
+create table membership_rem_req (reason varchar2(255 char) not null, request_id number(19,0) not null, primary key (request_id))
+create table personal_info (id number(19,0) not null, value varchar2(255 char), visible number(1,0), personal_info_type_id number(19,0) not null, primary key (id))
+create table personal_info_type (id number(19,0) not null, description varchar2(255 char), type varchar2(255 char) not null unique, primary key (id))
+create table req (request_id number(19,0) not null, completionDate timestamp, creationDate timestamp, expirationDate timestamp, status varchar2(255 char) not null, requester_info_id number(19,0) not null, primary key (request_id), unique (requester_info_id))
+create table requester_info (id number(19,0) not null, address varchar2(255 char), certificateIssuer varchar2(255 char) not null, certificateSubject varchar2(255 char) not null, emailAddress varchar2(255 char) not null, institution varchar2(255 char), name varchar2(255 char), phoneNumber varchar2(255 char), surname varchar2(255 char), voMember number(1,0), primary key (id))
+create table requester_personal_info (requester_id number(19,0) not null, pi_value varchar2(255 char), pi_key varchar2(255 char), primary key (requester_id, pi_key))
+create table role_attrs (a_id number(19,0) not null, g_id number(19,0) not null, r_id number(19,0) not null, a_value varchar2(255 char), primary key (a_id, g_id, r_id))
+create table role_membership_req (groupName varchar2(255 char), roleName varchar2(255 char), request_id number(19,0) not null, primary key (request_id))
+create table roles (rid number(19,0) not null, role varchar2(255 char) not null unique, primary key (rid))
+create table seqnumber (seq varchar2(255 char) not null, primary key (seq))
+create table sign_aup_task (task_id number(19,0) not null, aup_id number(19,0) not null, primary key (task_id))
+create table tag_mapping (mapping_id number(19,0) not null, tag_id number(19,0) not null, gid number(19,0) not null, rid number(19,0), admin_id number(19,0) not null, primary key (mapping_id), unique (tag_id, gid, rid, admin_id))
+create table tags (id number(19,0) not null, name varchar2(255 char) not null unique, implicit number(1,0) not null, permissions number(10,0) not null, permissionsOnPath number(10,0), primary key (id))
+create table task (task_id number(19,0) not null, completionDate timestamp, creationDate timestamp, expiryDate timestamp, status varchar2(255 char) not null, admin_id number(19,0), task_type_id number(19,0) not null, usr_id number(19,0), primary key (task_id))
+create table task_log_record (id number(19,0) not null, adminDn varchar2(255 char), creation_time timestamp not null, event varchar2(255 char) not null, userDn varchar2(255 char), task_id number(19,0) not null, primary key (id))
+create table task_type (id number(19,0) not null, description varchar2(255 char), name varchar2(255 char) not null unique, primary key (id))
+create table user_request_task (task_id number(19,0) not null, req_id number(19,0) not null, primary key (task_id))
+create table usr (userid number(19,0) not null, address varchar2(255 char), creation_time timestamp not null, dn varchar2(255 char), email_address varchar2(255 char) not null, end_time timestamp not null, institution varchar2(255 char), name varchar2(255 char), phone_number varchar2(255 char), surname varchar2(255 char), suspended number(1,0), suspension_reason varchar2(255 char), suspension_reason_code varchar2(255 char), ca number(5,0), primary key (userid))
+create table usr_attrs (a_id number(19,0) not null, u_id number(19,0) not null, a_value varchar2(255 char), primary key (a_id, u_id))
+create table version (version number(10,0) not null, admin_version varchar2(255 char), primary key (version))
+create table vo_membership_req (confirmId varchar2(255 char) not null, request_id number(19,0) not null, primary key (request_id))
+alter table acl2 add constraint FK2D98E8720C9B10 foreign key (role_id) references roles on delete cascade
+alter table acl2 add constraint FK2D98E8FCFA8B04 foreign key (group_id) references groups on delete cascade
+alter table acl2_permissions add constraint FK35C6CFADD91CE8A3 foreign key (acl_id) references acl2
+alter table acl2_permissions add constraint FK35C6CFADA4AD9904 foreign key (admin_id) references admins
+alter table admins add constraint FKAB3A67047C6FEB32 foreign key (ca) references ca
+alter table aup_acc_record add constraint FKB1979B32EE2D4487 foreign key (usr_id) references usr
+alter table aup_acc_record add constraint FKB1979B32815F1678 foreign key (aup_version_id) references aup_version
+alter table aup_version add constraint fk_aup_version_aup foreign key (aup_id) references aup on delete cascade
+alter table certificate add constraint FK745F4197EE2D4487 foreign key (usr_id) references usr
+alter table certificate add constraint FK745F419782107F70 foreign key (ca_id) references ca
+alter table certificate_request add constraint FK47CA53E7D75D60A4 foreign key (request_id) references req
+alter table group_attrs add constraint FK40B1A2E2566C2A8F foreign key (a_id) references attributes
+alter table group_attrs add constraint FK40B1A2E2DEFC581C foreign key (g_id) references groups on delete cascade
+alter table group_membership_req add constraint FKBD145E75D75D60A4 foreign key (request_id) references req
+alter table groups add constraint FKB63DD9D4A3771CD3 foreign key (parent) references groups
+alter table m add constraint fk_m_roles foreign key (rid) references roles on delete cascade
+alter table m add constraint fk_m_groups foreign key (gid) references groups on delete cascade
+alter table m add constraint fk_m_cap foreign key (cid) references capabilities
+alter table m add constraint fk_m_usr foreign key (userid) references usr
+alter table membership_rem_req add constraint FK1877BC10D75D60A4 foreign key (request_id) references req
+alter table personal_info add constraint FK229FDF4DA8D3C6BC foreign key (personal_info_type_id) references personal_info_type
+alter table req add constraint FK1B89EC37E889D foreign key (requester_info_id) references requester_info
+alter table requester_personal_info add constraint FK7E3D7FCAD500B8D2 foreign key (requester_id) references requester_info
+alter table role_attrs add constraint FK6BDE9799566C2A8F foreign key (a_id) references attributes
+alter table role_attrs add constraint FK6BDE979920304994 foreign key (r_id) references roles on delete cascade
+alter table role_attrs add constraint FK6BDE9799DEFC581C foreign key (g_id) references groups
+alter table role_membership_req add constraint FK3B9C79ED75D60A4 foreign key (request_id) references req
+alter table sign_aup_task add constraint FK7FCB416A32B8C70C foreign key (task_id) references task
+alter table sign_aup_task add constraint FK7FCB416ADA1C6363 foreign key (aup_id) references aup
+alter table tag_mapping add constraint fk_tag_mapping_roles foreign key (rid) references roles on delete cascade
+alter table tag_mapping add constraint fk_tag_mapping_admins foreign key (admin_id) references admins on delete cascade
+alter table tag_mapping add constraint fk_tag_mapping_groups foreign key (gid) references groups on delete cascade
+alter table tag_mapping add constraint fk_tag_mapping_tag foreign key (tag_id) references tags on delete cascade
+alter table task add constraint FK3635859AD54C57 foreign key (task_type_id) references task_type
+alter table task add constraint FK363585EE2D4487 foreign key (usr_id) references usr
+alter table task add constraint FK363585A4AD9904 foreign key (admin_id) references admins
+alter table task_log_record add constraint FK77673CA632B8C70C foreign key (task_id) references task
+alter table user_request_task add constraint FKACB7D2932B8C70C foreign key (task_id) references task
+alter table user_request_task add constraint FKACB7D299D73AC35 foreign key (req_id) references req
+alter table usr add constraint FK1C5947C6FEB32 foreign key (ca) references ca
+alter table usr_attrs add constraint FKA39E0E37566C2A8F foreign key (a_id) references attributes
+alter table usr_attrs add constraint FKA39E0E3720331206 foreign key (u_id) references usr
+alter table vo_membership_req add constraint FK28EE8AFBD75D60A4 foreign key (request_id) references req
+create sequence VOMS_ACL_SEQ
+create sequence VOMS_ADMIN_SEQ
+create sequence VOMS_ATTR_DESC_SEQ
+create sequence VOMS_AUP_ACC_REC_SEQ
+create sequence VOMS_AUP_SEQ
+create sequence VOMS_AUP_VER_SEQ
+create sequence VOMS_CA_SEQ
+create sequence VOMS_CERT_SEQ
+create sequence VOMS_GROUP_SEQ
+create sequence VOMS_M_SEQ
+create sequence VOMS_PI_SEQ
+create sequence VOMS_PI_TYPE_SEQ
+create sequence VOMS_REQ_INFO_SEQ
+create sequence VOMS_REQ_SEQ
+create sequence VOMS_ROLE_SEQ
+create sequence VOMS_TAG_MAP_SEQ
+create sequence VOMS_TAG_SEQ
+create sequence VOMS_TASK_LR_SEQ
+create sequence VOMS_TASK_SEQ
+create sequence VOMS_TASK_TYPE_SEQ
+create sequence hibernate_sequence
+Deploying voms database...
+PEM data not found in the stream and its end was reached
+java.io.IOException: PEM data not found in the stream and its end was reached
+	at eu.emi.security.authn.x509.impl.CertificateUtils.loadCertificateChain(CertificateUtils.java:271) ~[canl-1.1.0.jar:1.1.0]
+	at eu.emi.security.authn.x509.impl.CertificateUtils.loadCertificate(CertificateUtils.java:151) ~[canl-1.1.0.jar:1.1.0]
+	at org.glite.security.voms.admin.core.tasks.UpdateCATask.run(UpdateCATask.java:89) ~[voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.doDeploy(SchemaDeployer.java:977) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.execute(SchemaDeployer.java:215) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.<init>(SchemaDeployer.java:125) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.main(SchemaDeployer.java:1637) [voms-admin.jar:na]
+PEM data not found in the stream and its end was reached
+java.io.IOException: PEM data not found in the stream and its end was reached
+	at eu.emi.security.authn.x509.impl.CertificateUtils.loadCertificateChain(CertificateUtils.java:271) ~[canl-1.1.0.jar:1.1.0]
+	at eu.emi.security.authn.x509.impl.CertificateUtils.loadCertificate(CertificateUtils.java:151) ~[canl-1.1.0.jar:1.1.0]
+	at org.glite.security.voms.admin.core.tasks.UpdateCATask.run(UpdateCATask.java:89) ~[voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.doDeploy(SchemaDeployer.java:977) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.execute(SchemaDeployer.java:215) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.<init>(SchemaDeployer.java:125) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.main(SchemaDeployer.java:1637) [voms-admin.jar:na]
+Database deployed correctly!
+Adding VO administrator reading information from /etc/grid-security/vomscert.pem
+Admin '/C=IT/O=IGI/CN=jen01.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA' not found. It will be created...
+Adding ALL permissions on '/emi3' for admin '/C=IT/O=IGI/CN=jen01.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/Role=VO-Admin' for admin '/C=IT/O=IGI/CN=jen01.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+WARNING: No email was specified for this administrator! The new administrator will not receive VOMS Admin notifications
+Adding read-only access to authenticated clients on the VO.
+Checking that the database is writable...
+Database is writable.
+Granting read-only access to any authenticated user on group '/emi3'
+Granting read-only access to any authenticated user on role '/emi3/Role=VO-Admin'
+Configuring VOMS core service for vo emi3
+VOMS core service configured succesfully.
+VO emi3 configuration completed succesfully.
+[root@jen01.cnaf.infn.it ~]# echo >> /etc/sysconfig/voms; echo 'TNS_ADMIN=/etc/voms' >> /etc/sysconfig/voms
+[root@jen01.cnaf.infn.it ~]# yum -y install ca_INFN-CA-2006
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4702 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package ca_INFN-CA-2006.noarch 0:1.52-1 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package               Arch         Version        Repository              Size
+================================================================================
+Installing:
+ ca_INFN-CA-2006       noarch       1.52-1         EGI-trustanchors       5.2 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 5.2 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : ca_INFN-CA-2006                                          1/1 
+
+Installed:
+  ca_INFN-CA-2006.noarch 0:1.52-1                                               
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# voms-config-info-providers -s local -e
+Will install providers for voms-admin
+Creating conf file /etc/glite/info/service/glite-info-glue2-voms.conf
+Creating conf file /etc/glite/info/service/glite-info-service-voms.conf
+Creating conf file /etc/glite/info/service/glite-info-glue2-voms-admin.conf
+Creating conf file /etc/glite/info/service/glite-info-service-voms-admin.conf
+Create the /var/lib/bdii/gip/provider in case it doesn't exist
+Create the /var/lib/bdii/gip/provider/glite-info-glue2-provider-service-voms file
+Create the /var/lib/bdii/gip/provider/glite-info-provider-service-voms file
+Create the /var/lib/bdii/gip/provider/glite-info-provider-service-voms-admin file
+[root@jen01.cnaf.infn.it ~]# sed -i "s/slapd/slapd2.4/g" /etc/sysconfig/bdii
+[root@jen01.cnaf.infn.it ~]# sed -i "s/^#SLAPD=/SLAPD=/g" /etc/sysconfig/bdii
+[root@jen01.cnaf.infn.it ~]# service bdii start
+Starting BDII slapd: [60G[[0;32m  OK  [0;39m]
+Starting BDII update process: [60G[[0;32m  OK  [0;39m]
+[root@jen01.cnaf.infn.it ~]# fetch-crl -o /etc/grid-security/certificates -l /etc/grid-security/certificates
+[root@jen01.cnaf.infn.it ~]# service voms start
+Starting voms(emi3): [60G[[0;32m  OK  [0;39m]
+[root@jen01.cnaf.infn.it ~]# service voms-admin start
+Starting voms-admin( emi3 ): [60G[  [1;32mOK[0;39m  ]
+[root@jen01.cnaf.infn.it ~]# sleep 30
+[root@jen01.cnaf.infn.it ~]# voms-admin --vo emi3 list-groups
+ /emi3
+[root@jen01.cnaf.infn.it ~]# wget --no-check-certificate https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
+--2013-02-08 12:40:14--  https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
+Resolving raw.github.com... 199.27.74.130
+Connecting to raw.github.com|199.27.74.130|:443... connected.
+WARNING: certificate common name `*.a.ssl.fastly.net' doesn't match requested host name `raw.github.com'.
+HTTP request sent, awaiting response... 200 OK
+Length: 1186 (1.2K) [text/plain]
+Saving to: `populate-vo.sh'
+
+     0K .                                                     100% 27.6M=0s
+
+2013-02-08 12:40:15 (27.6 MB/s) - `populate-vo.sh' saved [1186/1186]
+
+[root@jen01.cnaf.infn.it ~]# sh populate-vo.sh emi3
+[root@jen01.cnaf.infn.it ~]# yum -y install voms-clients3
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4702 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients3.noarch 0:3.0.0-1.sl5 set to be updated
+--> Processing Dependency: voms-api-java3 for package: voms-clients3
+--> Processing Dependency: jakarta-commons-io for package: voms-clients3
+--> Running transaction check
+---> Package jakarta-commons-io.noarch 0:1.4-3.el5 set to be updated
+---> Package voms-api-java3.noarch 0:3.0.0-1.sl5 set to be updated
+--> Processing Dependency: bouncycastle146-mail for package: voms-api-java3
+--> Processing Dependency: canl-java for package: voms-api-java3
+--> Running transaction check
+---> Package bouncycastle146-mail.noarch 0:1.46-1 set to be updated
+--> Processing Dependency: bouncycastle146 = 1.46 for package: bouncycastle146-mail
+---> Package canl-java.noarch 0:1.1.0-1.sl5 set to be updated
+--> Running transaction check
+---> Package bouncycastle146.noarch 0:1.46-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                 Arch      Version          Repository             Size
+================================================================================
+Installing:
+ voms-clients3           noarch    3.0.0-1.sl5      VOMS                  124 k
+Installing for dependencies:
+ bouncycastle146         noarch    1.46-1.el5       EMI-3-testing-base    1.9 M
+ bouncycastle146-mail    noarch    1.46-1           VOMS                  475 k
+ canl-java               noarch    1.1.0-1.sl5      EMI-3-testing-base    262 k
+ jakarta-commons-io      noarch    1.4-3.el5        epel                  105 k
+ voms-api-java3          noarch    3.0.0-1.sl5      VOMS                  120 k
+
+Transaction Summary
+================================================================================
+Install       6 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 2.9 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           2.5 MB/s | 2.9 MB     00:01     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : bouncycastle146                                          1/6 
+  Installing     : jakarta-commons-io                                       2/6 
+  Installing     : canl-java                                                3/6 
+  Installing     : bouncycastle146-mail                                     4/6 
+  Installing     : voms-api-java3                                           5/6 
+  Installing     : voms-clients3                                            6/6 
+
+Installed:
+  voms-clients3.noarch 0:3.0.0-1.sl5                                            
+
+Dependency Installed:
+  bouncycastle146.noarch 0:1.46-1.el5   bouncycastle146-mail.noarch 0:1.46-1   
+  canl-java.noarch 0:1.1.0-1.sl5        jakarta-commons-io.noarch 0:1.4-3.el5  
+  voms-api-java3.noarch 0:3.0.0-1.sl5  
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# mkdir -p .globus
+[root@jen01.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.cert.pem .globus/usercert.pem
+[root@jen01.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.key.pem .globus/userkey.pem
+[root@jen01.cnaf.infn.it ~]# chmod 600 .globus/usercert.pem
+[root@jen01.cnaf.infn.it ~]# chmod 400 .globus/userkey.pem
+[root@jen01.cnaf.infn.it ~]# mkdir /etc/vomses
+[root@jen01.cnaf.infn.it ~]# cp /etc/voms-admin/emi3/vomses /etc/vomses/emi3
+[root@jen01.cnaf.infn.it ~]# mkdir /etc/grid-security/vomsdir/emi3
+[root@jen01.cnaf.infn.it ~]# cp /etc/voms-admin/emi3/lsc /etc/grid-security/vomsdir/emi3/jen01.cnaf.infn.it.lsc
+[root@jen01.cnaf.infn.it ~]# echo 'pass' | voms-proxy-init -voms emi3 --pwstdin
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Sat Feb 09 00:40:38 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Sat Feb 09 00:40:37 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Sat Feb 09 00:40:36 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Sat Feb 09 00:40:35 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Sat Feb 09 00:40:34 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Sat Feb 09 00:40:33 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Sat Feb 09 00:40:32 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Sat Feb 09 00:40:31 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Sat Feb 09 00:40:30 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Sat Feb 09 00:40:29 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Sat Feb 09 00:40:28 CET 2013
+[root@jen01.cnaf.infn.it ~]# service vomses start
+Starting vomses: [60G[  [1;32mOK[0;39m  ]
+VOMS succesfully deployed!
