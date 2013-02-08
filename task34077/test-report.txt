@@ -53,24 +53,48 @@ https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-oracle-clean-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-clean-deployment.sl6.x86_64.log
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-clean-deployment.sl6.x86_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients3-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-api-java-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-api-java-clean-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients-clean-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients3-clean-deployment-report.sl5_x86_64
 
 - YUM/APT Install command:
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-clean-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-oracle-clean-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-clean-deployment.sl6.x86_64.log
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-clean-deployment.sl6.x86_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients3-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-api-java-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-api-java-clean-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients-clean-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients3-clean-deployment-report.sl5_x86_64
 
 - YUM/APT log:
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-clean-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-oracle-clean-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-clean-deployment.sl6.x86_64.log
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-clean-deployment.sl6.x86_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients3-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-api-java-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-api-java-clean-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients-clean-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients3-clean-deployment-report.sl5_x86_64
 
 - Configuration log:
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-clean-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-oracle-clean-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-clean-deployment.sl6.x86_64.log
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-clean-deployment.sl6.x86_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients3-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-api-java-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-api-java-clean-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients-clean-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients3-clean-deployment-report.sl5_x86_64
 
 1.2. Upgrade Installation
 --------------------------------
@@ -78,31 +102,67 @@ https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients3-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-api-java-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-api-java-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
 
 - YUM/APT Install command:
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients3-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-api-java-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-api-java-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
 
 - YUM/APT Testing Repo file contents:
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients3-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-api-java-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-api-java-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
 
 - YUM/APT Upgrade command:
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients3-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-api-java-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-api-java-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
 
 - YUM/APT log:
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients3-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-api-java-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-api-java-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
 
 - Configuration log:
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-clients3-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/voms-api-java-upgrade-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-api-java-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
 
 2. Static Code Analysis
 ******************************
