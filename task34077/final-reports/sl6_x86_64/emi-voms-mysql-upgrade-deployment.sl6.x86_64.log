@@ -1,0 +1,2347 @@
+[root@tuneyards.cnaf.infn.it ~]# mkdir emi-release-package
+[root@tuneyards.cnaf.infn.it ~]# wget -P emi-release-package http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl6/x86_64/base/emi-release-2.0.0-1.sl6.noarch.rpm
+--2013-02-07 15:17:55--  http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl6/x86_64/base/emi-release-2.0.0-1.sl6.noarch.rpm
+Resolving emisoft.web.cern.ch... 137.138.139.27
+Connecting to emisoft.web.cern.ch|137.138.139.27|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5544 (5.4K) [application/x-rpm]
+Saving to: “emi-release-package/emi-release-2.0.0-1.sl6.noarch.rpm”
+
+     0K .....                                                 100% 99.9M=0s
+
+2013-02-07 15:17:55 (99.9 MB/s) - “emi-release-package/emi-release-2.0.0-1.sl6.noarch.rpm” saved [5544/5544]
+
+[root@tuneyards.cnaf.infn.it ~]# yum -y localinstall emi-release-package/*.rpm
+Loaded plugins: security
+Setting up Local Package Process
+Examining emi-release-package/emi-release-2.0.0-1.sl6.noarch.rpm: emi-release-2.0.0-1.sl6.noarch
+Marking emi-release-package/emi-release-2.0.0-1.sl6.noarch.rpm to be installed
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:2.0.0-1.sl6 will be installed
+--> Processing Dependency: yum-priorities for package: emi-release-2.0.0-1.sl6.noarch
+--> Processing Dependency: yum-protectbase for package: emi-release-2.0.0-1.sl6.noarch
+--> Running transaction check
+---> Package yum-plugin-priorities.noarch 0:1.1.30-14.el6 will be installed
+---> Package yum-plugin-protectbase.noarch 0:1.1.30-14.el6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                Arch   Version       Repository                    Size
+================================================================================
+Installing:
+ emi-release            noarch 2.0.0-1.sl6   /emi-release-2.0.0-1.sl6.noarch
+                                                                          2.7 k
+Installing for dependencies:
+ yum-plugin-priorities  noarch 1.1.30-14.el6 sl                            21 k
+ yum-plugin-protectbase noarch 1.1.30-14.el6 sl                            19 k
+
+Transaction Summary
+================================================================================
+Install       3 Package(s)
+
+Total size: 44 k
+Total download size: 41 k
+Installed size: 53 k
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                            58 kB/s |  41 kB     00:00     
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : yum-plugin-priorities-1.1.30-14.el6.noarch                   1/3 
+  Installing : yum-plugin-protectbase-1.1.30-14.el6.noarch                  2/3 
+  Installing : emi-release-2.0.0-1.sl6.noarch                               3/3 
+  Verifying  : emi-release-2.0.0-1.sl6.noarch                               1/3 
+  Verifying  : yum-plugin-protectbase-1.1.30-14.el6.noarch                  2/3 
+  Verifying  : yum-plugin-priorities-1.1.30-14.el6.noarch                   3/3 
+
+Installed:
+  emi-release.noarch 0:2.0.0-1.sl6                                              
+
+Dependency Installed:
+  yum-plugin-priorities.noarch 0:1.1.30-14.el6                                  
+  yum-plugin-protectbase.noarch 0:1.1.30-14.el6                                 
+
+Complete!
+[root@tuneyards.cnaf.infn.it ~]# yum clean all
+Loaded plugins: priorities, protectbase, security
+Cleaning repos: EGI-trustanchors EMI-2-base EMI-2-contribs EMI-2-third-party
+              : EMI-2-updates epel sl sl-security
+Cleaning up Everything
+[root@tuneyards.cnaf.infn.it ~]# yum -y install emi-voms-mysql
+Loaded plugins: priorities, protectbase, security
+204 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-voms-mysql.x86_64 0:1.0.1-1.el6 will be installed
+--> Processing Dependency: yaim-voms for package: emi-voms-mysql-1.0.1-1.el6.x86_64
+--> Processing Dependency: glite-yaim-bdii for package: emi-voms-mysql-1.0.1-1.el6.x86_64
+--> Processing Dependency: fetch-crl for package: emi-voms-mysql-1.0.1-1.el6.x86_64
+--> Processing Dependency: bdii for package: emi-voms-mysql-1.0.1-1.el6.x86_64
+--> Processing Dependency: voms-admin-server for package: emi-voms-mysql-1.0.1-1.el6.x86_64
+--> Processing Dependency: glite-info-provider-service for package: emi-voms-mysql-1.0.1-1.el6.x86_64
+--> Processing Dependency: voms-admin-client for package: emi-voms-mysql-1.0.1-1.el6.x86_64
+--> Processing Dependency: mysql-server for package: emi-voms-mysql-1.0.1-1.el6.x86_64
+--> Processing Dependency: voms-mysql-plugin for package: emi-voms-mysql-1.0.1-1.el6.x86_64
+--> Processing Dependency: voms-server for package: emi-voms-mysql-1.0.1-1.el6.x86_64
+--> Running transaction check
+---> Package bdii.noarch 0:5.2.12-1.el6 will be installed
+--> Processing Dependency: glue-schema >= 2.0.0 for package: bdii-5.2.12-1.el6.noarch
+--> Processing Dependency: openldap-servers for package: bdii-5.2.12-1.el6.noarch
+--> Processing Dependency: expect for package: bdii-5.2.12-1.el6.noarch
+--> Processing Dependency: policycoreutils-python for package: bdii-5.2.12-1.el6.noarch
+--> Processing Dependency: openldap-clients for package: bdii-5.2.12-1.el6.noarch
+---> Package fetch-crl.noarch 0:3.0.8-1.el6 will be installed
+--> Processing Dependency: perl(POSIX) for package: fetch-crl-3.0.8-1.el6.noarch
+--> Processing Dependency: perl(vars) for package: fetch-crl-3.0.8-1.el6.noarch
+--> Processing Dependency: perl(Getopt::Long) for package: fetch-crl-3.0.8-1.el6.noarch
+--> Processing Dependency: /usr/bin/perl for package: fetch-crl-3.0.8-1.el6.noarch
+--> Processing Dependency: perl(File::Basename) for package: fetch-crl-3.0.8-1.el6.noarch
+--> Processing Dependency: perl(integer) for package: fetch-crl-3.0.8-1.el6.noarch
+--> Processing Dependency: perl(Sys::Syslog) for package: fetch-crl-3.0.8-1.el6.noarch
+--> Processing Dependency: perl(LWP) for package: fetch-crl-3.0.8-1.el6.noarch
+--> Processing Dependency: perl(File::Temp) for package: fetch-crl-3.0.8-1.el6.noarch
+--> Processing Dependency: perl(strict) for package: fetch-crl-3.0.8-1.el6.noarch
+--> Processing Dependency: perl(IPC::Open3) for package: fetch-crl-3.0.8-1.el6.noarch
+--> Processing Dependency: perl(IO::Select) for package: fetch-crl-3.0.8-1.el6.noarch
+--> Processing Dependency: perl(Time::Local) for package: fetch-crl-3.0.8-1.el6.noarch
+---> Package glite-info-provider-service.noarch 0:1.9.0-5.el6 will be installed
+---> Package glite-yaim-bdii.noarch 0:4.3.11-1.el6 will be installed
+---> Package mysql-server.x86_64 0:5.1.67-1.el6_3 will be installed
+--> Processing Dependency: mysql = 5.1.67-1.el6_3 for package: mysql-server-5.1.67-1.el6_3.x86_64
+--> Processing Dependency: perl-DBD-MySQL for package: mysql-server-5.1.67-1.el6_3.x86_64
+--> Processing Dependency: perl(DBI) for package: mysql-server-5.1.67-1.el6_3.x86_64
+--> Processing Dependency: perl-DBI for package: mysql-server-5.1.67-1.el6_3.x86_64
+---> Package voms-admin-client.noarch 0:2.0.17-1.el6 will be installed
+--> Processing Dependency: python-ZSI for package: voms-admin-client-2.0.17-1.el6.noarch
+--> Processing Dependency: PyXML for package: voms-admin-client-2.0.17-1.el6.noarch
+--> Processing Dependency: python-simplejson for package: voms-admin-client-2.0.17-1.el6.noarch
+---> Package voms-admin-server.noarch 0:2.7.0-1.el6 will be installed
+--> Processing Dependency: bouncycastle >= 1.39 for package: voms-admin-server-2.7.0-1.el6.noarch
+--> Processing Dependency: emi-trustmanager for package: voms-admin-server-2.7.0-1.el6.noarch
+--> Processing Dependency: java for package: voms-admin-server-2.7.0-1.el6.noarch
+--> Processing Dependency: tomcat6 for package: voms-admin-server-2.7.0-1.el6.noarch
+--> Processing Dependency: emi-trustmanager-tomcat for package: voms-admin-server-2.7.0-1.el6.noarch
+---> Package voms-mysql-plugin.x86_64 0:3.1.6-1.el6 will be installed
+---> Package voms-server.x86_64 0:2.0.9-1.el6 will be installed
+--> Processing Dependency: voms(x86-64) = 2.0.9-1.el6 for package: voms-server-2.0.9-1.el6.x86_64
+--> Processing Dependency: libvomsapi.so.1()(64bit) for package: voms-server-2.0.9-1.el6.x86_64
+---> Package yaim-voms.noarch 0:1.1.1-1.el6 will be installed
+--> Processing Dependency: glite-yaim-core for package: yaim-voms-1.1.1-1.el6.noarch
+--> Running transaction check
+---> Package PyXML.x86_64 0:0.8.4-19.el6 will be installed
+---> Package bouncycastle.noarch 0:1.46-1.el6 will be installed
+--> Processing Dependency: jpackage-utils >= 1.7 for package: bouncycastle-1.46-1.el6.noarch
+--> Processing Dependency: jpackage-utils >= 1.5 for package: bouncycastle-1.46-1.el6.noarch
+--> Processing Dependency: jpackage-utils >= 1.7 for package: bouncycastle-1.46-1.el6.noarch
+--> Processing Dependency: java >= 1.7 for package: bouncycastle-1.46-1.el6.noarch
+---> Package emi-trustmanager.noarch 0:3.1.4-1.sl6 will be installed
+---> Package emi-trustmanager-tomcat.noarch 0:3.0.1-1.sl6 will be installed
+--> Processing Dependency: log4j for package: emi-trustmanager-tomcat-3.0.1-1.sl6.noarch
+---> Package expect.x86_64 0:5.44.1.15-4.el6 will be installed
+--> Processing Dependency: libtcl8.5.so()(64bit) for package: expect-5.44.1.15-4.el6.x86_64
+---> Package glite-yaim-core.noarch 0:5.1.0-1.sl6 will be installed
+--> Processing Dependency: redhat-lsb for package: glite-yaim-core-5.1.0-1.sl6.noarch
+---> Package glue-schema.noarch 0:2.0.8-2.el6 will be installed
+---> Package java-1.5.0-gcj.x86_64 0:1.5.0.0-29.1.el6 will be installed
+--> Processing Dependency: libgcj >= 4.1.2-5 for package: java-1.5.0-gcj-1.5.0.0-29.1.el6.x86_64
+--> Processing Dependency: /usr/bin/gcj-dbtool for package: java-1.5.0-gcj-1.5.0.0-29.1.el6.x86_64
+--> Processing Dependency: sinjdoc for package: java-1.5.0-gcj-1.5.0.0-29.1.el6.x86_64
+--> Processing Dependency: /usr/bin/gij for package: java-1.5.0-gcj-1.5.0.0-29.1.el6.x86_64
+--> Processing Dependency: /usr/lib64/security/classpath.security for package: java-1.5.0-gcj-1.5.0.0-29.1.el6.x86_64
+--> Processing Dependency: /usr/bin/gcj-dbtool for package: java-1.5.0-gcj-1.5.0.0-29.1.el6.x86_64
+--> Processing Dependency: /usr/bin/gij for package: java-1.5.0-gcj-1.5.0.0-29.1.el6.x86_64
+---> Package mysql.x86_64 0:5.1.67-1.el6_3 will be installed
+--> Processing Dependency: mysql-libs = 5.1.67-1.el6_3 for package: mysql-5.1.67-1.el6_3.x86_64
+---> Package openldap-clients.x86_64 0:2.4.23-26.el6_3.2 will be installed
+---> Package openldap-servers.x86_64 0:2.4.23-26.el6_3.2 will be installed
+--> Processing Dependency: portreserve for package: openldap-servers-2.4.23-26.el6_3.2.x86_64
+--> Processing Dependency: make for package: openldap-servers-2.4.23-26.el6_3.2.x86_64
+--> Processing Dependency: libltdl.so.7()(64bit) for package: openldap-servers-2.4.23-26.el6_3.2.x86_64
+---> Package perl.x86_64 4:5.10.1-127.el6 will be installed
+--> Processing Dependency: perl-libs = 4:5.10.1-127.el6 for package: 4:perl-5.10.1-127.el6.x86_64
+--> Processing Dependency: perl-libs for package: 4:perl-5.10.1-127.el6.x86_64
+--> Processing Dependency: perl(version) for package: 4:perl-5.10.1-127.el6.x86_64
+--> Processing Dependency: perl(Pod::Simple) for package: 4:perl-5.10.1-127.el6.x86_64
+--> Processing Dependency: perl(Module::Pluggable) for package: 4:perl-5.10.1-127.el6.x86_64
+--> Processing Dependency: libperl.so()(64bit) for package: 4:perl-5.10.1-127.el6.x86_64
+---> Package perl-DBD-MySQL.x86_64 0:4.013-3.el6 will be installed
+---> Package perl-DBI.x86_64 0:1.609-4.el6 will be installed
+---> Package perl-libwww-perl.noarch 0:5.833-2.el6 will be installed
+--> Processing Dependency: perl-HTML-Parser >= 3.33 for package: perl-libwww-perl-5.833-2.el6.noarch
+--> Processing Dependency: mailcap for package: perl-libwww-perl-5.833-2.el6.noarch
+--> Processing Dependency: perl(URI::Heuristic) for package: perl-libwww-perl-5.833-2.el6.noarch
+--> Processing Dependency: perl(URI::URL) for package: perl-libwww-perl-5.833-2.el6.noarch
+--> Processing Dependency: perl(URI) for package: perl-libwww-perl-5.833-2.el6.noarch
+--> Processing Dependency: perl(HTML::Entities) for package: perl-libwww-perl-5.833-2.el6.noarch
+--> Processing Dependency: perl(Compress::Zlib) for package: perl-libwww-perl-5.833-2.el6.noarch
+---> Package policycoreutils-python.x86_64 0:2.0.83-19.24.el6 will be installed
+--> Processing Dependency: libsemanage-python >= 2.0.43-4 for package: policycoreutils-python-2.0.83-19.24.el6.x86_64
+--> Processing Dependency: audit-libs-python >= 1.4.2-1 for package: policycoreutils-python-2.0.83-19.24.el6.x86_64
+--> Processing Dependency: setools-libs-python for package: policycoreutils-python-2.0.83-19.24.el6.x86_64
+--> Processing Dependency: libselinux-python for package: policycoreutils-python-2.0.83-19.24.el6.x86_64
+--> Processing Dependency: libcgroup for package: policycoreutils-python-2.0.83-19.24.el6.x86_64
+---> Package python-ZSI.noarch 0:2.0-6.el6 will be installed
+---> Package python-simplejson.x86_64 0:2.0.9-3.1.el6 will be installed
+---> Package tomcat6.noarch 0:6.0.24-45.el6 will be installed
+--> Processing Dependency: tomcat6-lib = 6.0.24-45.el6 for package: tomcat6-6.0.24-45.el6.noarch
+--> Processing Dependency: mx4j for package: tomcat6-6.0.24-45.el6.noarch
+--> Processing Dependency: jakarta-commons-pool for package: tomcat6-6.0.24-45.el6.noarch
+--> Processing Dependency: jakarta-commons-logging for package: tomcat6-6.0.24-45.el6.noarch
+--> Processing Dependency: jakarta-commons-dbcp for package: tomcat6-6.0.24-45.el6.noarch
+--> Processing Dependency: jakarta-commons-daemon for package: tomcat6-6.0.24-45.el6.noarch
+--> Processing Dependency: jakarta-commons-collections for package: tomcat6-6.0.24-45.el6.noarch
+---> Package voms.x86_64 0:2.0.9-1.el6 will be installed
+--> Running transaction check
+---> Package audit-libs-python.x86_64 0:2.2-2.el6 will be installed
+---> Package jakarta-commons-collections.noarch 0:3.2.1-3.4.el6 will be installed
+---> Package jakarta-commons-daemon.x86_64 1:1.0.1-8.9.el6 will be installed
+---> Package jakarta-commons-dbcp.noarch 0:1.2.1-13.8.el6 will be installed
+---> Package jakarta-commons-logging.noarch 0:1.0.4-10.el6 will be installed
+---> Package jakarta-commons-pool.x86_64 0:1.3-12.7.el6 will be installed
+---> Package java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.50.1.11.5.el6_3 will be installed
+--> Processing Dependency: libjpeg = 6b for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libasound.so.2(ALSA_0.9)(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: fontconfig for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libasound.so.2(ALSA_0.9.0rc4)(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libpng12.so.0(PNG12_0)(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: tzdata-java for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libpulse.so.0(PULSE_0)(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: rhino for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libXext.so.6()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libfreetype.so.6()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libpulse.so.0()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libXtst.so.6()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libXrender.so.1()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libasound.so.2()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libjpeg.so.62()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libX11.so.6()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libpng12.so.0()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libXi.so.6()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+--> Processing Dependency: libgif.so.4()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64
+---> Package jpackage-utils.noarch 0:1.7.5-3.12.el6 will be installed
+---> Package libcgroup.x86_64 0:0.37-4.el6 will be installed
+---> Package libgcj.x86_64 0:4.4.6-4.el6 will be installed
+--> Processing Dependency: zip >= 2.1 for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: libart_lgpl >= 2.1.0 for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: gtk2 >= 2.4.0 for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: libpangoft2-1.0.so.0()(64bit) for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: libpangocairo-1.0.so.0()(64bit) for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: libpango-1.0.so.0()(64bit) for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: libgtk-x11-2.0.so.0()(64bit) for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: libgdk_pixbuf-2.0.so.0()(64bit) for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: libgdk-x11-2.0.so.0()(64bit) for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: libcairo.so.2()(64bit) for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: libatk-1.0.so.0()(64bit) for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: libXrandr.so.2()(64bit) for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: libSM.so.6()(64bit) for package: libgcj-4.4.6-4.el6.x86_64
+--> Processing Dependency: libICE.so.6()(64bit) for package: libgcj-4.4.6-4.el6.x86_64
+---> Package libselinux-python.x86_64 0:2.0.94-5.3.el6 will be installed
+---> Package libsemanage-python.x86_64 0:2.0.43-4.1.el6 will be installed
+---> Package libtool-ltdl.x86_64 0:2.2.6-15.5.el6 will be installed
+---> Package log4j.x86_64 0:1.2.14-6.4.el6 will be installed
+--> Processing Dependency: xml-commons-apis for package: log4j-1.2.14-6.4.el6.x86_64
+---> Package mailcap.noarch 0:2.1.31-2.el6 will be installed
+---> Package make.x86_64 1:3.81-20.el6 will be installed
+---> Package mx4j.noarch 1:3.0.1-9.13.el6 will be installed
+--> Processing Dependency: axis >= 1.1 for package: 1:mx4j-3.0.1-9.13.el6.noarch
+--> Processing Dependency: bcel >= 5.0 for package: 1:mx4j-3.0.1-9.13.el6.noarch
+--> Processing Dependency: javamail >= 1.2-5jpp for package: 1:mx4j-3.0.1-9.13.el6.noarch
+--> Processing Dependency: jaf for package: 1:mx4j-3.0.1-9.13.el6.noarch
+--> Processing Dependency: xml-commons-resolver for package: 1:mx4j-3.0.1-9.13.el6.noarch
+---> Package mysql-libs.x86_64 0:5.1.66-2.el6_3 will be updated
+---> Package mysql-libs.x86_64 0:5.1.67-1.el6_3 will be an update
+---> Package perl-Compress-Zlib.x86_64 0:2.020-127.el6 will be installed
+--> Processing Dependency: perl(IO::Uncompress::Gunzip) >= 2.020 for package: perl-Compress-Zlib-2.020-127.el6.x86_64
+--> Processing Dependency: perl(IO::Compress::Gzip::Constants) >= 2.020 for package: perl-Compress-Zlib-2.020-127.el6.x86_64
+--> Processing Dependency: perl(IO::Compress::Gzip) >= 2.020 for package: perl-Compress-Zlib-2.020-127.el6.x86_64
+--> Processing Dependency: perl(IO::Compress::Base::Common) >= 2.020 for package: perl-Compress-Zlib-2.020-127.el6.x86_64
+--> Processing Dependency: perl(Compress::Raw::Zlib) >= 2.020 for package: perl-Compress-Zlib-2.020-127.el6.x86_64
+---> Package perl-HTML-Parser.x86_64 0:3.64-2.el6 will be installed
+--> Processing Dependency: perl(HTML::Tagset) >= 3.03 for package: perl-HTML-Parser-3.64-2.el6.x86_64
+--> Processing Dependency: perl(HTML::Tagset) for package: perl-HTML-Parser-3.64-2.el6.x86_64
+---> Package perl-Module-Pluggable.x86_64 1:3.90-127.el6 will be installed
+---> Package perl-Pod-Simple.x86_64 1:3.13-127.el6 will be installed
+--> Processing Dependency: perl(Pod::Escapes) >= 1.04 for package: 1:perl-Pod-Simple-3.13-127.el6.x86_64
+---> Package perl-URI.noarch 0:1.40-2.el6 will be installed
+---> Package perl-libs.x86_64 4:5.10.1-127.el6 will be installed
+---> Package perl-version.x86_64 3:0.77-127.el6 will be installed
+---> Package portreserve.x86_64 0:0.0.4-9.el6 will be installed
+---> Package redhat-lsb.x86_64 0:4.0-3.el6 will be installed
+--> Processing Dependency: /usr/bin/batch for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: /usr/bin/bc for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: /bin/gettext for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: /usr/bin/msgfmt for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: perl-Test-Harness for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: redhat-lsb-graphics for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: redhat-lsb-printing for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: /bin/ed for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: /usr/bin/pax for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: perl-CGI for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: /usr/bin/patch for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: /usr/bin/man for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: /usr/bin/at for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: perl-Test-Simple for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: /usr/bin/time for package: redhat-lsb-4.0-3.el6.x86_64
+--> Processing Dependency: perl-ExtUtils-MakeMaker for package: redhat-lsb-4.0-3.el6.x86_64
+---> Package setools-libs-python.x86_64 0:3.3.7-4.el6 will be installed
+--> Processing Dependency: setools-libs = 3.3.7-4.el6 for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libqpol.so.1(VERS_1.3)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libapol.so.4(VERS_4.1)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libseaudit.so.4(VERS_4.2)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libapol.so.4(VERS_4.0)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libpoldiff.so.1(VERS_1.2)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libpoldiff.so.1(VERS_1.3)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libqpol.so.1(VERS_1.2)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libqpol.so.1(VERS_1.4)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libsefs.so.4(VERS_4.0)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libseaudit.so.4(VERS_4.1)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libseaudit.so.4()(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libsefs.so.4()(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libapol.so.4()(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libpoldiff.so.1()(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libqpol.so.1()(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+---> Package sinjdoc.x86_64 0:0.5-9.1.el6 will be installed
+--> Processing Dependency: java_cup >= 0.10 for package: sinjdoc-0.5-9.1.el6.x86_64
+---> Package tcl.x86_64 1:8.5.7-6.el6 will be installed
+---> Package tomcat6-lib.noarch 0:6.0.24-45.el6 will be installed
+--> Processing Dependency: tomcat6-servlet-2.5-api = 6.0.24-45.el6 for package: tomcat6-lib-6.0.24-45.el6.noarch
+--> Processing Dependency: tomcat6-jsp-2.1-api = 6.0.24-45.el6 for package: tomcat6-lib-6.0.24-45.el6.noarch
+--> Processing Dependency: tomcat6-el-2.1-api = 6.0.24-45.el6 for package: tomcat6-lib-6.0.24-45.el6.noarch
+--> Processing Dependency: ecj for package: tomcat6-lib-6.0.24-45.el6.noarch
+--> Running transaction check
+---> Package alsa-lib.x86_64 0:1.0.22-3.el6 will be installed
+---> Package at.x86_64 0:3.1.10-43.el6_2.1 will be installed
+---> Package atk.x86_64 0:1.28.0-2.el6 will be installed
+---> Package axis.noarch 0:1.2.1-7.2.el6 will be installed
+--> Processing Dependency: jakarta-commons-httpclient for package: axis-1.2.1-7.2.el6.noarch
+--> Processing Dependency: jakarta-commons-discovery for package: axis-1.2.1-7.2.el6.noarch
+--> Processing Dependency: wsdl4j for package: axis-1.2.1-7.2.el6.noarch
+---> Package bc.x86_64 0:1.06.95-1.el6 will be installed
+---> Package bcel.x86_64 0:5.2-7.2.el6 will be installed
+--> Processing Dependency: regexp for package: bcel-5.2-7.2.el6.x86_64
+---> Package cairo.x86_64 0:1.8.8-3.1.el6 will be installed
+--> Processing Dependency: libpixman-1.so.0()(64bit) for package: cairo-1.8.8-3.1.el6.x86_64
+---> Package classpathx-jaf.x86_64 0:1.0-15.4.el6 will be installed
+---> Package classpathx-mail.noarch 0:1.1.1-9.4.el6 will be installed
+---> Package ecj.x86_64 1:3.4.2-6.el6 will be installed
+---> Package ed.x86_64 0:1.1-3.3.el6 will be installed
+---> Package fontconfig.x86_64 0:2.8.0-3.el6 will be installed
+---> Package freetype.x86_64 0:2.3.11-14.el6_3.1 will be installed
+---> Package gettext.x86_64 0:0.17-16.el6 will be installed
+--> Processing Dependency: cvs for package: gettext-0.17-16.el6.x86_64
+--> Processing Dependency: libgomp.so.1(GOMP_1.0)(64bit) for package: gettext-0.17-16.el6.x86_64
+--> Processing Dependency: libgomp.so.1()(64bit) for package: gettext-0.17-16.el6.x86_64
+---> Package giflib.x86_64 0:4.1.6-3.1.el6 will be installed
+---> Package gtk2.x86_64 0:2.18.9-10.el6 will be installed
+--> Processing Dependency: libtiff >= 3.6.1 for package: gtk2-2.18.9-10.el6.x86_64
+--> Processing Dependency: hicolor-icon-theme for package: gtk2-2.18.9-10.el6.x86_64
+--> Processing Dependency: libtiff.so.3()(64bit) for package: gtk2-2.18.9-10.el6.x86_64
+--> Processing Dependency: libjasper.so.1()(64bit) for package: gtk2-2.18.9-10.el6.x86_64
+--> Processing Dependency: libcups.so.2()(64bit) for package: gtk2-2.18.9-10.el6.x86_64
+--> Processing Dependency: libXinerama.so.1()(64bit) for package: gtk2-2.18.9-10.el6.x86_64
+--> Processing Dependency: libXfixes.so.3()(64bit) for package: gtk2-2.18.9-10.el6.x86_64
+--> Processing Dependency: libXdamage.so.1()(64bit) for package: gtk2-2.18.9-10.el6.x86_64
+--> Processing Dependency: libXcursor.so.1()(64bit) for package: gtk2-2.18.9-10.el6.x86_64
+--> Processing Dependency: libXcomposite.so.1()(64bit) for package: gtk2-2.18.9-10.el6.x86_64
+---> Package java_cup.x86_64 1:0.10k-5.el6 will be installed
+---> Package libICE.x86_64 0:1.0.6-1.el6 will be installed
+---> Package libSM.x86_64 0:1.1.0-7.1.el6 will be installed
+---> Package libX11.x86_64 0:1.3-2.el6 will be installed
+--> Processing Dependency: libX11-common = 1.3-2.el6 for package: libX11-1.3-2.el6.x86_64
+--> Processing Dependency: libxcb.so.1()(64bit) for package: libX11-1.3-2.el6.x86_64
+---> Package libXext.x86_64 0:1.1-3.el6 will be installed
+---> Package libXi.x86_64 0:1.3-3.el6 will be installed
+---> Package libXrandr.x86_64 0:1.3.0-4.el6 will be installed
+---> Package libXrender.x86_64 0:0.9.5-1.el6 will be installed
+---> Package libXtst.x86_64 0:1.0.99.2-3.el6 will be installed
+---> Package libart_lgpl.x86_64 0:2.3.20-5.1.el6 will be installed
+---> Package libjpeg.x86_64 0:6b-46.el6 will be installed
+---> Package libpng.x86_64 2:1.2.49-1.el6_2 will be installed
+---> Package man.x86_64 0:1.6f-30.el6 will be installed
+--> Processing Dependency: lzma for package: man-1.6f-30.el6.x86_64
+---> Package pango.x86_64 0:1.28.1-3.el6_0.5 will be installed
+--> Processing Dependency: libthai >= 0.1.9 for package: pango-1.28.1-3.el6_0.5.x86_64
+--> Processing Dependency: libthai.so.0(LIBTHAI_0.1)(64bit) for package: pango-1.28.1-3.el6_0.5.x86_64
+--> Processing Dependency: libthai.so.0()(64bit) for package: pango-1.28.1-3.el6_0.5.x86_64
+--> Processing Dependency: libXft.so.2()(64bit) for package: pango-1.28.1-3.el6_0.5.x86_64
+---> Package patch.x86_64 0:2.6-6.el6 will be installed
+---> Package pax.x86_64 0:3.4-10.1.el6 will be installed
+---> Package perl-CGI.x86_64 0:3.51-127.el6 will be installed
+---> Package perl-Compress-Raw-Zlib.x86_64 1:2.020-127.el6 will be installed
+---> Package perl-ExtUtils-MakeMaker.x86_64 0:6.55-127.el6 will be installed
+--> Processing Dependency: perl-devel for package: perl-ExtUtils-MakeMaker-6.55-127.el6.x86_64
+---> Package perl-HTML-Tagset.noarch 0:3.20-4.el6 will be installed
+---> Package perl-IO-Compress-Base.x86_64 0:2.020-127.el6 will be installed
+---> Package perl-IO-Compress-Zlib.x86_64 0:2.020-127.el6 will be installed
+---> Package perl-Pod-Escapes.x86_64 1:1.04-127.el6 will be installed
+---> Package perl-Test-Harness.x86_64 0:3.17-127.el6 will be installed
+---> Package perl-Test-Simple.x86_64 0:0.92-127.el6 will be installed
+---> Package pulseaudio-libs.x86_64 0:0.9.21-13.el6 will be installed
+--> Processing Dependency: libsndfile.so.1(libsndfile.so.1.0)(64bit) for package: pulseaudio-libs-0.9.21-13.el6.x86_64
+--> Processing Dependency: libasyncns.so.0()(64bit) for package: pulseaudio-libs-0.9.21-13.el6.x86_64
+--> Processing Dependency: libsndfile.so.1()(64bit) for package: pulseaudio-libs-0.9.21-13.el6.x86_64
+---> Package redhat-lsb-graphics.x86_64 0:4.0-3.el6 will be installed
+--> Processing Dependency: libQtCore.so.4()(64bit) for package: redhat-lsb-graphics-4.0-3.el6.x86_64
+--> Processing Dependency: libGLU.so.1()(64bit) for package: redhat-lsb-graphics-4.0-3.el6.x86_64
+--> Processing Dependency: libqt-mt.so.3()(64bit) for package: redhat-lsb-graphics-4.0-3.el6.x86_64
+--> Processing Dependency: libQtSql.so.4()(64bit) for package: redhat-lsb-graphics-4.0-3.el6.x86_64
+--> Processing Dependency: libQtSvg.so.4()(64bit) for package: redhat-lsb-graphics-4.0-3.el6.x86_64
+--> Processing Dependency: libXt.so.6()(64bit) for package: redhat-lsb-graphics-4.0-3.el6.x86_64
+--> Processing Dependency: libQtXml.so.4()(64bit) for package: redhat-lsb-graphics-4.0-3.el6.x86_64
+--> Processing Dependency: libQtNetwork.so.4()(64bit) for package: redhat-lsb-graphics-4.0-3.el6.x86_64
+--> Processing Dependency: libGL.so.1()(64bit) for package: redhat-lsb-graphics-4.0-3.el6.x86_64
+--> Processing Dependency: libQtOpenGL.so.4()(64bit) for package: redhat-lsb-graphics-4.0-3.el6.x86_64
+--> Processing Dependency: libQtGui.so.4()(64bit) for package: redhat-lsb-graphics-4.0-3.el6.x86_64
+---> Package redhat-lsb-printing.x86_64 0:4.0-3.el6 will be installed
+--> Processing Dependency: /usr/bin/gs for package: redhat-lsb-printing-4.0-3.el6.x86_64
+--> Processing Dependency: /usr/bin/lp for package: redhat-lsb-printing-4.0-3.el6.x86_64
+--> Processing Dependency: /usr/bin/foomatic-rip for package: redhat-lsb-printing-4.0-3.el6.x86_64
+--> Processing Dependency: /usr/bin/lpr for package: redhat-lsb-printing-4.0-3.el6.x86_64
+---> Package rhino.noarch 0:1.7-0.7.r2.2.el6 will be installed
+--> Processing Dependency: jline for package: rhino-1.7-0.7.r2.2.el6.noarch
+---> Package setools-libs.x86_64 0:3.3.7-4.el6 will be installed
+---> Package time.x86_64 0:1.7-37.1.el6 will be installed
+---> Package tomcat6-el-2.1-api.noarch 0:6.0.24-45.el6 will be installed
+---> Package tomcat6-jsp-2.1-api.noarch 0:6.0.24-45.el6 will be installed
+---> Package tomcat6-servlet-2.5-api.noarch 0:6.0.24-45.el6 will be installed
+---> Package tzdata-java.noarch 0:2012j-1.el6 will be installed
+---> Package xml-commons-apis.x86_64 0:1.3.04-3.6.el6 will be installed
+---> Package xml-commons-resolver.x86_64 0:1.1-4.18.el6 will be installed
+---> Package zip.x86_64 0:3.0-1.el6 will be installed
+--> Running transaction check
+---> Package cups.x86_64 1:1.4.2-48.el6 will be installed
+--> Processing Dependency: tmpwatch for package: 1:cups-1.4.2-48.el6.x86_64
+--> Processing Dependency: poppler-utils for package: 1:cups-1.4.2-48.el6.x86_64
+--> Processing Dependency: libgnutls.so.26(GNUTLS_1_4)(64bit) for package: 1:cups-1.4.2-48.el6.x86_64
+--> Processing Dependency: libgnutls.so.26()(64bit) for package: 1:cups-1.4.2-48.el6.x86_64
+--> Processing Dependency: libavahi-common.so.3()(64bit) for package: 1:cups-1.4.2-48.el6.x86_64
+--> Processing Dependency: libavahi-client.so.3()(64bit) for package: 1:cups-1.4.2-48.el6.x86_64
+---> Package cups-libs.x86_64 1:1.4.2-48.el6 will be installed
+---> Package cvs.x86_64 0:1.11.23-11.el6_2.1 will be installed
+---> Package foomatic.x86_64 0:4.0.4-1.el6_1.1 will be installed
+--> Processing Dependency: foomatic-db for package: foomatic-4.0.4-1.el6_1.1.x86_64
+---> Package ghostscript.x86_64 0:8.70-14.el6_3.1 will be installed
+--> Processing Dependency: urw-fonts >= 1.1 for package: ghostscript-8.70-14.el6_3.1.x86_64
+--> Processing Dependency: ghostscript-fonts for package: ghostscript-8.70-14.el6_3.1.x86_64
+---> Package hicolor-icon-theme.noarch 0:0.11-1.1.el6 will be installed
+---> Package jakarta-commons-discovery.noarch 1:0.4-5.4.el6 will be installed
+---> Package jakarta-commons-httpclient.x86_64 1:3.1-0.6.el6 will be installed
+---> Package jasper-libs.x86_64 0:1.900.1-15.el6_1.1 will be installed
+---> Package jline.noarch 0:0.9.94-0.8.el6 will be installed
+---> Package libX11-common.noarch 0:1.3-2.el6 will be installed
+---> Package libXcomposite.x86_64 0:0.4.1-2.el6 will be installed
+---> Package libXcursor.x86_64 0:1.1.10-2.el6 will be installed
+---> Package libXdamage.x86_64 0:1.1.2-1.el6 will be installed
+---> Package libXfixes.x86_64 0:4.0.4-1.el6 will be installed
+---> Package libXft.x86_64 0:2.1.13-4.1.el6 will be installed
+---> Package libXinerama.x86_64 0:1.1-1.el6 will be installed
+---> Package libXt.x86_64 0:1.0.7-1.el6 will be installed
+---> Package libasyncns.x86_64 0:0.8-1.1.el6 will be installed
+---> Package libgomp.x86_64 0:4.4.6-4.el6 will be installed
+---> Package libsndfile.x86_64 0:1.0.20-5.el6 will be installed
+--> Processing Dependency: libogg.so.0()(64bit) for package: libsndfile-1.0.20-5.el6.x86_64
+--> Processing Dependency: libvorbisenc.so.2()(64bit) for package: libsndfile-1.0.20-5.el6.x86_64
+--> Processing Dependency: libFLAC.so.8()(64bit) for package: libsndfile-1.0.20-5.el6.x86_64
+--> Processing Dependency: libvorbis.so.0()(64bit) for package: libsndfile-1.0.20-5.el6.x86_64
+---> Package libthai.x86_64 0:0.1.12-3.el6 will be installed
+---> Package libtiff.x86_64 0:3.9.4-9.el6_3 will be installed
+---> Package libxcb.x86_64 0:1.5-1.el6 will be installed
+--> Processing Dependency: libXau.so.6()(64bit) for package: libxcb-1.5-1.el6.x86_64
+---> Package mesa-libGL.x86_64 0:7.11-5.el6 will be installed
+--> Processing Dependency: mesa-dri-drivers(x86-64) = 7.11-5.el6 for package: mesa-libGL-7.11-5.el6.x86_64
+--> Processing Dependency: libXxf86vm.so.1()(64bit) for package: mesa-libGL-7.11-5.el6.x86_64
+---> Package mesa-libGLU.x86_64 0:7.11-5.el6 will be installed
+---> Package perl-devel.x86_64 4:5.10.1-127.el6 will be installed
+--> Processing Dependency: perl(ExtUtils::ParseXS) for package: 4:perl-devel-5.10.1-127.el6.x86_64
+---> Package pixman.x86_64 0:0.18.4-1.el6_0.1 will be installed
+---> Package qt.x86_64 1:4.6.2-24.el6 will be installed
+---> Package qt-x11.x86_64 1:4.6.2-24.el6 will be installed
+--> Processing Dependency: qt-sqlite(x86-64) = 1:4.6.2-24.el6 for package: 1:qt-x11-4.6.2-24.el6.x86_64
+--> Processing Dependency: phonon-backend(x86-64) >= 4.3 for package: 1:qt-x11-4.6.2-24.el6.x86_64
+--> Processing Dependency: libmng.so.1()(64bit) for package: 1:qt-x11-4.6.2-24.el6.x86_64
+--> Processing Dependency: libgstvideo-0.10.so.0()(64bit) for package: 1:qt-x11-4.6.2-24.el6.x86_64
+--> Processing Dependency: libgstreamer-0.10.so.0()(64bit) for package: 1:qt-x11-4.6.2-24.el6.x86_64
+--> Processing Dependency: libgstinterfaces-0.10.so.0()(64bit) for package: 1:qt-x11-4.6.2-24.el6.x86_64
+--> Processing Dependency: libgstbase-0.10.so.0()(64bit) for package: 1:qt-x11-4.6.2-24.el6.x86_64
+---> Package qt3.x86_64 0:3.3.8b-30.el6 will be installed
+---> Package regexp.x86_64 0:1.5-4.4.el6 will be installed
+---> Package wsdl4j.noarch 0:1.5.2-7.8.el6 will be installed
+---> Package xz-lzma-compat.x86_64 0:4.999.9-0.3.beta.20091007git.el6 will be installed
+--> Processing Dependency: xz = 4.999.9-0.3.beta.20091007git.el6 for package: xz-lzma-compat-4.999.9-0.3.beta.20091007git.el6.x86_64
+--> Running transaction check
+---> Package avahi-libs.x86_64 0:0.6.25-11.el6 will be installed
+---> Package flac.x86_64 0:1.2.1-6.1.el6 will be installed
+---> Package foomatic-db.noarch 0:4.0-7.20091126.el6 will be installed
+--> Processing Dependency: foomatic-db-ppds = 4.0-7.20091126.el6 for package: foomatic-db-4.0-7.20091126.el6.noarch
+--> Processing Dependency: foomatic-db-filesystem = 4.0-7.20091126.el6 for package: foomatic-db-4.0-7.20091126.el6.noarch
+---> Package ghostscript-fonts.noarch 0:5.50-23.1.el6 will be installed
+--> Processing Dependency: xorg-x11-font-utils for package: ghostscript-fonts-5.50-23.1.el6.noarch
+---> Package gnutls.x86_64 0:2.8.5-4.el6_2.2 will be installed
+--> Processing Dependency: libtasn1.so.3(LIBTASN1_0_3)(64bit) for package: gnutls-2.8.5-4.el6_2.2.x86_64
+--> Processing Dependency: libtasn1.so.3()(64bit) for package: gnutls-2.8.5-4.el6_2.2.x86_64
+---> Package gstreamer.x86_64 0:0.10.29-1.el6 will be installed
+--> Processing Dependency: gstreamer-tools >= 0.10.29 for package: gstreamer-0.10.29-1.el6.x86_64
+---> Package gstreamer-plugins-base.x86_64 0:0.10.29-1.el6 will be installed
+--> Processing Dependency: liboil >= 0.3.12-9 for package: gstreamer-plugins-base-0.10.29-1.el6.x86_64
+--> Processing Dependency: libtheoraenc.so.1(libtheoraenc_1.0)(64bit) for package: gstreamer-plugins-base-0.10.29-1.el6.x86_64
+--> Processing Dependency: libtheoradec.so.1(libtheoradec_1.0)(64bit) for package: gstreamer-plugins-base-0.10.29-1.el6.x86_64
+--> Processing Dependency: iso-codes for package: gstreamer-plugins-base-0.10.29-1.el6.x86_64
+--> Processing Dependency: libtheoradec.so.1()(64bit) for package: gstreamer-plugins-base-0.10.29-1.el6.x86_64
+--> Processing Dependency: libcdda_interface.so.0()(64bit) for package: gstreamer-plugins-base-0.10.29-1.el6.x86_64
+--> Processing Dependency: libXv.so.1()(64bit) for package: gstreamer-plugins-base-0.10.29-1.el6.x86_64
+--> Processing Dependency: libgudev-1.0.so.0()(64bit) for package: gstreamer-plugins-base-0.10.29-1.el6.x86_64
+--> Processing Dependency: libtheoraenc.so.1()(64bit) for package: gstreamer-plugins-base-0.10.29-1.el6.x86_64
+--> Processing Dependency: libcdda_paranoia.so.0()(64bit) for package: gstreamer-plugins-base-0.10.29-1.el6.x86_64
+--> Processing Dependency: libvisual-0.4.so.0()(64bit) for package: gstreamer-plugins-base-0.10.29-1.el6.x86_64
+--> Processing Dependency: liboil-0.3.so.0()(64bit) for package: gstreamer-plugins-base-0.10.29-1.el6.x86_64
+---> Package libXau.x86_64 0:1.0.5-1.el6 will be installed
+---> Package libXxf86vm.x86_64 0:1.1.0-1.el6 will be installed
+---> Package libmng.x86_64 0:1.0.10-4.1.el6 will be installed
+--> Processing Dependency: liblcms.so.1()(64bit) for package: libmng-1.0.10-4.1.el6.x86_64
+---> Package libogg.x86_64 2:1.1.4-2.1.el6 will be installed
+---> Package libvorbis.x86_64 1:1.2.3-4.el6_2.1 will be installed
+---> Package mesa-dri-drivers.x86_64 0:7.11-5.el6 will be installed
+---> Package perl-ExtUtils-ParseXS.x86_64 1:2.2003.0-127.el6 will be installed
+---> Package phonon-backend-gstreamer.x86_64 1:4.6.2-24.el6 will be installed
+---> Package poppler-utils.x86_64 0:0.12.4-3.el6_0.1 will be installed
+--> Processing Dependency: poppler = 0.12.4-3.el6_0.1 for package: poppler-utils-0.12.4-3.el6_0.1.x86_64
+--> Processing Dependency: libopenjpeg.so.2()(64bit) for package: poppler-utils-0.12.4-3.el6_0.1.x86_64
+--> Processing Dependency: libpoppler.so.5()(64bit) for package: poppler-utils-0.12.4-3.el6_0.1.x86_64
+---> Package qt-sqlite.x86_64 1:4.6.2-24.el6 will be installed
+---> Package tmpwatch.x86_64 0:2.9.16-4.el6 will be installed
+---> Package urw-fonts.noarch 0:2.4-10.el6 will be installed
+---> Package xz.x86_64 0:4.999.9-0.3.beta.20091007git.el6 will be installed
+--> Running transaction check
+---> Package cdparanoia-libs.x86_64 0:10.2-5.1.el6 will be installed
+---> Package foomatic-db-filesystem.noarch 0:4.0-7.20091126.el6 will be installed
+---> Package foomatic-db-ppds.noarch 0:4.0-7.20091126.el6 will be installed
+---> Package gstreamer-tools.x86_64 0:0.10.29-1.el6 will be installed
+--> Processing Dependency: pkgconfig for package: gstreamer-tools-0.10.29-1.el6.x86_64
+---> Package iso-codes.noarch 0:3.16-2.el6 will be installed
+--> Processing Dependency: xml-common for package: iso-codes-3.16-2.el6.noarch
+---> Package lcms-libs.x86_64 0:1.19-1.el6 will be installed
+---> Package libXv.x86_64 0:1.0.5-1.el6 will be installed
+---> Package libgudev1.x86_64 0:147-2.41.el6 will be installed
+---> Package liboil.x86_64 0:0.3.16-4.1.el6 will be installed
+---> Package libtasn1.x86_64 0:2.3-3.el6_2.1 will be installed
+---> Package libtheora.x86_64 1:1.1.0-2.el6 will be installed
+---> Package libvisual.x86_64 0:0.4.0-9.1.el6 will be installed
+---> Package openjpeg-libs.x86_64 0:1.3-9.el6_3 will be installed
+---> Package poppler.x86_64 0:0.12.4-3.el6_0.1 will be installed
+--> Processing Dependency: poppler-data >= 0.4.0 for package: poppler-0.12.4-3.el6_0.1.x86_64
+---> Package xorg-x11-font-utils.x86_64 1:7.2-11.el6 will be installed
+--> Processing Dependency: libfontenc.so.1()(64bit) for package: 1:xorg-x11-font-utils-7.2-11.el6.x86_64
+--> Processing Dependency: libXfont.so.1()(64bit) for package: 1:xorg-x11-font-utils-7.2-11.el6.x86_64
+--> Running transaction check
+---> Package libXfont.x86_64 0:1.4.1-2.el6_1 will be installed
+---> Package libfontenc.x86_64 0:1.0.5-2.el6 will be installed
+---> Package pkgconfig.x86_64 1:0.23-9.1.el6 will be installed
+---> Package poppler-data.noarch 0:0.4.0-1.el6 will be installed
+---> Package xml-common.noarch 0:0.6.3-32.el6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                     Arch   Version                 Repository     Size
+================================================================================
+Installing:
+ emi-voms-mysql              x86_64 1.0.1-1.el6             EMI-2-base    2.5 k
+Installing for dependencies:
+ PyXML                       x86_64 0.8.4-19.el6            sl            892 k
+ alsa-lib                    x86_64 1.0.22-3.el6            sl            369 k
+ at                          x86_64 3.1.10-43.el6_2.1       sl             59 k
+ atk                         x86_64 1.28.0-2.el6            sl            190 k
+ audit-libs-python           x86_64 2.2-2.el6               sl             58 k
+ avahi-libs                  x86_64 0.6.25-11.el6           sl             53 k
+ axis                        noarch 1.2.1-7.2.el6           sl            1.5 M
+ bc                          x86_64 1.06.95-1.el6           sl            109 k
+ bcel                        x86_64 5.2-7.2.el6             sl            1.4 M
+ bdii                        noarch 5.2.12-1.el6            EMI-2-updates  22 k
+ bouncycastle                noarch 1.46-1.el6              epel          2.3 M
+ cairo                       x86_64 1.8.8-3.1.el6           sl            308 k
+ cdparanoia-libs             x86_64 10.2-5.1.el6            sl             47 k
+ classpathx-jaf              x86_64 1.0-15.4.el6            sl             99 k
+ classpathx-mail             noarch 1.1.1-9.4.el6           sl            478 k
+ cups                        x86_64 1:1.4.2-48.el6          sl            2.3 M
+ cups-libs                   x86_64 1:1.4.2-48.el6          sl            315 k
+ cvs                         x86_64 1.11.23-11.el6_2.1      sl            711 k
+ ecj                         x86_64 1:3.4.2-6.el6           sl            2.8 M
+ ed                          x86_64 1.1-3.3.el6             sl             71 k
+ emi-trustmanager            noarch 3.1.4-1.sl6             EMI-2-updates 249 k
+ emi-trustmanager-tomcat     noarch 3.0.1-1.sl6             EMI-2-base     28 k
+ expect                      x86_64 5.44.1.15-4.el6         sl            255 k
+ fetch-crl                   noarch 3.0.8-1.el6             epel           45 k
+ flac                        x86_64 1.2.1-6.1.el6           sl            242 k
+ fontconfig                  x86_64 2.8.0-3.el6             sl            185 k
+ foomatic                    x86_64 4.0.4-1.el6_1.1         sl            250 k
+ foomatic-db                 noarch 4.0-7.20091126.el6      sl            979 k
+ foomatic-db-filesystem      noarch 4.0-7.20091126.el6      sl            3.4 k
+ foomatic-db-ppds            noarch 4.0-7.20091126.el6      sl             19 M
+ freetype                    x86_64 2.3.11-14.el6_3.1       sl-security   358 k
+ gettext                     x86_64 0.17-16.el6             sl            1.8 M
+ ghostscript                 x86_64 8.70-14.el6_3.1         sl-security   4.4 M
+ ghostscript-fonts           noarch 5.50-23.1.el6           sl            749 k
+ giflib                      x86_64 4.1.6-3.1.el6           sl             36 k
+ glite-info-provider-service noarch 1.9.0-5.el6             EMI-2-updates  61 k
+ glite-yaim-bdii             noarch 4.3.11-1.el6            EMI-2-updates  10 k
+ glite-yaim-core             noarch 5.1.0-1.sl6             EMI-2-base    102 k
+ glue-schema                 noarch 2.0.8-2.el6             EMI-2-updates  31 k
+ gnutls                      x86_64 2.8.5-4.el6_2.2         sl            341 k
+ gstreamer                   x86_64 0.10.29-1.el6           sl            763 k
+ gstreamer-plugins-base      x86_64 0.10.29-1.el6           sl            942 k
+ gstreamer-tools             x86_64 0.10.29-1.el6           sl             22 k
+ gtk2                        x86_64 2.18.9-10.el6           sl            3.3 M
+ hicolor-icon-theme          noarch 0.11-1.1.el6            sl             39 k
+ iso-codes                   noarch 3.16-2.el6              sl            2.4 M
+ jakarta-commons-collections noarch 3.2.1-3.4.el6           sl            522 k
+ jakarta-commons-daemon      x86_64 1:1.0.1-8.9.el6         sl             44 k
+ jakarta-commons-dbcp        noarch 1.2.1-13.8.el6          sl            115 k
+ jakarta-commons-discovery   noarch 1:0.4-5.4.el6           sl             72 k
+ jakarta-commons-httpclient  x86_64 1:3.1-0.6.el6           sl            579 k
+ jakarta-commons-logging     noarch 1.0.4-10.el6            sl             51 k
+ jakarta-commons-pool        x86_64 1.3-12.7.el6            sl            121 k
+ jasper-libs                 x86_64 1.900.1-15.el6_1.1      sl            135 k
+ java-1.5.0-gcj              x86_64 1.5.0.0-29.1.el6        sl            138 k
+ java-1.6.0-openjdk          x86_64 1:1.6.0.0-1.50.1.11.5.el6_3
+                                                            sl-security    25 M
+ java_cup                    x86_64 1:0.10k-5.el6           sl            196 k
+ jline                       noarch 0.9.94-0.8.el6          sl             85 k
+ jpackage-utils              noarch 1.7.5-3.12.el6          sl             58 k
+ lcms-libs                   x86_64 1.19-1.el6              sl             99 k
+ libICE                      x86_64 1.0.6-1.el6             sl             52 k
+ libSM                       x86_64 1.1.0-7.1.el6           sl             25 k
+ libX11                      x86_64 1.3-2.el6               sl            581 k
+ libX11-common               noarch 1.3-2.el6               sl            187 k
+ libXau                      x86_64 1.0.5-1.el6             sl             21 k
+ libXcomposite               x86_64 0.4.1-2.el6             sl             16 k
+ libXcursor                  x86_64 1.1.10-2.el6            sl             31 k
+ libXdamage                  x86_64 1.1.2-1.el6             sl             15 k
+ libXext                     x86_64 1.1-3.el6               sl             32 k
+ libXfixes                   x86_64 4.0.4-1.el6             sl             19 k
+ libXfont                    x86_64 1.4.1-2.el6_1           sl            127 k
+ libXft                      x86_64 2.1.13-4.1.el6          sl             48 k
+ libXi                       x86_64 1.3-3.el6               sl             31 k
+ libXinerama                 x86_64 1.1-1.el6               sl             14 k
+ libXrandr                   x86_64 1.3.0-4.el6             sl             29 k
+ libXrender                  x86_64 0.9.5-1.el6             sl             26 k
+ libXt                       x86_64 1.0.7-1.el6             sl            173 k
+ libXtst                     x86_64 1.0.99.2-3.el6          sl             21 k
+ libXv                       x86_64 1.0.5-1.el6             sl             20 k
+ libXxf86vm                  x86_64 1.1.0-1.el6             sl             18 k
+ libart_lgpl                 x86_64 2.3.20-5.1.el6          epel           65 k
+ libasyncns                  x86_64 0.8-1.1.el6             sl             23 k
+ libcgroup                   x86_64 0.37-4.el6              sl            103 k
+ libfontenc                  x86_64 1.0.5-2.el6             sl             24 k
+ libgcj                      x86_64 4.4.6-4.el6             sl             19 M
+ libgomp                     x86_64 4.4.6-4.el6             sl            116 k
+ libgudev1                   x86_64 147-2.41.el6            sl             58 k
+ libjpeg                     x86_64 6b-46.el6               sl            133 k
+ libmng                      x86_64 1.0.10-4.1.el6          sl            164 k
+ libogg                      x86_64 2:1.1.4-2.1.el6         sl             20 k
+ liboil                      x86_64 0.3.16-4.1.el6          sl            120 k
+ libpng                      x86_64 2:1.2.49-1.el6_2        sl            181 k
+ libselinux-python           x86_64 2.0.94-5.3.el6          sl            201 k
+ libsemanage-python          x86_64 2.0.43-4.1.el6          sl             80 k
+ libsndfile                  x86_64 1.0.20-5.el6            sl            232 k
+ libtasn1                    x86_64 2.3-3.el6_2.1           sl            237 k
+ libthai                     x86_64 0.1.12-3.el6            sl            182 k
+ libtheora                   x86_64 1:1.1.0-2.el6           sl            128 k
+ libtiff                     x86_64 3.9.4-9.el6_3           sl-security   341 k
+ libtool-ltdl                x86_64 2.2.6-15.5.el6          sl             43 k
+ libvisual                   x86_64 0.4.0-9.1.el6           sl            134 k
+ libvorbis                   x86_64 1:1.2.3-4.el6_2.1       sl            167 k
+ libxcb                      x86_64 1.5-1.el6               sl             99 k
+ log4j                       x86_64 1.2.14-6.4.el6          sl            678 k
+ mailcap                     noarch 2.1.31-2.el6            sl             26 k
+ make                        x86_64 1:3.81-20.el6           sl            388 k
+ man                         x86_64 1.6f-30.el6             sl            262 k
+ mesa-dri-drivers            x86_64 7.11-5.el6              sl             11 M
+ mesa-libGL                  x86_64 7.11-5.el6              sl            144 k
+ mesa-libGLU                 x86_64 7.11-5.el6              sl            200 k
+ mx4j                        noarch 1:3.0.1-9.13.el6        sl            1.1 M
+ mysql                       x86_64 5.1.67-1.el6_3          sl-security   885 k
+ mysql-server                x86_64 5.1.67-1.el6_3          sl-security   8.6 M
+ openjpeg-libs               x86_64 1.3-9.el6_3             sl-security    58 k
+ openldap-clients            x86_64 2.4.23-26.el6_3.2       sl-security   163 k
+ openldap-servers            x86_64 2.4.23-26.el6_3.2       sl-security   2.0 M
+ pango                       x86_64 1.28.1-3.el6_0.5        sl            350 k
+ patch                       x86_64 2.6-6.el6               sl             90 k
+ pax                         x86_64 3.4-10.1.el6            sl             68 k
+ perl                        x86_64 4:5.10.1-127.el6        sl             10 M
+ perl-CGI                    x86_64 3.51-127.el6            sl            206 k
+ perl-Compress-Raw-Zlib      x86_64 1:2.020-127.el6         sl             67 k
+ perl-Compress-Zlib          x86_64 2.020-127.el6           sl             42 k
+ perl-DBD-MySQL              x86_64 4.013-3.el6             sl            133 k
+ perl-DBI                    x86_64 1.609-4.el6             sl            704 k
+ perl-ExtUtils-MakeMaker     x86_64 6.55-127.el6            sl            290 k
+ perl-ExtUtils-ParseXS       x86_64 1:2.2003.0-127.el6      sl             42 k
+ perl-HTML-Parser            x86_64 3.64-2.el6              sl            108 k
+ perl-HTML-Tagset            noarch 3.20-4.el6              sl             15 k
+ perl-IO-Compress-Base       x86_64 2.020-127.el6           sl             66 k
+ perl-IO-Compress-Zlib       x86_64 2.020-127.el6           sl            133 k
+ perl-Module-Pluggable       x86_64 1:3.90-127.el6          sl             37 k
+ perl-Pod-Escapes            x86_64 1:1.04-127.el6          sl             30 k
+ perl-Pod-Simple             x86_64 1:3.13-127.el6          sl            209 k
+ perl-Test-Harness           x86_64 3.17-127.el6            sl            229 k
+ perl-Test-Simple            x86_64 0.92-127.el6            sl            110 k
+ perl-URI                    noarch 1.40-2.el6              sl            116 k
+ perl-devel                  x86_64 4:5.10.1-127.el6        sl            420 k
+ perl-libs                   x86_64 4:5.10.1-127.el6        sl            575 k
+ perl-libwww-perl            noarch 5.833-2.el6             sl            386 k
+ perl-version                x86_64 3:0.77-127.el6          sl             48 k
+ phonon-backend-gstreamer    x86_64 1:4.6.2-24.el6          sl            125 k
+ pixman                      x86_64 0.18.4-1.el6_0.1        sl            146 k
+ pkgconfig                   x86_64 1:0.23-9.1.el6          sl             69 k
+ policycoreutils-python      x86_64 2.0.83-19.24.el6        sl            339 k
+ poppler                     x86_64 0.12.4-3.el6_0.1        sl            556 k
+ poppler-data                noarch 0.4.0-1.el6             sl            2.2 M
+ poppler-utils               x86_64 0.12.4-3.el6_0.1        sl             72 k
+ portreserve                 x86_64 0.0.4-9.el6             sl             22 k
+ pulseaudio-libs             x86_64 0.9.21-13.el6           sl            461 k
+ python-ZSI                  noarch 2.0-6.el6               epel          421 k
+ python-simplejson           x86_64 2.0.9-3.1.el6           sl            126 k
+ qt                          x86_64 1:4.6.2-24.el6          sl            4.0 M
+ qt-sqlite                   x86_64 1:4.6.2-24.el6          sl             50 k
+ qt-x11                      x86_64 1:4.6.2-24.el6          sl             12 M
+ qt3                         x86_64 3.3.8b-30.el6           sl            3.5 M
+ redhat-lsb                  x86_64 4.0-3.el6               sl             23 k
+ redhat-lsb-graphics         x86_64 4.0-3.el6               sl             11 k
+ redhat-lsb-printing         x86_64 4.0-3.el6               sl            9.6 k
+ regexp                      x86_64 1.5-4.4.el6             sl            104 k
+ rhino                       noarch 1.7-0.7.r2.2.el6        sl            777 k
+ setools-libs                x86_64 3.3.7-4.el6             sl            399 k
+ setools-libs-python         x86_64 3.3.7-4.el6             sl            221 k
+ sinjdoc                     x86_64 0.5-9.1.el6             sl            704 k
+ tcl                         x86_64 1:8.5.7-6.el6           sl            1.9 M
+ time                        x86_64 1.7-37.1.el6            sl             25 k
+ tmpwatch                    x86_64 2.9.16-4.el6            sl             30 k
+ tomcat6                     noarch 6.0.24-45.el6           sl             86 k
+ tomcat6-el-2.1-api          noarch 6.0.24-45.el6           sl             42 k
+ tomcat6-jsp-2.1-api         noarch 6.0.24-45.el6           sl             79 k
+ tomcat6-lib                 noarch 6.0.24-45.el6           sl            2.8 M
+ tomcat6-servlet-2.5-api     noarch 6.0.24-45.el6           sl             93 k
+ tzdata-java                 noarch 2012j-1.el6             sl-security   154 k
+ urw-fonts                   noarch 2.4-10.el6              sl            3.0 M
+ voms                        x86_64 2.0.9-1.el6             EMI-2-updates 136 k
+ voms-admin-client           noarch 2.0.17-1.el6            EMI-2-base     67 k
+ voms-admin-server           noarch 2.7.0-1.el6             EMI-2-base     60 M
+ voms-mysql-plugin           x86_64 3.1.6-1.el6             EMI-2-base     24 k
+ voms-server                 x86_64 2.0.9-1.el6             EMI-2-updates 170 k
+ wsdl4j                      noarch 1.5.2-7.8.el6           sl            156 k
+ xml-common                  noarch 0.6.3-32.el6            sl            8.4 k
+ xml-commons-apis            x86_64 1.3.04-3.6.el6          sl            438 k
+ xml-commons-resolver        x86_64 1.1-4.18.el6            sl            144 k
+ xorg-x11-font-utils         x86_64 1:7.2-11.el6            sl             74 k
+ xz                          x86_64 4.999.9-0.3.beta.20091007git.el6
+                                                            sl            136 k
+ xz-lzma-compat              x86_64 4.999.9-0.3.beta.20091007git.el6
+                                                            sl             15 k
+ yaim-voms                   noarch 1.1.1-1.el6             EMI-2-base     24 k
+ zip                         x86_64 3.0-1.el6               sl            259 k
+Updating for dependencies:
+ mysql-libs                  x86_64 5.1.67-1.el6_3          sl-security   1.2 M
+
+Transaction Summary
+================================================================================
+Install     189 Package(s)
+Upgrade       1 Package(s)
+
+Total download size: 238 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           2.3 MB/s | 238 MB     01:44     
+warning: rpmts_HdrFromFdno: Header V3 DSA/SHA1 Signature, key ID df9e12ef: NOKEY
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-emi
+Importing GPG key 0xDF9E12EF:
+ Userid : Doina Cristina Aiftimiei (EMI Release Manager) <aiftim@pd.infn.it>
+ Package: emi-release-2.0.0-1.sl6.noarch (@/emi-release-2.0.0-1.sl6.noarch)
+ From   : /etc/pki/rpm-gpg/RPM-GPG-KEY-emi
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : freetype-2.3.11-14.el6_3.1.x86_64                          1/191 
+  Installing : fontconfig-2.8.0-3.el6.x86_64                              2/191 
+  Installing : libjpeg-6b-46.el6.x86_64                                   3/191 
+  Installing : 2:libpng-1.2.49-1.el6_2.x86_64                             4/191 
+  Installing : libICE-1.0.6-1.el6.x86_64                                  5/191 
+  Installing : jpackage-utils-1.7.5-3.12.el6.noarch                       6/191 
+  Installing : libSM-1.1.0-7.1.el6.x86_64                                 7/191 
+  Installing : alsa-lib-1.0.22-3.el6.x86_64                               8/191 
+  Installing : 2:libogg-1.1.4-2.1.el6.x86_64                              9/191 
+  Installing : jakarta-commons-logging-1.0.4-10.el6.noarch               10/191 
+  Installing : 1:qt-4.6.2-24.el6.x86_64                                  11/191 
+  Updating   : mysql-libs-5.1.67-1.el6_3.x86_64                          12/191 
+  Installing : libtiff-3.9.4-9.el6_3.x86_64                              13/191 
+  Installing : jakarta-commons-collections-3.2.1-3.4.el6.noarch          14/191 
+  Installing : 1:make-3.81-20.el6.x86_64                                 15/191 
+  Installing : lcms-libs-1.19-1.el6.x86_64                               16/191 
+  Installing : atk-1.28.0-2.el6.x86_64                                   17/191 
+  Installing : libmng-1.0.10-4.1.el6.x86_64                              18/191 
+  Installing : 1:libvorbis-1.2.3-4.el6_2.1.x86_64                        19/191 
+  Installing : jasper-libs-1.900.1-15.el6_1.1.x86_64                     20/191 
+  Installing : avahi-libs-0.6.25-11.el6.x86_64                           21/191 
+  Installing : tomcat6-servlet-2.5-api-6.0.24-45.el6.noarch              22/191 
+  Installing : foomatic-db-filesystem-4.0-7.20091126.el6.noarch          23/191 
+  Installing : 1:pkgconfig-0.23-9.1.el6.x86_64                           24/191 
+  Installing : portreserve-0.0.4-9.el6.x86_64                            25/191 
+  Installing : PyXML-0.8.4-19.el6.x86_64                                 26/191 
+  Installing : openjpeg-libs-1.3-9.el6_3.x86_64                          27/191 
+  Installing : libfontenc-1.0.5-2.el6.x86_64                             28/191 
+  Installing : libXfont-1.4.1-2.el6_1.x86_64                             29/191 
+  Installing : 1:xorg-x11-font-utils-7.2-11.el6.x86_64                   30/191 
+  Installing : ghostscript-fonts-5.50-23.1.el6.noarch                    31/191 
+  Installing : python-ZSI-2.0-6.el6.noarch                               32/191 
+  Installing : gstreamer-tools-0.10.29-1.el6.x86_64                      33/191 
+  Installing : gstreamer-0.10.29-1.el6.x86_64                            34/191 
+  Installing : tomcat6-jsp-2.1-api-6.0.24-45.el6.noarch                  35/191 
+  Installing : 1:qt-sqlite-4.6.2-24.el6.x86_64                           36/191 
+  Installing : 1:jakarta-commons-discovery-0.4-5.4.el6.noarch            37/191 
+  Installing : flac-1.2.1-6.1.el6.x86_64                                 38/191 
+  Installing : libsndfile-1.0.20-5.el6.x86_64                            39/191 
+  Installing : 1:libtheora-1.1.0-2.el6.x86_64                            40/191 
+  Installing : urw-fonts-2.4-10.el6.noarch                               41/191 
+  Installing : 1:perl-Pod-Escapes-1.04-127.el6.x86_64                    42/191 
+  Installing : 1:perl-Module-Pluggable-3.90-127.el6.x86_64               43/191 
+  Installing : 3:perl-version-0.77-127.el6.x86_64                        44/191 
+  Installing : 4:perl-libs-5.10.1-127.el6.x86_64                         45/191 
+  Installing : 1:perl-Pod-Simple-3.13-127.el6.x86_64                     46/191 
+  Installing : 4:perl-5.10.1-127.el6.x86_64                              47/191 
+  Installing : perl-IO-Compress-Base-2.020-127.el6.x86_64                48/191 
+  Installing : perl-DBI-1.609-4.el6.x86_64                               49/191 
+  Installing : 1:perl-Compress-Raw-Zlib-2.020-127.el6.x86_64             50/191 
+  Installing : perl-IO-Compress-Zlib-2.020-127.el6.x86_64                51/191 
+  Installing : perl-Compress-Zlib-2.020-127.el6.x86_64                   52/191 
+  Installing : perl-DBD-MySQL-4.013-3.el6.x86_64                         53/191 
+  Installing : perl-ExtUtils-MakeMaker-6.55-127.el6.x86_64               54/191 
+  Installing : perl-Test-Harness-3.17-127.el6.x86_64                     55/191 
+  Installing : 4:perl-devel-5.10.1-127.el6.x86_64                        56/191 
+  Installing : 1:perl-ExtUtils-ParseXS-2.2003.0-127.el6.x86_64           57/191 
+  Installing : perl-Test-Simple-0.92-127.el6.x86_64                      58/191 
+  Installing : mysql-5.1.67-1.el6_3.x86_64                               59/191 
+  Installing : mysql-server-5.1.67-1.el6_3.x86_64                        60/191 
+  Installing : perl-CGI-3.51-127.el6.x86_64                              61/191 
+  Installing : glite-info-provider-service-1.9.0-5.el6.noarch            62/191 
+  Installing : perl-HTML-Tagset-3.20-4.el6.noarch                        63/191 
+  Installing : perl-HTML-Parser-3.64-2.el6.x86_64                        64/191 
+  Installing : perl-URI-1.40-2.el6.noarch                                65/191 
+  Installing : cvs-1.11.23-11.el6_2.1.x86_64                             66/191 
+  Installing : xml-common-0.6.3-32.el6.noarch                            67/191 
+  Installing : iso-codes-3.16-2.el6.noarch                               68/191 
+  Installing : glite-yaim-bdii-4.3.11-1.el6.noarch                       69/191 
+  Installing : mailcap-2.1.31-2.el6.noarch                               70/191 
+  Installing : perl-libwww-perl-5.833-2.el6.noarch                       71/191 
+  Installing : fetch-crl-3.0.8-1.el6.noarch                              72/191 
+  Installing : mesa-dri-drivers-7.11-5.el6.x86_64                        73/191 
+  Installing : jline-0.9.94-0.8.el6.noarch                               74/191 
+  Installing : rhino-1.7-0.7.r2.2.el6.noarch                             75/191 
+  Installing : openldap-clients-2.4.23-26.el6_3.2.x86_64                 76/191 
+  Installing : libthai-0.1.12-3.el6.x86_64                               77/191 
+  Installing : python-simplejson-2.0.9-3.1.el6.x86_64                    78/191 
+  Installing : voms-admin-client-2.0.17-1.el6.noarch                     79/191 
+  Installing : libXau-1.0.5-1.el6.x86_64                                 80/191 
+  Installing : libxcb-1.5-1.el6.x86_64                                   81/191 
+  Installing : libtasn1-2.3-3.el6_2.1.x86_64                             82/191 
+  Installing : gnutls-2.8.5-4.el6_2.2.x86_64                             83/191 
+  Installing : 1:cups-libs-1.4.2-48.el6.x86_64                           84/191 
+  Installing : patch-2.6-6.el6.x86_64                                    85/191 
+  Installing : tzdata-java-2012j-1.el6.noarch                            86/191 
+  Installing : libvisual-0.4.0-9.1.el6.x86_64                            87/191 
+  Installing : zip-3.0-1.el6.x86_64                                      88/191 
+  Installing : libgomp-4.4.6-4.el6.x86_64                                89/191 
+  Installing : gettext-0.17-16.el6.x86_64                                90/191 
+  Installing : libart_lgpl-2.3.20-5.1.el6.x86_64                         91/191 
+  Installing : 1:tcl-8.5.7-6.el6.x86_64                                  92/191 
+  Installing : expect-5.44.1.15-4.el6.x86_64                             93/191 
+  Installing : bc-1.06.95-1.el6.x86_64                                   94/191 
+  Installing : tmpwatch-2.9.16-4.el6.x86_64                              95/191 
+  Installing : libtool-ltdl-2.2.6-15.5.el6.x86_64                        96/191 
+  Installing : openldap-servers-2.4.23-26.el6_3.2.x86_64                 97/191 
+  Installing : at-3.1.10-43.el6_2.1.x86_64                               98/191 
+  Installing : poppler-data-0.4.0-1.el6.noarch                           99/191 
+  Installing : poppler-0.12.4-3.el6_0.1.x86_64                          100/191 
+  Installing : poppler-utils-0.12.4-3.el6_0.1.x86_64                    101/191 
+  Installing : 1:cups-1.4.2-48.el6.x86_64                               102/191 
+  Installing : foomatic-db-ppds-4.0-7.20091126.el6.noarch               103/191 
+  Installing : foomatic-db-4.0-7.20091126.el6.noarch                    104/191 
+  Installing : voms-2.0.9-1.el6.x86_64                                  105/191 
+  Installing : voms-server-2.0.9-1.el6.x86_64                           106/191 
+  Installing : voms-mysql-plugin-3.1.6-1.el6.x86_64                     107/191 
+  Installing : setools-libs-3.3.7-4.el6.x86_64                          108/191 
+  Installing : setools-libs-python-3.3.7-4.el6.x86_64                   109/191 
+  Installing : libasyncns-0.8-1.1.el6.x86_64                            110/191 
+  Installing : audit-libs-python-2.2-2.el6.x86_64                       111/191 
+  Installing : pixman-0.18.4-1.el6_0.1.x86_64                           112/191 
+  Installing : liboil-0.3.16-4.1.el6.x86_64                             113/191 
+  Installing : xz-4.999.9-0.3.beta.20091007git.el6.x86_64               114/191 
+  Installing : xz-lzma-compat-4.999.9-0.3.beta.20091007git.el6.x86_64   115/191 
+  Installing : man-1.6f-30.el6.x86_64                                   116/191 
+  Installing : pax-3.4-10.1.el6.x86_64                                  117/191 
+  Installing : libsemanage-python-2.0.43-4.1.el6.x86_64                 118/191 
+  Installing : ed-1.1-3.3.el6.x86_64                                    119/191 
+  Installing : cdparanoia-libs-10.2-5.1.el6.x86_64                      120/191 
+  Installing : libgudev1-147-2.41.el6.x86_64                            121/191 
+  Installing : glue-schema-2.0.8-2.el6.noarch                           122/191 
+  Installing : time-1.7-37.1.el6.x86_64                                 123/191 
+  Installing : hicolor-icon-theme-0.11-1.1.el6.noarch                   124/191 
+  Installing : libcgroup-0.37-4.el6.x86_64                              125/191 
+  Installing : libX11-common-1.3-2.el6.noarch                           126/191 
+  Installing : libX11-1.3-2.el6.x86_64                                  127/191 
+  Installing : libXext-1.1-3.el6.x86_64                                 128/191 
+  Installing : libXrender-0.9.5-1.el6.x86_64                            129/191 
+  Installing : cairo-1.8.8-3.1.el6.x86_64                               130/191 
+  Installing : libXi-1.3-3.el6.x86_64                                   131/191 
+  Installing : libXfixes-4.0.4-1.el6.x86_64                             132/191 
+  Installing : libXtst-1.0.99.2-3.el6.x86_64                            133/191 
+  Installing : libXrandr-1.3.0-4.el6.x86_64                             134/191 
+  Installing : libXcursor-1.1.10-2.el6.x86_64                           135/191 
+  Installing : libXft-2.1.13-4.1.el6.x86_64                             136/191 
+  Installing : pango-1.28.1-3.el6_0.5.x86_64                            137/191 
+  Installing : libXinerama-1.1-1.el6.x86_64                             138/191 
+  Installing : libXdamage-1.1.2-1.el6.x86_64                            139/191 
+  Installing : libXt-1.0.7-1.el6.x86_64                                 140/191 
+  Installing : ghostscript-8.70-14.el6_3.1.x86_64                       141/191 
+  Installing : foomatic-4.0.4-1.el6_1.1.x86_64                          142/191 
+  Installing : redhat-lsb-printing-4.0-3.el6.x86_64                     143/191 
+  Installing : qt3-3.3.8b-30.el6.x86_64                                 144/191 
+  Installing : pulseaudio-libs-0.9.21-13.el6.x86_64                     145/191 
+  Installing : libXcomposite-0.4.1-2.el6.x86_64                         146/191 
+  Installing : gtk2-2.18.9-10.el6.x86_64                                147/191 
+  Installing : libgcj-4.4.6-4.el6.x86_64                                148/191 
+  Installing : java-1.5.0-gcj-1.5.0.0-29.1.el6.x86_64                   149/191 
+  Installing : 1:java_cup-0.10k-5.el6.x86_64                            150/191 
+  Installing : sinjdoc-0.5-9.1.el6.x86_64                               151/191 
+  Installing : classpathx-jaf-1.0-15.4.el6.x86_64                       152/191 
+  Installing : jakarta-commons-pool-1.3-12.7.el6.x86_64                 153/191 
+  Installing : xml-commons-apis-1.3.04-3.6.el6.x86_64                   154/191 
+  Installing : log4j-1.2.14-6.4.el6.x86_64                              155/191 
+  Installing : jakarta-commons-dbcp-1.2.1-13.8.el6.noarch               156/191 
+  Installing : xml-commons-resolver-1.1-4.18.el6.x86_64                 157/191 
+  Installing : 1:ecj-3.4.2-6.el6.x86_64                                 158/191 
+  Installing : 1:jakarta-commons-httpclient-3.1-0.6.el6.x86_64          159/191 
+  Installing : 1:jakarta-commons-daemon-1.0.1-8.9.el6.x86_64            160/191 
+  Installing : libXv-1.0.5-1.el6.x86_64                                 161/191 
+  Installing : gstreamer-plugins-base-0.10.29-1.el6.x86_64              162/191 
+  Installing : libXxf86vm-1.1.0-1.el6.x86_64                            163/191 
+  Installing : mesa-libGL-7.11-5.el6.x86_64                             164/191 
+  Installing : mesa-libGLU-7.11-5.el6.x86_64                            165/191 
+  Installing : 1:phonon-backend-gstreamer-4.6.2-24.el6.x86_64           166/191 
+  Installing : 1:qt-x11-4.6.2-24.el6.x86_64                             167/191 
+  Installing : redhat-lsb-graphics-4.0-3.el6.x86_64                     168/191 
+  Installing : redhat-lsb-4.0-3.el6.x86_64                              169/191 
+  Installing : glite-yaim-core-5.1.0-1.sl6.noarch                       170/191 
+  Installing : yaim-voms-1.1.1-1.el6.noarch                             171/191 
+  Installing : giflib-4.1.6-3.1.el6.x86_64                              172/191 
+  Installing : 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64    173/191 
+  Installing : classpathx-mail-1.1.1-9.4.el6.noarch                     174/191 
+  Installing : emi-trustmanager-3.1.4-1.sl6.noarch                      175/191 
+  Installing : bouncycastle-1.46-1.el6.noarch                           176/191 
+  Installing : emi-trustmanager-tomcat-3.0.1-1.sl6.noarch               177/191 
+  Installing : regexp-1.5-4.4.el6.x86_64                                178/191 
+  Installing : bcel-5.2-7.2.el6.x86_64                                  179/191 
+  Installing : wsdl4j-1.5.2-7.8.el6.noarch                              180/191 
+  Installing : axis-1.2.1-7.2.el6.noarch                                181/191 
+  Installing : 1:mx4j-3.0.1-9.13.el6.noarch                             182/191 
+  Installing : libselinux-python-2.0.94-5.3.el6.x86_64                  183/191 
+  Installing : policycoreutils-python-2.0.83-19.24.el6.x86_64           184/191 
+  Installing : bdii-5.2.12-1.el6.noarch                                 185/191 
+  Installing : tomcat6-el-2.1-api-6.0.24-45.el6.noarch                  186/191 
+  Installing : tomcat6-lib-6.0.24-45.el6.noarch                         187/191 
+  Installing : tomcat6-6.0.24-45.el6.noarch                             188/191 
+  Installing : voms-admin-server-2.7.0-1.el6.noarch                     189/191 
+  Installing : emi-voms-mysql-1.0.1-1.el6.x86_64                        190/191 
+  Cleanup    : mysql-libs-5.1.66-2.el6_3.x86_64                         191/191 
+  Verifying  : tomcat6-el-2.1-api-6.0.24-45.el6.noarch                    1/191 
+  Verifying  : 1:perl-ExtUtils-ParseXS-2.2003.0-127.el6.x86_64            2/191 
+  Verifying  : libselinux-python-2.0.94-5.3.el6.x86_64                    3/191 
+  Verifying  : atk-1.28.0-2.el6.x86_64                                    4/191 
+  Verifying  : mysql-libs-5.1.67-1.el6_3.x86_64                           5/191 
+  Verifying  : 1:java_cup-0.10k-5.el6.x86_64                              6/191 
+  Verifying  : libX11-common-1.3-2.el6.noarch                             7/191 
+  Verifying  : foomatic-4.0.4-1.el6_1.1.x86_64                            8/191 
+  Verifying  : libcgroup-0.37-4.el6.x86_64                                9/191 
+  Verifying  : emi-voms-mysql-1.0.1-1.el6.x86_64                         10/191 
+  Verifying  : 1:perl-Pod-Escapes-1.04-127.el6.x86_64                    11/191 
+  Verifying  : 1:xorg-x11-font-utils-7.2-11.el6.x86_64                   12/191 
+  Verifying  : hicolor-icon-theme-0.11-1.1.el6.noarch                    13/191 
+  Verifying  : regexp-1.5-4.4.el6.x86_64                                 14/191 
+  Verifying  : pango-1.28.1-3.el6_0.5.x86_64                             15/191 
+  Verifying  : ghostscript-fonts-5.50-23.1.el6.noarch                    16/191 
+  Verifying  : gettext-0.17-16.el6.x86_64                                17/191 
+  Verifying  : 1:cups-libs-1.4.2-48.el6.x86_64                           18/191 
+  Verifying  : time-1.7-37.1.el6.x86_64                                  19/191 
+  Verifying  : java-1.5.0-gcj-1.5.0.0-29.1.el6.x86_64                    20/191 
+  Verifying  : xz-lzma-compat-4.999.9-0.3.beta.20091007git.el6.x86_64    21/191 
+  Verifying  : glue-schema-2.0.8-2.el6.noarch                            22/191 
+  Verifying  : libXv-1.0.5-1.el6.x86_64                                  23/191 
+  Verifying  : bdii-5.2.12-1.el6.noarch                                  24/191 
+  Verifying  : 1:jakarta-commons-discovery-0.4-5.4.el6.noarch            25/191 
+  Verifying  : perl-IO-Compress-Base-2.020-127.el6.x86_64                26/191 
+  Verifying  : 2:libpng-1.2.49-1.el6_2.x86_64                            27/191 
+  Verifying  : perl-DBI-1.609-4.el6.x86_64                               28/191 
+  Verifying  : mysql-5.1.67-1.el6_3.x86_64                               29/191 
+  Verifying  : voms-admin-client-2.0.17-1.el6.noarch                     30/191 
+  Verifying  : libXcursor-1.1.10-2.el6.x86_64                            31/191 
+  Verifying  : libgudev1-147-2.41.el6.x86_64                             32/191 
+  Verifying  : libfontenc-1.0.5-2.el6.x86_64                             33/191 
+  Verifying  : cdparanoia-libs-10.2-5.1.el6.x86_64                       34/191 
+  Verifying  : ed-1.1-3.3.el6.x86_64                                     35/191 
+  Verifying  : libsemanage-python-2.0.43-4.1.el6.x86_64                  36/191 
+  Verifying  : libXt-1.0.7-1.el6.x86_64                                  37/191 
+  Verifying  : mesa-libGL-7.11-5.el6.x86_64                              38/191 
+  Verifying  : flac-1.2.1-6.1.el6.x86_64                                 39/191 
+  Verifying  : pax-3.4-10.1.el6.x86_64                                   40/191 
+  Verifying  : yaim-voms-1.1.1-1.el6.noarch                              41/191 
+  Verifying  : libXrender-0.9.5-1.el6.x86_64                             42/191 
+  Verifying  : gstreamer-0.10.29-1.el6.x86_64                            43/191 
+  Verifying  : 1:cups-1.4.2-48.el6.x86_64                                44/191 
+  Verifying  : xz-4.999.9-0.3.beta.20091007git.el6.x86_64                45/191 
+  Verifying  : giflib-4.1.6-3.1.el6.x86_64                               46/191 
+  Verifying  : gnutls-2.8.5-4.el6_2.2.x86_64                             47/191 
+  Verifying  : 1:ecj-3.4.2-6.el6.x86_64                                  48/191 
+  Verifying  : voms-admin-server-2.7.0-1.el6.noarch                      49/191 
+  Verifying  : liboil-0.3.16-4.1.el6.x86_64                              50/191 
+  Verifying  : classpathx-mail-1.1.1-9.4.el6.noarch                      51/191 
+  Verifying  : pixman-0.18.4-1.el6_0.1.x86_64                            52/191 
+  Verifying  : 1:qt-sqlite-4.6.2-24.el6.x86_64                           53/191 
+  Verifying  : audit-libs-python-2.2-2.el6.x86_64                        54/191 
+  Verifying  : perl-CGI-3.51-127.el6.x86_64                              55/191 
+  Verifying  : pulseaudio-libs-0.9.21-13.el6.x86_64                      56/191 
+  Verifying  : 1:libtheora-1.1.0-2.el6.x86_64                            57/191 
+  Verifying  : 1:perl-Pod-Simple-3.13-127.el6.x86_64                     58/191 
+  Verifying  : libasyncns-0.8-1.1.el6.x86_64                             59/191 
+  Verifying  : freetype-2.3.11-14.el6_3.1.x86_64                         60/191 
+  Verifying  : fontconfig-2.8.0-3.el6.x86_64                             61/191 
+  Verifying  : openjpeg-libs-1.3-9.el6_3.x86_64                          62/191 
+  Verifying  : libtiff-3.9.4-9.el6_3.x86_64                              63/191 
+  Verifying  : setools-libs-3.3.7-4.el6.x86_64                           64/191 
+  Verifying  : foomatic-db-ppds-4.0-7.20091126.el6.noarch                65/191 
+  Verifying  : libXinerama-1.1-1.el6.x86_64                              66/191 
+  Verifying  : voms-2.0.9-1.el6.x86_64                                   67/191 
+  Verifying  : perl-libwww-perl-5.833-2.el6.noarch                       68/191 
+  Verifying  : PyXML-0.8.4-19.el6.x86_64                                 69/191 
+  Verifying  : poppler-data-0.4.0-1.el6.noarch                           70/191 
+  Verifying  : lcms-libs-1.19-1.el6.x86_64                               71/191 
+  Verifying  : qt3-3.3.8b-30.el6.x86_64                                  72/191 
+  Verifying  : 1:phonon-backend-gstreamer-4.6.2-24.el6.x86_64            73/191 
+  Verifying  : libXrandr-1.3.0-4.el6.x86_64                              74/191 
+  Verifying  : libXext-1.1-3.el6.x86_64                                  75/191 
+  Verifying  : libXcomposite-0.4.1-2.el6.x86_64                          76/191 
+  Verifying  : at-3.1.10-43.el6_2.1.x86_64                               77/191 
+  Verifying  : 1:perl-Module-Pluggable-3.90-127.el6.x86_64               78/191 
+  Verifying  : portreserve-0.0.4-9.el6.x86_64                            79/191 
+  Verifying  : glite-info-provider-service-1.9.0-5.el6.noarch            80/191 
+  Verifying  : iso-codes-3.16-2.el6.noarch                               81/191 
+  Verifying  : 1:jakarta-commons-httpclient-3.1-0.6.el6.x86_64           82/191 
+  Verifying  : jakarta-commons-dbcp-1.2.1-13.8.el6.noarch                83/191 
+  Verifying  : libtool-ltdl-2.2.6-15.5.el6.x86_64                        84/191 
+  Verifying  : perl-HTML-Tagset-3.20-4.el6.noarch                        85/191 
+  Verifying  : 1:pkgconfig-0.23-9.1.el6.x86_64                           86/191 
+  Verifying  : 4:perl-devel-5.10.1-127.el6.x86_64                        87/191 
+  Verifying  : man-1.6f-30.el6.x86_64                                    88/191 
+  Verifying  : ghostscript-8.70-14.el6_3.1.x86_64                        89/191 
+  Verifying  : foomatic-db-filesystem-4.0-7.20091126.el6.noarch          90/191 
+  Verifying  : libjpeg-6b-46.el6.x86_64                                  91/191 
+  Verifying  : tmpwatch-2.9.16-4.el6.x86_64                              92/191 
+  Verifying  : gtk2-2.18.9-10.el6.x86_64                                 93/191 
+  Verifying  : 4:perl-5.10.1-127.el6.x86_64                              94/191 
+  Verifying  : bc-1.06.95-1.el6.x86_64                                   95/191 
+  Verifying  : libXdamage-1.1.2-1.el6.x86_64                             96/191 
+  Verifying  : 1:qt-4.6.2-24.el6.x86_64                                  97/191 
+  Verifying  : voms-mysql-plugin-3.1.6-1.el6.x86_64                      98/191 
+  Verifying  : jasper-libs-1.900.1-15.el6_1.1.x86_64                     99/191 
+  Verifying  : perl-Compress-Zlib-2.020-127.el6.x86_64                  100/191 
+  Verifying  : sinjdoc-0.5-9.1.el6.x86_64                               101/191 
+  Verifying  : 1:jakarta-commons-daemon-1.0.1-8.9.el6.x86_64            102/191 
+  Verifying  : perl-DBD-MySQL-4.013-3.el6.x86_64                        103/191 
+  Verifying  : poppler-0.12.4-3.el6_0.1.x86_64                          104/191 
+  Verifying  : libxcb-1.5-1.el6.x86_64                                  105/191 
+  Verifying  : expect-5.44.1.15-4.el6.x86_64                            106/191 
+  Verifying  : tomcat6-lib-6.0.24-45.el6.noarch                         107/191 
+  Verifying  : setools-libs-python-3.3.7-4.el6.x86_64                   108/191 
+  Verifying  : voms-server-2.0.9-1.el6.x86_64                           109/191 
+  Verifying  : 1:tcl-8.5.7-6.el6.x86_64                                 110/191 
+  Verifying  : libart_lgpl-2.3.20-5.1.el6.x86_64                        111/191 
+  Verifying  : libgomp-4.4.6-4.el6.x86_64                               112/191 
+  Verifying  : 3:perl-version-0.77-127.el6.x86_64                       113/191 
+  Verifying  : tomcat6-servlet-2.5-api-6.0.24-45.el6.noarch             114/191 
+  Verifying  : zip-3.0-1.el6.x86_64                                     115/191 
+  Verifying  : 1:perl-Compress-Raw-Zlib-2.020-127.el6.x86_64            116/191 
+  Verifying  : libvisual-0.4.0-9.1.el6.x86_64                           117/191 
+  Verifying  : cairo-1.8.8-3.1.el6.x86_64                               118/191 
+  Verifying  : urw-fonts-2.4-10.el6.noarch                              119/191 
+  Verifying  : glite-yaim-core-5.1.0-1.sl6.noarch                       120/191 
+  Verifying  : jakarta-commons-logging-1.0.4-10.el6.noarch              121/191 
+  Verifying  : 1:qt-x11-4.6.2-24.el6.x86_64                             122/191 
+  Verifying  : log4j-1.2.14-6.4.el6.x86_64                              123/191 
+  Verifying  : python-ZSI-2.0-6.el6.noarch                              124/191 
+  Verifying  : 1:make-3.81-20.el6.x86_64                                125/191 
+  Verifying  : 1:mx4j-3.0.1-9.13.el6.noarch                             126/191 
+  Verifying  : 2:libogg-1.1.4-2.1.el6.x86_64                            127/191 
+  Verifying  : libSM-1.1.0-7.1.el6.x86_64                               128/191 
+  Verifying  : libsndfile-1.0.20-5.el6.x86_64                           129/191 
+  Verifying  : jpackage-utils-1.7.5-3.12.el6.noarch                     130/191 
+  Verifying  : perl-HTML-Parser-3.64-2.el6.x86_64                       131/191 
+  Verifying  : gstreamer-plugins-base-0.10.29-1.el6.x86_64              132/191 
+  Verifying  : libXi-1.3-3.el6.x86_64                                   133/191 
+  Verifying  : tzdata-java-2012j-1.el6.noarch                           134/191 
+  Verifying  : poppler-utils-0.12.4-3.el6_0.1.x86_64                    135/191 
+  Verifying  : policycoreutils-python-2.0.83-19.24.el6.x86_64           136/191 
+  Verifying  : libgcj-4.4.6-4.el6.x86_64                                137/191 
+  Verifying  : perl-ExtUtils-MakeMaker-6.55-127.el6.x86_64              138/191 
+  Verifying  : libXfixes-4.0.4-1.el6.x86_64                             139/191 
+  Verifying  : emi-trustmanager-tomcat-3.0.1-1.sl6.noarch               140/191 
+  Verifying  : patch-2.6-6.el6.x86_64                                   141/191 
+  Verifying  : gstreamer-tools-0.10.29-1.el6.x86_64                     142/191 
+  Verifying  : libtasn1-2.3-3.el6_2.1.x86_64                            143/191 
+  Verifying  : xml-commons-resolver-1.1-4.18.el6.x86_64                 144/191 
+  Verifying  : tomcat6-jsp-2.1-api-6.0.24-45.el6.noarch                 145/191 
+  Verifying  : emi-trustmanager-3.1.4-1.sl6.noarch                      146/191 
+  Verifying  : foomatic-db-4.0-7.20091126.el6.noarch                    147/191 
+  Verifying  : libmng-1.0.10-4.1.el6.x86_64                             148/191 
+  Verifying  : fetch-crl-3.0.8-1.el6.noarch                             149/191 
+  Verifying  : libX11-1.3-2.el6.x86_64                                  150/191 
+  Verifying  : perl-IO-Compress-Zlib-2.020-127.el6.x86_64               151/191 
+  Verifying  : perl-Test-Simple-0.92-127.el6.x86_64                     152/191 
+  Verifying  : 4:perl-libs-5.10.1-127.el6.x86_64                        153/191 
+  Verifying  : 1:libvorbis-1.2.3-4.el6_2.1.x86_64                       154/191 
+  Verifying  : libXau-1.0.5-1.el6.x86_64                                155/191 
+  Verifying  : jakarta-commons-collections-3.2.1-3.4.el6.noarch         156/191 
+  Verifying  : rhino-1.7-0.7.r2.2.el6.noarch                            157/191 
+  Verifying  : tomcat6-6.0.24-45.el6.noarch                             158/191 
+  Verifying  : bcel-5.2-7.2.el6.x86_64                                  159/191 
+  Verifying  : redhat-lsb-printing-4.0-3.el6.x86_64                     160/191 
+  Verifying  : perl-Test-Harness-3.17-127.el6.x86_64                    161/191 
+  Verifying  : python-simplejson-2.0.9-3.1.el6.x86_64                   162/191 
+  Verifying  : libthai-0.1.12-3.el6.x86_64                              163/191 
+  Verifying  : wsdl4j-1.5.2-7.8.el6.noarch                              164/191 
+  Verifying  : libXft-2.1.13-4.1.el6.x86_64                             165/191 
+  Verifying  : axis-1.2.1-7.2.el6.noarch                                166/191 
+  Verifying  : openldap-clients-2.4.23-26.el6_3.2.x86_64                167/191 
+  Verifying  : classpathx-jaf-1.0-15.4.el6.x86_64                       168/191 
+  Verifying  : redhat-lsb-graphics-4.0-3.el6.x86_64                     169/191 
+  Verifying  : mesa-libGLU-7.11-5.el6.x86_64                            170/191 
+  Verifying  : libXxf86vm-1.1.0-1.el6.x86_64                            171/191 
+  Verifying  : jline-0.9.94-0.8.el6.noarch                              172/191 
+  Verifying  : alsa-lib-1.0.22-3.el6.x86_64                             173/191 
+  Verifying  : 1:java-1.6.0-openjdk-1.6.0.0-1.50.1.11.5.el6_3.x86_64    174/191 
+  Verifying  : perl-URI-1.40-2.el6.noarch                               175/191 
+  Verifying  : libXfont-1.4.1-2.el6_1.x86_64                            176/191 
+  Verifying  : mesa-dri-drivers-7.11-5.el6.x86_64                       177/191 
+  Verifying  : bouncycastle-1.46-1.el6.noarch                           178/191 
+  Verifying  : mailcap-2.1.31-2.el6.noarch                              179/191 
+  Verifying  : jakarta-commons-pool-1.3-12.7.el6.x86_64                 180/191 
+  Verifying  : xml-commons-apis-1.3.04-3.6.el6.x86_64                   181/191 
+  Verifying  : glite-yaim-bdii-4.3.11-1.el6.noarch                      182/191 
+  Verifying  : mysql-server-5.1.67-1.el6_3.x86_64                       183/191 
+  Verifying  : xml-common-0.6.3-32.el6.noarch                           184/191 
+  Verifying  : libICE-1.0.6-1.el6.x86_64                                185/191 
+  Verifying  : openldap-servers-2.4.23-26.el6_3.2.x86_64                186/191 
+  Verifying  : avahi-libs-0.6.25-11.el6.x86_64                          187/191 
+  Verifying  : libXtst-1.0.99.2-3.el6.x86_64                            188/191 
+  Verifying  : cvs-1.11.23-11.el6_2.1.x86_64                            189/191 
+  Verifying  : redhat-lsb-4.0-3.el6.x86_64                              190/191 
+  Verifying  : mysql-libs-5.1.66-2.el6_3.x86_64                         191/191 
+
+Installed:
+  emi-voms-mysql.x86_64 0:1.0.1-1.el6                                           
+
+Dependency Installed:
+  PyXML.x86_64 0:0.8.4-19.el6                                                   
+  alsa-lib.x86_64 0:1.0.22-3.el6                                                
+  at.x86_64 0:3.1.10-43.el6_2.1                                                 
+  atk.x86_64 0:1.28.0-2.el6                                                     
+  audit-libs-python.x86_64 0:2.2-2.el6                                          
+  avahi-libs.x86_64 0:0.6.25-11.el6                                             
+  axis.noarch 0:1.2.1-7.2.el6                                                   
+  bc.x86_64 0:1.06.95-1.el6                                                     
+  bcel.x86_64 0:5.2-7.2.el6                                                     
+  bdii.noarch 0:5.2.12-1.el6                                                    
+  bouncycastle.noarch 0:1.46-1.el6                                              
+  cairo.x86_64 0:1.8.8-3.1.el6                                                  
+  cdparanoia-libs.x86_64 0:10.2-5.1.el6                                         
+  classpathx-jaf.x86_64 0:1.0-15.4.el6                                          
+  classpathx-mail.noarch 0:1.1.1-9.4.el6                                        
+  cups.x86_64 1:1.4.2-48.el6                                                    
+  cups-libs.x86_64 1:1.4.2-48.el6                                               
+  cvs.x86_64 0:1.11.23-11.el6_2.1                                               
+  ecj.x86_64 1:3.4.2-6.el6                                                      
+  ed.x86_64 0:1.1-3.3.el6                                                       
+  emi-trustmanager.noarch 0:3.1.4-1.sl6                                         
+  emi-trustmanager-tomcat.noarch 0:3.0.1-1.sl6                                  
+  expect.x86_64 0:5.44.1.15-4.el6                                               
+  fetch-crl.noarch 0:3.0.8-1.el6                                                
+  flac.x86_64 0:1.2.1-6.1.el6                                                   
+  fontconfig.x86_64 0:2.8.0-3.el6                                               
+  foomatic.x86_64 0:4.0.4-1.el6_1.1                                             
+  foomatic-db.noarch 0:4.0-7.20091126.el6                                       
+  foomatic-db-filesystem.noarch 0:4.0-7.20091126.el6                            
+  foomatic-db-ppds.noarch 0:4.0-7.20091126.el6                                  
+  freetype.x86_64 0:2.3.11-14.el6_3.1                                           
+  gettext.x86_64 0:0.17-16.el6                                                  
+  ghostscript.x86_64 0:8.70-14.el6_3.1                                          
+  ghostscript-fonts.noarch 0:5.50-23.1.el6                                      
+  giflib.x86_64 0:4.1.6-3.1.el6                                                 
+  glite-info-provider-service.noarch 0:1.9.0-5.el6                              
+  glite-yaim-bdii.noarch 0:4.3.11-1.el6                                         
+  glite-yaim-core.noarch 0:5.1.0-1.sl6                                          
+  glue-schema.noarch 0:2.0.8-2.el6                                              
+  gnutls.x86_64 0:2.8.5-4.el6_2.2                                               
+  gstreamer.x86_64 0:0.10.29-1.el6                                              
+  gstreamer-plugins-base.x86_64 0:0.10.29-1.el6                                 
+  gstreamer-tools.x86_64 0:0.10.29-1.el6                                        
+  gtk2.x86_64 0:2.18.9-10.el6                                                   
+  hicolor-icon-theme.noarch 0:0.11-1.1.el6                                      
+  iso-codes.noarch 0:3.16-2.el6                                                 
+  jakarta-commons-collections.noarch 0:3.2.1-3.4.el6                            
+  jakarta-commons-daemon.x86_64 1:1.0.1-8.9.el6                                 
+  jakarta-commons-dbcp.noarch 0:1.2.1-13.8.el6                                  
+  jakarta-commons-discovery.noarch 1:0.4-5.4.el6                                
+  jakarta-commons-httpclient.x86_64 1:3.1-0.6.el6                               
+  jakarta-commons-logging.noarch 0:1.0.4-10.el6                                 
+  jakarta-commons-pool.x86_64 0:1.3-12.7.el6                                    
+  jasper-libs.x86_64 0:1.900.1-15.el6_1.1                                       
+  java-1.5.0-gcj.x86_64 0:1.5.0.0-29.1.el6                                      
+  java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.50.1.11.5.el6_3                         
+  java_cup.x86_64 1:0.10k-5.el6                                                 
+  jline.noarch 0:0.9.94-0.8.el6                                                 
+  jpackage-utils.noarch 0:1.7.5-3.12.el6                                        
+  lcms-libs.x86_64 0:1.19-1.el6                                                 
+  libICE.x86_64 0:1.0.6-1.el6                                                   
+  libSM.x86_64 0:1.1.0-7.1.el6                                                  
+  libX11.x86_64 0:1.3-2.el6                                                     
+  libX11-common.noarch 0:1.3-2.el6                                              
+  libXau.x86_64 0:1.0.5-1.el6                                                   
+  libXcomposite.x86_64 0:0.4.1-2.el6                                            
+  libXcursor.x86_64 0:1.1.10-2.el6                                              
+  libXdamage.x86_64 0:1.1.2-1.el6                                               
+  libXext.x86_64 0:1.1-3.el6                                                    
+  libXfixes.x86_64 0:4.0.4-1.el6                                                
+  libXfont.x86_64 0:1.4.1-2.el6_1                                               
+  libXft.x86_64 0:2.1.13-4.1.el6                                                
+  libXi.x86_64 0:1.3-3.el6                                                      
+  libXinerama.x86_64 0:1.1-1.el6                                                
+  libXrandr.x86_64 0:1.3.0-4.el6                                                
+  libXrender.x86_64 0:0.9.5-1.el6                                               
+  libXt.x86_64 0:1.0.7-1.el6                                                    
+  libXtst.x86_64 0:1.0.99.2-3.el6                                               
+  libXv.x86_64 0:1.0.5-1.el6                                                    
+  libXxf86vm.x86_64 0:1.1.0-1.el6                                               
+  libart_lgpl.x86_64 0:2.3.20-5.1.el6                                           
+  libasyncns.x86_64 0:0.8-1.1.el6                                               
+  libcgroup.x86_64 0:0.37-4.el6                                                 
+  libfontenc.x86_64 0:1.0.5-2.el6                                               
+  libgcj.x86_64 0:4.4.6-4.el6                                                   
+  libgomp.x86_64 0:4.4.6-4.el6                                                  
+  libgudev1.x86_64 0:147-2.41.el6                                               
+  libjpeg.x86_64 0:6b-46.el6                                                    
+  libmng.x86_64 0:1.0.10-4.1.el6                                                
+  libogg.x86_64 2:1.1.4-2.1.el6                                                 
+  liboil.x86_64 0:0.3.16-4.1.el6                                                
+  libpng.x86_64 2:1.2.49-1.el6_2                                                
+  libselinux-python.x86_64 0:2.0.94-5.3.el6                                     
+  libsemanage-python.x86_64 0:2.0.43-4.1.el6                                    
+  libsndfile.x86_64 0:1.0.20-5.el6                                              
+  libtasn1.x86_64 0:2.3-3.el6_2.1                                               
+  libthai.x86_64 0:0.1.12-3.el6                                                 
+  libtheora.x86_64 1:1.1.0-2.el6                                                
+  libtiff.x86_64 0:3.9.4-9.el6_3                                                
+  libtool-ltdl.x86_64 0:2.2.6-15.5.el6                                          
+  libvisual.x86_64 0:0.4.0-9.1.el6                                              
+  libvorbis.x86_64 1:1.2.3-4.el6_2.1                                            
+  libxcb.x86_64 0:1.5-1.el6                                                     
+  log4j.x86_64 0:1.2.14-6.4.el6                                                 
+  mailcap.noarch 0:2.1.31-2.el6                                                 
+  make.x86_64 1:3.81-20.el6                                                     
+  man.x86_64 0:1.6f-30.el6                                                      
+  mesa-dri-drivers.x86_64 0:7.11-5.el6                                          
+  mesa-libGL.x86_64 0:7.11-5.el6                                                
+  mesa-libGLU.x86_64 0:7.11-5.el6                                               
+  mx4j.noarch 1:3.0.1-9.13.el6                                                  
+  mysql.x86_64 0:5.1.67-1.el6_3                                                 
+  mysql-server.x86_64 0:5.1.67-1.el6_3                                          
+  openjpeg-libs.x86_64 0:1.3-9.el6_3                                            
+  openldap-clients.x86_64 0:2.4.23-26.el6_3.2                                   
+  openldap-servers.x86_64 0:2.4.23-26.el6_3.2                                   
+  pango.x86_64 0:1.28.1-3.el6_0.5                                               
+  patch.x86_64 0:2.6-6.el6                                                      
+  pax.x86_64 0:3.4-10.1.el6                                                     
+  perl.x86_64 4:5.10.1-127.el6                                                  
+  perl-CGI.x86_64 0:3.51-127.el6                                                
+  perl-Compress-Raw-Zlib.x86_64 1:2.020-127.el6                                 
+  perl-Compress-Zlib.x86_64 0:2.020-127.el6                                     
+  perl-DBD-MySQL.x86_64 0:4.013-3.el6                                           
+  perl-DBI.x86_64 0:1.609-4.el6                                                 
+  perl-ExtUtils-MakeMaker.x86_64 0:6.55-127.el6                                 
+  perl-ExtUtils-ParseXS.x86_64 1:2.2003.0-127.el6                               
+  perl-HTML-Parser.x86_64 0:3.64-2.el6                                          
+  perl-HTML-Tagset.noarch 0:3.20-4.el6                                          
+  perl-IO-Compress-Base.x86_64 0:2.020-127.el6                                  
+  perl-IO-Compress-Zlib.x86_64 0:2.020-127.el6                                  
+  perl-Module-Pluggable.x86_64 1:3.90-127.el6                                   
+  perl-Pod-Escapes.x86_64 1:1.04-127.el6                                        
+  perl-Pod-Simple.x86_64 1:3.13-127.el6                                         
+  perl-Test-Harness.x86_64 0:3.17-127.el6                                       
+  perl-Test-Simple.x86_64 0:0.92-127.el6                                        
+  perl-URI.noarch 0:1.40-2.el6                                                  
+  perl-devel.x86_64 4:5.10.1-127.el6                                            
+  perl-libs.x86_64 4:5.10.1-127.el6                                             
+  perl-libwww-perl.noarch 0:5.833-2.el6                                         
+  perl-version.x86_64 3:0.77-127.el6                                            
+  phonon-backend-gstreamer.x86_64 1:4.6.2-24.el6                                
+  pixman.x86_64 0:0.18.4-1.el6_0.1                                              
+  pkgconfig.x86_64 1:0.23-9.1.el6                                               
+  policycoreutils-python.x86_64 0:2.0.83-19.24.el6                              
+  poppler.x86_64 0:0.12.4-3.el6_0.1                                             
+  poppler-data.noarch 0:0.4.0-1.el6                                             
+  poppler-utils.x86_64 0:0.12.4-3.el6_0.1                                       
+  portreserve.x86_64 0:0.0.4-9.el6                                              
+  pulseaudio-libs.x86_64 0:0.9.21-13.el6                                        
+  python-ZSI.noarch 0:2.0-6.el6                                                 
+  python-simplejson.x86_64 0:2.0.9-3.1.el6                                      
+  qt.x86_64 1:4.6.2-24.el6                                                      
+  qt-sqlite.x86_64 1:4.6.2-24.el6                                               
+  qt-x11.x86_64 1:4.6.2-24.el6                                                  
+  qt3.x86_64 0:3.3.8b-30.el6                                                    
+  redhat-lsb.x86_64 0:4.0-3.el6                                                 
+  redhat-lsb-graphics.x86_64 0:4.0-3.el6                                        
+  redhat-lsb-printing.x86_64 0:4.0-3.el6                                        
+  regexp.x86_64 0:1.5-4.4.el6                                                   
+  rhino.noarch 0:1.7-0.7.r2.2.el6                                               
+  setools-libs.x86_64 0:3.3.7-4.el6                                             
+  setools-libs-python.x86_64 0:3.3.7-4.el6                                      
+  sinjdoc.x86_64 0:0.5-9.1.el6                                                  
+  tcl.x86_64 1:8.5.7-6.el6                                                      
+  time.x86_64 0:1.7-37.1.el6                                                    
+  tmpwatch.x86_64 0:2.9.16-4.el6                                                
+  tomcat6.noarch 0:6.0.24-45.el6                                                
+  tomcat6-el-2.1-api.noarch 0:6.0.24-45.el6                                     
+  tomcat6-jsp-2.1-api.noarch 0:6.0.24-45.el6                                    
+  tomcat6-lib.noarch 0:6.0.24-45.el6                                            
+  tomcat6-servlet-2.5-api.noarch 0:6.0.24-45.el6                                
+  tzdata-java.noarch 0:2012j-1.el6                                              
+  urw-fonts.noarch 0:2.4-10.el6                                                 
+  voms.x86_64 0:2.0.9-1.el6                                                     
+  voms-admin-client.noarch 0:2.0.17-1.el6                                       
+  voms-admin-server.noarch 0:2.7.0-1.el6                                        
+  voms-mysql-plugin.x86_64 0:3.1.6-1.el6                                        
+  voms-server.x86_64 0:2.0.9-1.el6                                              
+  wsdl4j.noarch 0:1.5.2-7.8.el6                                                 
+  xml-common.noarch 0:0.6.3-32.el6                                              
+  xml-commons-apis.x86_64 0:1.3.04-3.6.el6                                      
+  xml-commons-resolver.x86_64 0:1.1-4.18.el6                                    
+  xorg-x11-font-utils.x86_64 1:7.2-11.el6                                       
+  xz.x86_64 0:4.999.9-0.3.beta.20091007git.el6                                  
+  xz-lzma-compat.x86_64 0:4.999.9-0.3.beta.20091007git.el6                      
+  yaim-voms.noarch 0:1.1.1-1.el6                                                
+  zip.x86_64 0:3.0-1.el6                                                        
+
+Dependency Updated:
+  mysql-libs.x86_64 0:5.1.67-1.el6_3                                            
+
+Complete!
+[root@tuneyards.cnaf.infn.it ~]# yum -y install xml-commons-apis
+Loaded plugins: priorities, protectbase, security
+204 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Package xml-commons-apis-1.3.04-3.6.el6.x86_64 already installed and latest version
+Nothing to do
+[root@tuneyards.cnaf.infn.it ~]# yum -y install ca_INFN-CA-2006
+Loaded plugins: priorities, protectbase, security
+204 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package ca_INFN-CA-2006.noarch 0:1.52-1 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package               Arch         Version        Repository              Size
+================================================================================
+Installing:
+ ca_INFN-CA-2006       noarch       1.52-1         EGI-trustanchors       5.2 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+
+Total download size: 5.2 k
+Installed size: 2.3 k
+Downloading Packages:
+warning: rpmts_HdrFromFdno: Header V3 DSA/SHA1 Signature, key ID 3cdbbc71: NOKEY
+Retrieving key from http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
+Importing GPG key 0x3CDBBC71:
+ Userid: "EUGridPMA Distribution Signing Key 3 <info@eugridpma.org>"
+ From  : http://repository.egi.eu/sw/production/cas/1/GPG-KEY-EUGridPMA-RPM-3
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : ca_INFN-CA-2006-1.52-1.noarch                                1/1 
+  Verifying  : ca_INFN-CA-2006-1.52-1.noarch                                1/1 
+
+Installed:
+  ca_INFN-CA-2006.noarch 0:1.52-1                                               
+
+Complete!
+[root@tuneyards.cnaf.infn.it ~]# mkdir siteinfo
+[root@tuneyards.cnaf.infn.it ~]# service mysqld start
+Initializing MySQL database:  Installing MySQL system tables...
+OK
+Filling help tables...
+OK
+
+To start mysqld at boot time you have to copy
+support-files/mysql.server to the right place for your system
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+To do so, start the server, then issue the following commands:
+
+/usr/bin/mysqladmin -u root password 'new-password'
+/usr/bin/mysqladmin -u root -h tuneyards.cnaf.infn.it password 'new-password'
+
+Alternatively you can run:
+/usr/bin/mysql_secure_installation
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the manual for more instructions.
+
+You can start the MySQL daemon with:
+cd /usr ; /usr/bin/mysqld_safe &
+
+You can test the MySQL daemon with mysql-test-run.pl
+cd /usr/mysql-test ; perl mysql-test-run.pl
+
+Please report any problems with the /usr/bin/mysqlbug script!
+
+[60G[[0;32m  OK  [0;39m]
+Starting mysqld:  [60G[[0;32m  OK  [0;39m]
+[root@tuneyards.cnaf.infn.it ~]# sleep 5
+[root@tuneyards.cnaf.infn.it ~]# /usr/bin/mysqladmin -u root password pwd
+[root@tuneyards.cnaf.infn.it ~]# /usr/bin/mysqladmin -u root -h tuneyards.cnaf.infn.it password pwd
+[root@tuneyards.cnaf.infn.it ~]# cp site-info.def siteinfo
+[root@tuneyards.cnaf.infn.it ~]# /opt/glite/yaim/bin/yaim -c -s siteinfo/site-info.def -n VOMS
+   WARNING: 
+   WARNING: *****************************************************************************
+   WARNING: Your siteinfo directory is world readable. This is generally a bad idea      
+   WARNING: as configuration files may contain passwords and other sensitive information.
+   WARNING: *****************************************************************************
+   WARNING: 
+   INFO: Configuring HOST: tuneyards.cnaf.infn.it
+   INFO: Using site configuration file: siteinfo/site-info.def
+   INFO: 
+         ###################################################################
+         
+         .             /'.-. ')
+         .     yA,-"-,( ,m,:/ )   .oo.     oo    o      ooo  o.     .oo
+         .    /      .-Y a  a Y-.     8. .8'    8'8.     8    8b   d'8
+         .   /           ~ ~ /         8'    .8oo88.     8    8  8'  8
+         . (_/         '===='          8    .8'     8.   8    8  Y   8
+         .   Y,-''-,Yy,-.,/           o8o  o8o    o88o  o8o  o8o    o8o
+         .    I_))_) I_))_)
+         
+         
+         current working directory: /root
+         site-info.def date: Feb 7 15:24 siteinfo/site-info.def
+         yaim command: -c -s siteinfo/site-info.def -n VOMS
+         log file: /opt/glite/yaim/bin/../log/yaimlog
+         Thu Feb  7 15:24:57 CET 2013 : /opt/glite/yaim/bin/yaim
+         
+         Installed YAIM versions:
+         glite-yaim-bdii 4.3.11-1
+         glite-yaim-core 5.1.0-1
+         yaim-voms 1.1.1-1.el6
+         
+         ####################################################################
+   INFO: The default location of the grid-env.(c)sh files will be: /usr/libexec
+   INFO: Sourcing the utilities in /opt/glite/yaim/functions/utils
+   INFO: Detecting environment
+   INFO: Executing function: config_host_certs_check 
+   INFO: Executing function: config_edgusers_check 
+   INFO: Executing function: config_add_pool_env_check 
+   INFO: Executing function: config_info_service_voms_check 
+   INFO: Executing function: config_info_service_voms_admin_check 
+   INFO: Executing function: config_glue2_info_service_voms_check 
+   INFO: Executing function: config_voms_check 
+   INFO: Detecting TOMCAT
+   INFO: Executing function: config_voms_logrotate_check 
+   INFO: Executing function: config_bdii_5.2_check 
+   INFO: Executing function: config_host_certs 
+   INFO: Executing function: config_edgusers 
+   INFO: Executing function: config_add_pool_env_setenv 
+   INFO: Executing function: config_add_pool_env 
+   INFO: Executing function: config_crl 
+   INFO: Now updating the CRLs - this may take a few minutes...
+Enabling periodic fetch-crl:  [60G[[0;32m  OK  [0;39m]
+   INFO: Executing function: config_info_service_voms_setenv 
+   INFO: Executing function: config_info_service_voms 
+   INFO: Executing function: config_info_service_voms_admin_setenv 
+   INFO: Executing function: config_info_service_voms_admin 
+   INFO: Executing function: config_glue2_info_service_voms_setenv 
+   INFO: Executing function: config_glue2_info_service_voms 
+   INFO: Executing function: config_voms_setenv 
+   INFO: Executing function: config_voms 
+   INFO: MySQL configuration
+   INFO: Detecting TOMCAT
+   INFO: Stop tomcat in case it's running
+Stopping tomcat6: [60G[[0;32m  OK  [0;39m]
+   INFO: Copying hostcert to /etc/grid-security/tomcat-cert.pem for tomcat:root......
+   INFO: Copying hostkey to /etc/grid-security/tomcat-key.pem for tomcat:root...
+   INFO: Configuring /etc/tomcat6/server.xml...
+   INFO: Copying trustmanager log4j properties to tomcat configuration directory..
+   INFO: Linking log4j and bouncycastle jars to tomcat server lib directory..
+   INFO: Linking trustmanager jars to tomcat server lib directory...
+   INFO: Linking jakarta-commons-logging to tomcat server lib directory...
+   INFO: Defining JAVA_HOME in the Tomcat configuration file
+   INFO: Starting Tomcat
+Starting tomcat6: [60G[[0;32m  OK  [0;39m]
+   INFO: Ready to start VOMS configuration
+voms-admin-configure, version 2.7.0
+
+Checking installation...
+Checking local installation...
+Installation ok.
+Setting up user credentials...
+Using host credentials (/etc/grid-security/hostcert.pem) since running as root.
+Setting defaults for the VOMS AA credentials
+AA certificates settings:
+cert:/etc/grid-security/tomcat-cert.pem
+key:/etc/grid-security/tomcat-key.pem
+Prefix: //usr
+Configuration dir: /etc/voms-admin
+Cheking input parameters
+Installing vo emi3
+Skipping voms core configuration creation
+Will not set read-only access for authenticated clients as the --skip-database option is set
+VO emi3 configured correctly.
+
+
+
+VO emi3 installation finished.
+ 
+You can start the voms services using the following commands:
+    //etc/init.d/voms start emi3
+    //etc/init.d/voms-admin start emi3
+   INFO: Checking VOMS database schema existence and deploying one if missing...
+Checking database connectivity...
+Database contacted succesfully
+Checking database existence...
+No voms-admin database found.
+Checking that the database is writable...
+Database is writable.
+create table acl2 (acl_id bigint not null auto_increment, group_id bigint not null, defaultACL bit not null, role_id bigint, primary key (acl_id), unique (group_id, defaultACL, role_id)) type=InnoDB
+create table acl2_permissions (acl_id bigint not null, permissions integer, admin_id bigint not null, primary key (acl_id, admin_id)) type=InnoDB
+create table admins (adminid bigint not null auto_increment, dn varchar(255) not null, email_address varchar(255), ca smallint not null, primary key (adminid), unique (dn, ca)) type=InnoDB
+create table attributes (a_id bigint not null auto_increment, a_name varchar(255) not null unique, a_desc text, a_uniq bit default 0, primary key (a_id)) type=InnoDB
+create table aup (id bigint not null auto_increment, name varchar(255) not null unique, description varchar(255), reacceptancePeriod integer not null, primary key (id)) type=InnoDB
+create table aup_acc_record (id bigint not null auto_increment, aup_version_id bigint not null, usr_id bigint not null, last_acceptance_date datetime not null, valid bit, primary key (id), unique (aup_version_id, usr_id)) type=InnoDB
+create table aup_version (id bigint not null auto_increment, aup_id bigint not null, version varchar(255) not null, url varchar(255), text varchar(255), creationTime datetime not null, lastForcedReacceptanceTime datetime, active bit not null, primary key (id), unique (aup_id, version)) type=InnoDB
+create table ca (cid smallint not null auto_increment, subject_string varchar(255) not null unique, description varchar(255), creation_time datetime not null, primary key (cid)) type=InnoDB
+create table capabilities (cid bigint not null auto_increment, capability varchar(255) not null, primary key (cid)) type=InnoDB
+create table certificate (id bigint not null auto_increment, creation_time datetime not null, subject_string varchar(255) not null, suspended bit not null, suspended_reason varchar(255), suspension_reason_code varchar(255), ca_id smallint not null, usr_id bigint not null, primary key (id), unique (ca_id, subject_string)) type=InnoDB
+create table certificate_request (certificate tinyblob, certificateIssuer varchar(255) not null, certificateSubject varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table group_attrs (a_id bigint not null, g_id bigint not null, a_value varchar(255), primary key (a_id, g_id)) type=InnoDB
+create table group_membership_req (groupName varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table groups (gid bigint not null auto_increment, dn varchar(255) not null unique, description varchar(255), parent bigint, must bit not null, restricted bit, primary key (gid)) type=InnoDB
+create table m (mapping_id bigint not null auto_increment, userid bigint not null, gid bigint not null, rid bigint, cid bigint, primary key (mapping_id), unique (userid, gid, rid)) type=InnoDB
+create table memb_req (id bigint not null auto_increment, creation_date datetime not null, evaluation_date datetime, status integer not null, confirm_id varchar(255) not null, dn varchar(255) not null, ca varchar(255) not null, cn varchar(255), mail varchar(255) not null, primary key (id)) type=InnoDB
+create table membership_rem_req (reason varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table personal_info (id bigint not null auto_increment, value varchar(255), visible bit, personal_info_type_id bigint not null, primary key (id)) type=InnoDB
+create table personal_info_type (id bigint not null auto_increment, description varchar(255), type varchar(255) not null unique, primary key (id)) type=InnoDB
+create table req (request_id bigint not null auto_increment, completionDate datetime, creationDate datetime, expirationDate datetime, status varchar(255) not null, requester_info_id bigint not null, primary key (request_id), unique (requester_info_id)) type=InnoDB
+create table requester_info (id bigint not null auto_increment, address varchar(255), certificateIssuer varchar(255) not null, certificateSubject varchar(255) not null, emailAddress varchar(255) not null, institution varchar(255), name varchar(255), phoneNumber varchar(255), surname varchar(255), voMember bit, primary key (id)) type=InnoDB
+create table requester_personal_info (requester_id bigint not null, pi_value varchar(255), pi_key varchar(255), primary key (requester_id, pi_key)) type=InnoDB
+create table role_attrs (a_id bigint not null, g_id bigint not null, r_id bigint not null, a_value varchar(255), primary key (a_id, g_id, r_id)) type=InnoDB
+create table role_membership_req (groupName varchar(255), roleName varchar(255), request_id bigint not null, primary key (request_id)) type=InnoDB
+create table roles (rid bigint not null auto_increment, role varchar(255) not null unique, primary key (rid)) type=InnoDB
+create table seqnumber (seq varchar(255) not null, primary key (seq)) type=InnoDB
+create table sign_aup_task (task_id bigint not null, aup_id bigint not null, primary key (task_id)) type=InnoDB
+create table tag_mapping (mapping_id bigint not null auto_increment, tag_id bigint not null, gid bigint not null, rid bigint, admin_id bigint not null, primary key (mapping_id), unique (tag_id, gid, rid, admin_id)) type=InnoDB
+create table tags (id bigint not null auto_increment, name varchar(255) not null unique, implicit bit not null, permissions integer not null, permissionsOnPath integer, primary key (id)) type=InnoDB
+create table task (task_id bigint not null auto_increment, completionDate datetime, creationDate datetime, expiryDate datetime, status varchar(255) not null, admin_id bigint, task_type_id bigint not null, usr_id bigint, primary key (task_id)) type=InnoDB
+create table task_log_record (id bigint not null auto_increment, adminDn varchar(255), creation_time datetime not null, event varchar(255) not null, userDn varchar(255), task_id bigint not null, primary key (id)) type=InnoDB
+create table task_type (id bigint not null auto_increment, description varchar(255), name varchar(255) not null unique, primary key (id)) type=InnoDB
+create table user_request_task (task_id bigint not null, req_id bigint not null, primary key (task_id)) type=InnoDB
+create table usr (userid bigint not null auto_increment, address varchar(255), creation_time datetime not null, dn varchar(255), email_address varchar(255) not null, end_time datetime not null, institution varchar(255), name varchar(255), phone_number varchar(255), surname varchar(255), suspended bit, suspension_reason varchar(255), suspension_reason_code varchar(255), ca smallint, primary key (userid)) type=InnoDB
+create table usr_attrs (a_id bigint not null, u_id bigint not null, a_value varchar(255), primary key (a_id, u_id)) type=InnoDB
+create table version (version integer not null, admin_version varchar(255), primary key (version)) type=InnoDB
+create table vo_membership_req (confirmId varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+alter table acl2 add index FK2D98E8720C9B10 (role_id), add constraint FK2D98E8720C9B10 foreign key (role_id) references roles (rid) on delete cascade
+alter table acl2 add index FK2D98E8FCFA8B04 (group_id), add constraint FK2D98E8FCFA8B04 foreign key (group_id) references groups (gid) on delete cascade
+alter table acl2_permissions add index FK35C6CFADD91CE8A3 (acl_id), add constraint FK35C6CFADD91CE8A3 foreign key (acl_id) references acl2 (acl_id)
+alter table acl2_permissions add index FK35C6CFADA4AD9904 (admin_id), add constraint FK35C6CFADA4AD9904 foreign key (admin_id) references admins (adminid)
+alter table admins add index FKAB3A67047C6FEB32 (ca), add constraint FKAB3A67047C6FEB32 foreign key (ca) references ca (cid)
+alter table aup_acc_record add index FKB1979B32EE2D4487 (usr_id), add constraint FKB1979B32EE2D4487 foreign key (usr_id) references usr (userid)
+alter table aup_acc_record add index FKB1979B32815F1678 (aup_version_id), add constraint FKB1979B32815F1678 foreign key (aup_version_id) references aup_version (id)
+alter table aup_version add index fk_aup_version_aup (aup_id), add constraint fk_aup_version_aup foreign key (aup_id) references aup (id) on delete cascade
+alter table certificate add index FK745F4197EE2D4487 (usr_id), add constraint FK745F4197EE2D4487 foreign key (usr_id) references usr (userid)
+alter table certificate add index FK745F419782107F70 (ca_id), add constraint FK745F419782107F70 foreign key (ca_id) references ca (cid)
+alter table certificate_request add index FK47CA53E7D75D60A4 (request_id), add constraint FK47CA53E7D75D60A4 foreign key (request_id) references req (request_id)
+alter table group_attrs add index FK40B1A2E2566C2A8F (a_id), add constraint FK40B1A2E2566C2A8F foreign key (a_id) references attributes (a_id)
+alter table group_attrs add index FK40B1A2E2DEFC581C (g_id), add constraint FK40B1A2E2DEFC581C foreign key (g_id) references groups (gid) on delete cascade
+alter table group_membership_req add index FKBD145E75D75D60A4 (request_id), add constraint FKBD145E75D75D60A4 foreign key (request_id) references req (request_id)
+alter table groups add index FKB63DD9D4A3771CD3 (parent), add constraint FKB63DD9D4A3771CD3 foreign key (parent) references groups (gid)
+alter table m add index fk_m_roles (rid), add constraint fk_m_roles foreign key (rid) references roles (rid) on delete cascade
+alter table m add index fk_m_groups (gid), add constraint fk_m_groups foreign key (gid) references groups (gid) on delete cascade
+alter table m add index fk_m_cap (cid), add constraint fk_m_cap foreign key (cid) references capabilities (cid)
+alter table m add index fk_m_usr (userid), add constraint fk_m_usr foreign key (userid) references usr (userid)
+alter table membership_rem_req add index FK1877BC10D75D60A4 (request_id), add constraint FK1877BC10D75D60A4 foreign key (request_id) references req (request_id)
+alter table personal_info add index FK229FDF4DA8D3C6BC (personal_info_type_id), add constraint FK229FDF4DA8D3C6BC foreign key (personal_info_type_id) references personal_info_type (id)
+alter table req add index FK1B89EC37E889D (requester_info_id), add constraint FK1B89EC37E889D foreign key (requester_info_id) references requester_info (id)
+alter table requester_personal_info add index FK7E3D7FCAD500B8D2 (requester_id), add constraint FK7E3D7FCAD500B8D2 foreign key (requester_id) references requester_info (id)
+alter table role_attrs add index FK6BDE9799566C2A8F (a_id), add constraint FK6BDE9799566C2A8F foreign key (a_id) references attributes (a_id)
+alter table role_attrs add index FK6BDE979920304994 (r_id), add constraint FK6BDE979920304994 foreign key (r_id) references roles (rid) on delete cascade
+alter table role_attrs add index FK6BDE9799DEFC581C (g_id), add constraint FK6BDE9799DEFC581C foreign key (g_id) references groups (gid)
+alter table role_membership_req add index FK3B9C79ED75D60A4 (request_id), add constraint FK3B9C79ED75D60A4 foreign key (request_id) references req (request_id)
+alter table sign_aup_task add index FK7FCB416A32B8C70C (task_id), add constraint FK7FCB416A32B8C70C foreign key (task_id) references task (task_id)
+alter table sign_aup_task add index FK7FCB416ADA1C6363 (aup_id), add constraint FK7FCB416ADA1C6363 foreign key (aup_id) references aup (id)
+alter table tag_mapping add index fk_tag_mapping_roles (rid), add constraint fk_tag_mapping_roles foreign key (rid) references roles (rid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_admins (admin_id), add constraint fk_tag_mapping_admins foreign key (admin_id) references admins (adminid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_groups (gid), add constraint fk_tag_mapping_groups foreign key (gid) references groups (gid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_tag (tag_id), add constraint fk_tag_mapping_tag foreign key (tag_id) references tags (id) on delete cascade
+alter table task add index FK3635859AD54C57 (task_type_id), add constraint FK3635859AD54C57 foreign key (task_type_id) references task_type (id)
+alter table task add index FK363585EE2D4487 (usr_id), add constraint FK363585EE2D4487 foreign key (usr_id) references usr (userid)
+alter table task add index FK363585A4AD9904 (admin_id), add constraint FK363585A4AD9904 foreign key (admin_id) references admins (adminid)
+alter table task_log_record add index FK77673CA632B8C70C (task_id), add constraint FK77673CA632B8C70C foreign key (task_id) references task (task_id)
+alter table user_request_task add index FKACB7D2932B8C70C (task_id), add constraint FKACB7D2932B8C70C foreign key (task_id) references task (task_id)
+alter table user_request_task add index FKACB7D299D73AC35 (req_id), add constraint FKACB7D299D73AC35 foreign key (req_id) references req (request_id)
+alter table usr add index FK1C5947C6FEB32 (ca), add constraint FK1C5947C6FEB32 foreign key (ca) references ca (cid)
+alter table usr_attrs add index FKA39E0E37566C2A8F (a_id), add constraint FKA39E0E37566C2A8F foreign key (a_id) references attributes (a_id)
+alter table usr_attrs add index FKA39E0E3720331206 (u_id), add constraint FKA39E0E3720331206 foreign key (u_id) references usr (userid)
+alter table vo_membership_req add index FK28EE8AFBD75D60A4 (request_id), add constraint FK28EE8AFBD75D60A4 foreign key (request_id) references req (request_id)
+Deploying voms database...
+Database deployed correctly!
+   INFO: Opening the VO to all authenticated clients.
+Checking that the database is writable...
+Database is writable.
+Granting read-only access to any authenticated user on group '/emi3'
+Granting read-only access to any authenticated user on role '/emi3/Role=VO-Admin'
+   INFO: Adding default admin from /etc/grid-security/hostcert.pem
+   INFO: Ignoring email from the administrator certificate: /etc/grid-security/hostcert.pem
+Admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA' not found. It will be created...
+Adding ALL permissions on '/emi3' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/Role=VO-Admin' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Stopping vo emi3
+Starting vo emi3
+Stopping siblings webapp
+Starting siblings webapp
+   INFO: User and password for read-only database access for VOMS-CORE not specified.
+   INFO: Using the credentials for read-write access (VOMS-ADMIN).
+Stopping tomcat6: [60G[[0;32m  OK  [0;39m]
+Starting tomcat6: [60G[[0;32m  OK  [0;39m]
+Stopping voms(emi3): (already stopped)
+Starting voms(emi3): [60G[[0;32m  OK  [0;39m]
+   INFO: Executing function: config_voms_logrotate_setenv 
+   INFO: Executing function: config_voms_logrotate 
+   INFO: Executing function: config_bdii_5.2 
+Stopping BDII: BDII already stopped
+Starting BDII slapd: [60G[[0;32m  OK  [0;39m]
+Starting BDII update process: [60G[[0;32m  OK  [0;39m]
+[80G[  [1;32mOK[0;39m  ]   INFO: Configuration Complete.
+   INFO: YAIM terminated succesfully.
+[root@tuneyards.cnaf.infn.it ~]# sleep 10
+[root@tuneyards.cnaf.infn.it ~]# voms-admin --vo emi3 list-groups
+ /emi3
+[root@tuneyards.cnaf.infn.it ~]# wget --no-check-certificate https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
+--2013-02-07 15:26:28--  https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
+Resolving raw.github.com... 199.27.74.193
+Connecting to raw.github.com|199.27.74.193|:443... connected.
+WARNING: certificate common name “*.a.ssl.fastly.net” doesn’t match requested host name “raw.github.com”.
+HTTP request sent, awaiting response... 200 OK
+Length: 1186 (1.2K) [text/plain]
+Saving to: “populate-vo.sh”
+
+     0K .                                                     100% 46.6M=0s
+
+2013-02-07 15:26:29 (46.6 MB/s) - “populate-vo.sh” saved [1186/1186]
+
+[root@tuneyards.cnaf.infn.it ~]# sh populate-vo.sh emi3
+[root@tuneyards.cnaf.infn.it ~]# service voms stop
+Stopping voms(emi3): [60G[[0;32m  OK  [0;39m]
+[root@tuneyards.cnaf.infn.it ~]# service voms-admin stop
+Stopping vo emi3
+Stopping siblings webapp
+[root@tuneyards.cnaf.infn.it ~]# service tomcat6 stop
+Stopping tomcat6: [60G[[0;32m  OK  [0;39m]
+[root@tuneyards.cnaf.infn.it ~]# yum -y remove emi-release
+Loaded plugins: priorities, protectbase, security
+Setting up Remove Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:2.0.0-1.sl6 will be erased
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package       Arch     Version        Repository                          Size
+================================================================================
+Removing:
+ emi-release   noarch   2.0.0-1.sl6    @/emi-release-2.0.0-1.sl6.noarch   2.7 k
+
+Transaction Summary
+================================================================================
+Remove        1 Package(s)
+
+Installed size: 2.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Erasing    : emi-release-2.0.0-1.sl6.noarch                               1/1 
+  Verifying  : emi-release-2.0.0-1.sl6.noarch                               1/1 
+
+Removed:
+  emi-release.noarch 0:2.0.0-1.sl6                                              
+
+Complete!
+[root@tuneyards.cnaf.infn.it ~]# wget -q http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl6.repo -O /etc/yum.repos.d/test_emi.repo
+[root@tuneyards.cnaf.infn.it ~]# wget -q http://radiohead.cnaf.infn.it:9999/job/repo_voms_SL6/lastSuccessfulBuild/artifact/voms.repo -O /etc/yum.repos.d/test_voms.repo
+[root@tuneyards.cnaf.infn.it ~]# echo >> /etc/yum.repos.d/test_voms.repo; echo 'priority=1' >> /etc/yum.repos.d/test_voms.repo
+[root@tuneyards.cnaf.infn.it ~]# yum clean all
+Loaded plugins: priorities, protectbase, security
+Repository EGI-trustanchors is listed more than once in the configuration
+Cleaning repos: EGI-trustanchors EMI-3-testing-base EMI-3-testing-third-party
+              : Oracle-11 VOMS core epel extras sl sl-security
+Cleaning up Everything
+[root@tuneyards.cnaf.infn.it ~]# yum -y install emi-release
+Loaded plugins: priorities, protectbase, security
+Repository EGI-trustanchors is listed more than once in the configuration
+344 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:3.0.0-1.el6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch        Version             Repository               Size
+================================================================================
+Installing:
+ emi-release      noarch      3.0.0-1.el6         EMI-3-testing-base      5.1 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+
+Total download size: 5.1 k
+Installed size: 2.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : emi-release-3.0.0-1.el6.noarch                               1/1 
+  Verifying  : emi-release-3.0.0-1.el6.noarch                               1/1 
+
+Installed:
+  emi-release.noarch 0:3.0.0-1.el6                                              
+
+Complete!
+[root@tuneyards.cnaf.infn.it ~]# yum -y update
+Loaded plugins: priorities, protectbase, security
+Repository EGI-trustanchors is listed more than once in the configuration
+417 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Update Process
+Resolving Dependencies
+--> Running transaction check
+---> Package bdii.noarch 0:5.2.12-1.el6 will be updated
+---> Package bdii.noarch 0:5.2.17-1.el6 will be an update
+---> Package emi-trustmanager.noarch 0:3.1.4-1.sl6 will be obsoleted
+---> Package emi-trustmanager-tomcat.noarch 0:3.0.1-1.sl6 will be obsoleted
+---> Package emi-voms-mysql.x86_64 0:1.0.1-1.el6 will be updated
+---> Package emi-voms-mysql.noarch 0:1.1.0-1.el6 will be an update
+---> Package glite-ce-common-java.noarch 0:1.15.1-2.sl6 will be obsoleting
+--> Processing Dependency: axis2 for package: glite-ce-common-java-1.15.1-2.sl6.noarch
+--> Processing Dependency: mysql-connector-java for package: glite-ce-common-java-1.15.1-2.sl6.noarch
+--> Processing Dependency: jclassads for package: glite-ce-common-java-1.15.1-2.sl6.noarch
+--> Processing Dependency: voms-api-java for package: glite-ce-common-java-1.15.1-2.sl6.noarch
+---> Package glite-info-provider-service.noarch 0:1.9.0-5.el6 will be updated
+---> Package glite-info-provider-service.noarch 0:1.12.0-1.el6 will be an update
+---> Package glite-yaim-bdii.noarch 0:4.3.11-1.el6 will be updated
+---> Package glite-yaim-bdii.noarch 0:4.3.13-1.el6 will be an update
+---> Package glite-yaim-core.noarch 0:5.1.0-1.sl6 will be updated
+---> Package glite-yaim-core.noarch 0:5.1.1-1.sl6 will be an update
+---> Package glue-schema.noarch 0:2.0.8-2.el6 will be updated
+---> Package glue-schema.noarch 0:2.0.10-1.el6 will be an update
+---> Package igi-test-ca.noarch 0:1.0.1-1.sl5 will be updated
+---> Package igi-test-ca.noarch 0:1.0.2-2 will be an update
+---> Package kernel.x86_64 0:2.6.32-279.22.1.el6 will be installed
+---> Package kernel-firmware.noarch 0:2.6.32-279.19.1.el6 will be updated
+---> Package kernel-firmware.noarch 0:2.6.32-279.22.1.el6 will be an update
+---> Package nspr.x86_64 0:4.9.1-2.el6_3 will be updated
+---> Package nspr.x86_64 0:4.9.2-0.el6_3.1 will be an update
+---> Package nss.x86_64 0:3.13.5-1.el6_3 will be updated
+---> Package nss.x86_64 0:3.13.6-2.el6_3 will be an update
+---> Package nss-sysinit.x86_64 0:3.13.5-1.el6_3 will be updated
+---> Package nss-sysinit.x86_64 0:3.13.6-2.el6_3 will be an update
+---> Package nss-tools.x86_64 0:3.13.5-1.el6_3 will be updated
+---> Package nss-tools.x86_64 0:3.13.6-2.el6_3 will be an update
+---> Package nss-util.x86_64 0:3.13.5-1.el6_3 will be updated
+---> Package nss-util.x86_64 0:3.13.6-1.el6_3 will be an update
+---> Package tzdata.noarch 0:2012i-2.el6 will be updated
+---> Package tzdata.noarch 0:2012j-1.el6 will be an update
+---> Package voms.x86_64 0:2.0.9-1.el6 will be updated
+---> Package voms.x86_64 0:2.0.10-1.el6 will be an update
+---> Package voms-admin-client.noarch 0:2.0.17-1.el6 will be updated
+---> Package voms-admin-client.noarch 0:2.0.18-1.el6 will be an update
+---> Package voms-admin-server.noarch 0:2.7.0-1.el6 will be updated
+---> Package voms-admin-server.noarch 0:3.0.0-1.el6 will be an update
+--> Processing Dependency: java-1.6.0-openjdk-devel for package: voms-admin-server-3.0.0-1.el6.noarch
+---> Package voms-server.x86_64 0:2.0.9-1.el6 will be updated
+---> Package voms-server.x86_64 0:2.0.10-1.el6 will be an update
+--> Running transaction check
+---> Package axis2.noarch 0:1.6.1-1.emi will be installed
+---> Package java-1.6.0-openjdk-devel.x86_64 1:1.6.0.0-1.50.1.11.5.el6_3 will be installed
+---> Package jclassads.noarch 0:2.4.0-2.sl6 will be installed
+---> Package mysql-connector-java.noarch 1:5.1.17-6.el6 will be installed
+--> Processing Dependency: jta >= 1.0 for package: 1:mysql-connector-java-5.1.17-6.el6.noarch
+--> Processing Dependency: slf4j for package: 1:mysql-connector-java-5.1.17-6.el6.noarch
+---> Package voms-api-java.noarch 0:2.0.10-1.el6 will be installed
+--> Processing Dependency: jakarta-commons-cli for package: voms-api-java-2.0.10-1.el6.noarch
+--> Processing Dependency: jakarta-commons-lang for package: voms-api-java-2.0.10-1.el6.noarch
+--> Running transaction check
+---> Package geronimo-specs-compat.noarch 0:1.0-3.4.M2.el6 will be installed
+--> Processing Dependency: geronimo-specs = 1.0-3.4.M2.el6 for package: geronimo-specs-compat-1.0-3.4.M2.el6.noarch
+---> Package jakarta-commons-cli.x86_64 0:1.1-5.el6 will be installed
+---> Package jakarta-commons-lang.noarch 0:2.4-1.1.el6 will be installed
+---> Package slf4j.noarch 0:1.5.8-7.el6 will be installed
+--> Running transaction check
+---> Package geronimo-specs.noarch 0:1.0-3.4.M2.el6 will be installed
+--> Processing Dependency: apache-tomcat-apis for package: geronimo-specs-1.0-3.4.M2.el6.noarch
+--> Running transaction check
+---> Package apache-tomcat-apis.noarch 0:0.1-1.el6 will be installed
+--> Finished Dependency Resolution
+--> Running transaction check
+---> Package kernel.x86_64 0:2.6.32-279.5.1.el6 will be erased
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                   Arch   Version              Repository          Size
+================================================================================
+Installing:
+ glite-ce-common-java      noarch 1.15.1-2.sl6         EMI-3-testing-base 632 k
+     replacing  emi-trustmanager.noarch 3.1.4-1.sl6
+     replacing  emi-trustmanager-tomcat.noarch 3.0.1-1.sl6
+ kernel                    x86_64 2.6.32-279.22.1.el6  sl-security         25 M
+Updating:
+ bdii                      noarch 5.2.17-1.el6         EMI-3-testing-base  23 k
+ emi-voms-mysql            noarch 1.1.0-1.el6          EMI-3-testing-base 2.3 k
+ glite-info-provider-service
+                           noarch 1.12.0-1.el6         EMI-3-testing-base  62 k
+ glite-yaim-bdii           noarch 4.3.13-1.el6         EMI-3-testing-base  11 k
+ glite-yaim-core           noarch 5.1.1-1.sl6          EMI-3-testing-base 102 k
+ glue-schema               noarch 2.0.10-1.el6         EMI-3-testing-base  31 k
+ igi-test-ca               noarch 1.0.2-2              VOMS                96 k
+ kernel-firmware           noarch 2.6.32-279.22.1.el6  sl-security        8.7 M
+ nspr                      x86_64 4.9.2-0.el6_3.1      sl-security        111 k
+ nss                       x86_64 3.13.6-2.el6_3       sl-security        769 k
+ nss-sysinit               x86_64 3.13.6-2.el6_3       sl-security         31 k
+ nss-tools                 x86_64 3.13.6-2.el6_3       sl-security        729 k
+ nss-util                  x86_64 3.13.6-1.el6_3       sl-security         52 k
+ tzdata                    noarch 2012j-1.el6          sl-security        452 k
+ voms                      x86_64 2.0.10-1.el6         VOMS               136 k
+ voms-admin-client         noarch 2.0.18-1.el6         VOMS                68 k
+ voms-admin-server         noarch 3.0.0-1.el6          VOMS                32 M
+ voms-server               x86_64 2.0.10-1.el6         VOMS               171 k
+Removing:
+ kernel                    x86_64 2.6.32-279.5.1.el6   @sl-security/6.1   114 M
+Installing for dependencies:
+ apache-tomcat-apis        noarch 0.1-1.el6            core               163 k
+ axis2                     noarch 1.6.1-1.emi          EMI-3-third-party   19 M
+ geronimo-specs            noarch 1.0-3.4.M2.el6       core               109 k
+ geronimo-specs-compat     noarch 1.0-3.4.M2.el6       core               6.0 k
+ jakarta-commons-cli       x86_64 1.1-5.el6            epel                73 k
+ jakarta-commons-lang      noarch 2.4-1.1.el6          core               251 k
+ java-1.6.0-openjdk-devel  x86_64 1:1.6.0.0-1.50.1.11.5.el6_3
+                                                       sl-security        8.5 M
+ jclassads                 noarch 2.4.0-2.sl6          EMI-3-third-party   95 k
+ mysql-connector-java      noarch 1:5.1.17-6.el6       core               1.4 M
+ slf4j                     noarch 1.5.8-7.el6          core               131 k
+ voms-api-java             noarch 2.0.10-1.el6         EMI-3-testing-base 154 k
+
+Transaction Summary
+================================================================================
+Install      13 Package(s)
+Upgrade      18 Package(s)
+Remove        1 Package(s)
+
+Total download size: 99 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           3.0 MB/s |  99 MB     00:33     
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Updating   : nspr-4.9.2-0.el6_3.1.x86_64                                 1/52 
+  Updating   : nss-util-3.13.6-1.el6_3.x86_64                              2/52 
+  Updating   : nss-3.13.6-2.el6_3.x86_64                                   3/52 
+  Updating   : nss-sysinit-3.13.6-2.el6_3.x86_64                           4/52 
+  Installing : jakarta-commons-lang-2.4-1.1.el6.noarch                     5/52 
+  Installing : jakarta-commons-cli-1.1-5.el6.x86_64                        6/52 
+  Installing : voms-api-java-2.0.10-1.el6.noarch                           7/52 
+  Updating   : glite-info-provider-service-1.12.0-1.el6.noarch             8/52 
+  Installing : 1:java-1.6.0-openjdk-devel-1.6.0.0-1.50.1.11.5.el6_3.x86    9/52 
+  Updating   : voms-admin-server-3.0.0-1.el6.noarch                       10/52 
+  Updating   : kernel-firmware-2.6.32-279.22.1.el6.noarch                 11/52 
+  Installing : slf4j-1.5.8-7.el6.noarch                                   12/52 
+  Updating   : glue-schema-2.0.10-1.el6.noarch                            13/52 
+  Updating   : bdii-5.2.17-1.el6.noarch                                   14/52 
+warning: /etc/bdii/bdii-slapd.conf saved as /etc/bdii/bdii-slapd.conf.rpmsave
+warning: /etc/bdii/bdii-top-slapd.conf saved as /etc/bdii/bdii-top-slapd.conf.rpmsave
+  Installing : apache-tomcat-apis-0.1-1.el6.noarch                        15/52 
+  Installing : geronimo-specs-1.0-3.4.M2.el6.noarch                       16/52 
+  Installing : geronimo-specs-compat-1.0-3.4.M2.el6.noarch                17/52 
+  Installing : 1:mysql-connector-java-5.1.17-6.el6.noarch                 18/52 
+  Updating   : voms-admin-client-2.0.18-1.el6.noarch                      19/52 
+  Updating   : voms-2.0.10-1.el6.x86_64                                   20/52 
+  Updating   : voms-server-2.0.10-1.el6.x86_64                            21/52 
+  Installing : axis2-1.6.1-1.emi.noarch                                   22/52 
+  Installing : jclassads-2.4.0-2.sl6.noarch                               23/52 
+  Installing : glite-ce-common-java-1.15.1-2.sl6.noarch                   24/52 
+  Updating   : emi-voms-mysql-1.1.0-1.el6.noarch                          25/52 
+  Installing : kernel-2.6.32-279.22.1.el6.x86_64                          26/52 
+  Updating   : nss-tools-3.13.6-2.el6_3.x86_64                            27/52 
+  Updating   : glite-yaim-bdii-4.3.13-1.el6.noarch                        28/52 
+  Updating   : tzdata-2012j-1.el6.noarch                                  29/52 
+  Updating   : igi-test-ca-1.0.2-2.noarch                                 30/52 
+  Updating   : glite-yaim-core-5.1.1-1.sl6.noarch                         31/52 
+  Cleanup    : emi-voms-mysql-1.0.1-1.el6.x86_64                          32/52 
+  Cleanup    : voms-admin-server-2.7.0-1.el6.noarch                       33/52 
+Stopping potentially running voms-admin instances...
+Stopping voms-admin( emi3 ): (not running)[60G[[1;31mFAILED[0;39m]
+  Erasing    : emi-trustmanager-tomcat-3.0.1-1.sl6.noarch                 34/52 
+  Cleanup    : bdii-5.2.12-1.el6.noarch                                   35/52 
+  Cleanup    : kernel-2.6.32-279.5.1.el6.x86_64                           36/52 
+  Cleanup    : kernel-firmware-2.6.32-279.19.1.el6.noarch                 37/52 
+  Cleanup    : glue-schema-2.0.8-2.el6.noarch                             38/52 
+  Erasing    : emi-trustmanager-3.1.4-1.sl6.noarch                        39/52 
+  Cleanup    : glite-yaim-bdii-4.3.11-1.el6.noarch                        40/52 
+  Cleanup    : voms-admin-client-2.0.17-1.el6.noarch                      41/52 
+  Cleanup    : glite-info-provider-service-1.9.0-5.el6.noarch             42/52 
+  Cleanup    : tzdata-2012i-2.el6.noarch                                  43/52 
+  Cleanup    : igi-test-ca-1.0.1-1.sl5.noarch                             44/52 
+  Cleanup    : glite-yaim-core-5.1.0-1.sl6.noarch                         45/52 
+  Cleanup    : nss-tools-3.13.5-1.el6_3.x86_64                            46/52 
+  Cleanup    : nss-sysinit-3.13.5-1.el6_3.x86_64                          47/52 
+  Cleanup    : nss-3.13.5-1.el6_3.x86_64                                  48/52 
+  Cleanup    : nss-util-3.13.5-1.el6_3.x86_64                             49/52 
+  Cleanup    : voms-server-2.0.9-1.el6.x86_64                             50/52 
+  Cleanup    : voms-2.0.9-1.el6.x86_64                                    51/52 
+  Cleanup    : nspr-4.9.1-2.el6_3.x86_64                                  52/52 
+  Verifying  : jclassads-2.4.0-2.sl6.noarch                                1/52 
+  Verifying  : nss-util-3.13.6-1.el6_3.x86_64                              2/52 
+  Verifying  : axis2-1.6.1-1.emi.noarch                                    3/52 
+  Verifying  : emi-voms-mysql-1.1.0-1.el6.noarch                           4/52 
+  Verifying  : nspr-4.9.2-0.el6_3.1.x86_64                                 5/52 
+  Verifying  : voms-2.0.10-1.el6.x86_64                                    6/52 
+  Verifying  : voms-api-java-2.0.10-1.el6.noarch                           7/52 
+  Verifying  : geronimo-specs-compat-1.0-3.4.M2.el6.noarch                 8/52 
+  Verifying  : geronimo-specs-1.0-3.4.M2.el6.noarch                        9/52 
+  Verifying  : voms-admin-server-3.0.0-1.el6.noarch                       10/52 
+  Verifying  : glite-yaim-core-5.1.1-1.sl6.noarch                         11/52 
+  Verifying  : jakarta-commons-lang-2.4-1.1.el6.noarch                    12/52 
+  Verifying  : igi-test-ca-1.0.2-2.noarch                                 13/52 
+  Verifying  : voms-admin-client-2.0.18-1.el6.noarch                      14/52 
+  Verifying  : apache-tomcat-apis-0.1-1.el6.noarch                        15/52 
+  Verifying  : tzdata-2012j-1.el6.noarch                                  16/52 
+  Verifying  : voms-server-2.0.10-1.el6.x86_64                            17/52 
+  Verifying  : glue-schema-2.0.10-1.el6.noarch                            18/52 
+  Verifying  : slf4j-1.5.8-7.el6.noarch                                   19/52 
+  Verifying  : glite-ce-common-java-1.15.1-2.sl6.noarch                   20/52 
+  Verifying  : nss-3.13.6-2.el6_3.x86_64                                  21/52 
+  Verifying  : kernel-firmware-2.6.32-279.22.1.el6.noarch                 22/52 
+  Verifying  : bdii-5.2.17-1.el6.noarch                                   23/52 
+  Verifying  : nss-sysinit-3.13.6-2.el6_3.x86_64                          24/52 
+  Verifying  : nss-tools-3.13.6-2.el6_3.x86_64                            25/52 
+  Verifying  : 1:mysql-connector-java-5.1.17-6.el6.noarch                 26/52 
+  Verifying  : jakarta-commons-cli-1.1-5.el6.x86_64                       27/52 
+  Verifying  : kernel-2.6.32-279.22.1.el6.x86_64                          28/52 
+  Verifying  : 1:java-1.6.0-openjdk-devel-1.6.0.0-1.50.1.11.5.el6_3.x86   29/52 
+  Verifying  : glite-yaim-bdii-4.3.13-1.el6.noarch                        30/52 
+  Verifying  : glite-info-provider-service-1.12.0-1.el6.noarch            31/52 
+  Verifying  : voms-server-2.0.9-1.el6.x86_64                             32/52 
+  Verifying  : emi-voms-mysql-1.0.1-1.el6.x86_64                          33/52 
+  Verifying  : voms-2.0.9-1.el6.x86_64                                    34/52 
+  Verifying  : glue-schema-2.0.8-2.el6.noarch                             35/52 
+  Verifying  : glite-yaim-core-5.1.0-1.sl6.noarch                         36/52 
+  Verifying  : nspr-4.9.1-2.el6_3.x86_64                                  37/52 
+  Verifying  : nss-util-3.13.5-1.el6_3.x86_64                             38/52 
+  Verifying  : glite-info-provider-service-1.9.0-5.el6.noarch             39/52 
+  Verifying  : bdii-5.2.12-1.el6.noarch                                   40/52 
+  Verifying  : igi-test-ca-1.0.1-1.sl5.noarch                             41/52 
+  Verifying  : tzdata-2012i-2.el6.noarch                                  42/52 
+  Verifying  : kernel-firmware-2.6.32-279.19.1.el6.noarch                 43/52 
+  Verifying  : voms-admin-server-2.7.0-1.el6.noarch                       44/52 
+  Verifying  : kernel-2.6.32-279.5.1.el6.x86_64                           45/52 
+  Verifying  : nss-sysinit-3.13.5-1.el6_3.x86_64                          46/52 
+  Verifying  : voms-admin-client-2.0.17-1.el6.noarch                      47/52 
+  Verifying  : glite-yaim-bdii-4.3.11-1.el6.noarch                        48/52 
+  Verifying  : emi-trustmanager-tomcat-3.0.1-1.sl6.noarch                 49/52 
+  Verifying  : nss-tools-3.13.5-1.el6_3.x86_64                            50/52 
+  Verifying  : nss-3.13.5-1.el6_3.x86_64                                  51/52 
+  Verifying  : emi-trustmanager-3.1.4-1.sl6.noarch                        52/52 
+
+Removed:
+  kernel.x86_64 0:2.6.32-279.5.1.el6                                            
+
+Installed:
+  glite-ce-common-java.noarch 0:1.15.1-2.sl6                                    
+  kernel.x86_64 0:2.6.32-279.22.1.el6                                           
+
+Dependency Installed:
+  apache-tomcat-apis.noarch 0:0.1-1.el6                                         
+  axis2.noarch 0:1.6.1-1.emi                                                    
+  geronimo-specs.noarch 0:1.0-3.4.M2.el6                                        
+  geronimo-specs-compat.noarch 0:1.0-3.4.M2.el6                                 
+  jakarta-commons-cli.x86_64 0:1.1-5.el6                                        
+  jakarta-commons-lang.noarch 0:2.4-1.1.el6                                     
+  java-1.6.0-openjdk-devel.x86_64 1:1.6.0.0-1.50.1.11.5.el6_3                   
+  jclassads.noarch 0:2.4.0-2.sl6                                                
+  mysql-connector-java.noarch 1:5.1.17-6.el6                                    
+  slf4j.noarch 0:1.5.8-7.el6                                                    
+  voms-api-java.noarch 0:2.0.10-1.el6                                           
+
+Updated:
+  bdii.noarch 0:5.2.17-1.el6                                                    
+  emi-voms-mysql.noarch 0:1.1.0-1.el6                                           
+  glite-info-provider-service.noarch 0:1.12.0-1.el6                             
+  glite-yaim-bdii.noarch 0:4.3.13-1.el6                                         
+  glite-yaim-core.noarch 0:5.1.1-1.sl6                                          
+  glue-schema.noarch 0:2.0.10-1.el6                                             
+  igi-test-ca.noarch 0:1.0.2-2                                                  
+  kernel-firmware.noarch 0:2.6.32-279.22.1.el6                                  
+  nspr.x86_64 0:4.9.2-0.el6_3.1                                                 
+  nss.x86_64 0:3.13.6-2.el6_3                                                   
+  nss-sysinit.x86_64 0:3.13.6-2.el6_3                                           
+  nss-tools.x86_64 0:3.13.6-2.el6_3                                             
+  nss-util.x86_64 0:3.13.6-1.el6_3                                              
+  tzdata.noarch 0:2012j-1.el6                                                   
+  voms.x86_64 0:2.0.10-1.el6                                                    
+  voms-admin-client.noarch 0:2.0.18-1.el6                                       
+  voms-admin-server.noarch 0:3.0.0-1.el6                                        
+  voms-server.x86_64 0:2.0.10-1.el6                                             
+
+Replaced:
+  emi-trustmanager.noarch 0:3.1.4-1.sl6                                         
+  emi-trustmanager-tomcat.noarch 0:3.0.1-1.sl6                                  
+
+Complete!
+[root@tuneyards.cnaf.infn.it ~]# yum -y remove tomcat6
+Loaded plugins: priorities, protectbase, security
+Setting up Remove Process
+Resolving Dependencies
+--> Running transaction check
+---> Package tomcat6.noarch 0:6.0.24-45.el6 will be erased
+--> Processing Dependency: tomcat6 for package: glite-ce-common-java-1.15.1-2.sl6.noarch
+--> Running transaction check
+---> Package glite-ce-common-java.noarch 0:1.15.1-2.sl6 will be erased
+--> Finished Dependency Resolution
+Repository EGI-trustanchors is listed more than once in the configuration
+
+Dependencies Resolved
+
+================================================================================
+ Package                Arch     Version            Repository             Size
+================================================================================
+Removing:
+ tomcat6                noarch   6.0.24-45.el6      @sl                   188 k
+Removing for dependencies:
+ glite-ce-common-java   noarch   1.15.1-2.sl6       @EMI-3-testing-base   707 k
+
+Transaction Summary
+================================================================================
+Remove        2 Package(s)
+
+Installed size: 895 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Erasing    : glite-ce-common-java-1.15.1-2.sl6.noarch                     1/2 
+  Erasing    : tomcat6-6.0.24-45.el6.noarch                                 2/2 
+warning: /etc/tomcat6/tomcat6.conf saved as /etc/tomcat6/tomcat6.conf.rpmsave
+warning: /etc/tomcat6/server.xml saved as /etc/tomcat6/server.xml.rpmsave
+  Verifying  : tomcat6-6.0.24-45.el6.noarch                                 1/2 
+  Verifying  : glite-ce-common-java-1.15.1-2.sl6.noarch                     2/2 
+
+Removed:
+  tomcat6.noarch 0:6.0.24-45.el6                                                
+
+Dependency Removed:
+  glite-ce-common-java.noarch 0:1.15.1-2.sl6                                    
+
+Complete!
+[root@tuneyards.cnaf.infn.it ~]# sh reconfigure-voms.sh
+Configuring VOMS admin service for vo emi3
+Creating VOMS services certificate in /etc/grid-security/vomscert.pem, /etc/grid-security/vomskey.pem
+VOMS Admin service configuration for VO emi3 exists.
+Deploying database for VO emi3
+Checking database connectivity...
+Database contacted succesfully
+Checking database existence...
+Found existing voms-admin > 2.5.x database...
+Existing voms database found. Will not overwrite the database!
+Adding VO administrator reading information from /etc/grid-security/vomscert.pem
+Admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA' already exists in database...
+This admin will be granted full privileges on the VOMS database.
+Adding ALL permissions on '/emi3' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/Role=R1' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/Role=R2' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/Role=R3' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/Role=VO-Admin' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on '/emi3/G1' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G1/Role=R1' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G1/Role=R2' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G1/Role=R3' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G1/Role=VO-Admin' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on '/emi3/G2' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G2/Role=R1' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G2/Role=R2' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G2/Role=R3' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G2/Role=VO-Admin' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on '/emi3/G2/G3' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G2/G3/Role=R1' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G2/G3/Role=R2' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G2/G3/Role=R3' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G2/G3/Role=VO-Admin' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on '/emi3/G1/G4' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G1/G4/Role=R1' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G1/G4/Role=R2' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G1/G4/Role=R3' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G1/G4/Role=VO-Admin' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on '/emi3/G1/G4/G5' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G1/G4/G5/Role=R1' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G1/G4/G5/Role=R2' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G1/G4/G5/Role=R3' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/G1/G4/G5/Role=VO-Admin' for admin '/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+WARNING: No email was specified for this administrator! The new administrator will not receive VOMS Admin notifications
+Adding read-only access to authenticated clients on the VO.
+Checking that the database is writable...
+Database is writable.
+Granting read-only access to any authenticated user on group '/emi3'
+Granting read-only access to any authenticated user on role '/emi3/Role=R1'
+Granting read-only access to any authenticated user on role '/emi3/Role=R2'
+Granting read-only access to any authenticated user on role '/emi3/Role=R3'
+Granting read-only access to any authenticated user on role '/emi3/Role=VO-Admin'
+Granting read-only access to any authenticated user on group '/emi3/G1'
+Granting read-only access to any authenticated user on role '/emi3/G1/Role=R1'
+Granting read-only access to any authenticated user on role '/emi3/G1/Role=R2'
+Granting read-only access to any authenticated user on role '/emi3/G1/Role=R3'
+Granting read-only access to any authenticated user on role '/emi3/G1/Role=VO-Admin'
+Granting read-only access to any authenticated user on group '/emi3/G2'
+Granting read-only access to any authenticated user on role '/emi3/G2/Role=R1'
+Granting read-only access to any authenticated user on role '/emi3/G2/Role=R2'
+Granting read-only access to any authenticated user on role '/emi3/G2/Role=R3'
+Granting read-only access to any authenticated user on role '/emi3/G2/Role=VO-Admin'
+Granting read-only access to any authenticated user on group '/emi3/G2/G3'
+Granting read-only access to any authenticated user on role '/emi3/G2/G3/Role=R1'
+Granting read-only access to any authenticated user on role '/emi3/G2/G3/Role=R2'
+Granting read-only access to any authenticated user on role '/emi3/G2/G3/Role=R3'
+Granting read-only access to any authenticated user on role '/emi3/G2/G3/Role=VO-Admin'
+Granting read-only access to any authenticated user on group '/emi3/G1/G4'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/Role=R1'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/Role=R2'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/Role=R3'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/Role=VO-Admin'
+Granting read-only access to any authenticated user on group '/emi3/G1/G4/G5'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/G5/Role=R1'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/G5/Role=R2'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/G5/Role=R3'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/G5/Role=VO-Admin'
+Configuring VOMS core service for vo emi3
+VOMS core service configuration for VO emi3 already exists.
+VOMS core service configured succesfully.
+VO emi3 configuration completed succesfully.
+[root@tuneyards.cnaf.infn.it ~]# service voms-admin start
+Starting voms-admin( emi3 ): [60G[  [1;32mOK[0;39m  ]
+[root@tuneyards.cnaf.infn.it ~]# service voms start
+Starting voms(emi3): [60G[[0;32m  OK  [0;39m]
+[root@tuneyards.cnaf.infn.it ~]# sleep 20
+[root@tuneyards.cnaf.infn.it ~]# yum -y install voms-clients3
+Loaded plugins: priorities, protectbase, security
+Repository EGI-trustanchors is listed more than once in the configuration
+417 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients3.noarch 0:3.0.0-1.sl6 will be installed
+--> Processing Dependency: voms-api-java3 for package: voms-clients3-3.0.0-1.sl6.noarch
+--> Processing Dependency: jakarta-commons-io for package: voms-clients3-3.0.0-1.sl6.noarch
+--> Running transaction check
+---> Package jakarta-commons-io.noarch 0:1.4-3.el6 will be installed
+---> Package voms-api-java3.noarch 0:3.0.0-1.sl6 will be installed
+--> Processing Dependency: bouncycastle-mail for package: voms-api-java3-3.0.0-1.sl6.noarch
+--> Processing Dependency: canl-java for package: voms-api-java3-3.0.0-1.sl6.noarch
+--> Running transaction check
+---> Package bouncycastle-mail.noarch 0:1.46-1.el6 will be installed
+---> Package canl-java.noarch 0:1.1.0-1.sl6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                Arch       Version         Repository              Size
+================================================================================
+Installing:
+ voms-clients3          noarch     3.0.0-1.sl6     VOMS                   124 k
+Installing for dependencies:
+ bouncycastle-mail      noarch     1.46-1.el6      VOMS                   468 k
+ canl-java              noarch     1.1.0-1.sl6     EMI-3-testing-base     261 k
+ jakarta-commons-io     noarch     1.4-3.el6       core                   104 k
+ voms-api-java3         noarch     3.0.0-1.sl6     VOMS                   118 k
+
+Transaction Summary
+================================================================================
+Install       5 Package(s)
+
+Total download size: 1.0 M
+Installed size: 1.3 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           2.2 MB/s | 1.0 MB     00:00     
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : jakarta-commons-io-1.4-3.el6.noarch                          1/5 
+  Installing : canl-java-1.1.0-1.sl6.noarch                                 2/5 
+  Installing : bouncycastle-mail-1.46-1.el6.noarch                          3/5 
+  Installing : voms-api-java3-3.0.0-1.sl6.noarch                            4/5 
+  Installing : voms-clients3-3.0.0-1.sl6.noarch                             5/5 
+  Verifying  : bouncycastle-mail-1.46-1.el6.noarch                          1/5 
+  Verifying  : voms-api-java3-3.0.0-1.sl6.noarch                            2/5 
+  Verifying  : canl-java-1.1.0-1.sl6.noarch                                 3/5 
+  Verifying  : jakarta-commons-io-1.4-3.el6.noarch                          4/5 
+  Verifying  : voms-clients3-3.0.0-1.sl6.noarch                             5/5 
+
+Installed:
+  voms-clients3.noarch 0:3.0.0-1.sl6                                            
+
+Dependency Installed:
+  bouncycastle-mail.noarch 0:1.46-1.el6   canl-java.noarch 0:1.1.0-1.sl6       
+  jakarta-commons-io.noarch 0:1.4-3.el6   voms-api-java3.noarch 0:3.0.0-1.sl6  
+
+Complete!
+[root@tuneyards.cnaf.infn.it ~]# mkdir -p .globus
+[root@tuneyards.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.cert.pem .globus/usercert.pem
+[root@tuneyards.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.key.pem .globus/userkey.pem
+[root@tuneyards.cnaf.infn.it ~]# chmod 600 .globus/usercert.pem
+[root@tuneyards.cnaf.infn.it ~]# chmod 400 .globus/userkey.pem
+[root@tuneyards.cnaf.infn.it ~]# mkdir /etc/vomses
+[root@tuneyards.cnaf.infn.it ~]# cp /etc/voms-admin/emi3/vomses /etc/vomses/emi3
+[root@tuneyards.cnaf.infn.it ~]# mkdir /etc/grid-security/vomsdir/emi3
+[root@tuneyards.cnaf.infn.it ~]# cp /etc/voms-admin/emi3/lsc /etc/grid-security/vomsdir/emi3/tuneyards.cnaf.infn.it.lsc
+[root@tuneyards.cnaf.infn.it ~]# echo 'pass' | voms-proxy-init -voms emi3 --pwstdin --debug
+Loading CA Certificate /etc/grid-security/certificates/10b10516.0.
+Loading CA Certificate /etc/grid-security/certificates/2f3fadf6.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/2f3fadf6.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/2f3fadf6.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/d82942ab.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/d82942ab.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/d82942ab.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/e580c4f9.0.
+Loading CRL /etc/grid-security/certificates/2f3fadf6.r0.
+Loading CRL /etc/grid-security/certificates/2f3fadf6.r0.
+Loading CRL /etc/grid-security/certificates/10b10516.r0.
+Loading CRL /etc/grid-security/certificates/e580c4f9.r0.
+Loading CRL /etc/grid-security/certificates/d82942ab.r0.
+Loading CRL /etc/grid-security/certificates/d82942ab.r0.
+Looking for VOMS AA certificates in /etc/grid-security/vomsdir...
+Looking for LSC information in /etc/grid-security/vomsdir/emi3...
+Loaded LSC information from file /etc/grid-security/vomsdir/emi3/tuneyards.cnaf.infn.it.lsc: LSCFile [filename=/etc/grid-security/vomsdir/emi3/tuneyards.cnaf.infn.it.lsc, vo=emi3, hostname=tuneyards.cnaf.infn.it, certChainDescription=[/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it, /C=IT/O=IGI/CN=Test CA]]
+Looking for VOMS AA certificates in /etc/grid-security/vomsdir/emi3...
+Looking for user credentials in [/root/.globus/userkey.pem, /root/.globus/usercert.pem]...
+Credentials loaded successfully [/root/.globus/userkey.pem, /root/.globus/usercert.pem]
+Looking for VOMSES information in /etc/vomses...
+Loaded vomses information 'VOMSServerInfo [alias=emi3, voName=emi3, URL=voms://tuneyards.cnaf.infn.it:15000, vomsServerDN=/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it]' from /etc/vomses.
+Contacting tuneyards.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=tuneyards.cnaf.infn.it] "emi3"...
+Sent HTTP request for https://tuneyards.cnaf.infn.it:15000/generate-ac?fqans=/emi3&lifetime=43200
+Received VOMS response:
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<voms>
+<ac>MIIGrjCCBZYCAQEwNqA0MC+kLTArMQswCQYDVQQGEwJJVDEMMAoGA1UEChMDSUdJ
+MQ4wDAYDVQQDEwV0ZXN0MAIBCaBCMECkPjA8MQswCQYDVQQGEwJJVDEMMAoGA1UE
+ChMDSUdJMR8wHQYDVQQDExZ0dW5leWFyZHMuY25hZi5pbmZuLml0MA0GCSqGSIb3
+DQEBBQUAAhEAsFLIwbV1RjmNLRfk+aEHsjAiGA8yMDEzMDIwNzE0MzIyMloYDzIw
+MTMwMjA4MDIzMjIyWjCBzzCBzAYKKwYBBAG+RWRkBDGBvTCBuqAlhiNlbWkzOi8v
+dHVuZXlhcmRzLmNuYWYuaW5mbi5pdDoxNTAwMDCBkAQfL2VtaTMvUm9sZT1OVUxM
+L0NhcGFiaWxpdHk9TlVMTAQiL2VtaTMvRzEvUm9sZT1OVUxML0NhcGFiaWxpdHk9
+TlVMTAQiL2VtaTMvRzIvUm9sZT1OVUxML0NhcGFiaWxpdHk9TlVMTAQlL2VtaTMv
+RzIvRzMvUm9sZT1OVUxML0NhcGFiaWxpdHk9TlVMTDCCA/swggPLBgorBgEEAb5F
+ZGQKBIIDuzCCA7cwggOzMIIDrzCCApegAwIBAgIBFzANBgkqhkiG9w0BAQUFADAt
+MQswCQYDVQQGEwJJVDEMMAoGA1UECgwDSUdJMRAwDgYDVQQDDAdUZXN0IENBMB4X
+DTEzMDEwODE3NTAzNloXDTIzMDEwNjE3NTAzNlowPDELMAkGA1UEBhMCSVQxDDAK
+BgNVBAoTA0lHSTEfMB0GA1UEAxMWdHVuZXlhcmRzLmNuYWYuaW5mbi5pdDCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKWkePboR6Puow9zJy0jzBJcVNow
+b09YgDKB4PSHrRm4O2T1Z0e9AlZe9QvCQqekF7I7vJsgDNG4Ygw6yV9/G680LeQT
+49Q0HfZmDkjF/6IJcadvemvsNVVaRdmVaZSmmhpsdYBN7Z48nwQpdlsNiJDcoZpJ
+IpRWUSYMYx/Q3/Llt8qYWYWM6vBn4W7aEQ3OwHfYWrHOXdkXnxRM1vMOI1Uz5Ffd
+rYlqFdROPtbFyDfYCwpFvxJOMZUILd7LiivviYHS8X1cswrPoxCa0bbCjPyXqd0m
+7N3JevkMhxg5dADX4Jb2jtzEkAseFF0KanBKUtDJ0WpWUI5rfiZSVrIcJJUCAwEA
+AaOByjCBxzAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQkQg6ifrJHrvMZqYSrwGtm
+Oxng6TAOBgNVHQ8BAf8EBAMCBeAwPgYDVR0lBDcwNQYIKwYBBQUHAwEGCCsGAQUF
+BwMCBgorBgEEAYI3CgMDBglghkgBhvhCBAEGCCsGAQUFBwMEMB8GA1UdIwQYMBaA
+FJF3NnsutGnzJ+q39giLSiOiEUnGMCcGA1UdEQQgMB6BHGFuZHJlYS5jZWNjYW50
+aUBjbmFmLmluZm4uaXQwDQYJKoZIhvcNAQEFBQADggEBAOtJvkFNiyhPGi+VzwU8
+D0aDBf9L6mX7dWwV0ur+96STPt4DymGOjFfSppJOlyAVwEwBusRJgKVl1rmnKhyT
+WvZKzBctxbnLjN2RAJsKHYhL9N+0gyZUxyigpDZ4pcZtt6lnilxqncISsDDZMItm
+W8Vd4nIQorEnBKDAuA4hoLVt6XWKF+R6NGOB5ZJLX5XKORC7zWmvREzKeCqAmDT9
+BhT830dSesZfV9/hjrJY35fHtgpEFGhWdZntrbEmjS2XlNDniBgZ/bu8yUbtbG8s
+eR0jn5J1N8fe5ZdDTNQ1BZAco6FkTjx+dI6G4cPr5QeQdo/lj2GPwq5Sg0Baou1j
+c9swCQYDVR04BAIFADAfBgNVHSMEGDAWgBQkQg6ifrJHrvMZqYSrwGtmOxng6TAN
+BgkqhkiG9w0BAQUFAAOCAQEAjhadAQTj/9flTtdzwx+oCJT77klyVVMeRd8ebzLx
+MxzDdc0YlVHqzdzByaOh5CGKER7fF0GPBnCUJFu0hOom65NcNXUqpWTHsyOniVWZ
+cUuaURkAFdRwYBULcj2aGhU3JAIg1Jr5O+xllKGyY5gOnKM/wKdel0WdHTp0IMMS
+cTqR7DMEtLvJKFT91N/0mjKiOFc/B/22It8YF9BlpuRoKxB2VraUwD7DiwfBc/mA
+o/QISj74fJJpaaVczVBGdfEyyLWE4JY2wbn6ilLlyBVt99bLRKYw+s0egm3r7wlL
+dG+bIrO4Ki7g2eNcAHvKQBFjlehtd47lPt+Ny1quwnMaNg==
+</ac>
+</voms>
+
+Remote VOMS server contacted succesfully.
+
+VOMS AC validation for VO emi3 succeded.
+=== VO emi3 extension information ===
+VO        : emi3
+subject   : /C=IT/O=IGI/CN=test0
+issuer    : /C=IT/O=IGI/CN=tuneyards.cnaf.infn.it
+attribute : /emi3/Role=NULL/Capability=NULL
+attribute : /emi3/G1/Role=NULL/Capability=NULL
+attribute : /emi3/G2/Role=NULL/Capability=NULL
+attribute : /emi3/G2/G3/Role=NULL/Capability=NULL
+timeleft  : 11:59:58
+uri       : tuneyards.cnaf.infn.it:15000
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Feb 08 03:32:23 CET 2013
+[root@tuneyards.cnaf.infn.it ~]# service vomses start
+Starting vomses: [60G[  [1;32mOK[0;39m  ]
+VOMS succesfully upgraded!
