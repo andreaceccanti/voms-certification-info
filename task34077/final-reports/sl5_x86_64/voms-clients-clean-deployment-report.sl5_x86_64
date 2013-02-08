@@ -1,0 +1,87 @@
+voms-clients clean deployment test
+EMI repo URL: http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo
+VOMS repo URL: http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo
+[root@jen01.cnaf.infn.it ~]# wget -q http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo -O /etc/yum.repos.d/test_emi.repo
+[root@jen01.cnaf.infn.it ~]# wget -q http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo -O /etc/yum.repos.d/test_voms.repo
+[root@jen01.cnaf.infn.it ~]# echo >> /etc/yum.repos.d/test_voms.repo; echo 'priority=1' >> /etc/yum.repos.d/test_voms.repo
+[root@jen01.cnaf.infn.it ~]# yum clean all
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+Cleaning up Everything
+[root@jen01.cnaf.infn.it ~]# yum -y install emi-release
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4653 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Package emi-release-3.0.0-1.el5.noarch already installed and latest version
+Nothing to do
+[root@jen01.cnaf.infn.it ~]# yum -y install voms-clients
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4653 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients.x86_64 0:2.0.10-1 set to be updated
+--> Processing Dependency: voms = 2.0.10-1 for package: voms-clients
+--> Processing Dependency: libvomsapi.so.1()(64bit) for package: voms-clients
+--> Running transaction check
+---> Package voms.x86_64 0:2.0.10-1 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package               Arch            Version              Repository     Size
+================================================================================
+Installing:
+ voms-clients          x86_64          2.0.10-1             VOMS          172 k
+Installing for dependencies:
+ voms                  x86_64          2.0.10-1             VOMS          164 k
+
+Transaction Summary
+================================================================================
+Install       2 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 337 k
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                            16 MB/s | 337 kB     00:00     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : voms                                                     1/2 
+  Installing     : voms-clients                                             2/2 
+
+Installed:
+  voms-clients.x86_64 0:2.0.10-1                                                
+
+Dependency Installed:
+  voms.x86_64 0:2.0.10-1                                                        
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# mkdir -p .globus
+[root@jen01.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.cert.pem .globus/usercert.pem
+[root@jen01.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.key.pem .globus/userkey.pem
+[root@jen01.cnaf.infn.it ~]# chmod 600 .globus/usercert.pem
+[root@jen01.cnaf.infn.it ~]# chmod 400 .globus/userkey.pem
+[root@jen01.cnaf.infn.it ~]# mkdir -p /etc/grid-security/vomsdir
+[root@jen01.cnaf.infn.it ~]# cp /etc/grid-security/hostcert.pem /etc/grid-security/vomsdir
+[root@jen01.cnaf.infn.it ~]# echo 'pass' | voms-proxy-init --pwstdin --cert .globus/usercert.pem --key .globus/userkey.pem
+Your identity: /C=IT/O=IGI/CN=test0
+Creating proxy .................................. Done
+
+Your proxy is valid until Fri Jan 25 03:19:04 2013
+VOMS clients succesfully deployed

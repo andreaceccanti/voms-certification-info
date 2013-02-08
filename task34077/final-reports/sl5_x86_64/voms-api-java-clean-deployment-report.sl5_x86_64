@@ -1,0 +1,337 @@
+voms-api-java clean deployment test
+EMI repo URL: http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo
+VOMS repo URL: http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo
+[root@jen01.cnaf.infn.it ~]# wget -q http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo -O /etc/yum.repos.d/test_emi.repo
+[root@jen01.cnaf.infn.it ~]# wget -q http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo -O /etc/yum.repos.d/test_voms.repo
+[root@jen01.cnaf.infn.it ~]# echo >> /etc/yum.repos.d/test_voms.repo; echo 'priority=1' >> /etc/yum.repos.d/test_voms.repo
+[root@jen01.cnaf.infn.it ~]# yum clean all
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+Cleaning up Everything
+[root@jen01.cnaf.infn.it ~]# yum -y install emi-release
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4538 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:3.0.0-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch        Version             Repository               Size
+================================================================================
+Installing:
+ emi-release      noarch      3.0.0-1.el5         EMI-3-testing-base      4.7 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 4.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : emi-release                                              1/1 
+
+Installed:
+  emi-release.noarch 0:3.0.0-1.el5                                              
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum -y install voms-api-java voms-api-java3
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4653 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-api-java.noarch 0:2.0.10-1.el5 set to be updated
+--> Processing Dependency: bouncycastle = 1.45 for package: voms-api-java
+--> Processing Dependency: jakarta-commons-cli for package: voms-api-java
+--> Processing Dependency: jpackage-utils for package: voms-api-java
+--> Processing Dependency: java for package: voms-api-java
+--> Processing Dependency: log4j for package: voms-api-java
+--> Processing Dependency: jakarta-commons-lang for package: voms-api-java
+---> Package voms-api-java3.noarch 0:3.0.0-1.sl5 set to be updated
+--> Processing Dependency: bouncycastle146-mail for package: voms-api-java3
+--> Processing Dependency: canl-java for package: voms-api-java3
+--> Running transaction check
+---> Package bouncycastle.x86_64 0:1.45-6.el5 set to be updated
+--> Processing Dependency: java-gcj-compat for package: bouncycastle
+--> Processing Dependency: java-gcj for package: bouncycastle
+--> Processing Dependency: java-gcj-compat for package: bouncycastle
+--> Processing Dependency: libgcj_bc.so.1()(64bit) for package: bouncycastle
+---> Package bouncycastle146-mail.noarch 0:1.46-1 set to be updated
+--> Processing Dependency: bouncycastle146 = 1.46 for package: bouncycastle146-mail
+---> Package canl-java.noarch 0:1.1.0-1.sl5 set to be updated
+--> Processing Dependency: jakarta-commons-io >= 1.4 for package: canl-java
+---> Package jakarta-commons-cli.x86_64 0:1.0-6jpp_10.el5 set to be updated
+--> Processing Dependency: jakarta-commons-logging for package: jakarta-commons-cli
+---> Package jakarta-commons-lang.x86_64 0:2.1-5jpp.1 set to be updated
+---> Package java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.30.1.11.5.el5 set to be updated
+--> Processing Dependency: libjpeg = 6b for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2(ALSA_0.9)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2(ALSA_0.9.0rc4)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libpng12.so.0(PNG12_0)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: tzdata-java for package: java-1.6.0-openjdk
+--> Processing Dependency: libfreetype.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXtst.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXrender.so.1()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libjpeg.so.62()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libpng12.so.0()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXi.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libgif.so.4()(64bit) for package: java-1.6.0-openjdk
+---> Package jpackage-utils.noarch 0:1.7.3-1jpp.3.el5 set to be updated
+---> Package log4j.x86_64 0:1.2.13-3jpp.2 set to be updated
+--> Processing Dependency: xml-commons-apis for package: log4j
+--> Running transaction check
+---> Package alsa-lib.x86_64 0:1.0.17-1.el5 set to be updated
+---> Package bouncycastle146.noarch 0:1.46-1.el5 set to be updated
+---> Package freetype.x86_64 0:2.2.1-32.el5_9.1 set to be updated
+---> Package giflib.x86_64 0:4.1.3-7.3.3.el5 set to be updated
+---> Package jakarta-commons-io.noarch 0:1.4-3.el5 set to be updated
+---> Package jakarta-commons-logging.x86_64 0:1.0.4-6jpp.1 set to be updated
+---> Package java-1.4.2-gcj-compat.x86_64 0:1.4.2.0-40jpp.115 set to be updated
+--> Processing Dependency: zip for package: java-1.4.2-gcj-compat
+--> Processing Dependency: gjdoc for package: java-1.4.2-gcj-compat
+---> Package libXi.x86_64 0:1.0.1-4.el5_4 set to be updated
+---> Package libXrender.x86_64 0:0.9.1-3.1 set to be updated
+---> Package libXtst.x86_64 0:1.0.1-3.1 set to be updated
+---> Package libgcj.x86_64 0:4.1.2-54.el5 set to be updated
+--> Processing Dependency: libart_lgpl >= 2.1.0 for package: libgcj
+--> Processing Dependency: gtk2 >= 2.4.0 for package: libgcj
+--> Processing Dependency: libgtk-x11-2.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libXrandr.so.2()(64bit) for package: libgcj
+--> Processing Dependency: libpangoft2-1.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libcairo.so.2()(64bit) for package: libgcj
+--> Processing Dependency: libpangocairo-1.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libatk-1.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libgdk-x11-2.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libpango-1.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libgdk_pixbuf-2.0.so.0()(64bit) for package: libgcj
+---> Package libjpeg.x86_64 0:6b-37 set to be updated
+---> Package libpng.x86_64 2:1.2.10-17.el5_8 set to be updated
+---> Package tzdata-java.x86_64 0:2012j-1.el5 set to be updated
+---> Package xml-commons-apis.x86_64 0:1.3.02-0.b2.7jpp.10 set to be updated
+--> Processing Dependency: xml-commons = 1.3.02-0.b2.7jpp.10 for package: xml-commons-apis
+--> Running transaction check
+---> Package atk.x86_64 0:1.12.2-1.fc6 set to be updated
+---> Package cairo.x86_64 0:1.2.4-5.el5 set to be updated
+--> Processing Dependency: libfontconfig.so.1()(64bit) for package: cairo
+---> Package gjdoc.x86_64 0:0.7.7-12.el5 set to be updated
+--> Processing Dependency: antlr for package: gjdoc
+---> Package gtk2.x86_64 0:2.10.4-29.el5 set to be updated
+--> Processing Dependency: libtiff >= 3.6.1 for package: gtk2
+--> Processing Dependency: hicolor-icon-theme for package: gtk2
+--> Processing Dependency: libtiff.so.3()(64bit) for package: gtk2
+--> Processing Dependency: libXcursor.so.1()(64bit) for package: gtk2
+--> Processing Dependency: libXinerama.so.1()(64bit) for package: gtk2
+--> Processing Dependency: libXfixes.so.3()(64bit) for package: gtk2
+--> Processing Dependency: libcups.so.2()(64bit) for package: gtk2
+---> Package libXrandr.x86_64 0:1.1.1-3.3 set to be updated
+---> Package libart_lgpl.x86_64 0:2.3.17-4 set to be updated
+---> Package pango.x86_64 0:1.14.9-8.el5_7.3 set to be updated
+--> Processing Dependency: bitstream-vera-fonts for package: pango
+--> Processing Dependency: libXft for package: pango
+--> Processing Dependency: libXft.so.2()(64bit) for package: pango
+---> Package xml-commons.x86_64 0:1.3.02-0.b2.7jpp.10 set to be updated
+---> Package zip.x86_64 0:2.31-2.el5 set to be updated
+--> Running transaction check
+---> Package antlr.x86_64 0:2.7.6-4jpp.2 set to be updated
+---> Package bitstream-vera-fonts.noarch 0:1.10-7 set to be updated
+---> Package cups-libs.x86_64 1:1.3.7-30.el5 set to be updated
+--> Processing Dependency: libgnutls.so.13(GNUTLS_1_3)(64bit) for package: cups-libs
+--> Processing Dependency: libgnutls.so.13()(64bit) for package: cups-libs
+---> Package fontconfig.x86_64 0:2.4.1-7.el5 set to be updated
+---> Package hicolor-icon-theme.noarch 0:0.9-2.1 set to be updated
+---> Package libXcursor.x86_64 0:1.1.7-1.2 set to be updated
+---> Package libXfixes.x86_64 0:4.0.1-2.1 set to be updated
+---> Package libXft.x86_64 0:2.1.10-1.1 set to be updated
+---> Package libXinerama.x86_64 0:1.0.1-2.1 set to be updated
+---> Package libtiff.x86_64 0:3.8.2-18.el5_8 set to be updated
+--> Running transaction check
+---> Package gnutls.x86_64 0:1.4.1-10.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                 Arch   Version                Repository          Size
+================================================================================
+Installing:
+ voms-api-java           noarch 2.0.10-1.el5           EMI-3-testing-base 155 k
+ voms-api-java3          noarch 3.0.0-1.sl5            VOMS               120 k
+Installing for dependencies:
+ alsa-lib                x86_64 1.0.17-1.el5           sl5x               414 k
+ antlr                   x86_64 2.7.6-4jpp.2           sl5x               1.1 M
+ atk                     x86_64 1.12.2-1.fc6           sl5x               224 k
+ bitstream-vera-fonts    noarch 1.10-7                 sl5x               343 k
+ bouncycastle            x86_64 1.45-6.el5             epel               4.0 M
+ bouncycastle146         noarch 1.46-1.el5             EMI-3-testing-base 1.9 M
+ bouncycastle146-mail    noarch 1.46-1                 VOMS               475 k
+ cairo                   x86_64 1.2.4-5.el5            sl5x               386 k
+ canl-java               noarch 1.1.0-1.sl5            EMI-3-testing-base 263 k
+ cups-libs               x86_64 1:1.3.7-30.el5         sl5x               196 k
+ fontconfig              x86_64 2.4.1-7.el5            sl5x               175 k
+ freetype                x86_64 2.2.1-32.el5_9.1       sl5x-security      312 k
+ giflib                  x86_64 4.1.3-7.3.3.el5        sl5x                39 k
+ gjdoc                   x86_64 0.7.7-12.el5           sl5x               885 k
+ gnutls                  x86_64 1.4.1-10.el5           sl5x               365 k
+ gtk2                    x86_64 2.10.4-29.el5          sl5x               6.6 M
+ hicolor-icon-theme      noarch 0.9-2.1                sl5x                25 k
+ jakarta-commons-cli     x86_64 1.0-6jpp_10.el5        epel                76 k
+ jakarta-commons-io      noarch 1.4-3.el5              epel               105 k
+ jakarta-commons-lang    x86_64 2.1-5jpp.1             sl5x               508 k
+ jakarta-commons-logging x86_64 1.0.4-6jpp.1           sl5x               115 k
+ java-1.4.2-gcj-compat   x86_64 1.4.2.0-40jpp.115      sl5x                29 k
+ java-1.6.0-openjdk      x86_64 1:1.6.0.0-1.30.1.11.5.el5
+                                                       sl5x                36 M
+ jpackage-utils          noarch 1.7.3-1jpp.3.el5       sl5x                61 k
+ libXcursor              x86_64 1.1.7-1.2              sl5x                32 k
+ libXfixes               x86_64 4.0.1-2.1              sl5x                15 k
+ libXft                  x86_64 2.1.10-1.1             sl5x                44 k
+ libXi                   x86_64 1.0.1-4.el5_4          sl5x                26 k
+ libXinerama             x86_64 1.0.1-2.1              sl5x               9.8 k
+ libXrandr               x86_64 1.1.1-3.3              sl5x                15 k
+ libXrender              x86_64 0.9.1-3.1              sl5x                28 k
+ libXtst                 x86_64 1.0.1-3.1              sl5x                16 k
+ libart_lgpl             x86_64 2.3.17-4               sl5x                75 k
+ libgcj                  x86_64 4.1.2-54.el5           sl5x                18 M
+ libjpeg                 x86_64 6b-37                  sl5x               139 k
+ libpng                  x86_64 2:1.2.10-17.el5_8      sl5x               235 k
+ libtiff                 x86_64 3.8.2-18.el5_8         sl5x               315 k
+ log4j                   x86_64 1.2.13-3jpp.2          sl5x               729 k
+ pango                   x86_64 1.14.9-8.el5_7.3       sl5x               338 k
+ tzdata-java             x86_64 2012j-1.el5            sl5x-security      183 k
+ xml-commons             x86_64 1.3.02-0.b2.7jpp.10    sl5x                19 k
+ xml-commons-apis        x86_64 1.3.02-0.b2.7jpp.10    sl5x               387 k
+ zip                     x86_64 2.31-2.el5             sl5x               135 k
+
+Transaction Summary
+================================================================================
+Install      45 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 76 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           3.3 MB/s |  76 MB     00:22     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : libXrender                                              1/45 
+  Installing     : freetype                                                2/45 
+  Installing     : fontconfig                                              3/45 
+  Installing     : libpng                                                  4/45 
+  Installing     : libjpeg                                                 5/45 
+  Installing     : cairo                                                   6/45 
+  Installing     : libtiff                                                 7/45 
+  Installing     : libXrandr                                               8/45 
+  Installing     : atk                                                     9/45 
+  Installing     : alsa-lib                                               10/45 
+  Installing     : libXfixes                                              11/45 
+  Installing     : libXtst                                                12/45 
+  Installing     : zip                                                    13/45 
+  Installing     : libXi                                                  14/45 
+  Installing     : libXcursor                                             15/45 
+  Installing     : libXft                                                 16/45 
+  Installing     : libXinerama                                            17/45 
+  Installing     : gnutls                                                 18/45 
+  Installing     : cups-libs                                              19/45 
+  Installing     : giflib                                                 20/45 
+  Installing     : libart_lgpl                                            21/45 
+  Installing     : jpackage-utils                                         22/45 
+  Installing     : jakarta-commons-io                                     23/45 
+  Installing     : xml-commons                                            24/45 
+  Installing     : bitstream-vera-fonts                                   25/45 
+  Installing     : pango                                                  26/45 
+  Installing     : hicolor-icon-theme                                     27/45 
+  Installing     : gtk2                                                   28/45 
+  Installing     : libgcj                                                 29/45 
+  Installing     : tzdata-java                                            30/45 
+  Installing     : java-1.6.0-openjdk                                     31/45 
+  Installing     : bouncycastle146                                        32/45 
+  Installing     : canl-java                                              33/45 
+  Installing     : bouncycastle146-mail                                   34/45 
+  Installing     : voms-api-java3                                         35/45 
+  Installing     : java-1.4.2-gcj-compat                                  36/45 
+  Installing     : jakarta-commons-lang                                   37/45 
+  Installing     : bouncycastle                                           38/45 
+  Installing     : xml-commons-apis                                       39/45 
+  Installing     : log4j                                                  40/45 
+  Installing     : jakarta-commons-logging                                41/45 
+  Installing     : jakarta-commons-cli                                    42/45 
+  Installing     : antlr                                                  43/45 
+  Installing     : voms-api-java                                          44/45 
+  Installing     : gjdoc                                                  45/45 
+
+Installed:
+  voms-api-java.noarch 0:2.0.10-1.el5    voms-api-java3.noarch 0:3.0.0-1.sl5   
+
+Dependency Installed:
+  alsa-lib.x86_64 0:1.0.17-1.el5                                                
+  antlr.x86_64 0:2.7.6-4jpp.2                                                   
+  atk.x86_64 0:1.12.2-1.fc6                                                     
+  bitstream-vera-fonts.noarch 0:1.10-7                                          
+  bouncycastle.x86_64 0:1.45-6.el5                                              
+  bouncycastle146.noarch 0:1.46-1.el5                                           
+  bouncycastle146-mail.noarch 0:1.46-1                                          
+  cairo.x86_64 0:1.2.4-5.el5                                                    
+  canl-java.noarch 0:1.1.0-1.sl5                                                
+  cups-libs.x86_64 1:1.3.7-30.el5                                               
+  fontconfig.x86_64 0:2.4.1-7.el5                                               
+  freetype.x86_64 0:2.2.1-32.el5_9.1                                            
+  giflib.x86_64 0:4.1.3-7.3.3.el5                                               
+  gjdoc.x86_64 0:0.7.7-12.el5                                                   
+  gnutls.x86_64 0:1.4.1-10.el5                                                  
+  gtk2.x86_64 0:2.10.4-29.el5                                                   
+  hicolor-icon-theme.noarch 0:0.9-2.1                                           
+  jakarta-commons-cli.x86_64 0:1.0-6jpp_10.el5                                  
+  jakarta-commons-io.noarch 0:1.4-3.el5                                         
+  jakarta-commons-lang.x86_64 0:2.1-5jpp.1                                      
+  jakarta-commons-logging.x86_64 0:1.0.4-6jpp.1                                 
+  java-1.4.2-gcj-compat.x86_64 0:1.4.2.0-40jpp.115                              
+  java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.30.1.11.5.el5                           
+  jpackage-utils.noarch 0:1.7.3-1jpp.3.el5                                      
+  libXcursor.x86_64 0:1.1.7-1.2                                                 
+  libXfixes.x86_64 0:4.0.1-2.1                                                  
+  libXft.x86_64 0:2.1.10-1.1                                                    
+  libXi.x86_64 0:1.0.1-4.el5_4                                                  
+  libXinerama.x86_64 0:1.0.1-2.1                                                
+  libXrandr.x86_64 0:1.1.1-3.3                                                  
+  libXrender.x86_64 0:0.9.1-3.1                                                 
+  libXtst.x86_64 0:1.0.1-3.1                                                    
+  libart_lgpl.x86_64 0:2.3.17-4                                                 
+  libgcj.x86_64 0:4.1.2-54.el5                                                  
+  libjpeg.x86_64 0:6b-37                                                        
+  libpng.x86_64 2:1.2.10-17.el5_8                                               
+  libtiff.x86_64 0:3.8.2-18.el5_8                                               
+  log4j.x86_64 0:1.2.13-3jpp.2                                                  
+  pango.x86_64 0:1.14.9-8.el5_7.3                                               
+  tzdata-java.x86_64 0:2012j-1.el5                                              
+  xml-commons.x86_64 0:1.3.02-0.b2.7jpp.10                                      
+  xml-commons-apis.x86_64 0:1.3.02-0.b2.7jpp.10                                 
+  zip.x86_64 0:2.31-2.el5                                                       
+
+Complete!
+VOMS API Java succesfully deployed

@@ -1,0 +1,1203 @@
+[root@jen01.cnaf.infn.it ~]# mkdir emi-release-package
+[root@jen01.cnaf.infn.it ~]# wget -P emi-release-package http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/x86_64/base/emi-release-2.0.0-1.sl5.noarch.rpm
+--2013-01-24 15:16:15--  http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/x86_64/base/emi-release-2.0.0-1.sl5.noarch.rpm
+Resolving emisoft.web.cern.ch... 137.138.139.27
+Connecting to emisoft.web.cern.ch|137.138.139.27|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5189 (5.1K) [application/x-rpm]
+Saving to: `emi-release-package/emi-release-2.0.0-1.sl5.noarch.rpm'
+
+     0K .....                                                 100% 69.7M=0s
+
+2013-01-24 15:16:15 (69.7 MB/s) - `emi-release-package/emi-release-2.0.0-1.sl5.noarch.rpm' saved [5189/5189]
+
+[root@jen01.cnaf.infn.it ~]# yum -y localinstall emi-release-package/*.rpm
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Setting up Local Package Process
+Examining emi-release-package/emi-release-2.0.0-1.sl5.noarch.rpm: emi-release-2.0.0-1.sl5.noarch
+Marking emi-release-package/emi-release-2.0.0-1.sl5.noarch.rpm to be installed
+615 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:2.0.0-1.sl5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package       Arch     Version         Repository                         Size
+================================================================================
+Installing:
+ emi-release   noarch   2.0.0-1.sl5     /emi-release-2.0.0-1.sl5.noarch   2.7 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total size: 2.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : emi-release                                              1/1 
+
+Installed:
+  emi-release.noarch 0:2.0.0-1.sl5                                              
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum clean all
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Cleaning up Everything
+[root@jen01.cnaf.infn.it ~]# yum -y install voms-clients
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+448 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients.x86_64 0:2.0.9-1.el5 set to be updated
+--> Processing Dependency: voms = 2.0.9-1.el5 for package: voms-clients
+--> Processing Dependency: libvomsapi.so.1()(64bit) for package: voms-clients
+--> Running transaction check
+---> Package voms.x86_64 0:2.0.9-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package            Arch         Version              Repository           Size
+================================================================================
+Installing:
+ voms-clients       x86_64       2.0.9-1.el5          EMI-2-updates       172 k
+Installing for dependencies:
+ voms               x86_64       2.0.9-1.el5          EMI-2-updates       164 k
+
+Transaction Summary
+================================================================================
+Install       2 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 336 k
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           682 kB/s | 336 kB     00:00     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : voms                                                     1/2 
+  Installing     : voms-clients                                             2/2 
+
+Installed:
+  voms-clients.x86_64 0:2.0.9-1.el5                                             
+
+Dependency Installed:
+  voms.x86_64 0:2.0.9-1.el5                                                     
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# mkdir -p .globus
+[root@jen01.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.cert.pem .globus/usercert.pem
+[root@jen01.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.key.pem .globus/userkey.pem
+[root@jen01.cnaf.infn.it ~]# chmod 600 .globus/usercert.pem
+[root@jen01.cnaf.infn.it ~]# chmod 400 .globus/userkey.pem
+[root@jen01.cnaf.infn.it ~]# echo pass | voms-proxy-init --pwstdin --cert .globus/usercert.pem --key .globus/userkey.pem
+Your identity: /C=IT/O=IGI/CN=test0
+Creating proxy ........................................................... Done
+
+Your proxy is valid until Fri Jan 25 03:16:43 2013
+[root@jen01.cnaf.infn.it ~]# yum -y remove emi-release
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Setting up Remove Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:2.0.0-1.sl5 set to be erased
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package             Arch           Version             Repository         Size
+================================================================================
+Removing:
+ emi-release         noarch         2.0.0-1.sl5         installed         2.7 k
+
+Transaction Summary
+================================================================================
+Remove        1 Package(s)
+Reinstall     0 Package(s)
+Downgrade     0 Package(s)
+
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Erasing        : emi-release                                              1/1 
+
+Removed:
+  emi-release.noarch 0:2.0.0-1.sl5                                              
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# wget -q http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo -O /etc/yum.repos.d/test_emi.repo
+[root@jen01.cnaf.infn.it ~]# wget -q http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo -O /etc/yum.repos.d/test_voms.repo
+[root@jen01.cnaf.infn.it ~]# echo >> /etc/yum.repos.d/test_voms.repo; echo 'priority=1' >> /etc/yum.repos.d/test_voms.repo
+[root@jen01.cnaf.infn.it ~]# yum clean all
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+Cleaning up Everything
+[root@jen01.cnaf.infn.it ~]# yum -y install emi-release
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4538 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:3.0.0-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch        Version             Repository               Size
+================================================================================
+Installing:
+ emi-release      noarch      3.0.0-1.el5         EMI-3-testing-base      4.7 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 4.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : emi-release                                              1/1 
+
+Installed:
+  emi-release.noarch 0:3.0.0-1.el5                                              
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum -y update
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4653 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Skipping security plugin, no data
+Reading version lock configuration
+Setting up Update Process
+Resolving Dependencies
+Skipping security plugin, no data
+--> Running transaction check
+---> Package augeas-libs.x86_64 0:1.0.0-1.el5 set to be updated
+---> Package bind-libs.x86_64 30:9.3.6-20.P1.el5_8.6 set to be updated
+---> Package bind-utils.x86_64 30:9.3.6-20.P1.el5_8.6 set to be updated
+---> Package binutils.x86_64 0:2.17.50.0.6-20.el5_8.3 set to be updated
+---> Package ca-policy-egi-core.noarch 0:1.52-1 set to be updated
+---> Package ca_AAACertificateServices.noarch 0:1.52-1 set to be updated
+---> Package ca_AEGIS.noarch 0:1.52-1 set to be updated
+---> Package ca_AIST.noarch 0:1.52-1 set to be updated
+---> Package ca_ANSPGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_APAC.noarch 0:1.52-1 set to be updated
+---> Package ca_ASGCCA-2007.noarch 0:1.52-1 set to be updated
+---> Package ca_AddTrust-External-CA-Root.noarch 0:1.52-1 set to be updated
+---> Package ca_ArmeSFo.noarch 0:1.52-1 set to be updated
+---> Package ca_AustrianGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_BEGrid2008.noarch 0:1.52-1 set to be updated
+---> Package ca_BG-ACAD-CA.noarch 0:1.52-1 set to be updated
+---> Package ca_BYGCA.noarch 0:1.52-1 set to be updated
+---> Package ca_BalticGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_BrGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_CALG.noarch 0:1.52-1 set to be updated
+---> Package ca_CERN-Root.noarch 0:1.52-1 set to be updated
+---> Package ca_CERN-TCA.noarch 0:1.52-1 set to be updated
+---> Package ca_CESNET-CA-3.noarch 0:1.52-1 set to be updated
+---> Package ca_CESNET-CA-Root.noarch 0:1.52-1 set to be updated
+---> Package ca_CNIC.noarch 0:1.52-1 set to be updated
+---> Package ca_CNRS2.noarch 0:1.52-1 set to be updated
+---> Package ca_CNRS2-Grid-FR.noarch 0:1.52-1 set to be updated
+---> Package ca_CNRS2-Projets.noarch 0:1.52-1 set to be updated
+---> Package ca_CyGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_DFN-GridGermany-Root.noarch 0:1.52-1 set to be updated
+---> Package ca_DFN-SLCS.noarch 0:1.52-1 set to be updated
+---> Package ca_DOEGrids.noarch 0:1.52-1 set to be updated
+---> Package ca_DZeScience.noarch 0:1.52-1 set to be updated
+---> Package ca_DigiCertAssuredIDRootCA-Root.noarch 0:1.52-1 set to be updated
+---> Package ca_DigiCertGridCA-1-Classic.noarch 0:1.52-1 set to be updated
+---> Package ca_DigiCertGridRootCA-Root.noarch 0:1.52-1 set to be updated
+---> Package ca_DigiCertGridTrustCA-Classic.noarch 0:1.52-1 set to be updated
+---> Package ca_EG-GRID.noarch 0:1.52-1 set to be updated
+---> Package ca_ESnet.noarch 0:1.52-1 set to be updated
+---> Package ca_FNAL-SLCS.noarch 0:1.52-1 set to be updated
+---> Package ca_GermanGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_GridCanada.noarch 0:1.52-1 set to be updated
+---> Package ca_HIAST.noarch 0:1.52-1 set to be updated
+---> Package ca_HKU.noarch 0:1.52-1 set to be updated
+---> Package ca_HellasGrid-CA-2006.noarch 0:1.52-1 set to be updated
+---> Package ca_HellasGrid-Root.noarch 0:1.52-1 set to be updated
+---> Package ca_IGCA.noarch 0:1.52-1 set to be updated
+---> Package ca_IHEP.noarch 0:1.52-1 set to be updated
+---> Package ca_INFN-CA-2006.noarch 0:1.52-1 set to be updated
+---> Package ca_IRAN-GRID.noarch 0:1.52-1 set to be updated
+---> Package ca_IUCC.noarch 0:1.52-1 set to be updated
+---> Package ca_JUnet-CA.noarch 0:1.52-1 set to be updated
+---> Package ca_KEK.noarch 0:1.52-1 set to be updated
+---> Package ca_KISTI-2007.noarch 0:1.52-1 set to be updated
+---> Package ca_LACGridCA.noarch 0:1.52-1 set to be updated
+---> Package ca_LIPCA.noarch 0:1.52-1 set to be updated
+---> Package ca_MARGI.noarch 0:1.52-1 set to be updated
+---> Package ca_MD-Grid.noarch 0:1.52-1 set to be updated
+---> Package ca_MREN-CA.noarch 0:1.52-1 set to be updated
+---> Package ca_MYIFAM.noarch 0:1.52-1 set to be updated
+---> Package ca_MaGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_NAREGI.noarch 0:1.52-1 set to be updated
+---> Package ca_NCHC.noarch 0:1.52-1 set to be updated
+---> Package ca_NCSA-mics.noarch 0:1.52-1 set to be updated
+---> Package ca_NCSA-slcs.noarch 0:1.52-1 set to be updated
+---> Package ca_NCSA-tfca.noarch 0:1.52-1 set to be updated
+---> Package ca_NECTEC.noarch 0:1.52-1 set to be updated
+---> Package ca_NERSC-SLCS.noarch 0:1.52-1 set to be updated
+---> Package ca_NICS-MyProxy.noarch 0:1.52-1 set to be updated
+---> Package ca_NIIF.noarch 0:1.52-1 set to be updated
+---> Package ca_NIKHEF.noarch 0:1.52-1 set to be updated
+---> Package ca_NorduGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_PK-Grid-2007.noarch 0:1.52-1 set to be updated
+---> Package ca_PRAGMA-UCSD.noarch 0:1.52-1 set to be updated
+---> Package ca_PSC-Myproxy-CA.noarch 0:1.52-1 set to be updated
+---> Package ca_PolishGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_QuoVadis-Root-CA1.noarch 0:1.52-1 set to be updated
+---> Package ca_RDIG.noarch 0:1.52-1 set to be updated
+---> Package ca_REUNA-ca.noarch 0:1.52-1 set to be updated
+---> Package ca_RomanianGRID.noarch 0:1.52-1 set to be updated
+---> Package ca_SDG.noarch 0:1.52-1 set to be updated
+---> Package ca_SEE-GRID.noarch 0:1.52-1 set to be updated
+---> Package ca_SRCE.noarch 0:1.52-1 set to be updated
+---> Package ca_SWITCH-QuoVadis-Grid-ICA.noarch 0:1.52-1 set to be updated
+---> Package ca_SWITCHgrid-Root.noarch 0:1.52-1 set to be updated
+---> Package ca_SWITCHslcs2011.noarch 0:1.52-1 set to be updated
+---> Package ca_SiGNET-CA.noarch 0:1.52-1 set to be updated
+---> Package ca_SlovakGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_TACC-Classic.noarch 0:1.52-1 set to be updated
+---> Package ca_TACC-MICS.noarch 0:1.52-1 set to be updated
+---> Package ca_TACC-Root.noarch 0:1.52-1 set to be updated
+---> Package ca_TERENA-eScience-SSL-CA.noarch 0:1.52-1 set to be updated
+---> Package ca_TERENAeSciencePersonalCA.noarch 0:1.52-1 set to be updated
+---> Package ca_TRGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_UGRID.noarch 0:1.52-1 set to be updated
+---> Package ca_UKeScienceCA-2A.noarch 0:1.52-1 set to be updated
+---> Package ca_UKeScienceCA-2B.noarch 0:1.52-1 set to be updated
+---> Package ca_UKeScienceRoot-2007.noarch 0:1.52-1 set to be updated
+---> Package ca_ULAGrid-CA-2008.noarch 0:1.52-1 set to be updated
+---> Package ca_UNAMgrid-ca.noarch 0:1.52-1 set to be updated
+---> Package ca_UNLPGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_UTN-USERFirst-Hardware.noarch 0:1.52-1 set to be updated
+---> Package ca_UTNAAAClient.noarch 0:1.52-1 set to be updated
+---> Package ca_UniandesCA.noarch 0:1.52-1 set to be updated
+---> Package ca_cilogon-silver.noarch 0:1.52-1 set to be updated
+---> Package ca_ncsa-gridshib-ca.noarch 0:1.52-1 set to be updated
+---> Package ca_pkIRISGrid.noarch 0:1.52-1 set to be updated
+---> Package ca_policy_igtf-classic.noarch 0:1.52-1 set to be updated
+---> Package cpio.x86_64 0:2.6-25.el5 set to be updated
+---> Package crontabs.noarch 0:1.10-11.el5 set to be updated
+---> Package device-mapper-multipath.x86_64 0:0.4.7-54.el5 set to be updated
+---> Package diffutils.x86_64 0:2.8.1-16.el5 set to be updated
+---> Package e2fsprogs.x86_64 0:1.39-35.el5 set to be updated
+---> Package e2fsprogs-libs.i386 0:1.39-35.el5 set to be updated
+---> Package e2fsprogs-libs.x86_64 0:1.39-35.el5 set to be updated
+---> Package file.x86_64 0:4.17-28 set to be updated
+---> Package gawk.x86_64 0:3.1.5-16.el5 set to be updated
+---> Package gdbm.x86_64 0:1.8.0-28.el5 set to be updated
+---> Package glibc.i686 0:2.5-107 set to be updated
+---> Package glibc.x86_64 0:2.5-107 set to be updated
+---> Package glibc-common.x86_64 0:2.5-107 set to be updated
+---> Package grub.x86_64 0:0.97-13.10.el5 set to be updated
+---> Package hal.x86_64 0:0.5.8.1-64.el5 set to be updated
+---> Package hwdata.noarch 0:0.213.28-1.el5 set to be updated
+---> Package igi-test-ca.noarch 0:1.0.2-2 set to be updated
+---> Package initscripts.x86_64 0:8.45.42-1.el5_8.1 set to be updated
+---> Package iproute.x86_64 0:2.6.18-15.el5 set to be updated
+---> Package iptables.x86_64 0:1.3.5-9.2.el5_8 set to be updated
+---> Package iptables-ipv6.x86_64 0:1.3.5-9.2.el5_8 set to be updated
+---> Package iscsi-initiator-utils.x86_64 0:6.2.0.872-16.el5 set to be updated
+---> Package kbd.x86_64 0:1.12-22.el5 set to be updated
+---> Package kpartx.x86_64 0:0.4.7-54.el5 set to be updated
+---> Package kudzu.x86_64 0:1.2.57.1.26-7 set to be updated
+---> Package libgcc.i386 0:4.1.2-54.el5 set to be updated
+---> Package libgcc.x86_64 0:4.1.2-54.el5 set to be updated
+---> Package libgcrypt.x86_64 0:1.4.4-5.el5_8.2 set to be updated
+---> Package libgomp.x86_64 0:4.4.7-1.el5 set to be updated
+---> Package libstdc++.i386 0:4.1.2-54.el5 set to be updated
+---> Package libstdc++.x86_64 0:4.1.2-54.el5 set to be updated
+---> Package libuser.x86_64 0:0.54.7-3.el5 set to be updated
+---> Package libvolume_id.x86_64 0:095-14.29.el5 set to be updated
+---> Package logrotate.x86_64 0:3.7.4-14 set to be updated
+---> Package lvm2.x86_64 0:2.02.88-10.el5 set to be updated
+---> Package m2crypto.x86_64 0:0.16-9.el5 set to be updated
+---> Package man.x86_64 0:1.6d-3.el5 set to be updated
+---> Package mkinitrd.i386 0:5.1.19.6-79.el5 set to be updated
+---> Package mkinitrd.x86_64 0:5.1.19.6-79.el5 set to be updated
+---> Package nash.x86_64 0:5.1.19.6-79.el5 set to be updated
+---> Package nspr.i386 0:4.9.2-2.el5_9 set to be updated
+---> Package nspr.x86_64 0:4.9.2-2.el5_9 set to be updated
+---> Package nss.i386 0:3.13.6-3.el5_9 set to be updated
+---> Package nss.x86_64 0:3.13.6-3.el5_9 set to be updated
+---> Package openldap.x86_64 0:2.3.43-25.el5_8.1 set to be updated
+---> Package pam.i386 0:0.99.6.2-12.el5 set to be updated
+---> Package pam.x86_64 0:0.99.6.2-12.el5 set to be updated
+---> Package perl.x86_64 4:5.8.8-38.el5_8 set to be updated
+---> Package pm-utils.x86_64 0:0.99.3-14.el5 set to be updated
+---> Package popt.x86_64 0:1.10.2.3-31.el5 set to be updated
+---> Package procps.x86_64 0:3.2.7-22.el5 set to be updated
+---> Package psmisc.x86_64 0:22.2-11 set to be updated
+---> Package python.x86_64 0:2.4.3-56.el5 set to be updated
+---> Package python-iniparse.noarch 0:0.2.3-6.el5 set to be updated
+---> Package python-libs.x86_64 0:2.4.3-56.el5 set to be updated
+---> Package rpm.x86_64 0:4.4.2.3-31.el5 set to be updated
+---> Package rpm-libs.x86_64 0:4.4.2.3-31.el5 set to be updated
+---> Package rpm-python.x86_64 0:4.4.2.3-31.el5 set to be updated
+---> Package selinux-policy.noarch 0:2.4.6-338.el5 set to be updated
+---> Package selinux-policy-targeted.noarch 0:2.4.6-338.el5 set to be updated
+---> Package shadow-utils.x86_64 2:4.0.17-21.el5 set to be updated
+---> Package sl-release.x86_64 1:5.9-2.sl set to be updated
+---> Package sl-release-notes.noarch 0:5.9-2 set to be updated
+---> Package sqlite.x86_64 0:3.3.6-6 set to be updated
+---> Package sudo.x86_64 0:1.7.2p1-22.el5 set to be updated
+---> Package tar.x86_64 2:1.15.1-32.el5_8 set to be updated
+---> Package udev.x86_64 0:095-14.29.el5 set to be updated
+---> Package util-linux.x86_64 0:2.13-0.59.el5_8 set to be updated
+---> Package vim-common.x86_64 2:7.0.109-7.2.el5 set to be updated
+---> Package vim-enhanced.x86_64 2:7.0.109-7.2.el5 set to be updated
+---> Package vim-minimal.x86_64 2:7.0.109-7.2.el5 set to be updated
+---> Package voms.x86_64 0:2.0.10-1 set to be updated
+---> Package voms-clients.x86_64 0:2.0.10-1 set to be updated
+---> Package wget.x86_64 0:1.11.4-3.el5_8.2 set to be updated
+---> Package yum.noarch 0:3.2.22-40.el5.sl set to be updated
+---> Package yum-conf.noarch 5:59-2.sl set to be updated
+---> Package yum-metadata-parser.x86_64 0:1.1.2-4.el5 set to be updated
+---> Package zlib.i386 0:1.2.3-7.el5 set to be updated
+---> Package zlib.x86_64 0:1.2.3-7.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                        Arch   Version           Repository        Size
+================================================================================
+Installing:
+ ca-policy-egi-core             noarch 1.52-1            EGI-trustanchors 5.4 k
+     replacing  ca_UKeScienceCA-2007.noarch 1.51-1
+
+ ca_policy_igtf-classic         noarch 1.52-1            EGI-trustanchors 6.2 k
+     replacing  ca_UKeScienceCA-2007.noarch 1.51-1
+
+Updating:
+ augeas-libs                    x86_64 1.0.0-1.el5       epel             472 k
+ bind-libs                      x86_64 30:9.3.6-20.P1.el5_8.6
+                                                         sl5x             898 k
+ bind-utils                     x86_64 30:9.3.6-20.P1.el5_8.6
+                                                         sl5x             180 k
+ binutils                       x86_64 2.17.50.0.6-20.el5_8.3
+                                                         sl5x             2.9 M
+ ca_AAACertificateServices      noarch 1.52-1            EGI-trustanchors 5.7 k
+ ca_AEGIS                       noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_AIST                        noarch 1.52-1            EGI-trustanchors 5.6 k
+ ca_ANSPGrid                    noarch 1.52-1            EGI-trustanchors 5.5 k
+ ca_APAC                        noarch 1.52-1            EGI-trustanchors 5.9 k
+ ca_ASGCCA-2007                 noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_AddTrust-External-CA-Root   noarch 1.52-1            EGI-trustanchors 5.8 k
+ ca_ArmeSFo                     noarch 1.52-1            EGI-trustanchors 5.0 k
+ ca_AustrianGrid                noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_BEGrid2008                  noarch 1.52-1            EGI-trustanchors 5.1 k
+ ca_BG-ACAD-CA                  noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_BYGCA                       noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_BalticGrid                  noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_BrGrid                      noarch 1.52-1            EGI-trustanchors 5.5 k
+ ca_CALG                        noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_CERN-Root                   noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_CERN-TCA                    noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_CESNET-CA-3                 noarch 1.52-1            EGI-trustanchors 4.8 k
+ ca_CESNET-CA-Root              noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_CNIC                        noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_CNRS2                       noarch 1.52-1            EGI-trustanchors 5.0 k
+ ca_CNRS2-Grid-FR               noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_CNRS2-Projets               noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_CyGrid                      noarch 1.52-1            EGI-trustanchors 5.1 k
+ ca_DFN-GridGermany-Root        noarch 1.52-1            EGI-trustanchors 5.5 k
+ ca_DFN-SLCS                    noarch 1.52-1            EGI-trustanchors 5.1 k
+ ca_DOEGrids                    noarch 1.52-1            EGI-trustanchors 6.3 k
+ ca_DZeScience                  noarch 1.52-1            EGI-trustanchors 7.0 k
+ ca_DigiCertAssuredIDRootCA-Root
+                                noarch 1.52-1            EGI-trustanchors 5.4 k
+ ca_DigiCertGridCA-1-Classic    noarch 1.52-1            EGI-trustanchors 5.7 k
+ ca_DigiCertGridRootCA-Root     noarch 1.52-1            EGI-trustanchors 5.4 k
+ ca_DigiCertGridTrustCA-Classic noarch 1.52-1            EGI-trustanchors 6.0 k
+ ca_EG-GRID                     noarch 1.52-1            EGI-trustanchors 6.8 k
+ ca_ESnet                       noarch 1.52-1            EGI-trustanchors 6.1 k
+ ca_FNAL-SLCS                   noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_GermanGrid                  noarch 1.52-1            EGI-trustanchors 5.4 k
+ ca_GridCanada                  noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_HIAST                       noarch 1.52-1            EGI-trustanchors 6.7 k
+ ca_HKU                         noarch 1.52-1            EGI-trustanchors 5.0 k
+ ca_HellasGrid-CA-2006          noarch 1.52-1            EGI-trustanchors 5.1 k
+ ca_HellasGrid-Root             noarch 1.52-1            EGI-trustanchors 5.4 k
+ ca_IGCA                        noarch 1.52-1            EGI-trustanchors 5.1 k
+ ca_IHEP                        noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_INFN-CA-2006                noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_IRAN-GRID                   noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_IUCC                        noarch 1.52-1            EGI-trustanchors 5.4 k
+ ca_JUnet-CA                    noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_KEK                         noarch 1.52-1            EGI-trustanchors 5.5 k
+ ca_KISTI-2007                  noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_LACGridCA                   noarch 1.52-1            EGI-trustanchors 5.4 k
+ ca_LIPCA                       noarch 1.52-1            EGI-trustanchors 5.0 k
+ ca_MARGI                       noarch 1.52-1            EGI-trustanchors 5.1 k
+ ca_MD-Grid                     noarch 1.52-1            EGI-trustanchors 5.5 k
+ ca_MREN-CA                     noarch 1.52-1            EGI-trustanchors 5.1 k
+ ca_MYIFAM                      noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_MaGrid                      noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_NAREGI                      noarch 1.52-1            EGI-trustanchors 5.5 k
+ ca_NCHC                        noarch 1.52-1            EGI-trustanchors 5.1 k
+ ca_NCSA-mics                   noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_NCSA-slcs                   noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_NCSA-tfca                   noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_NECTEC                      noarch 1.52-1            EGI-trustanchors 5.5 k
+ ca_NERSC-SLCS                  noarch 1.52-1            EGI-trustanchors 5.8 k
+ ca_NICS-MyProxy                noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_NIIF                        noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_NIKHEF                      noarch 1.52-1            EGI-trustanchors 5.4 k
+ ca_NorduGrid                   noarch 1.52-1            EGI-trustanchors 5.1 k
+ ca_PK-Grid-2007                noarch 1.52-1            EGI-trustanchors 5.7 k
+ ca_PRAGMA-UCSD                 noarch 1.52-1            EGI-trustanchors 5.6 k
+ ca_PSC-Myproxy-CA              noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_PolishGrid                  noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_QuoVadis-Root-CA1           noarch 1.52-1            EGI-trustanchors 5.7 k
+ ca_RDIG                        noarch 1.52-1            EGI-trustanchors 5.6 k
+ ca_REUNA-ca                    noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_RomanianGRID                noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_SDG                         noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_SEE-GRID                    noarch 1.52-1            EGI-trustanchors 5.4 k
+ ca_SRCE                        noarch 1.52-1            EGI-trustanchors 4.9 k
+ ca_SWITCH-QuoVadis-Grid-ICA    noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_SWITCHgrid-Root             noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_SWITCHslcs2011              noarch 1.52-1            EGI-trustanchors 4.9 k
+ ca_SiGNET-CA                   noarch 1.52-1            EGI-trustanchors 5.4 k
+ ca_SlovakGrid                  noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_TACC-Classic                noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_TACC-MICS                   noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_TACC-Root                   noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_TERENA-eScience-SSL-CA      noarch 1.52-1            EGI-trustanchors 5.7 k
+ ca_TERENAeSciencePersonalCA    noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_TRGrid                      noarch 1.52-1            EGI-trustanchors 5.2 k
+ ca_UGRID                       noarch 1.52-1            EGI-trustanchors 5.1 k
+ ca_UKeScienceCA-2A             noarch 1.52-1            EGI-trustanchors 4.9 k
+ ca_UKeScienceCA-2B             noarch 1.52-1            EGI-trustanchors 4.9 k
+ ca_UKeScienceRoot-2007         noarch 1.52-1            EGI-trustanchors 5.5 k
+ ca_ULAGrid-CA-2008             noarch 1.52-1            EGI-trustanchors 5.4 k
+ ca_UNAMgrid-ca                 noarch 1.52-1            EGI-trustanchors 5.5 k
+ ca_UNLPGrid                    noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_UTN-USERFirst-Hardware      noarch 1.52-1            EGI-trustanchors 5.7 k
+ ca_UTNAAAClient                noarch 1.52-1            EGI-trustanchors 5.1 k
+ ca_UniandesCA                  noarch 1.52-1            EGI-trustanchors 5.3 k
+ ca_cilogon-silver              noarch 1.52-1            EGI-trustanchors 5.1 k
+ ca_ncsa-gridshib-ca            noarch 1.52-1            EGI-trustanchors 5.4 k
+ ca_pkIRISGrid                  noarch 1.52-1            EGI-trustanchors 5.5 k
+ cpio                           x86_64 2.6-25.el5        sl5x             123 k
+ crontabs                       noarch 1.10-11.el5       sl5x             7.1 k
+ device-mapper-multipath        x86_64 0.4.7-54.el5      sl5x             3.0 M
+ diffutils                      x86_64 2.8.1-16.el5      sl5x             212 k
+ e2fsprogs                      x86_64 1.39-35.el5       sl5x             844 k
+ e2fsprogs-libs                 i386   1.39-35.el5       sl5x             120 k
+ e2fsprogs-libs                 x86_64 1.39-35.el5       sl5x             120 k
+ file                           x86_64 4.17-28           sl5x             321 k
+ gawk                           x86_64 3.1.5-16.el5      sl5x             1.8 M
+ gdbm                           x86_64 1.8.0-28.el5      sl5x              28 k
+ glibc                          i686   2.5-107           sl5x             5.4 M
+ glibc                          x86_64 2.5-107           sl5x             4.8 M
+ glibc-common                   x86_64 2.5-107           sl5x              16 M
+ grub                           x86_64 0.97-13.10.el5    sl5x             882 k
+ hal                            x86_64 0.5.8.1-64.el5    sl5x             378 k
+ hwdata                         noarch 0.213.28-1.el5    sl5x             438 k
+ igi-test-ca                    noarch 1.0.2-2           VOMS              96 k
+ initscripts                    x86_64 8.45.42-1.el5_8.1 sl5x             1.6 M
+ iproute                        x86_64 2.6.18-15.el5     sl5x             823 k
+ iptables                       x86_64 1.3.5-9.2.el5_8   sl5x             247 k
+ iptables-ipv6                  x86_64 1.3.5-9.2.el5_8   sl5x             168 k
+ iscsi-initiator-utils          x86_64 6.2.0.872-16.el5  sl5x             1.0 M
+ kbd                            x86_64 1.12-22.el5       sl5x             1.3 M
+ kpartx                         x86_64 0.4.7-54.el5      sl5x             444 k
+ kudzu                          x86_64 1.2.57.1.26-7     sl5x             238 k
+ libgcc                         i386   4.1.2-54.el5      sl5x              97 k
+ libgcc                         x86_64 4.1.2-54.el5      sl5x             100 k
+ libgcrypt                      x86_64 1.4.4-5.el5_8.2   sl5x             233 k
+ libgomp                        x86_64 4.4.7-1.el5       sl5x              71 k
+ libstdc++                      i386   4.1.2-54.el5      sl5x             363 k
+ libstdc++                      x86_64 4.1.2-54.el5      sl5x             354 k
+ libuser                        x86_64 0.54.7-3.el5      sl5x             450 k
+ libvolume_id                   x86_64 095-14.29.el5     sl5x              43 k
+ logrotate                      x86_64 3.7.4-14          sl5x              43 k
+ lvm2                           x86_64 2.02.88-10.el5    sl5x             3.3 M
+ m2crypto                       x86_64 0.16-9.el5        sl5x             499 k
+ man                            x86_64 1.6d-3.el5        sl5x             264 k
+ mkinitrd                       i386   5.1.19.6-79.el5   sl5x             482 k
+ mkinitrd                       x86_64 5.1.19.6-79.el5   sl5x             470 k
+ nash                           x86_64 5.1.19.6-79.el5   sl5x             1.1 M
+ nspr                           i386   4.9.2-2.el5_9     sl5x-security    122 k
+ nspr                           x86_64 4.9.2-2.el5_9     sl5x-security    121 k
+ nss                            i386   3.13.6-3.el5_9    sl5x-security    1.1 M
+ nss                            x86_64 3.13.6-3.el5_9    sl5x-security    1.1 M
+ openldap                       x86_64 2.3.43-25.el5_8.1 sl5x             306 k
+ pam                            i386   0.99.6.2-12.el5   sl5x             983 k
+ pam                            x86_64 0.99.6.2-12.el5   sl5x             982 k
+ perl                           x86_64 4:5.8.8-38.el5_8  sl5x              12 M
+ pm-utils                       x86_64 0.99.3-14.el5     sl5x             144 k
+ popt                           x86_64 1.10.2.3-31.el5   sl5x              79 k
+ procps                         x86_64 3.2.7-22.el5      sl5x             216 k
+ psmisc                         x86_64 22.2-11           sl5x              63 k
+ python                         x86_64 2.4.3-56.el5      sl5x              60 k
+ python-iniparse                noarch 0.2.3-6.el5       sl5x              34 k
+ python-libs                    x86_64 2.4.3-56.el5      sl5x             5.9 M
+ rpm                            x86_64 4.4.2.3-31.el5    sl5x             1.2 M
+ rpm-libs                       x86_64 4.4.2.3-31.el5    sl5x             926 k
+ rpm-python                     x86_64 4.4.2.3-31.el5    sl5x              64 k
+ selinux-policy                 noarch 2.4.6-338.el5     sl5x             432 k
+ selinux-policy-targeted        noarch 2.4.6-338.el5     sl5x             1.3 M
+ shadow-utils                   x86_64 2:4.0.17-21.el5   sl5x             1.1 M
+ sl-release                     x86_64 1:5.9-2.sl        sl5x              47 k
+ sl-release-notes               noarch 5.9-2             sl5x             1.0 M
+ sqlite                         x86_64 3.3.6-6           sl5x             206 k
+ sudo                           x86_64 1.7.2p1-22.el5    sl5x             360 k
+ tar                            x86_64 2:1.15.1-32.el5_8 sl5x             748 k
+ udev                           x86_64 095-14.29.el5     sl5x             2.4 M
+ util-linux                     x86_64 2.13-0.59.el5_8   sl5x             1.9 M
+ vim-common                     x86_64 2:7.0.109-7.2.el5 sl5x             6.4 M
+ vim-enhanced                   x86_64 2:7.0.109-7.2.el5 sl5x             1.3 M
+ vim-minimal                    x86_64 2:7.0.109-7.2.el5 sl5x             334 k
+ voms                           x86_64 2.0.10-1          VOMS             164 k
+ voms-clients                   x86_64 2.0.10-1          VOMS             172 k
+ wget                           x86_64 1.11.4-3.el5_8.2  sl5x             583 k
+ yum                            noarch 3.2.22-40.el5.sl  sl5x             1.0 M
+ yum-conf                       noarch 5:59-2.sl         sl5x             7.2 k
+ yum-metadata-parser            x86_64 1.1.2-4.el5       sl5x              25 k
+ zlib                           i386   1.2.3-7.el5       sl5x              51 k
+ zlib                           x86_64 1.2.3-7.el5       sl5x              52 k
+
+Transaction Summary
+================================================================================
+Install       2 Package(s)
+Upgrade     185 Package(s)
+
+Total download size: 99 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           5.3 MB/s |  99 MB     00:18     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Updating       : libgcc                                                 1/374 
+  Updating       : ca_UKeScienceRoot-2007                                 2/374 
+  Updating       : ca_TACC-Root                                           3/374 
+  Updating       : glibc-common                                           4/374 
+  Updating       : glibc                                                  5/374 
+  Updating       : zlib                                                   6/374 
+  Updating       : popt                                                   7/374 
+  Updating       : nspr                                                   8/374 
+  Updating       : nss                                                    9/374 
+  Updating       : sqlite                                                10/374 
+  Updating       : libstdc++                                             11/374 
+  Updating       : e2fsprogs-libs                                        12/374 
+  Updating       : e2fsprogs                                             13/374 
+  Updating       : lvm2                                                  14/374 
+  Updating       : openldap                                              15/374 
+  Updating       : kpartx                                                16/374 
+  Updating       : gdbm                                                  17/374 
+  Updating       : device-mapper-multipath                               18/374 
+  Updating       : diffutils                                             19/374 
+  Updating       : shadow-utils                                          20/374 
+  Updating       : pam                                                   21/374 
+  Updating       : udev                                                  22/374 
+  Updating       : util-linux                                            23/374 
+  Updating       : gawk                                                  24/374 
+  Updating       : cpio                                                  25/374 
+  Updating       : tar                                                   26/374 
+  Updating       : perl                                                  27/374 
+  Updating       : voms                                                  28/374 
+  Updating       : bind-libs                                             29/374 
+  Updating       : procps                                                30/374 
+  Updating       : libvolume_id                                          31/374 
+  Updating       : ca_SWITCHgrid-Root                                    32/374 
+  Updating       : ca_QuoVadis-Root-CA1                                  33/374 
+  Updating       : ca_DigiCertGridRootCA-Root                            34/374 
+  Updating       : ca_HellasGrid-Root                                    35/374 
+  Updating       : ca_CESNET-CA-Root                                     36/374 
+  Updating       : ca_CERN-Root                                          37/374 
+  Updating       : ca_DigiCertAssuredIDRootCA-Root                       38/374 
+  Updating       : ca_ESnet                                              39/374 
+  Updating       : ca_CNRS2                                              40/374 
+  Updating       : ca_CNRS2-Projets                                      41/374 
+  Updating       : ca_AddTrust-External-CA-Root                          42/374 
+  Updating       : logrotate                                             43/374 
+  Updating       : psmisc                                                44/374 
+  Updating       : iproute                                               45/374 
+  Updating       : iptables                                              46/374 
+  Updating       : vim-minimal                                           47/374 
+  Updating       : ca_UTN-USERFirst-Hardware                             48/374 
+  Updating       : ca_TERENA-eScience-SSL-CA                             49/374 
+  Updating       : ca_CNRS2-Grid-FR                                      50/374 
+  Updating       : ca_DOEGrids                                           51/374 
+  Updating       : ca_DigiCertGridTrustCA-Classic                        52/374 
+  Updating       : ca_CERN-TCA                                           53/374 
+  Updating       : ca_CESNET-CA-3                                        54/374 
+  Updating       : ca_HellasGrid-CA-2006                                 55/374 
+  Updating       : ca_DigiCertGridCA-1-Classic                           56/374 
+  Updating       : ca_SWITCH-QuoVadis-Grid-ICA                           57/374 
+  Updating       : ca_TACC-Classic                                       58/374 
+  Updating       : ca_UKeScienceCA-2A                                    59/374 
+  Updating       : ca_UKeScienceCA-2B                                    60/374 
+  Updating       : ca_NAREGI                                             61/374 
+  Updating       : ca_MaGrid                                             62/374 
+  Updating       : ca_KEK                                                63/374 
+  Updating       : ca_NECTEC                                             64/374 
+  Updating       : ca_MYIFAM                                             65/374 
+  Updating       : ca_KISTI-2007                                         66/374 
+  Updating       : ca_EG-GRID                                            67/374 
+  Updating       : ca_NCHC                                               68/374 
+  Updating       : ca_SEE-GRID                                           69/374 
+  Updating       : ca_SiGNET-CA                                          70/374 
+  Updating       : ca_IHEP                                               71/374 
+  Updating       : ca_HKU                                                72/374 
+  Updating       : ca_JUnet-CA                                           73/374 
+  Updating       : ca_UniandesCA                                         74/374 
+  Updating       : ca_NorduGrid                                          75/374 
+  Updating       : ca_MD-Grid                                            76/374 
+  Updating       : ca_UGRID                                              77/374 
+  Updating       : hwdata                                                78/374 
+  Updating       : ca_IUCC                                               79/374 
+  Updating       : ca_BG-ACAD-CA                                         80/374 
+  Updating       : ca_ArmeSFo                                            81/374 
+  Updating       : ca_ULAGrid-CA-2008                                    82/374 
+  Updating       : ca_DZeScience                                         83/374 
+  Updating       : ca_IGCA                                               84/374 
+  Updating       : ca_pkIRISGrid                                         85/374 
+  Updating       : ca_SRCE                                               86/374 
+  Updating       : yum-conf                                              87/374 
+warning: /etc/yum.repos.d/sl.repo created as /etc/yum.repos.d/sl.repo.rpmnew
+  Updating       : ca_PRAGMA-UCSD                                        88/374 
+  Updating       : ca_RomanianGRID                                       89/374 
+  Updating       : ca_MREN-CA                                            90/374 
+  Updating       : ca_BalticGrid                                         91/374 
+  Updating       : crontabs                                              92/374 
+  Updating       : ca_AAACertificateServices                             93/374 
+  Updating       : ca_UTNAAAClient                                       94/374 
+  Updating       : ca_NIKHEF                                             95/374 
+  Updating       : ca_SDG                                                96/374 
+  Updating       : ca_UNAMgrid-ca                                        97/374 
+  Updating       : ca_AEGIS                                              98/374 
+  Updating       : ca_AustrianGrid                                       99/374 
+  Updating       : ca_NIIF                                              100/374 
+  Updating       : ca_APAC                                              101/374 
+  Updating       : ca_ASGCCA-2007                                       102/374 
+  Updating       : ca_SlovakGrid                                        103/374 
+  Updating       : ca_CALG                                              104/374 
+  Updating       : ca_CyGrid                                            105/374 
+  Updating       : ca_LACGridCA                                         106/374 
+  Updating       : ca_GermanGrid                                        107/374 
+  Updating       : ca_HIAST                                             108/374 
+  Updating       : ca_INFN-CA-2006                                      109/374 
+  Updating       : sl-release                                           110/374 
+  Updating       : initscripts                                          111/374 
+  Updating       : kbd                                                  112/374 
+  Updating       : ca_MARGI                                             113/374 
+  Updating       : ca_GridCanada                                        114/374 
+  Updating       : ca_AIST                                              115/374 
+  Updating       : ca_LIPCA                                             116/374 
+  Updating       : ca_BrGrid                                            117/374 
+  Updating       : ca_ANSPGrid                                          118/374 
+  Updating       : ca_CNIC                                              119/374 
+  Updating       : ca_PolishGrid                                        120/374 
+  Updating       : ca_BYGCA                                             121/374 
+  Updating       : ca_RDIG                                              122/374 
+  Updating       : ca_REUNA-ca                                          123/374 
+  Updating       : ca_BEGrid2008                                        124/374 
+  Updating       : ca_IRAN-GRID                                         125/374 
+  Updating       : ca_PK-Grid-2007                                      126/374 
+  Updating       : ca_DFN-GridGermany-Root                              127/374 
+  Updating       : nash                                                 128/374 
+  Updating       : ca_TRGrid                                            129/374 
+  Updating       : ca_UNLPGrid                                          130/374 
+  Updating       : vim-common                                           131/374 
+  Updating       : augeas-libs                                          132/374 
+  Updating       : file                                                 133/374 
+  Updating       : libgomp                                              134/374 
+  Updating       : libgcrypt                                            135/374 
+  Updating       : ca_TERENAeSciencePersonalCA                          136/374 
+  Updating       : ca_SWITCHslcs2011                                    137/374 
+  Updating       : ca_TACC-MICS                                         138/374 
+  Updating       : ca_NCSA-tfca                                         139/374 
+  Updating       : ca_NCSA-slcs                                         140/374 
+  Updating       : ca_DFN-SLCS                                          141/374 
+  Updating       : ca_PSC-Myproxy-CA                                    142/374 
+  Updating       : ca_ncsa-gridshib-ca                                  143/374 
+  Updating       : ca_NICS-MyProxy                                      144/374 
+  Updating       : selinux-policy                                       145/374 
+  Updating       : ca_NERSC-SLCS                                        146/374 
+  Updating       : ca_NCSA-mics                                         147/374 
+  Updating       : ca_FNAL-SLCS                                         148/374 
+  Updating       : ca_cilogon-silver                                    149/374 
+  Updating       : vim-enhanced                                         150/374 
+  Updating       : sudo                                                 151/374 
+  Updating       : iptables-ipv6                                        152/374 
+  Updating       : bind-utils                                           153/374 
+  Updating       : voms-clients                                         154/374 
+  Updating       : wget                                                 155/374 
+  Updating       : binutils                                             156/374 
+  Installing     : ca-policy-egi-core                                   157/374 
+  Updating       : selinux-policy-targeted                              158/374 
+  Installing     : ca_policy_igtf-classic                               159/374 
+  Updating       : grub                                                 160/374 
+  Updating       : igi-test-ca                                          161/374 
+  Updating       : sl-release-notes                                     162/374 
+  Updating       : glibc                                                163/374 
+  Updating       : nspr                                                 164/374 
+  Updating       : zlib                                                 165/374 
+  Updating       : libgcc                                               166/374 
+  Updating       : libstdc++                                            167/374 
+  Updating       : nss                                                  168/374 
+  Updating       : e2fsprogs-libs                                       169/374 
+  Updating       : pam                                                  170/374 
+  Updating       : python                                               171/374 
+  Updating       : rpm                                                  172/374 
+  Updating       : iscsi-initiator-utils                                173/374 
+  Updating       : hal                                                  174/374 
+  Updating       : rpm-libs                                             175/374 
+  Updating       : python-libs                                          176/374 
+  Updating       : rpm-python                                           177/374 
+  Updating       : yum-metadata-parser                                  178/374 
+  Updating       : pm-utils                                             179/374 
+  Updating       : libuser                                              180/374 
+  Updating       : kudzu                                                181/374 
+  Updating       : mkinitrd                                             182/374 
+  Updating       : man                                                  183/374 
+  Updating       : m2crypto                                             184/374 
+  Updating       : python-iniparse                                      185/374 
+  Updating       : yum                                                  186/374 
+  Updating       : mkinitrd                                             187/374 
+  Cleanup        : ca_UNLPGrid                                          188/374 
+  Cleanup        : ca_TRGrid                                            189/374 
+  Cleanup        : nash                                                 190/374 
+  Cleanup        : ca_DFN-GridGermany-Root                              191/374 
+  Cleanup        : util-linux                                           192/374 
+  Cleanup        : ca_PK-Grid-2007                                      193/374 
+  Cleanup        : ca_IRAN-GRID                                         194/374 
+  Cleanup        : ca_BEGrid2008                                        195/374 
+  Cleanup        : ca_REUNA-ca                                          196/374 
+  Cleanup        : nss                                                  197/374 
+  Cleanup        : nspr                                                 198/374 
+  Cleanup        : ca_RDIG                                              199/374 
+  Cleanup        : zlib                                                 200/374 
+  Cleanup        : ca_AddTrust-External-CA-Root                         201/374 
+  Cleanup        : ca_BYGCA                                             202/374 
+  Cleanup        : ca_PolishGrid                                        203/374 
+  Cleanup        : ca_CNIC                                              204/374 
+  Cleanup        : ca_UKeScienceCA-2A                                   205/374 
+  Cleanup        : ca_ANSPGrid                                          206/374 
+  Cleanup        : ca_BrGrid                                            207/374 
+  Cleanup        : zlib                                                 208/374 
+  Cleanup        : ca_cilogon-silver                                    209/374 
+  Cleanup        : augeas-libs                                          210/374 
+  Cleanup        : ca_LIPCA                                             211/374 
+  Cleanup        : ca_AIST                                              212/374 
+  Cleanup        : e2fsprogs-libs                                       213/374 
+  Cleanup        : ca_GridCanada                                        214/374 
+  Cleanup        : ca_DOEGrids                                          215/374 
+  Cleanup        : bind-utils                                           216/374 
+  Cleanup        : sudo                                                 217/374 
+  Cleanup        : ca_TACC-Root                                         218/374 
+  Cleanup        : ca_CNRS2                                             219/374 
+  Cleanup        : diffutils                                            220/374 
+  Cleanup        : file                                                 221/374 
+  Cleanup        : ca_MARGI                                             222/374 
+  Cleanup        : sl-release                                           223/374 
+  Cleanup        : ca_CERN-TCA                                          224/374 
+  Cleanup        : ca_INFN-CA-2006                                      225/374 
+  Cleanup        : libstdc++                                            226/374 
+  Cleanup        : ca_HIAST                                             227/374 
+  Cleanup        : e2fsprogs-libs                                       228/374 
+  Cleanup        : ca_GermanGrid                                        229/374 
+  Cleanup        : ca_HellasGrid-CA-2006                                230/374 
+  Cleanup        : ca_ESnet                                             231/374 
+  Cleanup        : ca_FNAL-SLCS                                         232/374 
+  Cleanup        : ca_SWITCH-QuoVadis-Grid-ICA                          233/374 
+  Cleanup        : ca_LACGridCA                                         234/374 
+  Cleanup        : ca_NCSA-mics                                         235/374 
+  Cleanup        : lvm2                                                 236/374 
+  Cleanup        : ca-policy-egi-core                                   237/374 
+  Erasing        : ca_UKeScienceCA-2007                                 238/374 
+  Cleanup        : ca_NERSC-SLCS                                        239/374 
+  Cleanup        : ca_CyGrid                                            240/374 
+  Cleanup        : python-libs                                          241/374 
+  Cleanup        : ca_CALG                                              242/374 
+  Cleanup        : selinux-policy-targeted                              243/374 
+  Cleanup        : nss                                                  244/374 
+  Cleanup        : ca_DigiCertAssuredIDRootCA-Root                      245/374 
+  Cleanup        : sl-release-notes                                     246/374 
+  Cleanup        : python-iniparse                                      247/374 
+  Cleanup        : ca_SlovakGrid                                        248/374 
+  Cleanup        : perl                                                 249/374 
+  Cleanup        : ca_ASGCCA-2007                                       250/374 
+  Cleanup        : ca_APAC                                              251/374 
+  Cleanup        : ca_NIIF                                              252/374 
+  Cleanup        : ca_AustrianGrid                                      253/374 
+  Cleanup        : selinux-policy                                       254/374 
+  Cleanup        : ca_AEGIS                                             255/374 
+  Cleanup        : wget                                                 256/374 
+  Cleanup        : ca_UNAMgrid-ca                                       257/374 
+  Cleanup        : ca_SDG                                               258/374 
+  Cleanup        : ca_NIKHEF                                            259/374 
+  Cleanup        : ca_UTN-USERFirst-Hardware                            260/374 
+  Cleanup        : psmisc                                               261/374 
+  Cleanup        : ca_AAACertificateServices                            262/374 
+  Cleanup        : crontabs                                             263/374 
+  Cleanup        : igi-test-ca                                          264/374 
+  Cleanup        : ca_CERN-Root                                         265/374 
+  Cleanup        : vim-common                                           266/374 
+  Cleanup        : ca_TACC-MICS                                         267/374 
+  Cleanup        : ca_BalticGrid                                        268/374 
+  Cleanup        : bind-libs                                            269/374 
+  Cleanup        : ca_MREN-CA                                           270/374 
+  Cleanup        : ca_RomanianGRID                                      271/374 
+  Cleanup        : m2crypto                                             272/374 
+  Cleanup        : ca_DigiCertGridTrustCA-Classic                       273/374 
+  Cleanup        : ca_PRAGMA-UCSD                                       274/374 
+  Cleanup        : yum-conf                                             275/374 
+  Cleanup        : yum-metadata-parser                                  276/374 
+  Cleanup        : libgomp                                              277/374 
+  Cleanup        : ca_CESNET-CA-Root                                    278/374 
+  Cleanup        : udev                                                 279/374 
+  Cleanup        : ca_HellasGrid-Root                                   280/374 
+  Cleanup        : yum                                                  281/374 
+  Cleanup        : ca_NICS-MyProxy                                      282/374 
+  Cleanup        : procps                                               283/374 
+  Cleanup        : libuser                                              284/374 
+  Cleanup        : initscripts                                          285/374 
+  Cleanup        : voms                                                 286/374 
+  Cleanup        : iproute                                              287/374 
+  Cleanup        : ca_SRCE                                              288/374 
+  Cleanup        : ca_pkIRISGrid                                        289/374 
+  Cleanup        : binutils                                             290/374 
+  Cleanup        : ca_IGCA                                              291/374 
+  Cleanup        : shadow-utils                                         292/374 
+  Cleanup        : ca_ncsa-gridshib-ca                                  293/374 
+  Cleanup        : ca_DigiCertGridRootCA-Root                           294/374 
+  Cleanup        : kbd                                                  295/374 
+  Cleanup        : pam                                                  296/374 
+  Cleanup        : popt                                                 297/374 
+  Cleanup        : rpm-libs                                             298/374 
+  Cleanup        : ca_DZeScience                                        299/374 
+  Cleanup        : mkinitrd                                             300/374 
+  Cleanup        : openldap                                             301/374 
+  Cleanup        : grub                                                 302/374 
+  Cleanup        : mkinitrd                                             303/374 
+  Cleanup        : libgcc                                               304/374 
+  Cleanup        : libgcrypt                                            305/374 
+  Cleanup        : ca_ULAGrid-CA-2008                                   306/374 
+  Cleanup        : glibc                                                307/374 
+  Cleanup        : ca_ArmeSFo                                           308/374 
+  Cleanup        : ca_BG-ACAD-CA                                        309/374 
+  Cleanup        : gawk                                                 310/374 
+  Cleanup        : libvolume_id                                         311/374 
+  Cleanup        : ca_IUCC                                              312/374 
+  Cleanup        : glibc                                                313/374 
+  Cleanup        : hwdata                                               314/374 
+  Cleanup        : rpm                                                  315/374 
+  Cleanup        : ca_PSC-Myproxy-CA                                    316/374 
+  Cleanup        : ca_TERENA-eScience-SSL-CA                            317/374 
+  Cleanup        : ca_QuoVadis-Root-CA1                                 318/374 
+  Cleanup        : ca_UGRID                                             319/374 
+  Cleanup        : kpartx                                               320/374 
+  Cleanup        : ca_MD-Grid                                           321/374 
+  Cleanup        : device-mapper-multipath                              322/374 
+  Cleanup        : ca_NorduGrid                                         323/374 
+  Cleanup        : gdbm                                                 324/374 
+  Cleanup        : nspr                                                 325/374 
+  Cleanup        : hal                                                  326/374 
+  Cleanup        : ca_TERENAeSciencePersonalCA                          327/374 
+  Cleanup        : ca_UniandesCA                                        328/374 
+  Cleanup        : ca_JUnet-CA                                          329/374 
+  Cleanup        : ca_HKU                                               330/374 
+  Cleanup        : ca_DFN-SLCS                                          331/374 
+  Cleanup        : ca_IHEP                                              332/374 
+  Cleanup        : ca_SiGNET-CA                                         333/374 
+  Cleanup        : voms-clients                                         334/374 
+  Cleanup        : kudzu                                                335/374 
+  Cleanup        : ca_NCSA-slcs                                         336/374 
+  Cleanup        : ca_SEE-GRID                                          337/374 
+  Cleanup        : ca_SWITCHgrid-Root                                   338/374 
+  Cleanup        : ca_UTNAAAClient                                      339/374 
+  Cleanup        : ca_NCHC                                              340/374 
+  Cleanup        : ca_CNRS2-Grid-FR                                     341/374 
+  Cleanup        : cpio                                                 342/374 
+  Cleanup        : pm-utils                                             343/374 
+  Cleanup        : ca_NCSA-tfca                                         344/374 
+  Cleanup        : ca_DigiCertGridCA-1-Classic                          345/374 
+  Cleanup        : e2fsprogs                                            346/374 
+  Cleanup        : rpm-python                                           347/374 
+  Cleanup        : ca_CNRS2-Projets                                     348/374 
+  Cleanup        : ca_UKeScienceCA-2B                                   349/374 
+  Cleanup        : iptables-ipv6                                        350/374 
+  Cleanup        : ca_EG-GRID                                           351/374 
+  Cleanup        : iptables                                             352/374 
+  Cleanup        : vim-enhanced                                         353/374 
+  Cleanup        : ca_KISTI-2007                                        354/374 
+  Cleanup        : ca_MYIFAM                                            355/374 
+  Cleanup        : ca_NECTEC                                            356/374 
+  Cleanup        : ca_TACC-Classic                                      357/374 
+  Cleanup        : tar                                                  358/374 
+  Cleanup        : ca_KEK                                               359/374 
+  Cleanup        : ca_UKeScienceRoot-2007                               360/374 
+  Cleanup        : libstdc++                                            361/374 
+  Cleanup        : ca_MaGrid                                            362/374 
+  Cleanup        : man                                                  363/374 
+  Cleanup        : vim-minimal                                          364/374 
+  Cleanup        : pam                                                  365/374 
+  Cleanup        : python                                               366/374 
+  Cleanup        : ca_NAREGI                                            367/374 
+  Cleanup        : iscsi-initiator-utils                                368/374 
+  Cleanup        : ca_SWITCHslcs2011                                    369/374 
+  Cleanup        : ca_CESNET-CA-3                                       370/374 
+  Cleanup        : glibc-common                                         371/374 
+  Cleanup        : sqlite                                               372/374 
+  Cleanup        : logrotate                                            373/374 
+  Cleanup        : libgcc                                               374/374 
+
+Installed:
+  ca-policy-egi-core.noarch 0:1.52-1   ca_policy_igtf-classic.noarch 0:1.52-1  
+
+Updated:
+  augeas-libs.x86_64 0:1.0.0-1.el5                                              
+  bind-libs.x86_64 30:9.3.6-20.P1.el5_8.6                                       
+  bind-utils.x86_64 30:9.3.6-20.P1.el5_8.6                                      
+  binutils.x86_64 0:2.17.50.0.6-20.el5_8.3                                      
+  ca_AAACertificateServices.noarch 0:1.52-1                                     
+  ca_AEGIS.noarch 0:1.52-1                                                      
+  ca_AIST.noarch 0:1.52-1                                                       
+  ca_ANSPGrid.noarch 0:1.52-1                                                   
+  ca_APAC.noarch 0:1.52-1                                                       
+  ca_ASGCCA-2007.noarch 0:1.52-1                                                
+  ca_AddTrust-External-CA-Root.noarch 0:1.52-1                                  
+  ca_ArmeSFo.noarch 0:1.52-1                                                    
+  ca_AustrianGrid.noarch 0:1.52-1                                               
+  ca_BEGrid2008.noarch 0:1.52-1                                                 
+  ca_BG-ACAD-CA.noarch 0:1.52-1                                                 
+  ca_BYGCA.noarch 0:1.52-1                                                      
+  ca_BalticGrid.noarch 0:1.52-1                                                 
+  ca_BrGrid.noarch 0:1.52-1                                                     
+  ca_CALG.noarch 0:1.52-1                                                       
+  ca_CERN-Root.noarch 0:1.52-1                                                  
+  ca_CERN-TCA.noarch 0:1.52-1                                                   
+  ca_CESNET-CA-3.noarch 0:1.52-1                                                
+  ca_CESNET-CA-Root.noarch 0:1.52-1                                             
+  ca_CNIC.noarch 0:1.52-1                                                       
+  ca_CNRS2.noarch 0:1.52-1                                                      
+  ca_CNRS2-Grid-FR.noarch 0:1.52-1                                              
+  ca_CNRS2-Projets.noarch 0:1.52-1                                              
+  ca_CyGrid.noarch 0:1.52-1                                                     
+  ca_DFN-GridGermany-Root.noarch 0:1.52-1                                       
+  ca_DFN-SLCS.noarch 0:1.52-1                                                   
+  ca_DOEGrids.noarch 0:1.52-1                                                   
+  ca_DZeScience.noarch 0:1.52-1                                                 
+  ca_DigiCertAssuredIDRootCA-Root.noarch 0:1.52-1                               
+  ca_DigiCertGridCA-1-Classic.noarch 0:1.52-1                                   
+  ca_DigiCertGridRootCA-Root.noarch 0:1.52-1                                    
+  ca_DigiCertGridTrustCA-Classic.noarch 0:1.52-1                                
+  ca_EG-GRID.noarch 0:1.52-1                                                    
+  ca_ESnet.noarch 0:1.52-1                                                      
+  ca_FNAL-SLCS.noarch 0:1.52-1                                                  
+  ca_GermanGrid.noarch 0:1.52-1                                                 
+  ca_GridCanada.noarch 0:1.52-1                                                 
+  ca_HIAST.noarch 0:1.52-1                                                      
+  ca_HKU.noarch 0:1.52-1                                                        
+  ca_HellasGrid-CA-2006.noarch 0:1.52-1                                         
+  ca_HellasGrid-Root.noarch 0:1.52-1                                            
+  ca_IGCA.noarch 0:1.52-1                                                       
+  ca_IHEP.noarch 0:1.52-1                                                       
+  ca_INFN-CA-2006.noarch 0:1.52-1                                               
+  ca_IRAN-GRID.noarch 0:1.52-1                                                  
+  ca_IUCC.noarch 0:1.52-1                                                       
+  ca_JUnet-CA.noarch 0:1.52-1                                                   
+  ca_KEK.noarch 0:1.52-1                                                        
+  ca_KISTI-2007.noarch 0:1.52-1                                                 
+  ca_LACGridCA.noarch 0:1.52-1                                                  
+  ca_LIPCA.noarch 0:1.52-1                                                      
+  ca_MARGI.noarch 0:1.52-1                                                      
+  ca_MD-Grid.noarch 0:1.52-1                                                    
+  ca_MREN-CA.noarch 0:1.52-1                                                    
+  ca_MYIFAM.noarch 0:1.52-1                                                     
+  ca_MaGrid.noarch 0:1.52-1                                                     
+  ca_NAREGI.noarch 0:1.52-1                                                     
+  ca_NCHC.noarch 0:1.52-1                                                       
+  ca_NCSA-mics.noarch 0:1.52-1                                                  
+  ca_NCSA-slcs.noarch 0:1.52-1                                                  
+  ca_NCSA-tfca.noarch 0:1.52-1                                                  
+  ca_NECTEC.noarch 0:1.52-1                                                     
+  ca_NERSC-SLCS.noarch 0:1.52-1                                                 
+  ca_NICS-MyProxy.noarch 0:1.52-1                                               
+  ca_NIIF.noarch 0:1.52-1                                                       
+  ca_NIKHEF.noarch 0:1.52-1                                                     
+  ca_NorduGrid.noarch 0:1.52-1                                                  
+  ca_PK-Grid-2007.noarch 0:1.52-1                                               
+  ca_PRAGMA-UCSD.noarch 0:1.52-1                                                
+  ca_PSC-Myproxy-CA.noarch 0:1.52-1                                             
+  ca_PolishGrid.noarch 0:1.52-1                                                 
+  ca_QuoVadis-Root-CA1.noarch 0:1.52-1                                          
+  ca_RDIG.noarch 0:1.52-1                                                       
+  ca_REUNA-ca.noarch 0:1.52-1                                                   
+  ca_RomanianGRID.noarch 0:1.52-1                                               
+  ca_SDG.noarch 0:1.52-1                                                        
+  ca_SEE-GRID.noarch 0:1.52-1                                                   
+  ca_SRCE.noarch 0:1.52-1                                                       
+  ca_SWITCH-QuoVadis-Grid-ICA.noarch 0:1.52-1                                   
+  ca_SWITCHgrid-Root.noarch 0:1.52-1                                            
+  ca_SWITCHslcs2011.noarch 0:1.52-1                                             
+  ca_SiGNET-CA.noarch 0:1.52-1                                                  
+  ca_SlovakGrid.noarch 0:1.52-1                                                 
+  ca_TACC-Classic.noarch 0:1.52-1                                               
+  ca_TACC-MICS.noarch 0:1.52-1                                                  
+  ca_TACC-Root.noarch 0:1.52-1                                                  
+  ca_TERENA-eScience-SSL-CA.noarch 0:1.52-1                                     
+  ca_TERENAeSciencePersonalCA.noarch 0:1.52-1                                   
+  ca_TRGrid.noarch 0:1.52-1                                                     
+  ca_UGRID.noarch 0:1.52-1                                                      
+  ca_UKeScienceCA-2A.noarch 0:1.52-1                                            
+  ca_UKeScienceCA-2B.noarch 0:1.52-1                                            
+  ca_UKeScienceRoot-2007.noarch 0:1.52-1                                        
+  ca_ULAGrid-CA-2008.noarch 0:1.52-1                                            
+  ca_UNAMgrid-ca.noarch 0:1.52-1                                                
+  ca_UNLPGrid.noarch 0:1.52-1                                                   
+  ca_UTN-USERFirst-Hardware.noarch 0:1.52-1                                     
+  ca_UTNAAAClient.noarch 0:1.52-1                                               
+  ca_UniandesCA.noarch 0:1.52-1                                                 
+  ca_cilogon-silver.noarch 0:1.52-1                                             
+  ca_ncsa-gridshib-ca.noarch 0:1.52-1                                           
+  ca_pkIRISGrid.noarch 0:1.52-1                                                 
+  cpio.x86_64 0:2.6-25.el5                                                      
+  crontabs.noarch 0:1.10-11.el5                                                 
+  device-mapper-multipath.x86_64 0:0.4.7-54.el5                                 
+  diffutils.x86_64 0:2.8.1-16.el5                                               
+  e2fsprogs.x86_64 0:1.39-35.el5                                                
+  e2fsprogs-libs.i386 0:1.39-35.el5                                             
+  e2fsprogs-libs.x86_64 0:1.39-35.el5                                           
+  file.x86_64 0:4.17-28                                                         
+  gawk.x86_64 0:3.1.5-16.el5                                                    
+  gdbm.x86_64 0:1.8.0-28.el5                                                    
+  glibc.i686 0:2.5-107                                                          
+  glibc.x86_64 0:2.5-107                                                        
+  glibc-common.x86_64 0:2.5-107                                                 
+  grub.x86_64 0:0.97-13.10.el5                                                  
+  hal.x86_64 0:0.5.8.1-64.el5                                                   
+  hwdata.noarch 0:0.213.28-1.el5                                                
+  igi-test-ca.noarch 0:1.0.2-2                                                  
+  initscripts.x86_64 0:8.45.42-1.el5_8.1                                        
+  iproute.x86_64 0:2.6.18-15.el5                                                
+  iptables.x86_64 0:1.3.5-9.2.el5_8                                             
+  iptables-ipv6.x86_64 0:1.3.5-9.2.el5_8                                        
+  iscsi-initiator-utils.x86_64 0:6.2.0.872-16.el5                               
+  kbd.x86_64 0:1.12-22.el5                                                      
+  kpartx.x86_64 0:0.4.7-54.el5                                                  
+  kudzu.x86_64 0:1.2.57.1.26-7                                                  
+  libgcc.i386 0:4.1.2-54.el5                                                    
+  libgcc.x86_64 0:4.1.2-54.el5                                                  
+  libgcrypt.x86_64 0:1.4.4-5.el5_8.2                                            
+  libgomp.x86_64 0:4.4.7-1.el5                                                  
+  libstdc++.i386 0:4.1.2-54.el5                                                 
+  libstdc++.x86_64 0:4.1.2-54.el5                                               
+  libuser.x86_64 0:0.54.7-3.el5                                                 
+  libvolume_id.x86_64 0:095-14.29.el5                                           
+  logrotate.x86_64 0:3.7.4-14                                                   
+  lvm2.x86_64 0:2.02.88-10.el5                                                  
+  m2crypto.x86_64 0:0.16-9.el5                                                  
+  man.x86_64 0:1.6d-3.el5                                                       
+  mkinitrd.i386 0:5.1.19.6-79.el5                                               
+  mkinitrd.x86_64 0:5.1.19.6-79.el5                                             
+  nash.x86_64 0:5.1.19.6-79.el5                                                 
+  nspr.i386 0:4.9.2-2.el5_9                                                     
+  nspr.x86_64 0:4.9.2-2.el5_9                                                   
+  nss.i386 0:3.13.6-3.el5_9                                                     
+  nss.x86_64 0:3.13.6-3.el5_9                                                   
+  openldap.x86_64 0:2.3.43-25.el5_8.1                                           
+  pam.i386 0:0.99.6.2-12.el5                                                    
+  pam.x86_64 0:0.99.6.2-12.el5                                                  
+  perl.x86_64 4:5.8.8-38.el5_8                                                  
+  pm-utils.x86_64 0:0.99.3-14.el5                                               
+  popt.x86_64 0:1.10.2.3-31.el5                                                 
+  procps.x86_64 0:3.2.7-22.el5                                                  
+  psmisc.x86_64 0:22.2-11                                                       
+  python.x86_64 0:2.4.3-56.el5                                                  
+  python-iniparse.noarch 0:0.2.3-6.el5                                          
+  python-libs.x86_64 0:2.4.3-56.el5                                             
+  rpm.x86_64 0:4.4.2.3-31.el5                                                   
+  rpm-libs.x86_64 0:4.4.2.3-31.el5                                              
+  rpm-python.x86_64 0:4.4.2.3-31.el5                                            
+  selinux-policy.noarch 0:2.4.6-338.el5                                         
+  selinux-policy-targeted.noarch 0:2.4.6-338.el5                                
+  shadow-utils.x86_64 2:4.0.17-21.el5                                           
+  sl-release.x86_64 1:5.9-2.sl                                                  
+  sl-release-notes.noarch 0:5.9-2                                               
+  sqlite.x86_64 0:3.3.6-6                                                       
+  sudo.x86_64 0:1.7.2p1-22.el5                                                  
+  tar.x86_64 2:1.15.1-32.el5_8                                                  
+  udev.x86_64 0:095-14.29.el5                                                   
+  util-linux.x86_64 0:2.13-0.59.el5_8                                           
+  vim-common.x86_64 2:7.0.109-7.2.el5                                           
+  vim-enhanced.x86_64 2:7.0.109-7.2.el5                                         
+  vim-minimal.x86_64 2:7.0.109-7.2.el5                                          
+  voms.x86_64 0:2.0.10-1                                                        
+  voms-clients.x86_64 0:2.0.10-1                                                
+  wget.x86_64 0:1.11.4-3.el5_8.2                                                
+  yum.noarch 0:3.2.22-40.el5.sl                                                 
+  yum-conf.noarch 5:59-2.sl                                                     
+  yum-metadata-parser.x86_64 0:1.1.2-4.el5                                      
+  zlib.i386 0:1.2.3-7.el5                                                       
+  zlib.x86_64 0:1.2.3-7.el5                                                     
+
+Replaced:
+  ca_UKeScienceCA-2007.noarch 0:1.51-1                                          
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# echo pass | voms-proxy-init --pwstdin --cert .globus/usercert.pem --key .globus/userkey.pem
+Your identity: /C=IT/O=IGI/CN=test0
+Creating proxy ......................................................................................... Done
+
+Your proxy is valid until Fri Jan 25 03:25:16 2013
+VOMS clients succesfully upgraded!
