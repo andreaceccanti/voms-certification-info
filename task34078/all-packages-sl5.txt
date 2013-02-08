@@ -1,0 +1,17 @@
+RPMS:
+
+nagios-plugins-voms-1.0.0-1.el5.noarch.rpm
+voms-admin-client-2.0.18-1.el5.noarch.rpm
+voms-admin-server-3.0.0-1.el5.noarch.rpm
+
+Source RPMS:
+
+nagios-plugins-voms-1.0.0-1.src.rpm
+voms-admin-client-2.0.18-1.src.rpm
+voms-admin-server-3.0.0-1.src.rpm
+
+Tarballs:
+
+nagios-plugins-voms-1.0.0-1.el5.noarch.tar.gz
+voms-admin-client-2.0.18-1.el5.noarch.tar.gz
+voms-admin-server-3.0.0-1.el5.noarch.tar.gz

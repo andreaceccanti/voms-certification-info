@@ -1,0 +1,1511 @@
+[root@jen01.cnaf.infn.it ~]# wget http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/x86_64/base/emi-release-2.0.0-1.sl5.noarch.rpm
+--2013-01-24 15:54:21--  http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/x86_64/base/emi-release-2.0.0-1.sl5.noarch.rpm
+Resolving emisoft.web.cern.ch... 137.138.139.27
+Connecting to emisoft.web.cern.ch|137.138.139.27|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5189 (5.1K) [application/x-rpm]
+Saving to: `emi-release-2.0.0-1.sl5.noarch.rpm'
+
+     0K .....                                                 100%  134M=0s
+
+2013-01-24 15:54:21 (134 MB/s) - `emi-release-2.0.0-1.sl5.noarch.rpm' saved [5189/5189]
+
+[root@jen01.cnaf.infn.it ~]# rpm -i emi-release-2.0.0-1.sl5.noarch.rpm
+warning: emi-release-2.0.0-1.sl5.noarch.rpm: Header V3 DSA signature: NOKEY, key ID df9e12ef
+[root@jen01.cnaf.infn.it ~]# yum clean all
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Cleaning up Everything
+[root@jen01.cnaf.infn.it ~]# yum install -y --nogpgcheck emi-voms-mysql
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+861 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-voms-mysql.x86_64 0:1.0.1-1.el5 set to be updated
+--> Processing Dependency: yaim-voms for package: emi-voms-mysql
+--> Processing Dependency: glite-yaim-bdii for package: emi-voms-mysql
+--> Processing Dependency: fetch-crl for package: emi-voms-mysql
+--> Processing Dependency: bdii for package: emi-voms-mysql
+--> Processing Dependency: voms-admin-server for package: emi-voms-mysql
+--> Processing Dependency: glite-info-provider-service for package: emi-voms-mysql
+--> Processing Dependency: voms-admin-client for package: emi-voms-mysql
+--> Processing Dependency: mysql-server for package: emi-voms-mysql
+--> Processing Dependency: voms-mysql-plugin for package: emi-voms-mysql
+--> Processing Dependency: voms-server for package: emi-voms-mysql
+--> Running transaction check
+---> Package bdii.noarch 0:5.2.12-1.el5 set to be updated
+--> Processing Dependency: glue-schema >= 2.0.0 for package: bdii
+--> Processing Dependency: openldap-servers for package: bdii
+--> Processing Dependency: expect for package: bdii
+--> Processing Dependency: openldap-clients for package: bdii
+---> Package fetch-crl.noarch 0:2.8.5-1.el5 set to be updated
+---> Package glite-info-provider-service.noarch 0:1.9.0-5.el5 set to be updated
+---> Package glite-yaim-bdii.noarch 0:4.3.11-1.el5 set to be updated
+---> Package mysql-server.x86_64 0:5.0.95-5.el5_9 set to be updated
+--> Processing Dependency: perl-DBD-MySQL for package: mysql-server
+---> Package voms-admin-client.noarch 0:2.0.17-1.el5 set to be updated
+--> Processing Dependency: python-ZSI for package: voms-admin-client
+--> Processing Dependency: PyXML for package: voms-admin-client
+--> Processing Dependency: python-simplejson for package: voms-admin-client
+---> Package voms-admin-server.noarch 0:2.7.0-1.el5 set to be updated
+--> Processing Dependency: bouncycastle >= 1.39 for package: voms-admin-server
+--> Processing Dependency: tomcat5 for package: voms-admin-server
+--> Processing Dependency: emi-trustmanager for package: voms-admin-server
+--> Processing Dependency: java for package: voms-admin-server
+--> Processing Dependency: emi-trustmanager-tomcat for package: voms-admin-server
+---> Package voms-mysql-plugin.x86_64 0:3.1.6-1.el5 set to be updated
+---> Package voms-server.x86_64 0:2.0.9-1.el5 set to be updated
+--> Processing Dependency: voms = 2.0.9-1.el5 for package: voms-server
+--> Processing Dependency: libvomsapi.so.1()(64bit) for package: voms-server
+---> Package yaim-voms.noarch 0:1.1.1-1.el5 set to be updated
+--> Processing Dependency: glite-yaim-core for package: yaim-voms
+--> Running transaction check
+---> Package PyXML.x86_64 0:0.8.4-6.el5 set to be updated
+---> Package bouncycastle.x86_64 0:1.45-6.el5 set to be updated
+--> Processing Dependency: jpackage-utils >= 1.7 for package: bouncycastle
+--> Processing Dependency: jpackage-utils >= 1.5 for package: bouncycastle
+--> Processing Dependency: jpackage-utils >= 1.7 for package: bouncycastle
+--> Processing Dependency: java-gcj-compat for package: bouncycastle
+--> Processing Dependency: java-gcj for package: bouncycastle
+--> Processing Dependency: java-gcj-compat for package: bouncycastle
+--> Processing Dependency: libgcj_bc.so.1()(64bit) for package: bouncycastle
+---> Package emi-trustmanager.noarch 0:3.1.4-1.sl5 set to be updated
+---> Package emi-trustmanager-tomcat.noarch 0:3.0.1-1.sl5 set to be updated
+--> Processing Dependency: log4j for package: emi-trustmanager-tomcat
+---> Package expect.x86_64 0:5.43.0-8.el5 set to be updated
+---> Package glite-yaim-core.noarch 0:5.1.0-1.sl5 set to be updated
+---> Package glue-schema.noarch 0:2.0.8-2.el5 set to be updated
+---> Package java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.28.1.10.10.el5_8 set to be updated
+--> Processing Dependency: libjpeg = 6b for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2(ALSA_0.9)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2(ALSA_0.9.0rc4)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libpng12.so.0(PNG12_0)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: tzdata-java for package: java-1.6.0-openjdk
+--> Processing Dependency: libfreetype.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXtst.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXrender.so.1()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libjpeg.so.62()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libpng12.so.0()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXi.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libgif.so.4()(64bit) for package: java-1.6.0-openjdk
+---> Package openldap-clients.x86_64 0:2.3.43-25.el5 set to be updated
+---> Package openldap-servers.x86_64 0:2.3.43-25.el5 set to be updated
+--> Processing Dependency: libltdl.so.3()(64bit) for package: openldap-servers
+---> Package perl-DBD-MySQL.x86_64 0:3.0007-2.el5 set to be updated
+---> Package python-ZSI.noarch 0:2.0-7.el5 set to be updated
+---> Package python-simplejson.x86_64 0:2.0.9-8.el5 set to be updated
+---> Package tomcat5.x86_64 0:5.5.23-0jpp.31.el5_8 set to be updated
+--> Processing Dependency: tomcat5-common-lib = 5.5.23-0jpp.31.el5_8 for package: tomcat5
+--> Processing Dependency: tomcat5-server-lib = 5.5.23-0jpp.31.el5_8 for package: tomcat5
+--> Processing Dependency: tomcat5-server-lib = 5.5.23-0jpp.31.el5_8 for package: tomcat5
+--> Processing Dependency: tomcat5-common-lib = 5.5.23-0jpp.31.el5_8 for package: tomcat5
+--> Processing Dependency: xerces-j2 >= 2.7.1 for package: tomcat5
+--> Processing Dependency: jakarta-commons-daemon >= 1.0.1 for package: tomcat5
+--> Processing Dependency: jakarta-commons-launcher >= 0.9 for package: tomcat5
+--> Processing Dependency: xml-commons-apis >= 1.3 for package: tomcat5
+---> Package voms.x86_64 0:2.0.9-1.el5 set to be updated
+--> Running transaction check
+---> Package alsa-lib.x86_64 0:1.0.17-1.el5 set to be updated
+---> Package freetype.x86_64 0:2.2.1-31.el5_8.1 set to be updated
+---> Package giflib.x86_64 0:4.1.3-7.3.3.el5 set to be updated
+---> Package jakarta-commons-daemon.x86_64 1:1.0.1-6jpp.1 set to be updated
+---> Package jakarta-commons-launcher.x86_64 0:0.9-6jpp.1 set to be updated
+---> Package java-1.4.2-gcj-compat.x86_64 0:1.4.2.0-40jpp.115 set to be updated
+--> Processing Dependency: zip for package: java-1.4.2-gcj-compat
+--> Processing Dependency: gjdoc for package: java-1.4.2-gcj-compat
+---> Package jdk.x86_64 2000:1.6.0_37-fcs set to be updated
+---> Package jpackage-utils.noarch 0:1.7.3-1jpp.2.el5 set to be updated
+---> Package libXi.x86_64 0:1.0.1-4.el5_4 set to be updated
+---> Package libXrender.x86_64 0:0.9.1-3.1 set to be updated
+---> Package libXtst.x86_64 0:1.0.1-3.1 set to be updated
+---> Package libgcj.x86_64 0:4.1.2-52.el5 set to be updated
+--> Processing Dependency: libart_lgpl >= 2.1.0 for package: libgcj
+--> Processing Dependency: gtk2 >= 2.4.0 for package: libgcj
+--> Processing Dependency: libgtk-x11-2.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libXrandr.so.2()(64bit) for package: libgcj
+--> Processing Dependency: libpangoft2-1.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libcairo.so.2()(64bit) for package: libgcj
+--> Processing Dependency: libpangocairo-1.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libatk-1.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libgdk-x11-2.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libpango-1.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libgdk_pixbuf-2.0.so.0()(64bit) for package: libgcj
+---> Package libjpeg.x86_64 0:6b-37 set to be updated
+---> Package libpng.x86_64 2:1.2.10-17.el5_8 set to be updated
+---> Package libtool-ltdl.x86_64 0:1.5.22-7.el5_4 set to be updated
+---> Package log4j.x86_64 0:1.2.13-3jpp.2 set to be updated
+---> Package tomcat5-common-lib.x86_64 0:5.5.23-0jpp.31.el5_8 set to be updated
+--> Processing Dependency: tomcat5-servlet-2.4-api = 5.5.23-0jpp.31.el5_8 for package: tomcat5-common-lib
+--> Processing Dependency: tomcat5-jasper = 5.5.23-0jpp.31.el5_8 for package: tomcat5-common-lib
+--> Processing Dependency: tomcat5-servlet-2.4-api = 5.5.23-0jpp.31.el5_8 for package: tomcat5-common-lib
+--> Processing Dependency: tomcat5-jsp-2.0-api = 5.5.23-0jpp.31.el5_8 for package: tomcat5-common-lib
+--> Processing Dependency: tomcat5-jasper = 5.5.23-0jpp.31.el5_8 for package: tomcat5-common-lib
+--> Processing Dependency: tomcat5-jsp-2.0-api = 5.5.23-0jpp.31.el5_8 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-dbcp >= 1.2.1 for package: tomcat5-common-lib
+--> Processing Dependency: jaf >= 1.0.1 for package: tomcat5-common-lib
+--> Processing Dependency: javamail >= 1.3.1 for package: tomcat5-common-lib
+--> Processing Dependency: jta >= 1.0.1 for package: tomcat5-common-lib
+--> Processing Dependency: eclipse-ecj >= 3.1.1 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-logging >= 1.0.4 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-collections >= 3.1 for package: tomcat5-common-lib
+--> Processing Dependency: javamail >= 1.3.1 for package: tomcat5-common-lib
+--> Processing Dependency: ant >= 1.6 for package: tomcat5-common-lib
+--> Processing Dependency: jta >= 1.0.1 for package: tomcat5-common-lib
+--> Processing Dependency: mx4j >= 3.0.1 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-el >= 1.0 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-pool >= 1.2 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-logging >= 1.0.4 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-dbcp >= 1.2.1 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-collections >= 3.1 for package: tomcat5-common-lib
+--> Processing Dependency: jaf >= 1.0.1 for package: tomcat5-common-lib
+--> Processing Dependency: ant >= 1.6 for package: tomcat5-common-lib
+--> Processing Dependency: mx4j >= 3.0.1 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-el >= 1.0 for package: tomcat5-common-lib
+--> Processing Dependency: eclipse-ecj >= 3.1.1 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-pool >= 1.2 for package: tomcat5-common-lib
+---> Package tomcat5-server-lib.x86_64 0:5.5.23-0jpp.31.el5_8 set to be updated
+--> Processing Dependency: jakarta-commons-digester >= 1.6 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-beanutils >= 1.7.0 for package: tomcat5-server-lib
+--> Processing Dependency: regexp >= 1.3 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-modeler >= 1.1-8jpp.1.0.1 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-fileupload >= 1.0-1jpp for package: tomcat5-server-lib
+--> Processing Dependency: regexp >= 1.3 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-digester >= 1.6 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-beanutils >= 1.7.0 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-modeler >= 1.1-8jpp.1.0.1 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-fileupload >= 1.0-1jpp for package: tomcat5-server-lib
+---> Package tzdata-java.x86_64 0:2012j-1.el5 set to be updated
+---> Package xerces-j2.x86_64 0:2.7.1-7jpp.2.el5_4.2 set to be updated
+--> Processing Dependency: xml-commons-resolver >= 1.1 for package: xerces-j2
+--> Running transaction check
+---> Package ant.x86_64 0:1.6.5-2jpp.2 set to be updated
+--> Processing Dependency: java-devel for package: ant
+---> Package atk.x86_64 0:1.12.2-1.fc6 set to be updated
+---> Package cairo.x86_64 0:1.2.4-5.el5 set to be updated
+--> Processing Dependency: libfontconfig.so.1()(64bit) for package: cairo
+---> Package classpathx-jaf.x86_64 0:1.0-9jpp.1 set to be updated
+---> Package classpathx-mail.x86_64 0:1.1.1-4jpp.2 set to be updated
+---> Package eclipse-ecj.x86_64 1:3.2.1-19.el5 set to be updated
+---> Package geronimo-specs-compat.x86_64 0:1.0-0.M2.2jpp.12 set to be updated
+--> Processing Dependency: geronimo-specs = 1.0-0.M2.2jpp.12 for package: geronimo-specs-compat
+---> Package gjdoc.x86_64 0:0.7.7-12.el5 set to be updated
+--> Processing Dependency: antlr for package: gjdoc
+---> Package gtk2.x86_64 0:2.10.4-29.el5 set to be updated
+--> Processing Dependency: libtiff >= 3.6.1 for package: gtk2
+--> Processing Dependency: hicolor-icon-theme for package: gtk2
+--> Processing Dependency: libtiff.so.3()(64bit) for package: gtk2
+--> Processing Dependency: libXcursor.so.1()(64bit) for package: gtk2
+--> Processing Dependency: libXinerama.so.1()(64bit) for package: gtk2
+--> Processing Dependency: libXfixes.so.3()(64bit) for package: gtk2
+--> Processing Dependency: libcups.so.2()(64bit) for package: gtk2
+---> Package jakarta-commons-beanutils.x86_64 0:1.7.0-5jpp.1 set to be updated
+---> Package jakarta-commons-collections.x86_64 0:3.2-2jpp.3 set to be updated
+---> Package jakarta-commons-dbcp.x86_64 0:1.2.1-7jpp.1 set to be updated
+---> Package jakarta-commons-digester.x86_64 0:1.7-5jpp.1 set to be updated
+---> Package jakarta-commons-el.x86_64 0:1.0-7jpp.1 set to be updated
+---> Package jakarta-commons-fileupload.x86_64 1:1.0-6jpp.1 set to be updated
+---> Package jakarta-commons-logging.x86_64 0:1.0.4-6jpp.1 set to be updated
+---> Package jakarta-commons-modeler.x86_64 0:1.1-8jpp.3.el5 set to be updated
+--> Processing Dependency: jaxp_transform_impl for package: jakarta-commons-modeler
+---> Package jakarta-commons-pool.x86_64 0:1.3-5jpp.1 set to be updated
+---> Package libXrandr.x86_64 0:1.1.1-3.3 set to be updated
+---> Package libart_lgpl.x86_64 0:2.3.17-4 set to be updated
+---> Package mx4j.x86_64 1:3.0.1-6jpp.4 set to be updated
+--> Processing Dependency: axis >= 1.1 for package: mx4j
+--> Processing Dependency: bcel >= 5.0 for package: mx4j
+--> Processing Dependency: xml-commons for package: mx4j
+---> Package pango.x86_64 0:1.14.9-8.el5_7.3 set to be updated
+--> Processing Dependency: bitstream-vera-fonts for package: pango
+--> Processing Dependency: libXft for package: pango
+--> Processing Dependency: libXft.so.2()(64bit) for package: pango
+---> Package regexp.x86_64 0:1.4-2jpp.2 set to be updated
+---> Package tomcat5-jasper.x86_64 0:5.5.23-0jpp.31.el5_8 set to be updated
+---> Package tomcat5-jsp-2.0-api.x86_64 0:5.5.23-0jpp.31.el5_8 set to be updated
+---> Package tomcat5-servlet-2.4-api.x86_64 0:5.5.23-0jpp.31.el5_8 set to be updated
+---> Package xml-commons-resolver.x86_64 0:1.1-1jpp.12 set to be updated
+---> Package zip.x86_64 0:2.31-2.el5 set to be updated
+--> Running transaction check
+---> Package antlr.x86_64 0:2.7.6-4jpp.2 set to be updated
+---> Package axis.x86_64 0:1.2.1-2jpp.6 set to be updated
+--> Processing Dependency: jakarta-commons-discovery for package: axis
+--> Processing Dependency: jakarta-commons-httpclient for package: axis
+--> Processing Dependency: wsdl4j for package: axis
+---> Package bcel.x86_64 0:5.1-8jpp.1 set to be updated
+---> Package bitstream-vera-fonts.noarch 0:1.10-7 set to be updated
+---> Package cups-libs.x86_64 1:1.3.7-30.el5 set to be updated
+--> Processing Dependency: libgnutls.so.13(GNUTLS_1_3)(64bit) for package: cups-libs
+--> Processing Dependency: libgnutls.so.13()(64bit) for package: cups-libs
+---> Package fontconfig.x86_64 0:2.4.1-7.el5 set to be updated
+---> Package geronimo-specs.x86_64 0:1.0-0.M2.2jpp.12 set to be updated
+---> Package hicolor-icon-theme.noarch 0:0.9-2.1 set to be updated
+---> Package java-1.6.0-openjdk-devel.x86_64 1:1.6.0.0-1.28.1.10.10.el5_8 set to be updated
+---> Package libXcursor.x86_64 0:1.1.7-1.2 set to be updated
+---> Package libXfixes.x86_64 0:4.0.1-2.1 set to be updated
+---> Package libXft.x86_64 0:2.1.10-1.1 set to be updated
+---> Package libXinerama.x86_64 0:1.0.1-2.1 set to be updated
+---> Package libtiff.x86_64 0:3.8.2-18.el5_8 set to be updated
+---> Package xalan-j2.x86_64 0:2.7.0-6jpp.1 set to be updated
+---> Package xml-commons.x86_64 0:1.3.02-0.b2.7jpp.10 set to be updated
+--> Running transaction check
+---> Package gnutls.x86_64 0:1.4.1-7.el5_8.2 set to be updated
+---> Package jakarta-commons-discovery.x86_64 1:0.3-4jpp.1 set to be updated
+---> Package jakarta-commons-httpclient.x86_64 1:3.0-7jpp.1 set to be updated
+---> Package wsdl4j.x86_64 0:1.5.2-4jpp.1 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                     Arch   Version                 Repository     Size
+================================================================================
+Installing:
+ emi-voms-mysql              x86_64 1.0.1-1.el5             EMI-2-base    2.3 k
+Installing for dependencies:
+ PyXML                       x86_64 0.8.4-6.el5             sl5x          1.0 M
+ alsa-lib                    x86_64 1.0.17-1.el5            sl5x          414 k
+ ant                         x86_64 1.6.5-2jpp.2            sl5x          2.3 M
+ antlr                       x86_64 2.7.6-4jpp.2            sl5x          1.1 M
+ atk                         x86_64 1.12.2-1.fc6            sl5x          224 k
+ axis                        x86_64 1.2.1-2jpp.6            sl5x          3.6 M
+ bcel                        x86_64 5.1-8jpp.1              sl5x          1.1 M
+ bdii                        noarch 5.2.12-1.el5            EMI-2-updates  22 k
+ bitstream-vera-fonts        noarch 1.10-7                  sl5x          344 k
+ bouncycastle                x86_64 1.45-6.el5              epel          4.0 M
+ cairo                       x86_64 1.2.4-5.el5             sl5x          386 k
+ classpathx-jaf              x86_64 1.0-9jpp.1              sl5x          111 k
+ classpathx-mail             x86_64 1.1.1-4jpp.2            sl5x          1.2 M
+ cups-libs                   x86_64 1:1.3.7-30.el5          sl5x          196 k
+ eclipse-ecj                 x86_64 1:3.2.1-19.el5          sl5x          9.0 M
+ emi-trustmanager            noarch 3.1.4-1.sl5             EMI-2-updates 277 k
+ emi-trustmanager-tomcat     noarch 3.0.1-1.sl5             EMI-2-base     30 k
+ expect                      x86_64 5.43.0-8.el5            sl5x          160 k
+ fetch-crl                   noarch 2.8.5-1.el5             epel           24 k
+ fontconfig                  x86_64 2.4.1-7.el5             sl5x          175 k
+ freetype                    x86_64 2.2.1-31.el5_8.1        sl5x          312 k
+ geronimo-specs              x86_64 1.0-0.M2.2jpp.12        sl5x          258 k
+ geronimo-specs-compat       x86_64 1.0-0.M2.2jpp.12        sl5x          5.4 k
+ giflib                      x86_64 4.1.3-7.3.3.el5         sl5x           39 k
+ gjdoc                       x86_64 0.7.7-12.el5            sl5x          885 k
+ glite-info-provider-service noarch 1.9.0-5.el5             EMI-2-updates  66 k
+ glite-yaim-bdii             noarch 4.3.11-1.el5            EMI-2-updates 9.5 k
+ glite-yaim-core             noarch 5.1.0-1.sl5             EMI-2-base    118 k
+ glue-schema                 noarch 2.0.8-2.el5             EMI-2-updates  34 k
+ gnutls                      x86_64 1.4.1-7.el5_8.2         sl5x          365 k
+ gtk2                        x86_64 2.10.4-29.el5           sl5x-security 6.6 M
+ hicolor-icon-theme          noarch 0.9-2.1                 sl5x           25 k
+ jakarta-commons-beanutils   x86_64 1.7.0-5jpp.1            sl5x          567 k
+ jakarta-commons-collections x86_64 3.2-2jpp.3              sl5x          1.2 M
+ jakarta-commons-daemon      x86_64 1:1.0.1-6jpp.1          sl5x           46 k
+ jakarta-commons-dbcp        x86_64 1.2.1-7jpp.1            sl5x          278 k
+ jakarta-commons-digester    x86_64 1.7-5jpp.1              sl5x          349 k
+ jakarta-commons-discovery   x86_64 1:0.3-4jpp.1            sl5x          150 k
+ jakarta-commons-el          x86_64 1.0-7jpp.1              sl5x          269 k
+ jakarta-commons-fileupload  x86_64 1:1.0-6jpp.1            sl5x           53 k
+ jakarta-commons-httpclient  x86_64 1:3.0-7jpp.1            sl5x          595 k
+ jakarta-commons-launcher    x86_64 0.9-6jpp.1              sl5x           97 k
+ jakarta-commons-logging     x86_64 1.0.4-6jpp.1            sl5x          115 k
+ jakarta-commons-modeler     x86_64 1.1-8jpp.3.el5          sl5x          259 k
+ jakarta-commons-pool        x86_64 1.3-5jpp.1              sl5x          142 k
+ java-1.4.2-gcj-compat       x86_64 1.4.2.0-40jpp.115       sl5x           29 k
+ java-1.6.0-openjdk          x86_64 1:1.6.0.0-1.28.1.10.10.el5_8
+                                                            sl5x-security  36 M
+ java-1.6.0-openjdk-devel    x86_64 1:1.6.0.0-1.28.1.10.10.el5_8
+                                                            sl5x-security  12 M
+ jdk                         x86_64 2000:1.6.0_37-fcs       sl5x-security  56 M
+ jpackage-utils              noarch 1.7.3-1jpp.2.el5        sl5x           61 k
+ libXcursor                  x86_64 1.1.7-1.2               sl5x           32 k
+ libXfixes                   x86_64 4.0.1-2.1               sl5x           15 k
+ libXft                      x86_64 2.1.10-1.1              sl5x           44 k
+ libXi                       x86_64 1.0.1-4.el5_4           sl5x           26 k
+ libXinerama                 x86_64 1.0.1-2.1               sl5x          9.8 k
+ libXrandr                   x86_64 1.1.1-3.3               sl5x           15 k
+ libXrender                  x86_64 0.9.1-3.1               sl5x           28 k
+ libXtst                     x86_64 1.0.1-3.1               sl5x           16 k
+ libart_lgpl                 x86_64 2.3.17-4                sl5x           75 k
+ libgcj                      x86_64 4.1.2-52.el5            sl5x           18 M
+ libjpeg                     x86_64 6b-37                   sl5x          139 k
+ libpng                      x86_64 2:1.2.10-17.el5_8       sl5x-security 235 k
+ libtiff                     x86_64 3.8.2-18.el5_8          sl5x-security 315 k
+ libtool-ltdl                x86_64 1.5.22-7.el5_4          sl5x           38 k
+ log4j                       x86_64 1.2.13-3jpp.2           sl5x          729 k
+ mx4j                        x86_64 1:3.0.1-6jpp.4          sl5x          2.7 M
+ mysql-server                x86_64 5.0.95-5.el5_9          sl5x-security 9.9 M
+ openldap-clients            x86_64 2.3.43-25.el5           sl5x          224 k
+ openldap-servers            x86_64 2.3.43-25.el5           sl5x          2.2 M
+ pango                       x86_64 1.14.9-8.el5_7.3        sl5x          338 k
+ perl-DBD-MySQL              x86_64 3.0007-2.el5            sl5x          147 k
+ python-ZSI                  noarch 2.0-7.el5               epel          574 k
+ python-simplejson           x86_64 2.0.9-8.el5             sl5x          141 k
+ regexp                      x86_64 1.4-2jpp.2              sl5x          102 k
+ tomcat5                     x86_64 5.5.23-0jpp.31.el5_8    sl5x-security 362 k
+ tomcat5-common-lib          x86_64 5.5.23-0jpp.31.el5_8    sl5x-security 225 k
+ tomcat5-jasper              x86_64 5.5.23-0jpp.31.el5_8    sl5x-security 1.1 M
+ tomcat5-jsp-2.0-api         x86_64 5.5.23-0jpp.31.el5_8    sl5x-security 103 k
+ tomcat5-server-lib          x86_64 5.5.23-0jpp.31.el5_8    sl5x-security 4.0 M
+ tomcat5-servlet-2.4-api     x86_64 5.5.23-0jpp.31.el5_8    sl5x-security 163 k
+ tzdata-java                 x86_64 2012j-1.el5             sl5x-security 183 k
+ voms                        x86_64 2.0.9-1.el5             EMI-2-updates 164 k
+ voms-admin-client           noarch 2.0.17-1.el5            EMI-2-base     91 k
+ voms-admin-server           noarch 2.7.0-1.el5             EMI-2-base     61 M
+ voms-mysql-plugin           x86_64 3.1.6-1.el5             EMI-2-base     29 k
+ voms-server                 x86_64 2.0.9-1.el5             EMI-2-updates 197 k
+ wsdl4j                      x86_64 1.5.2-4jpp.1            sl5x          428 k
+ xalan-j2                    x86_64 2.7.0-6jpp.1            sl5x          4.6 M
+ xerces-j2                   x86_64 2.7.1-7jpp.2.el5_4.2    sl5x          3.1 M
+ xml-commons                 x86_64 1.3.02-0.b2.7jpp.10     sl5x           19 k
+ xml-commons-resolver        x86_64 1.1-1jpp.12             sl5x          170 k
+ yaim-voms                   noarch 1.1.1-1.el5             EMI-2-base     24 k
+ zip                         x86_64 2.31-2.el5              sl5x          135 k
+
+Transaction Summary
+================================================================================
+Install      94 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 254 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                            11 MB/s | 254 MB     00:23     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+
+  Installing     : libXrender                                              1/94 
+
+  Installing     : freetype                                                2/94 
+
+  Installing     : fontconfig                                              3/94 
+
+  Installing     : libpng                                                  4/94 
+
+  Installing     : libjpeg                                                 5/94 
+
+  Installing     : cairo                                                   6/94 
+
+  Installing     : libtiff                                                 7/94 
+
+  Installing     : libXrandr                                               8/94 
+
+  Installing     : atk                                                     9/94 
+
+  Installing     : alsa-lib                                               10/94 
+
+  Installing     : libXtst                                                11/94 
+
+  Installing     : libXi                                                  12/94 
+
+  Installing     : PyXML                                                  13/94 
+
+  Installing     : libXfixes                                              14/94 
+
+  Installing     : zip                                                    15/94 
+
+  Installing     : libXcursor                                             16/94 
+
+  Installing     : libXft                                                 17/94 
+
+  Installing     : openldap-clients                                       18/94 
+
+  Installing     : gnutls                                                 19/94 
+
+  Installing     : cups-libs                                              20/94 
+
+  Installing     : libtool-ltdl                                           21/94 
+
+  Installing     : openldap-servers                                       22/94 
+
+  Installing     : expect                                                 23/94 
+
+  Installing     : libart_lgpl                                            24/94 
+
+  Installing     : voms                                                   25/94 
+
+  Installing     : voms-server                                            26/94 
+
+  Installing     : voms-mysql-plugin                                      27/94 
+
+  Installing     : python-simplejson                                      28/94 
+
+  Installing     : perl-DBD-MySQL                                         29/94 
+
+  Installing     : mysql-server                                           30/94 
+
+  Installing     : giflib                                                 31/94 
+
+  Installing     : libXinerama                                            32/94 
+
+  Installing     : jpackage-utils                                         33/94 
+
+  Installing     : jdk                                                    34/94Unpacking JAR files...
+	rt.jar...
+	jsse.jar...
+	charsets.jar...
+	tools.jar...
+	localedata.jar...
+	plugin.jar...
+	javaws.jar...
+	deploy.jar...
+ 
+
+  Installing     : xml-commons                                            35/94 
+
+  Installing     : python-ZSI                                             36/94 
+
+  Installing     : voms-admin-client                                      37/94 
+
+  Installing     : bitstream-vera-fonts                                   38/94 
+
+  Installing     : pango                                                  39/94 
+
+  Installing     : glite-info-provider-service                            40/94 
+
+  Installing     : glue-schema                                            41/94 
+
+  Installing     : bdii                                                   42/94 
+
+  Installing     : glite-yaim-core                                        43/94 
+
+  Installing     : yaim-voms                                              44/94 
+
+  Installing     : hicolor-icon-theme                                     45/94 
+
+  Installing     : gtk2                                                   46/94 
+
+  Installing     : libgcj                                                 47/94 
+
+  Installing     : glite-yaim-bdii                                        48/94 
+
+  Installing     : fetch-crl                                              49/94 
+
+  Installing     : tzdata-java                                            50/94 
+
+  Installing     : java-1.6.0-openjdk                                     51/94 
+
+  Installing     : java-1.6.0-openjdk-devel                               52/94 
+
+  Installing     : emi-trustmanager                                       53/94 
+
+  Installing     : java-1.4.2-gcj-compat                                  54/94 
+
+  Installing     : jakarta-commons-logging                                55/94 
+
+  Installing     : tomcat5-servlet-2.4-api                                56/94 
+
+  Installing     : classpathx-jaf                                         57/94 
+
+  Installing     : jakarta-commons-collections                            58/94 
+
+  Installing     : jakarta-commons-beanutils                              59/94 
+
+  Installing     : classpathx-mail                                        60/94 
+
+  Installing     : jakarta-commons-digester                               61/94 
+
+  Installing     : tomcat5-jasper                                         62/94 
+
+  Installing     : jakarta-commons-pool                                   63/94 
+
+  Installing     : bouncycastle                                           64/94 
+
+  Installing     : jakarta-commons-el                                     65/94 
+
+  Installing     : regexp                                                 66/94 
+
+  Installing     : bcel                                                   67/94 
+
+  Installing     : jakarta-commons-dbcp                                   68/94 
+
+  Installing     : jakarta-commons-fileupload                             69/94 
+
+  Installing     : tomcat5-jsp-2.0-api                                    70/94 
+
+  Installing     : jakarta-commons-httpclient                             71/94 
+
+  Installing     : jakarta-commons-discovery                              72/94 
+
+  Installing     : gjdoc                                                  73/94 
+
+  Installing     : jakarta-commons-launcher                               74/94 
+
+  Installing     : jakarta-commons-daemon                                 75/94 
+
+  Installing     : eclipse-ecj                                            76/94 
+
+  Installing     : antlr                                                  77/94 
+
+  Installing     : xerces-j2                                              78/94 
+
+  Installing     : log4j                                                  79/94 
+
+  Installing     : xml-commons-resolver                                   80/94 
+
+  Installing     : xalan-j2                                               81/94 
+
+  Installing     : ant                                                    82/94 
+
+  Installing     : wsdl4j                                                 83/94 
+
+  Installing     : axis                                                   84/94 
+
+  Installing     : mx4j                                                   85/94 
+
+  Installing     : geronimo-specs                                         86/94 
+
+  Installing     : jakarta-commons-modeler                                87/94 
+
+  Installing     : tomcat5-server-lib                                     88/94 
+
+  Installing     : geronimo-specs-compat                                  89/94 
+
+  Installing     : tomcat5-common-lib                                     90/94 
+
+  Installing     : tomcat5                                                91/94/usr/bin/build-jar-repository: error: Could not find xml-commons-apis Java extension for this JVM
+/usr/bin/build-jar-repository: error: Some specified jars were not found for this jvm
+ 
+
+  Installing     : emi-trustmanager-tomcat                                92/94 
+
+  Installing     : voms-admin-server                                      93/94 
+
+  Installing     : emi-voms-mysql                                         94/94 
+
+Installed:
+  emi-voms-mysql.x86_64 0:1.0.1-1.el5                                           
+
+Dependency Installed:
+  PyXML.x86_64 0:0.8.4-6.el5                                                    
+  alsa-lib.x86_64 0:1.0.17-1.el5                                                
+  ant.x86_64 0:1.6.5-2jpp.2                                                     
+  antlr.x86_64 0:2.7.6-4jpp.2                                                   
+  atk.x86_64 0:1.12.2-1.fc6                                                     
+  axis.x86_64 0:1.2.1-2jpp.6                                                    
+  bcel.x86_64 0:5.1-8jpp.1                                                      
+  bdii.noarch 0:5.2.12-1.el5                                                    
+  bitstream-vera-fonts.noarch 0:1.10-7                                          
+  bouncycastle.x86_64 0:1.45-6.el5                                              
+  cairo.x86_64 0:1.2.4-5.el5                                                    
+  classpathx-jaf.x86_64 0:1.0-9jpp.1                                            
+  classpathx-mail.x86_64 0:1.1.1-4jpp.2                                         
+  cups-libs.x86_64 1:1.3.7-30.el5                                               
+  eclipse-ecj.x86_64 1:3.2.1-19.el5                                             
+  emi-trustmanager.noarch 0:3.1.4-1.sl5                                         
+  emi-trustmanager-tomcat.noarch 0:3.0.1-1.sl5                                  
+  expect.x86_64 0:5.43.0-8.el5                                                  
+  fetch-crl.noarch 0:2.8.5-1.el5                                                
+  fontconfig.x86_64 0:2.4.1-7.el5                                               
+  freetype.x86_64 0:2.2.1-31.el5_8.1                                            
+  geronimo-specs.x86_64 0:1.0-0.M2.2jpp.12                                      
+  geronimo-specs-compat.x86_64 0:1.0-0.M2.2jpp.12                               
+  giflib.x86_64 0:4.1.3-7.3.3.el5                                               
+  gjdoc.x86_64 0:0.7.7-12.el5                                                   
+  glite-info-provider-service.noarch 0:1.9.0-5.el5                              
+  glite-yaim-bdii.noarch 0:4.3.11-1.el5                                         
+  glite-yaim-core.noarch 0:5.1.0-1.sl5                                          
+  glue-schema.noarch 0:2.0.8-2.el5                                              
+  gnutls.x86_64 0:1.4.1-7.el5_8.2                                               
+  gtk2.x86_64 0:2.10.4-29.el5                                                   
+  hicolor-icon-theme.noarch 0:0.9-2.1                                           
+  jakarta-commons-beanutils.x86_64 0:1.7.0-5jpp.1                               
+  jakarta-commons-collections.x86_64 0:3.2-2jpp.3                               
+  jakarta-commons-daemon.x86_64 1:1.0.1-6jpp.1                                  
+  jakarta-commons-dbcp.x86_64 0:1.2.1-7jpp.1                                    
+  jakarta-commons-digester.x86_64 0:1.7-5jpp.1                                  
+  jakarta-commons-discovery.x86_64 1:0.3-4jpp.1                                 
+  jakarta-commons-el.x86_64 0:1.0-7jpp.1                                        
+  jakarta-commons-fileupload.x86_64 1:1.0-6jpp.1                                
+  jakarta-commons-httpclient.x86_64 1:3.0-7jpp.1                                
+  jakarta-commons-launcher.x86_64 0:0.9-6jpp.1                                  
+  jakarta-commons-logging.x86_64 0:1.0.4-6jpp.1                                 
+  jakarta-commons-modeler.x86_64 0:1.1-8jpp.3.el5                               
+  jakarta-commons-pool.x86_64 0:1.3-5jpp.1                                      
+  java-1.4.2-gcj-compat.x86_64 0:1.4.2.0-40jpp.115                              
+  java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.28.1.10.10.el5_8                        
+  java-1.6.0-openjdk-devel.x86_64 1:1.6.0.0-1.28.1.10.10.el5_8                  
+  jdk.x86_64 2000:1.6.0_37-fcs                                                  
+  jpackage-utils.noarch 0:1.7.3-1jpp.2.el5                                      
+  libXcursor.x86_64 0:1.1.7-1.2                                                 
+  libXfixes.x86_64 0:4.0.1-2.1                                                  
+  libXft.x86_64 0:2.1.10-1.1                                                    
+  libXi.x86_64 0:1.0.1-4.el5_4                                                  
+  libXinerama.x86_64 0:1.0.1-2.1                                                
+  libXrandr.x86_64 0:1.1.1-3.3                                                  
+  libXrender.x86_64 0:0.9.1-3.1                                                 
+  libXtst.x86_64 0:1.0.1-3.1                                                    
+  libart_lgpl.x86_64 0:2.3.17-4                                                 
+  libgcj.x86_64 0:4.1.2-52.el5                                                  
+  libjpeg.x86_64 0:6b-37                                                        
+  libpng.x86_64 2:1.2.10-17.el5_8                                               
+  libtiff.x86_64 0:3.8.2-18.el5_8                                               
+  libtool-ltdl.x86_64 0:1.5.22-7.el5_4                                          
+  log4j.x86_64 0:1.2.13-3jpp.2                                                  
+  mx4j.x86_64 1:3.0.1-6jpp.4                                                    
+  mysql-server.x86_64 0:5.0.95-5.el5_9                                          
+  openldap-clients.x86_64 0:2.3.43-25.el5                                       
+  openldap-servers.x86_64 0:2.3.43-25.el5                                       
+  pango.x86_64 0:1.14.9-8.el5_7.3                                               
+  perl-DBD-MySQL.x86_64 0:3.0007-2.el5                                          
+  python-ZSI.noarch 0:2.0-7.el5                                                 
+  python-simplejson.x86_64 0:2.0.9-8.el5                                        
+  regexp.x86_64 0:1.4-2jpp.2                                                    
+  tomcat5.x86_64 0:5.5.23-0jpp.31.el5_8                                         
+  tomcat5-common-lib.x86_64 0:5.5.23-0jpp.31.el5_8                              
+  tomcat5-jasper.x86_64 0:5.5.23-0jpp.31.el5_8                                  
+  tomcat5-jsp-2.0-api.x86_64 0:5.5.23-0jpp.31.el5_8                             
+  tomcat5-server-lib.x86_64 0:5.5.23-0jpp.31.el5_8                              
+  tomcat5-servlet-2.4-api.x86_64 0:5.5.23-0jpp.31.el5_8                         
+  tzdata-java.x86_64 0:2012j-1.el5                                              
+  voms.x86_64 0:2.0.9-1.el5                                                     
+  voms-admin-client.noarch 0:2.0.17-1.el5                                       
+  voms-admin-server.noarch 0:2.7.0-1.el5                                        
+  voms-mysql-plugin.x86_64 0:3.1.6-1.el5                                        
+  voms-server.x86_64 0:2.0.9-1.el5                                              
+  wsdl4j.x86_64 0:1.5.2-4jpp.1                                                  
+  xalan-j2.x86_64 0:2.7.0-6jpp.1                                                
+  xerces-j2.x86_64 0:2.7.1-7jpp.2.el5_4.2                                       
+  xml-commons.x86_64 0:1.3.02-0.b2.7jpp.10                                      
+  xml-commons-resolver.x86_64 0:1.1-1jpp.12                                     
+  yaim-voms.noarch 0:1.1.1-1.el5                                                
+  zip.x86_64 0:2.31-2.el5                                                       
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum install -y --nogpgcheck xml-commons-apis
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+861 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package xml-commons-apis.x86_64 0:1.3.02-0.b2.7jpp.10 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                Arch         Version                   Repository  Size
+================================================================================
+Installing:
+ xml-commons-apis       x86_64       1.3.02-0.b2.7jpp.10       sl5x       387 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 387 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+
+  Installing     : xml-commons-apis                                         1/1 
+
+Installed:
+  xml-commons-apis.x86_64 0:1.3.02-0.b2.7jpp.10                                 
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# /etc/init.d/mysqld start
+Initializing MySQL database:  Installing MySQL system tables...
+OK
+Filling help tables...
+OK
+
+To start mysqld at boot time you have to copy
+support-files/mysql.server to the right place for your system
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+To do so, start the server, then issue the following commands:
+/usr/bin/mysqladmin -u root password 'new-password'
+/usr/bin/mysqladmin -u root -h jen01.cnaf.infn.it password 'new-password'
+
+Alternatively you can run:
+/usr/bin/mysql_secure_installation
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the manual for more instructions.
+
+You can start the MySQL daemon with:
+cd /usr ; /usr/bin/mysqld_safe &
+
+You can test the MySQL daemon with mysql-test-run.pl
+cd mysql-test ; perl mysql-test-run.pl
+
+Please report any problems with the /usr/bin/mysqlbug script!
+
+The latest information about MySQL is available on the web at
+http://www.mysql.com
+Support MySQL by buying support/licenses at http://shop.mysql.com
+[60G[[0;32m  OK  [0;39m]
+Starting mysqld:  [60G[[0;32m  OK  [0;39m]
+[root@jen01.cnaf.infn.it ~]# /usr/bin/mysqladmin -u root password pwd
+[root@jen01.cnaf.infn.it ~]# cat > site-info.def << EOF MYSQL_PASSWORD=pwd SITE_NAME=voms-certification.cnaf.infn.it VOS=testvo VOMS_HOST=jen01.cnaf.infn.it VOMS_DB_HOST='localhost' VO_TESTVO_VOMS_PORT=15000 VO_TESTVO_VOMS_DB_USER=voms VO_TESTVO_VOMS_DB_PASS=pwd VO_TESTVO_VOMS_DB_NAME=voms_testvo VOMS_ADMIN_SMTP_HOST=postino.cnaf.infn.it VOMS_ADMIN_MAIL=andrea.ceccanti@cnaf.infn.it EOF
+[root@jen01.cnaf.infn.it ~]# /opt/glite/yaim/bin/yaim -c -s site-info.def -n VOMS
+   INFO: Configuring HOST: jen01.cnaf.infn.it
+   INFO: Using site configuration file: site-info.def
+   INFO: 
+         ###################################################################
+         
+         .             /'.-. ')
+         .     yA,-"-,( ,m,:/ )   .oo.     oo    o      ooo  o.     .oo
+         .    /      .-Y a  a Y-.     8. .8'    8'8.     8    8b   d'8
+         .   /           ~ ~ /         8'    .8oo88.     8    8  8'  8
+         . (_/         '===='          8    .8'     8.   8    8  Y   8
+         .   Y,-''-,Yy,-.,/           o8o  o8o    o88o  o8o  o8o    o8o
+         .    I_))_) I_))_)
+         
+         
+         current working directory: /root
+         site-info.def date: Jan 24 15:59 site-info.def
+         yaim command: -c -s site-info.def -n VOMS
+         log file: /opt/glite/yaim/bin/../log/yaimlog
+         Thu Jan 24 15:59:46 CET 2013 : /opt/glite/yaim/bin/yaim
+         
+         Installed YAIM versions:
+         glite-yaim-bdii 4.3.11-1
+         glite-yaim-core 5.1.0-1
+         yaim-voms 1.1.1-1.el5
+         
+         ####################################################################
+   INFO: The default location of the grid-env.(c)sh files will be: /usr/libexec
+   INFO: Sourcing the utilities in /opt/glite/yaim/functions/utils
+   INFO: Detecting environment
+   INFO: Executing function: config_host_certs_check 
+   INFO: Executing function: config_edgusers_check 
+   INFO: Executing function: config_add_pool_env_check 
+   INFO: Executing function: config_info_service_voms_check 
+   INFO: Executing function: config_info_service_voms_admin_check 
+   INFO: Executing function: config_glue2_info_service_voms_check 
+   INFO: Executing function: config_voms_check 
+   INFO: Detecting TOMCAT
+   INFO: Executing function: config_voms_logrotate_check 
+   INFO: Executing function: config_bdii_5.2_check 
+   INFO: Executing function: config_host_certs 
+   INFO: Executing function: config_edgusers 
+   INFO: Executing function: config_add_pool_env_setenv 
+   INFO: Executing function: config_add_pool_env 
+   INFO: Executing function: config_crl 
+   INFO: Now updating the CRLs - this may take a few minutes...
+   WARNING: /usr/libexec/fetch-crl.sh didn't finish succesfully
+   WARNING: CRLs may not be updated, please have a look !
+Enabling periodic fetch-crl:  [60G[[0;32m  OK  [0;39m]
+   INFO: Executing function: config_info_service_voms_setenv 
+   INFO: Executing function: config_info_service_voms 
+   INFO: Executing function: config_info_service_voms_admin_setenv 
+   INFO: Executing function: config_info_service_voms_admin 
+   INFO: Executing function: config_glue2_info_service_voms_setenv 
+   INFO: Executing function: config_glue2_info_service_voms 
+   INFO: Executing function: config_voms_setenv 
+   INFO: Executing function: config_voms 
+   INFO: MySQL configuration
+   INFO: Detecting TOMCAT
+   INFO: Stop tomcat in case it's running
+Stopping tomcat5:    INFO: Copying hostcert to /etc/grid-security/tomcat-cert.pem for tomcat:root......
+   INFO: Copying hostkey to /etc/grid-security/tomcat-key.pem for tomcat:root...
+   INFO: Configuring /etc/tomcat5/server.xml...
+   INFO: Copying trustmanager log4j properties to tomcat configuration directory..
+   INFO: Linking log4j and bouncycastle jars to tomcat server lib directory..
+   INFO: Linking trustmanager jars to tomcat server lib directory...
+   INFO: Linking jakarta-commons-logging to tomcat server lib directory...
+   INFO: Defining JAVA_HOME in the Tomcat configuration file
+   INFO: Starting Tomcat
+Starting tomcat5: [60G[  OK  ]
+   INFO: Ready to start VOMS configuration
+voms-admin-configure, version 2.7.0
+
+Checking installation...
+Checking local installation...
+Installation ok.
+Setting up user credentials...
+Using host credentials (/etc/grid-security/hostcert.pem) since running as root.
+Setting defaults for the VOMS AA credentials
+AA certificates settings:
+cert:/etc/grid-security/tomcat-cert.pem
+key:/etc/grid-security/tomcat-key.pem
+Prefix: //usr
+Configuration dir: /etc/voms-admin
+Cheking input parameters
+Installing vo testvo
+Skipping voms core configuration creation
+Will not set read-only access for authenticated clients as the --skip-database option is set
+VO testvo configured correctly.
+
+
+
+VO testvo installation finished.
+ 
+You can start the voms services using the following commands:
+    //etc/init.d/voms start testvo
+    //etc/init.d/voms-admin start testvo
+   INFO: Checking VOMS database schema existence and deploying one if missing...
+Checking database connectivity...
+Database contacted succesfully
+Checking database existence...
+No voms-admin database found.
+Checking that the database is writable...
+Database is writable.
+create table acl2 (acl_id bigint not null auto_increment, group_id bigint not null, defaultACL bit not null, role_id bigint, primary key (acl_id), unique (group_id, defaultACL, role_id)) type=InnoDB
+create table acl2_permissions (acl_id bigint not null, permissions integer, admin_id bigint not null, primary key (acl_id, admin_id)) type=InnoDB
+create table admins (adminid bigint not null auto_increment, dn varchar(255) not null, email_address varchar(255), ca smallint not null, primary key (adminid), unique (dn, ca)) type=InnoDB
+create table attributes (a_id bigint not null auto_increment, a_name varchar(255) not null unique, a_desc text, a_uniq bit default 0, primary key (a_id)) type=InnoDB
+create table aup (id bigint not null auto_increment, name varchar(255) not null unique, description varchar(255), reacceptancePeriod integer not null, primary key (id)) type=InnoDB
+create table aup_acc_record (id bigint not null auto_increment, aup_version_id bigint not null, usr_id bigint not null, last_acceptance_date datetime not null, valid bit, primary key (id), unique (aup_version_id, usr_id)) type=InnoDB
+create table aup_version (id bigint not null auto_increment, aup_id bigint not null, version varchar(255) not null, url varchar(255), text varchar(255), creationTime datetime not null, lastForcedReacceptanceTime datetime, active bit not null, primary key (id), unique (aup_id, version)) type=InnoDB
+create table ca (cid smallint not null auto_increment, subject_string varchar(255) not null unique, description varchar(255), creation_time datetime not null, primary key (cid)) type=InnoDB
+create table capabilities (cid bigint not null auto_increment, capability varchar(255) not null, primary key (cid)) type=InnoDB
+create table certificate (id bigint not null auto_increment, creation_time datetime not null, subject_string varchar(255) not null, suspended bit not null, suspended_reason varchar(255), suspension_reason_code varchar(255), ca_id smallint not null, usr_id bigint not null, primary key (id), unique (ca_id, subject_string)) type=InnoDB
+create table certificate_request (certificate tinyblob, certificateIssuer varchar(255) not null, certificateSubject varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table group_attrs (a_id bigint not null, g_id bigint not null, a_value varchar(255), primary key (a_id, g_id)) type=InnoDB
+create table group_membership_req (groupName varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table groups (gid bigint not null auto_increment, dn varchar(255) not null unique, description varchar(255), parent bigint, must bit not null, restricted bit, primary key (gid)) type=InnoDB
+create table m (mapping_id bigint not null auto_increment, userid bigint not null, gid bigint not null, rid bigint, cid bigint, primary key (mapping_id), unique (userid, gid, rid)) type=InnoDB
+create table memb_req (id bigint not null auto_increment, creation_date datetime not null, evaluation_date datetime, status integer not null, confirm_id varchar(255) not null, dn varchar(255) not null, ca varchar(255) not null, cn varchar(255), mail varchar(255) not null, primary key (id)) type=InnoDB
+create table membership_rem_req (reason varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table personal_info (id bigint not null auto_increment, value varchar(255), visible bit, personal_info_type_id bigint not null, primary key (id)) type=InnoDB
+create table personal_info_type (id bigint not null auto_increment, description varchar(255), type varchar(255) not null unique, primary key (id)) type=InnoDB
+create table req (request_id bigint not null auto_increment, completionDate datetime, creationDate datetime, expirationDate datetime, status varchar(255) not null, requester_info_id bigint not null, primary key (request_id), unique (requester_info_id)) type=InnoDB
+create table requester_info (id bigint not null auto_increment, address varchar(255), certificateIssuer varchar(255) not null, certificateSubject varchar(255) not null, emailAddress varchar(255) not null, institution varchar(255), name varchar(255), phoneNumber varchar(255), surname varchar(255), voMember bit, primary key (id)) type=InnoDB
+create table requester_personal_info (requester_id bigint not null, pi_value varchar(255), pi_key varchar(255), primary key (requester_id, pi_key)) type=InnoDB
+create table role_attrs (a_id bigint not null, g_id bigint not null, r_id bigint not null, a_value varchar(255), primary key (a_id, g_id, r_id)) type=InnoDB
+create table role_membership_req (groupName varchar(255), roleName varchar(255), request_id bigint not null, primary key (request_id)) type=InnoDB
+create table roles (rid bigint not null auto_increment, role varchar(255) not null unique, primary key (rid)) type=InnoDB
+create table seqnumber (seq varchar(255) not null, primary key (seq)) type=InnoDB
+create table sign_aup_task (task_id bigint not null, aup_id bigint not null, primary key (task_id)) type=InnoDB
+create table tag_mapping (mapping_id bigint not null auto_increment, tag_id bigint not null, gid bigint not null, rid bigint, admin_id bigint not null, primary key (mapping_id), unique (tag_id, gid, rid, admin_id)) type=InnoDB
+create table tags (id bigint not null auto_increment, name varchar(255) not null unique, implicit bit not null, permissions integer not null, permissionsOnPath integer, primary key (id)) type=InnoDB
+create table task (task_id bigint not null auto_increment, completionDate datetime, creationDate datetime, expiryDate datetime, status varchar(255) not null, admin_id bigint, task_type_id bigint not null, usr_id bigint, primary key (task_id)) type=InnoDB
+create table task_log_record (id bigint not null auto_increment, adminDn varchar(255), creation_time datetime not null, event varchar(255) not null, userDn varchar(255), task_id bigint not null, primary key (id)) type=InnoDB
+create table task_type (id bigint not null auto_increment, description varchar(255), name varchar(255) not null unique, primary key (id)) type=InnoDB
+create table user_request_task (task_id bigint not null, req_id bigint not null, primary key (task_id)) type=InnoDB
+create table usr (userid bigint not null auto_increment, address varchar(255), creation_time datetime not null, dn varchar(255), email_address varchar(255) not null, end_time datetime not null, institution varchar(255), name varchar(255), phone_number varchar(255), surname varchar(255), suspended bit, suspension_reason varchar(255), suspension_reason_code varchar(255), ca smallint, primary key (userid)) type=InnoDB
+create table usr_attrs (a_id bigint not null, u_id bigint not null, a_value varchar(255), primary key (a_id, u_id)) type=InnoDB
+create table version (version integer not null, admin_version varchar(255), primary key (version)) type=InnoDB
+create table vo_membership_req (confirmId varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+alter table acl2 add index FK2D98E8720C9B10 (role_id), add constraint FK2D98E8720C9B10 foreign key (role_id) references roles (rid) on delete cascade
+alter table acl2 add index FK2D98E8FCFA8B04 (group_id), add constraint FK2D98E8FCFA8B04 foreign key (group_id) references groups (gid) on delete cascade
+alter table acl2_permissions add index FK35C6CFADD91CE8A3 (acl_id), add constraint FK35C6CFADD91CE8A3 foreign key (acl_id) references acl2 (acl_id)
+alter table acl2_permissions add index FK35C6CFADA4AD9904 (admin_id), add constraint FK35C6CFADA4AD9904 foreign key (admin_id) references admins (adminid)
+alter table admins add index FKAB3A67047C6FEB32 (ca), add constraint FKAB3A67047C6FEB32 foreign key (ca) references ca (cid)
+alter table aup_acc_record add index FKB1979B32EE2D4487 (usr_id), add constraint FKB1979B32EE2D4487 foreign key (usr_id) references usr (userid)
+alter table aup_acc_record add index FKB1979B32815F1678 (aup_version_id), add constraint FKB1979B32815F1678 foreign key (aup_version_id) references aup_version (id)
+alter table aup_version add index fk_aup_version_aup (aup_id), add constraint fk_aup_version_aup foreign key (aup_id) references aup (id) on delete cascade
+alter table certificate add index FK745F4197EE2D4487 (usr_id), add constraint FK745F4197EE2D4487 foreign key (usr_id) references usr (userid)
+alter table certificate add index FK745F419782107F70 (ca_id), add constraint FK745F419782107F70 foreign key (ca_id) references ca (cid)
+alter table certificate_request add index FK47CA53E7D75D60A4 (request_id), add constraint FK47CA53E7D75D60A4 foreign key (request_id) references req (request_id)
+alter table group_attrs add index FK40B1A2E2566C2A8F (a_id), add constraint FK40B1A2E2566C2A8F foreign key (a_id) references attributes (a_id)
+alter table group_attrs add index FK40B1A2E2DEFC581C (g_id), add constraint FK40B1A2E2DEFC581C foreign key (g_id) references groups (gid) on delete cascade
+alter table group_membership_req add index FKBD145E75D75D60A4 (request_id), add constraint FKBD145E75D75D60A4 foreign key (request_id) references req (request_id)
+alter table groups add index FKB63DD9D4A3771CD3 (parent), add constraint FKB63DD9D4A3771CD3 foreign key (parent) references groups (gid)
+alter table m add index fk_m_roles (rid), add constraint fk_m_roles foreign key (rid) references roles (rid) on delete cascade
+alter table m add index fk_m_groups (gid), add constraint fk_m_groups foreign key (gid) references groups (gid) on delete cascade
+alter table m add index fk_m_cap (cid), add constraint fk_m_cap foreign key (cid) references capabilities (cid)
+alter table m add index fk_m_usr (userid), add constraint fk_m_usr foreign key (userid) references usr (userid)
+alter table membership_rem_req add index FK1877BC10D75D60A4 (request_id), add constraint FK1877BC10D75D60A4 foreign key (request_id) references req (request_id)
+alter table personal_info add index FK229FDF4DA8D3C6BC (personal_info_type_id), add constraint FK229FDF4DA8D3C6BC foreign key (personal_info_type_id) references personal_info_type (id)
+alter table req add index FK1B89EC37E889D (requester_info_id), add constraint FK1B89EC37E889D foreign key (requester_info_id) references requester_info (id)
+alter table requester_personal_info add index FK7E3D7FCAD500B8D2 (requester_id), add constraint FK7E3D7FCAD500B8D2 foreign key (requester_id) references requester_info (id)
+alter table role_attrs add index FK6BDE9799566C2A8F (a_id), add constraint FK6BDE9799566C2A8F foreign key (a_id) references attributes (a_id)
+alter table role_attrs add index FK6BDE979920304994 (r_id), add constraint FK6BDE979920304994 foreign key (r_id) references roles (rid) on delete cascade
+alter table role_attrs add index FK6BDE9799DEFC581C (g_id), add constraint FK6BDE9799DEFC581C foreign key (g_id) references groups (gid)
+alter table role_membership_req add index FK3B9C79ED75D60A4 (request_id), add constraint FK3B9C79ED75D60A4 foreign key (request_id) references req (request_id)
+alter table sign_aup_task add index FK7FCB416A32B8C70C (task_id), add constraint FK7FCB416A32B8C70C foreign key (task_id) references task (task_id)
+alter table sign_aup_task add index FK7FCB416ADA1C6363 (aup_id), add constraint FK7FCB416ADA1C6363 foreign key (aup_id) references aup (id)
+alter table tag_mapping add index fk_tag_mapping_roles (rid), add constraint fk_tag_mapping_roles foreign key (rid) references roles (rid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_admins (admin_id), add constraint fk_tag_mapping_admins foreign key (admin_id) references admins (adminid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_groups (gid), add constraint fk_tag_mapping_groups foreign key (gid) references groups (gid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_tag (tag_id), add constraint fk_tag_mapping_tag foreign key (tag_id) references tags (id) on delete cascade
+alter table task add index FK3635859AD54C57 (task_type_id), add constraint FK3635859AD54C57 foreign key (task_type_id) references task_type (id)
+alter table task add index FK363585EE2D4487 (usr_id), add constraint FK363585EE2D4487 foreign key (usr_id) references usr (userid)
+alter table task add index FK363585A4AD9904 (admin_id), add constraint FK363585A4AD9904 foreign key (admin_id) references admins (adminid)
+alter table task_log_record add index FK77673CA632B8C70C (task_id), add constraint FK77673CA632B8C70C foreign key (task_id) references task (task_id)
+alter table user_request_task add index FKACB7D2932B8C70C (task_id), add constraint FKACB7D2932B8C70C foreign key (task_id) references task (task_id)
+alter table user_request_task add index FKACB7D299D73AC35 (req_id), add constraint FKACB7D299D73AC35 foreign key (req_id) references req (request_id)
+alter table usr add index FK1C5947C6FEB32 (ca), add constraint FK1C5947C6FEB32 foreign key (ca) references ca (cid)
+alter table usr_attrs add index FKA39E0E37566C2A8F (a_id), add constraint FKA39E0E37566C2A8F foreign key (a_id) references attributes (a_id)
+alter table usr_attrs add index FKA39E0E3720331206 (u_id), add constraint FKA39E0E3720331206 foreign key (u_id) references usr (userid)
+alter table vo_membership_req add index FK28EE8AFBD75D60A4 (request_id), add constraint FK28EE8AFBD75D60A4 foreign key (request_id) references req (request_id)
+Deploying voms database...
+Database deployed correctly!
+   INFO: Opening the VO to all authenticated clients.
+Checking that the database is writable...
+Database is writable.
+Granting read-only access to any authenticated user on group '/testvo'
+Granting read-only access to any authenticated user on role '/testvo/Role=VO-Admin'
+   INFO: Adding default admin from /etc/grid-security/hostcert.pem
+   INFO: Ignoring email from the administrator certificate: /etc/grid-security/hostcert.pem
+Admin '/C=IT/O=IGI/CN=jen01.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA' not found. It will be created...
+Adding ALL permissions on '/testvo' for admin '/C=IT/O=IGI/CN=jen01.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/testvo/Role=VO-Admin' for admin '/C=IT/O=IGI/CN=jen01.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Stopping vo testvo
+Starting vo testvo
+Stopping siblings webapp
+Starting siblings webapp
+   INFO: User and password for read-only database access for VOMS-CORE not specified.
+   INFO: Using the credentials for read-write access (VOMS-ADMIN).
+Stopping tomcat5: [60G[  OK  ]
+Starting tomcat5: [60G[  OK  ]
+Stopping voms(testvo): (already stopped)
+Starting voms(testvo): [60G[[0;32m  OK  [0;39m]
+   INFO: Executing function: config_voms_logrotate_setenv 
+   INFO: Executing function: config_voms_logrotate 
+   INFO: Executing function: config_bdii_5.2 
+Stopping BDII: BDII already stopped
+Starting BDII slapd: [60G[[0;32m  OK  [0;39m]
+Starting BDII update process: [60G[[0;32m  OK  [0;39m]
+[80G[  [1;32mOK[0;39m  ]
+   INFO: Configuration Complete.
+   INFO: YAIM terminated succesfully.
+[root@jen01.cnaf.infn.it ~]# sleep 30
+[root@jen01.cnaf.infn.it ~]# voms-admin --vo testvo list-users
+No users found in vo!
+[root@jen01.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.cert.pem .
+[root@jen01.cnaf.infn.it ~]# chmod 400 test0.cert.pem
+[root@jen01.cnaf.infn.it ~]# voms-admin --vo testvo create-user test0.cert.pem
+[root@jen01.cnaf.infn.it ~]# yum install -y voms-clients
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+861 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients.x86_64 0:2.0.9-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package            Arch         Version              Repository           Size
+================================================================================
+Installing:
+ voms-clients       x86_64       2.0.9-1.el5          EMI-2-updates       172 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 172 k
+Downloading Packages:
+warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID df9e12ef
+Importing GPG key 0xDF9E12EF "Doina Cristina Aiftimiei (EMI Release Manager) <aiftim@pd.infn.it>" from /etc/pki/rpm-gpg/RPM-GPG-KEY-emi
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+
+  Installing     : voms-clients                                             1/1 
+
+Installed:
+  voms-clients.x86_64 0:2.0.9-1.el5                                             
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# mkdir .glite
+[root@jen01.cnaf.infn.it ~]# cp /etc/voms-admin/testvo/vomses .glite
+[root@jen01.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.key.pem .
+[root@jen01.cnaf.infn.it ~]# chmod 400 test0.key.pem
+[root@jen01.cnaf.infn.it ~]# echo pass | voms-proxy-init --cert test0.cert.pem --key test0.key.pem --voms testvo --pwstdin
+Your identity: /C=IT/O=IGI/CN=test0
+Cannot find file or dir: /etc/vomses
+Creating temporary proxy ................................................................... Done
+Contacting  jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "testvo" Done
+Creating proxy ....................... Done
+
+Your proxy is valid until Fri Jan 25 04:03:27 2013
+Error: verify failed.
+Cannot verify AC signature!
+Deployment failed
+[root@jen01.cnaf.infn.it ~]# service voms stop
+Stopping voms(testvo): [60G[[0;32m  OK  [0;39m]
+[root@jen01.cnaf.infn.it ~]# service voms-admin stop
+Stopping vo testvo
+Stopping siblings webapp
+[root@jen01.cnaf.infn.it ~]# service stop
+stop: unrecognized service
+Deployment failed
+[root@jen01.cnaf.infn.it ~]# yum -y remove emi-release
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Setting up Remove Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:2.0.0-1.sl5 set to be erased
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package             Arch           Version             Repository         Size
+================================================================================
+Removing:
+ emi-release         noarch         2.0.0-1.sl5         installed         2.7 k
+
+Transaction Summary
+================================================================================
+Remove        1 Package(s)
+Reinstall     0 Package(s)
+Downgrade     0 Package(s)
+
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+
+  Erasing        : emi-release                                              1/1 
+
+Removed:
+  emi-release.noarch 0:2.0.0-1.sl5                                              
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# wget -P /etc/yum.repos.d http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo
+--2013-01-24 16:03:29--  http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo
+Resolving eticssoft.web.cern.ch... 137.138.139.19
+Connecting to eticssoft.web.cern.ch|137.138.139.19|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1574 (1.5K) [text/plain]
+Saving to: `/etc/yum.repos.d/emi-3-rc-sl5.repo'
+
+     0K .                                                     100% 39.5M=0s
+
+2013-01-24 16:03:29 (39.5 MB/s) - `/etc/yum.repos.d/emi-3-rc-sl5.repo' saved [1574/1574]
+
+[root@jen01.cnaf.infn.it ~]# wget -P /etc/yum.repos.d http://etics-repository.cern.ch/repository/pm/volatile/repomd/id/e0e65f4c-8a74-4763-98b2-20d4cf317714/sl5_x86_64_gcc412EPEL/etics-volatile-build-by-id-protect.repo
+--2013-01-24 16:03:29--  http://etics-repository.cern.ch/repository/pm/volatile/repomd/id/e0e65f4c-8a74-4763-98b2-20d4cf317714/sl5_x86_64_gcc412EPEL/etics-volatile-build-by-id-protect.repo
+Resolving etics-repository.cern.ch... 128.142.170.202
+Connecting to etics-repository.cern.ch|128.142.170.202|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 4299 (4.2K)
+Saving to: `/etc/yum.repos.d/etics-volatile-build-by-id-protect.repo'
+
+     0K ....                                                  100%  285K=0.01s
+
+2013-01-24 16:03:34 (285 KB/s) - `/etc/yum.repos.d/etics-volatile-build-by-id-protect.repo' saved [4299/4299]
+
+[root@jen01.cnaf.infn.it ~]# echo priority=1 >> /etc/yum.repos.d/etics-volatile-build-by-id-protect.repo
+[root@jen01.cnaf.infn.it ~]# yum clean all
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+Cleaning up Everything
+[root@jen01.cnaf.infn.it ~]# yum -y remove tomcat6 emi-trustmanager emi-trustmanager-tomcat
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+Setting up Remove Process
+No Match for argument: tomcat6
+4908 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-trustmanager.noarch 0:3.1.4-1.sl5 set to be erased
+--> Processing Dependency: emi-trustmanager for package: voms-admin-server
+---> Package emi-trustmanager-tomcat.noarch 0:3.0.1-1.sl5 set to be erased
+--> Running transaction check
+---> Package voms-admin-server.noarch 0:2.7.0-1.el5 set to be erased
+--> Processing Dependency: voms-admin-server for package: emi-voms-mysql
+--> Running transaction check
+---> Package emi-voms-mysql.x86_64 0:1.0.1-1.el5 set to be erased
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                      Arch        Version          Repository      Size
+================================================================================
+Removing:
+ emi-trustmanager             noarch      3.1.4-1.sl5      installed      2.0 M
+ emi-trustmanager-tomcat      noarch      3.0.1-1.sl5      installed      129 k
+Removing for dependencies:
+ emi-voms-mysql               x86_64      1.0.1-1.el5      installed       0.0 
+ voms-admin-server            noarch      2.7.0-1.el5      installed       64 M
+
+Transaction Summary
+================================================================================
+Remove        4 Package(s)
+Reinstall     0 Package(s)
+Downgrade     0 Package(s)
+
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+
+  Erasing        : emi-voms-mysql                                           1/4 
+
+  Erasing        : emi-trustmanager-tomcat                                  2/4Stopping potentially running voms-admin instances...
+Stopping vo testvo
+Stopping siblings webapp
+ 
+
+  Erasing        : voms-admin-server                                        3/4 
+
+  Erasing        : emi-trustmanager                                         4/4 
+
+Removed:
+  emi-trustmanager.noarch 0:3.1.4-1.sl5                                         
+  emi-trustmanager-tomcat.noarch 0:3.0.1-1.sl5                                  
+
+Dependency Removed:
+  emi-voms-mysql.x86_64 0:1.0.1-1.el5   voms-admin-server.noarch 0:2.7.0-1.el5  
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum -y install emi-release
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4908 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:3.0.0-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch        Version             Repository               Size
+================================================================================
+Installing:
+ emi-release      noarch      3.0.0-1.el5         EMI-3-testing-base      4.7 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 4.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+
+  Installing     : emi-release                                              1/1 
+
+Installed:
+  emi-release.noarch 0:3.0.0-1.el5                                              
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum -y install emi-voms-mysql
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+5018 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-voms-mysql.noarch 0:1.1.0-1.el5 set to be updated
+--> Processing Dependency: voms-admin-server for package: emi-voms-mysql
+--> Running transaction check
+---> Package voms-admin-server.noarch 0:3.0.0-1.el5 set to be updated
+--> Processing Dependency: python(abi) = 2.6 for package: voms-admin-server
+--> Running transaction check
+---> Package python26.x86_64 0:2.6.8-2.el5 set to be updated
+--> Processing Dependency: libpython2.6.so.1.0()(64bit) for package: python26
+--> Processing Dependency: libffi.so.5()(64bit) for package: python26
+--> Running transaction check
+---> Package libffi.x86_64 0:3.0.5-1.el5 set to be updated
+---> Package python26-libs.x86_64 0:2.6.8-2.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                  Arch          Version               Repository   Size
+================================================================================
+Installing:
+ emi-voms-mysql           noarch        1.1.0-1.el5           ETICS-volatile-build-e0e65f4c-8a74-4763-98b2-20d4cf317714-sl5_x86_64_gcc412EPEL
+                                                                          2.2 k
+Installing for dependencies:
+ libffi                   x86_64        3.0.5-1.el5           epel         24 k
+ python26                 x86_64        2.6.8-2.el5           epel        6.5 M
+ python26-libs            x86_64        2.6.8-2.el5           epel        695 k
+ voms-admin-server        noarch        3.0.0-1.el5           ETICS-volatile-build-e0e65f4c-8a74-4763-98b2-20d4cf317714-sl5_x86_64_gcc412EPEL
+                                                                           33 M
+
+Transaction Summary
+================================================================================
+Install       5 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 40 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           2.5 MB/s |  40 MB     00:15     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+
+  Installing     : libffi                                                   1/5 
+
+  Installing     : python26                                                 2/5 
+
+  Installing     : python26-libs                                            3/5 
+
+  Installing     : voms-admin-server                                        4/5 
+
+  Installing     : emi-voms-mysql                                           5/5 
+
+Installed:
+  emi-voms-mysql.noarch 0:1.1.0-1.el5                                           
+
+Dependency Installed:
+  libffi.x86_64 0:3.0.5-1.el5          python26.x86_64 0:2.6.8-2.el5           
+  python26-libs.x86_64 0:2.6.8-2.el5   voms-admin-server.noarch 0:3.0.0-1.el5  
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum -y update
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+5018 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Skipping security plugin, no data
+Reading version lock configuration
+Setting up Update Process
+Resolving Dependencies
+Skipping security plugin, no data
+--> Running transaction check
+---> Package augeas-libs.x86_64 0:1.0.0-1.el5 set to be updated
+---> Package bdii.noarch 0:5.2.17-1.el5 set to be updated
+--> Processing Dependency: openldap2.4-servers for package: bdii
+--> Processing Dependency: openldap2.4-clients for package: bdii
+---> Package glite-info-provider-service.noarch 0:1.12.0-1.el5 set to be updated
+---> Package glite-yaim-bdii.noarch 0:4.3.13-1.el5 set to be updated
+---> Package glue-schema.noarch 0:2.0.10-1.el5 set to be updated
+---> Package shadow-utils.x86_64 2:4.0.17-21.el5 set to be updated
+---> Package voms.x86_64 0:2.0.10-1.el5 set to be updated
+---> Package voms-admin-client.noarch 0:2.0.18-1.el5 set to be updated
+---> Package voms-clients.x86_64 0:2.0.10-1.el5 set to be updated
+---> Package voms-server.x86_64 0:2.0.10-1.el5 set to be updated
+--> Running transaction check
+---> Package openldap2.4-clients.x86_64 0:2.4.22-1.el5 set to be updated
+--> Processing Dependency: lib64ldap2.4_2 = 2.4.22-1.el5 for package: openldap2.4-clients
+--> Processing Dependency: liblber-2.4.so.2()(64bit) for package: openldap2.4-clients
+--> Processing Dependency: libldap-2.4.so.2()(64bit) for package: openldap2.4-clients
+---> Package openldap2.4-servers.x86_64 0:2.4.22-1.el5 set to be updated
+--> Processing Dependency: cyrus-sasl = 2.1.22 for package: openldap2.4-servers
+--> Processing Dependency: openldap2.4-extra-schemas >= 1.3-7 for package: openldap2.4-servers
+--> Processing Dependency: openldap2.4-extra-schemas >= 1.3-7 for package: openldap2.4-servers
+--> Processing Dependency: libodbc.so.1()(64bit) for package: openldap2.4-servers
+--> Running transaction check
+---> Package cyrus-sasl.x86_64 0:2.1.22-7.el5_8.1 set to be updated
+---> Package lib64ldap2.4_2.x86_64 0:2.4.22-1.el5 set to be updated
+--> Processing Dependency: openldap2.4 >= 2.1.25-4mdk for package: lib64ldap2.4_2
+---> Package openldap2.4-extra-schemas.noarch 0:1.3-10.el5 set to be updated
+---> Package unixODBC-libs.x86_64 0:2.2.11-10.el5 set to be updated
+--> Running transaction check
+---> Package openldap2.4.x86_64 0:2.4.22-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                     Arch   Version            Repository          Size
+================================================================================
+Updating:
+ augeas-libs                 x86_64 1.0.0-1.el5        epel               472 k
+ bdii                        noarch 5.2.17-1.el5       EMI-3-testing-base  23 k
+ glite-info-provider-service noarch 1.12.0-1.el5       EMI-3-testing-base  67 k
+ glite-yaim-bdii             noarch 4.3.13-1.el5       EMI-3-testing-base  10 k
+ glue-schema                 noarch 2.0.10-1.el5       EMI-3-testing-base  34 k
+ shadow-utils                x86_64 2:4.0.17-21.el5    sl5x-security      1.1 M
+ voms                        x86_64 2.0.10-1.el5       ETICS-volatile-build-e0e65f4c-8a74-4763-98b2-20d4cf317714-sl5_x86_64_gcc412EPEL
+                                                                          164 k
+ voms-admin-client           noarch 2.0.18-1.el5       ETICS-volatile-build-e0e65f4c-8a74-4763-98b2-20d4cf317714-sl5_x86_64_gcc412EPEL
+                                                                           91 k
+ voms-clients                x86_64 2.0.10-1.el5       ETICS-volatile-build-e0e65f4c-8a74-4763-98b2-20d4cf317714-sl5_x86_64_gcc412EPEL
+                                                                          172 k
+ voms-server                 x86_64 2.0.10-1.el5       ETICS-volatile-build-e0e65f4c-8a74-4763-98b2-20d4cf317714-sl5_x86_64_gcc412EPEL
+                                                                          197 k
+Installing for dependencies:
+ cyrus-sasl                  x86_64 2.1.22-7.el5_8.1   sl5x-security      1.2 M
+ lib64ldap2.4_2              x86_64 2.4.22-1.el5       EMI-3-third-party  300 k
+ openldap2.4                 x86_64 2.4.22-1.el5       EMI-3-third-party   40 k
+ openldap2.4-clients         x86_64 2.4.22-1.el5       EMI-3-third-party  298 k
+ openldap2.4-extra-schemas   noarch 1.3-10.el5         EMI-3-third-party   46 k
+ openldap2.4-servers         x86_64 2.4.22-1.el5       EMI-3-third-party  2.1 M
+ unixODBC-libs               x86_64 2.2.11-10.el5      sl5x               554 k
+
+Transaction Summary
+================================================================================
+Install       7 Package(s)
+Upgrade      10 Package(s)
+
+Total download size: 6.8 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           1.1 MB/s | 6.8 MB     00:05     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+
+  Updating       : voms                                                    1/27 
+
+  Updating       : shadow-utils                                            2/27 
+
+  Installing     : cyrus-sasl                                              3/27 
+
+  Installing     : unixODBC-libs                                           4/27 
+
+  Updating       : augeas-libs                                             5/27 
+
+  Updating       : glue-schema                                             6/27 
+
+  Updating       : voms-server                                             7/27 
+
+  Updating       : voms-clients                                            8/27 
+
+  Updating       : voms-admin-client                                       9/27 
+
+  Updating       : glite-info-provider-service                            10/27 
+
+  Updating       : glite-yaim-bdii                                        11/27 
+
+  Installing     : lib64ldap2.4_2                                         12/27 
+
+  Installing     : openldap2.4-clients                                    13/27 
+
+  Installing     : openldap2.4                                            14/27 
+
+  Installing     : openldap2.4-extra-schemas                              15/27useradd: user ldap exists
+Adding user ldap to group ldap
+ 
+
+  Installing     : openldap2.4-servers                                    16/27Generating self-signed certificate...
+To generate a self-signed certificate, you can use the utility
+/usr/share/openldap2.4/gencert.sh...
+ 
+
+  Updating       : bdii                                                   17/27 
+warning: /etc/bdii/bdii-slapd.conf saved as /etc/bdii/bdii-slapd.conf.rpmsave
+warning: /etc/bdii/bdii-top-slapd.conf saved as /etc/bdii/bdii-top-slapd.conf.rpmsave
+
+  Cleanup        : augeas-libs                                            18/27 
+
+  Cleanup        : voms-clients                                           19/27 
+
+  Cleanup        : glue-schema                                            20/27 
+
+  Cleanup        : glite-yaim-bdii                                        21/27 
+
+  Cleanup        : shadow-utils                                           22/27 
+
+  Cleanup        : bdii                                                   23/27 
+
+  Cleanup        : voms                                                   24/27 
+
+  Cleanup        : glite-info-provider-service                            25/27 
+
+  Cleanup        : voms-server                                            26/27 
+
+  Cleanup        : voms-admin-client                                      27/27 
+
+Dependency Installed:
+  cyrus-sasl.x86_64 0:2.1.22-7.el5_8.1                                          
+  lib64ldap2.4_2.x86_64 0:2.4.22-1.el5                                          
+  openldap2.4.x86_64 0:2.4.22-1.el5                                             
+  openldap2.4-clients.x86_64 0:2.4.22-1.el5                                     
+  openldap2.4-extra-schemas.noarch 0:1.3-10.el5                                 
+  openldap2.4-servers.x86_64 0:2.4.22-1.el5                                     
+  unixODBC-libs.x86_64 0:2.2.11-10.el5                                          
+
+Updated:
+  augeas-libs.x86_64 0:1.0.0-1.el5                                              
+  bdii.noarch 0:5.2.17-1.el5                                                    
+  glite-info-provider-service.noarch 0:1.12.0-1.el5                             
+  glite-yaim-bdii.noarch 0:4.3.13-1.el5                                         
+  glue-schema.noarch 0:2.0.10-1.el5                                             
+  shadow-utils.x86_64 2:4.0.17-21.el5                                           
+  voms.x86_64 0:2.0.10-1.el5                                                    
+  voms-admin-client.noarch 0:2.0.18-1.el5                                       
+  voms-clients.x86_64 0:2.0.10-1.el5                                            
+  voms-server.x86_64 0:2.0.10-1.el5                                             
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# voms-configure install --dbtype mysql --vo testvo --dbauser root --dbapwd pwd --dbusername voms --dbpassword pwd --core-port 15000 --admin-port 16000 --smtp-host postino.cnaf.infn.it --mail-from valerio.venturi@cnaf.infn.it
+Configuring VOMS admin service for vo testvo
+Creating VOMS services certificate in /etc/grid-security/vomscert.pem, /etc/grid-security/vomskey.pem
+VOMS Admin service configuration for VO testvo exists.
+Deploying database for VO testvo
+Checking database connectivity...
+Database contacted succesfully
+Checking database existence...
+Found existing voms-admin > 2.5.x database...
+Existing voms database found. Will not overwrite the database!
+Adding VO administrator reading information from /etc/grid-security/vomscert.pem
+Admin '/C=IT/O=IGI/CN=jen01.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA' already exists in database...
+This admin will be granted full privileges on the VOMS database.
+Adding ALL permissions on '/testvo' for admin '/C=IT/O=IGI/CN=jen01.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/testvo/Role=VO-Admin' for admin '/C=IT/O=IGI/CN=jen01.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+WARNING: No email was specified for this administrator! The new administrator will not receive VOMS Admin notifications
+Adding read-only access to authenticated clients on the VO.
+Checking that the database is writable...
+Database is writable.
+Granting read-only access to any authenticated user on group '/testvo'
+Granting read-only access to any authenticated user on role '/testvo/Role=VO-Admin'
+Configuring VOMS core service for vo testvo
+VOMS core service configuration for VO testvo already exists.
+VOMS core service configured succesfully.
+VO testvo configuration completed succesfully.
+[root@jen01.cnaf.infn.it ~]# cat > /etc/sysconfig/voms << EOF VOMS_USER=voms EOF
+[root@jen01.cnaf.infn.it ~]# rm -f /var/log/voms/voms.testvo
+[root@jen01.cnaf.infn.it ~]# service voms start
+Starting voms(testvo): [60G[[0;32m  OK  [0;39m]
+[root@jen01.cnaf.infn.it ~]# service voms-admin start
+Starting voms-admin( testvo ): [60G[  [1;32mOK[0;39m  ]
+Starting voms-admin( voms-siblings.xml ): Logging configuration not found at path '/etc/voms-admin/voms-siblings.xml/logback.xml'
+[60G[  [1;32mOK[0;39m  ]
+[root@jen01.cnaf.infn.it ~]# echo pass | voms-proxy-init --cert test0.cert.pem --key test0.key.pem --voms testvo --pwstdin
+Your identity: /C=IT/O=IGI/CN=test0
+Cannot find file or dir: /etc/vomses
+Creating temporary proxy ........................................ Done
+Contacting  jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "testvo" Done
+Creating proxy .................................................................................... Done
+
+Your proxy is valid until Fri Jan 25 04:06:19 2013
+

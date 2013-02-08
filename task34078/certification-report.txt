@@ -1,0 +1,84 @@
+**********************************
+* EMI Certification Report *
+**********************************
+- Product: VOMS
+
+- Release Task: https://savannah.cern.ch/task/?34078
+
+- ETICS Subsystem Configuration Name: emi.voms-EMI3
+
+- VCS Tag: 2_0_18, 3_0_0
+
+- EMI Major Release: EMI 3
+
+- Platforms: SL5_x86_64, SL6_x86_64
+
+- Author: Andrea Ceccanti
+
+- Date: 07/02/2013
+
+- Certification Report Template : v. 3.3
+
+**********************************************
+
+1. Release Task exists in the Release Tracker with core info properly provided:
+	1.1. Proper product name AND version is specified [ Yes ]
+	1.2. All the relevant RfCs are listed. [ Yes ]
+	1.3. All the RfCs are "Tested" or "Not Tested"  [ Yes ]
+
+2. VCS tag is available: [ Yes ]
+
+3. The ETICS configuration is available: [ Yes ]
+	3.1. The ETICS configuration is locked: [ No ]
+	3.2. The ETICS configuration can be built in ETICS without errors: [ Yes ]
+
+4. Binary packages are available in EMI registered repo: 
+    4.1. rpms [ Yes ]
+    4.2. tarballs [ Yes ]
+    4.3. debs [ Yes ]
+
+5. Source packages are available in EMI registered repo: 
+    5.1. rpms [ Yes ]
+    5.2. tarballs [ Yes ]
+    5.3. debs [ Yes ]
+
+6. List of binary packages are specified in the Release Task: [ Yes ]
+7. List of source packages are specified in the Release Task: [ Yes ]
+8. License information is provided in the Release Task and the product has an "EMI-compatible" license: [ Yes ]
+
+***********
+Testing
+***********
+
+9. The deployment of the new version of the product from the EMI repo performed by the PT was successful: [ Yes ]
+
+10. The Product Test Plan URL is specified in the Release Task: [ Yes ]
+
+11. The Product Test Report is attached to the Release Task: [ Yes ]
+
+12. The Test Report contains result/logs of :
+      12.1. static code analysis: [ NA ]
+      12.2. unit tests: [ Yes ]
+      12.3. deployment tests: [ Yes ]
+      12.4. functionality tests: [ Yes ]
+      12.5. regression tests: [ Yes ]
+      12.6. standard conformance tests: [ Yes ]
+      12.7. performance tests: [ NA ]
+      12.8. scalability tests: [ NA ]
+
+********************
+Documentation
+********************
+
+13. Component Release Notes are provided in the task: [ Yes ]
+
+14. Are there documentation changes in this release? [ Yes ]
+
+15. If Yes, are the changes reported in the Component Release Notes? [ Yes ]
+
+16. Up-to-date Minimum Required Documentation URLs are specified in the Release Task for: 
+	16.1: Functional Description [ Yes ]
+	16.2: User Guide [ Yes ]
+	16.3: Client Installation and Configuration [ Yes ]
+	16.4: System Administrator Guide [ Yes ]
+	16.5: Service Reference Card [ Yes ]

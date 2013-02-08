@@ -1,0 +1,917 @@
+emi-voms-mysql clean deployment test
+EMI repo URL: http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo
+VOMS repo URL: http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo
+[root@jen01.cnaf.infn.it ~]# wget -q http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo -O /etc/yum.repos.d/test_emi.repo
+[root@jen01.cnaf.infn.it ~]# wget -q http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo -O /etc/yum.repos.d/test_voms.repo
+[root@jen01.cnaf.infn.it ~]# echo >> /etc/yum.repos.d/test_voms.repo; echo 'priority=1' >> /etc/yum.repos.d/test_voms.repo
+[root@jen01.cnaf.infn.it ~]# yum clean all
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+Existing lock /var/run/yum.pid: another copy is running as pid 3680.
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:22 ago
+    State  : Running, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:24 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:26 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:28 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:30 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:32 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:34 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:36 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:38 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:40 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:42 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:44 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:46 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:48 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:50 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:52 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:54 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:56 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 00:58 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:00 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:02 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:04 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:06 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:08 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:10 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:12 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:14 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:16 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:18 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:20 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:22 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:24 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:26 ago
+    State  : Uninteruptable, pid: 3680
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  62 M RSS (226 MB VSZ)
+    Started: Thu Feb  7 17:11:38 2013 - 01:28 ago
+    State  : Uninteruptable, pid: 3680
+Cleaning up Everything
+[root@jen01.cnaf.infn.it ~]# yum -y install emi-release
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4583 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:3.0.0-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch        Version             Repository               Size
+================================================================================
+Installing:
+ emi-release      noarch      3.0.0-1.el5         EMI-3-testing-base      4.7 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 4.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : emi-release                                              1/1 
+
+Installed:
+  emi-release.noarch 0:3.0.0-1.el5                                              
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum -y install emi-voms-mysql
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4697 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-voms-mysql.noarch 0:1.1.0-1.el5 set to be updated
+--> Processing Dependency: voms-admin-server for package: emi-voms-mysql
+--> Processing Dependency: voms-mysql-plugin for package: emi-voms-mysql
+--> Processing Dependency: fetch-crl for package: emi-voms-mysql
+--> Processing Dependency: bdii for package: emi-voms-mysql
+--> Processing Dependency: voms-server for package: emi-voms-mysql
+--> Processing Dependency: glite-info-provider-service for package: emi-voms-mysql
+--> Processing Dependency: voms-admin-client for package: emi-voms-mysql
+--> Processing Dependency: mysql-server for package: emi-voms-mysql
+--> Running transaction check
+---> Package bdii.noarch 0:5.2.17-1.el5 set to be updated
+--> Processing Dependency: glue-schema >= 2.0.0 for package: bdii
+--> Processing Dependency: openldap2.4-servers for package: bdii
+--> Processing Dependency: openldap-clients for package: bdii
+--> Processing Dependency: openldap-servers for package: bdii
+--> Processing Dependency: expect for package: bdii
+--> Processing Dependency: openldap2.4-clients for package: bdii
+---> Package fetch-crl.noarch 0:2.8.5-1.el5 set to be updated
+---> Package glite-info-provider-service.noarch 0:1.12.0-1.el5 set to be updated
+---> Package mysql-server.x86_64 0:5.0.95-5.el5_9 set to be updated
+--> Processing Dependency: perl-DBD-MySQL for package: mysql-server
+---> Package voms-admin-client.noarch 0:2.0.18-1 set to be updated
+--> Processing Dependency: python-ZSI for package: voms-admin-client
+--> Processing Dependency: PyXML for package: voms-admin-client
+--> Processing Dependency: python-simplejson for package: voms-admin-client
+---> Package voms-admin-server.noarch 0:3.0.0-1 set to be updated
+--> Processing Dependency: python(abi) = 2.6 for package: voms-admin-server
+--> Processing Dependency: java-1.6.0-openjdk-devel for package: voms-admin-server
+---> Package voms-mysql-plugin.x86_64 0:3.1.6-1 set to be updated
+---> Package voms-server.x86_64 0:2.0.10-1 set to be updated
+--> Processing Dependency: voms = 2.0.10-1 for package: voms-server
+--> Processing Dependency: libvomsapi.so.1()(64bit) for package: voms-server
+--> Running transaction check
+---> Package PyXML.x86_64 0:0.8.4-6.el5 set to be updated
+---> Package expect.x86_64 0:5.43.0-8.el5 set to be updated
+---> Package glue-schema.noarch 0:2.0.10-1.el5 set to be updated
+---> Package java-1.6.0-openjdk-devel.x86_64 1:1.6.0.0-1.30.1.11.5.el5 set to be updated
+--> Processing Dependency: java-1.6.0-openjdk = 1:1.6.0.0-1.30.1.11.5.el5 for package: java-1.6.0-openjdk-devel
+--> Processing Dependency: libjli.so(SUNWprivate_1.1)(64bit) for package: java-1.6.0-openjdk-devel
+--> Processing Dependency: libjli.so()(64bit) for package: java-1.6.0-openjdk-devel
+---> Package openldap-clients.x86_64 0:2.3.43-25.el5_8.1 set to be updated
+--> Processing Dependency: openldap = 2.3.43-25.el5_8.1 for package: openldap-clients
+---> Package openldap-servers.x86_64 0:2.3.43-25.el5_8.1 set to be updated
+--> Processing Dependency: libltdl.so.3()(64bit) for package: openldap-servers
+---> Package openldap2.4-clients.x86_64 0:2.4.22-1.el5 set to be updated
+--> Processing Dependency: lib64ldap2.4_2 = 2.4.22-1.el5 for package: openldap2.4-clients
+--> Processing Dependency: liblber-2.4.so.2()(64bit) for package: openldap2.4-clients
+--> Processing Dependency: libldap-2.4.so.2()(64bit) for package: openldap2.4-clients
+---> Package openldap2.4-servers.x86_64 0:2.4.22-1.el5 set to be updated
+--> Processing Dependency: cyrus-sasl = 2.1.22 for package: openldap2.4-servers
+--> Processing Dependency: openldap2.4-extra-schemas >= 1.3-7 for package: openldap2.4-servers
+--> Processing Dependency: openldap2.4-extra-schemas >= 1.3-7 for package: openldap2.4-servers
+--> Processing Dependency: libodbc.so.1()(64bit) for package: openldap2.4-servers
+---> Package perl-DBD-MySQL.x86_64 0:3.0007-2.el5 set to be updated
+---> Package python-ZSI.noarch 0:2.0-7.el5 set to be updated
+---> Package python-simplejson.x86_64 0:2.0.9-8.el5 set to be updated
+---> Package python26.x86_64 0:2.6.8-2.el5 set to be updated
+--> Processing Dependency: libpython2.6.so.1.0()(64bit) for package: python26
+--> Processing Dependency: libffi.so.5()(64bit) for package: python26
+---> Package voms.x86_64 0:2.0.10-1 set to be updated
+--> Running transaction check
+---> Package cyrus-sasl.x86_64 0:2.1.22-7.el5_8.1 set to be updated
+---> Package java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.30.1.11.5.el5 set to be updated
+--> Processing Dependency: libjpeg = 6b for package: java-1.6.0-openjdk
+--> Processing Dependency: jpackage-utils >= 1.7.3-1jpp.2 for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2(ALSA_0.9)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2(ALSA_0.9.0rc4)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libpng12.so.0(PNG12_0)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: tzdata-java for package: java-1.6.0-openjdk
+--> Processing Dependency: libfreetype.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXtst.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXrender.so.1()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libjpeg.so.62()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libpng12.so.0()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXi.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libgif.so.4()(64bit) for package: java-1.6.0-openjdk
+---> Package lib64ldap2.4_2.x86_64 0:2.4.22-1.el5 set to be updated
+--> Processing Dependency: openldap2.4 >= 2.1.25-4mdk for package: lib64ldap2.4_2
+---> Package libffi.x86_64 0:3.0.5-1.el5 set to be updated
+---> Package libtool-ltdl.x86_64 0:1.5.22-7.el5_4 set to be updated
+---> Package openldap.x86_64 0:2.3.43-25.el5_8.1 set to be updated
+---> Package openldap2.4-extra-schemas.noarch 0:1.3-10.el5 set to be updated
+---> Package python26-libs.x86_64 0:2.6.8-2.el5 set to be updated
+---> Package unixODBC-libs.x86_64 0:2.2.11-10.el5 set to be updated
+--> Running transaction check
+---> Package alsa-lib.x86_64 0:1.0.17-1.el5 set to be updated
+---> Package freetype.x86_64 0:2.2.1-32.el5_9.1 set to be updated
+---> Package giflib.x86_64 0:4.1.3-7.3.3.el5 set to be updated
+---> Package jpackage-utils.noarch 0:1.7.3-1jpp.3.el5 set to be updated
+---> Package libXi.x86_64 0:1.0.1-4.el5_4 set to be updated
+---> Package libXrender.x86_64 0:0.9.1-3.1 set to be updated
+---> Package libXtst.x86_64 0:1.0.1-3.1 set to be updated
+---> Package libjpeg.x86_64 0:6b-37 set to be updated
+---> Package libpng.x86_64 2:1.2.10-17.el5_8 set to be updated
+---> Package openldap2.4.x86_64 0:2.4.22-1.el5 set to be updated
+---> Package tzdata-java.x86_64 0:2012j-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                     Arch   Version            Repository          Size
+================================================================================
+Installing:
+ emi-voms-mysql              noarch 1.1.0-1.el5        EMI-3-testing-base 2.2 k
+Installing for dependencies:
+ PyXML                       x86_64 0.8.4-6.el5        sl5x               1.0 M
+ alsa-lib                    x86_64 1.0.17-1.el5       sl5x               414 k
+ bdii                        noarch 5.2.17-1.el5       EMI-3-testing-base  23 k
+ cyrus-sasl                  x86_64 2.1.22-7.el5_8.1   sl5x               1.2 M
+ expect                      x86_64 5.43.0-8.el5       sl5x               160 k
+ fetch-crl                   noarch 2.8.5-1.el5        epel                24 k
+ freetype                    x86_64 2.2.1-32.el5_9.1   sl5x-security      312 k
+ giflib                      x86_64 4.1.3-7.3.3.el5    sl5x                39 k
+ glite-info-provider-service noarch 1.12.0-1.el5       EMI-3-testing-base  67 k
+ glue-schema                 noarch 2.0.10-1.el5       EMI-3-testing-base  34 k
+ java-1.6.0-openjdk          x86_64 1:1.6.0.0-1.30.1.11.5.el5
+                                                       sl5x                36 M
+ java-1.6.0-openjdk-devel    x86_64 1:1.6.0.0-1.30.1.11.5.el5
+                                                       sl5x                12 M
+ jpackage-utils              noarch 1.7.3-1jpp.3.el5   sl5x                61 k
+ lib64ldap2.4_2              x86_64 2.4.22-1.el5       EMI-3-third-party  300 k
+ libXi                       x86_64 1.0.1-4.el5_4      sl5x                26 k
+ libXrender                  x86_64 0.9.1-3.1          sl5x                28 k
+ libXtst                     x86_64 1.0.1-3.1          sl5x                16 k
+ libffi                      x86_64 3.0.5-1.el5        epel                24 k
+ libjpeg                     x86_64 6b-37              sl5x               139 k
+ libpng                      x86_64 2:1.2.10-17.el5_8  sl5x               235 k
+ libtool-ltdl                x86_64 1.5.22-7.el5_4     sl5x                38 k
+ mysql-server                x86_64 5.0.95-5.el5_9     sl5x-security      9.9 M
+ openldap-clients            x86_64 2.3.43-25.el5_8.1  sl5x               224 k
+ openldap-servers            x86_64 2.3.43-25.el5_8.1  sl5x               2.2 M
+ openldap2.4                 x86_64 2.4.22-1.el5       EMI-3-third-party   40 k
+ openldap2.4-clients         x86_64 2.4.22-1.el5       EMI-3-third-party  298 k
+ openldap2.4-extra-schemas   noarch 1.3-10.el5         EMI-3-third-party   46 k
+ openldap2.4-servers         x86_64 2.4.22-1.el5       EMI-3-third-party  2.1 M
+ perl-DBD-MySQL              x86_64 3.0007-2.el5       sl5x               147 k
+ python-ZSI                  noarch 2.0-7.el5          epel               574 k
+ python-simplejson           x86_64 2.0.9-8.el5        sl5x               141 k
+ python26                    x86_64 2.6.8-2.el5        epel               6.5 M
+ python26-libs               x86_64 2.6.8-2.el5        epel               695 k
+ tzdata-java                 x86_64 2012j-1.el5        sl5x-security      183 k
+ unixODBC-libs               x86_64 2.2.11-10.el5      sl5x               554 k
+ voms                        x86_64 2.0.10-1           VOMS               164 k
+ voms-admin-client           noarch 2.0.18-1           VOMS                93 k
+ voms-admin-server           noarch 3.0.0-1            VOMS                33 M
+ voms-mysql-plugin           x86_64 3.1.6-1            VOMS                29 k
+ voms-server                 x86_64 2.0.10-1           VOMS               198 k
+Updating for dependencies:
+ openldap                    x86_64 2.3.43-25.el5_8.1  sl5x               306 k
+
+Transaction Summary
+================================================================================
+Install      41 Package(s)
+Upgrade       1 Package(s)
+
+Total download size: 109 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           6.7 MB/s | 109 MB     00:16     
+warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID df9e12ef
+Importing GPG key 0xDF9E12EF "Doina Cristina Aiftimiei (EMI Release Manager) <aiftim@pd.infn.it>" from /etc/pki/rpm-gpg/RPM-GPG-KEY-emi
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Updating       : openldap                                                1/43 
+  Installing     : libtool-ltdl                                            2/43 
+  Installing     : PyXML                                                   3/43 
+  Installing     : openldap-servers                                        4/43 
+  Installing     : openldap-clients                                        5/43 
+  Installing     : cyrus-sasl                                              6/43 
+  Installing     : perl-DBD-MySQL                                          7/43 
+  Installing     : mysql-server                                            8/43 
+  Installing     : voms                                                    9/43 
+  Installing     : voms-server                                            10/43 
+  Installing     : voms-mysql-plugin                                      11/43 
+  Installing     : libpng                                                 12/43 
+  Installing     : libjpeg                                                13/43 
+  Installing     : alsa-lib                                               14/43 
+  Installing     : libXtst                                                15/43 
+  Installing     : freetype                                               16/43 
+  Installing     : expect                                                 17/43 
+  Installing     : giflib                                                 18/43 
+  Installing     : libffi                                                 19/43 
+  Installing     : python-simplejson                                      20/43 
+  Installing     : unixODBC-libs                                          21/43 
+  Installing     : libXrender                                             22/43 
+  Installing     : libXi                                                  23/43 
+  Installing     : python-ZSI                                             24/43 
+  Installing     : voms-admin-client                                      25/43 
+  Installing     : glite-info-provider-service                            26/43 
+  Installing     : jpackage-utils                                         27/43 
+  Installing     : fetch-crl                                              28/43 
+  Installing     : glue-schema                                            29/43 
+  Installing     : tzdata-java                                            30/43 
+  Installing     : java-1.6.0-openjdk                                     31/43 
+  Installing     : java-1.6.0-openjdk-devel                               32/43 
+  Installing     : lib64ldap2.4_2                                         33/43 
+  Installing     : python26                                               34/43 
+  Installing     : python26-libs                                          35/43 
+  Installing     : voms-admin-server                                      36/43 
+  Installing     : openldap2.4-clients                                    37/43 
+  Installing     : openldap2.4                                            38/43 
+  Installing     : openldap2.4-extra-schemas                              39/43useradd: user ldap exists
+Adding user ldap to group ldap
+ 
+  Installing     : openldap2.4-servers                                    40/43Generating self-signed certificate...
+To generate a self-signed certificate, you can use the utility
+/usr/share/openldap2.4/gencert.sh...
+ 
+  Installing     : bdii                                                   41/43 
+  Installing     : emi-voms-mysql                                         42/43 
+  Cleanup        : openldap                                               43/43 
+
+Installed:
+  emi-voms-mysql.noarch 0:1.1.0-1.el5                                           
+
+Dependency Installed:
+  PyXML.x86_64 0:0.8.4-6.el5                                                    
+  alsa-lib.x86_64 0:1.0.17-1.el5                                                
+  bdii.noarch 0:5.2.17-1.el5                                                    
+  cyrus-sasl.x86_64 0:2.1.22-7.el5_8.1                                          
+  expect.x86_64 0:5.43.0-8.el5                                                  
+  fetch-crl.noarch 0:2.8.5-1.el5                                                
+  freetype.x86_64 0:2.2.1-32.el5_9.1                                            
+  giflib.x86_64 0:4.1.3-7.3.3.el5                                               
+  glite-info-provider-service.noarch 0:1.12.0-1.el5                             
+  glue-schema.noarch 0:2.0.10-1.el5                                             
+  java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.30.1.11.5.el5                           
+  java-1.6.0-openjdk-devel.x86_64 1:1.6.0.0-1.30.1.11.5.el5                     
+  jpackage-utils.noarch 0:1.7.3-1jpp.3.el5                                      
+  lib64ldap2.4_2.x86_64 0:2.4.22-1.el5                                          
+  libXi.x86_64 0:1.0.1-4.el5_4                                                  
+  libXrender.x86_64 0:0.9.1-3.1                                                 
+  libXtst.x86_64 0:1.0.1-3.1                                                    
+  libffi.x86_64 0:3.0.5-1.el5                                                   
+  libjpeg.x86_64 0:6b-37                                                        
+  libpng.x86_64 2:1.2.10-17.el5_8                                               
+  libtool-ltdl.x86_64 0:1.5.22-7.el5_4                                          
+  mysql-server.x86_64 0:5.0.95-5.el5_9                                          
+  openldap-clients.x86_64 0:2.3.43-25.el5_8.1                                   
+  openldap-servers.x86_64 0:2.3.43-25.el5_8.1                                   
+  openldap2.4.x86_64 0:2.4.22-1.el5                                             
+  openldap2.4-clients.x86_64 0:2.4.22-1.el5                                     
+  openldap2.4-extra-schemas.noarch 0:1.3-10.el5                                 
+  openldap2.4-servers.x86_64 0:2.4.22-1.el5                                     
+  perl-DBD-MySQL.x86_64 0:3.0007-2.el5                                          
+  python-ZSI.noarch 0:2.0-7.el5                                                 
+  python-simplejson.x86_64 0:2.0.9-8.el5                                        
+  python26.x86_64 0:2.6.8-2.el5                                                 
+  python26-libs.x86_64 0:2.6.8-2.el5                                            
+  tzdata-java.x86_64 0:2012j-1.el5                                              
+  unixODBC-libs.x86_64 0:2.2.11-10.el5                                          
+  voms.x86_64 0:2.0.10-1                                                        
+  voms-admin-client.noarch 0:2.0.18-1                                           
+  voms-admin-server.noarch 0:3.0.0-1                                            
+  voms-mysql-plugin.x86_64 0:3.1.6-1                                            
+  voms-server.x86_64 0:2.0.10-1                                                 
+
+Dependency Updated:
+  openldap.x86_64 0:2.3.43-25.el5_8.1                                           
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# service mysqld start
+Initializing MySQL database:  Installing MySQL system tables...
+OK
+Filling help tables...
+OK
+
+To start mysqld at boot time you have to copy
+support-files/mysql.server to the right place for your system
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+To do so, start the server, then issue the following commands:
+/usr/bin/mysqladmin -u root password 'new-password'
+/usr/bin/mysqladmin -u root -h jen01.cnaf.infn.it password 'new-password'
+
+Alternatively you can run:
+/usr/bin/mysql_secure_installation
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the manual for more instructions.
+
+You can start the MySQL daemon with:
+cd /usr ; /usr/bin/mysqld_safe &
+
+You can test the MySQL daemon with mysql-test-run.pl
+cd mysql-test ; perl mysql-test-run.pl
+
+Please report any problems with the /usr/bin/mysqlbug script!
+
+The latest information about MySQL is available on the web at
+http://www.mysql.com
+Support MySQL by buying support/licenses at http://shop.mysql.com
+[60G[[0;32m  OK  [0;39m]
+Starting mysqld:  [60G[[0;32m  OK  [0;39m]
+[root@jen01.cnaf.infn.it ~]# sleep 5
+[root@jen01.cnaf.infn.it ~]# mysqladmin -u root password pwd
+[root@jen01.cnaf.infn.it ~]# mysqladmin -u root -h jen01.cnaf.infn.it password pwd
+[root@jen01.cnaf.infn.it ~]# voms-configure install --vo emi3     --admin-port 16000      --core-port 15000     --hostname jen01.cnaf.infn.it     --createdb --deploy-database      --dbusername emi3_vo --dbpassword pwd     --mail-from andrea.ceccanti@cnaf.infn.it     --smtp-host postino.cnaf.infn.it     --dbapwd pwd
+Configuring VOMS admin service for vo emi3
+Creating VOMS services certificate in /etc/grid-security/vomscert.pem, /etc/grid-security/vomskey.pem
+Deploying database for VO emi3
+Creating database voms_emi3
+Granting user emi3_vo read/write access on database voms_emi3
+Done.
+Checking database connectivity...
+Database contacted succesfully
+Checking database existence...
+No voms-admin database found.
+Checking that the database is writable...
+Database is writable.
+create table acl2 (acl_id bigint not null auto_increment, group_id bigint not null, defaultACL bit not null, role_id bigint, primary key (acl_id), unique (group_id, defaultACL, role_id)) type=InnoDB
+create table acl2_permissions (acl_id bigint not null, permissions integer, admin_id bigint not null, primary key (acl_id, admin_id)) type=InnoDB
+create table admins (adminid bigint not null auto_increment, dn varchar(255) not null, email_address varchar(255), ca smallint not null, primary key (adminid), unique (dn, ca)) type=InnoDB
+create table attributes (a_id bigint not null auto_increment, a_name varchar(255) not null unique, a_desc text, a_uniq bit default 0, primary key (a_id)) type=InnoDB
+create table aup (id bigint not null auto_increment, name varchar(255) not null unique, description varchar(255), reacceptancePeriod integer not null, primary key (id)) type=InnoDB
+create table aup_acc_record (id bigint not null auto_increment, aup_version_id bigint not null, usr_id bigint not null, last_acceptance_date datetime not null, valid bit, primary key (id), unique (aup_version_id, usr_id)) type=InnoDB
+create table aup_version (id bigint not null auto_increment, aup_id bigint not null, version varchar(255) not null, url varchar(255), text varchar(255), creationTime datetime not null, lastForcedReacceptanceTime datetime, active bit not null, primary key (id), unique (aup_id, version)) type=InnoDB
+create table ca (cid smallint not null auto_increment, subject_string varchar(255) not null unique, description varchar(255), creation_time datetime not null, primary key (cid)) type=InnoDB
+create table capabilities (cid bigint not null auto_increment, capability varchar(255) not null, primary key (cid)) type=InnoDB
+create table certificate (id bigint not null auto_increment, creation_time datetime not null, subject_string varchar(255) not null, suspended bit not null, suspended_reason varchar(255), suspension_reason_code varchar(255), ca_id smallint not null, usr_id bigint not null, primary key (id), unique (ca_id, subject_string)) type=InnoDB
+create table certificate_request (certificate tinyblob, certificateIssuer varchar(255) not null, certificateSubject varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table group_attrs (a_id bigint not null, g_id bigint not null, a_value varchar(255), primary key (a_id, g_id)) type=InnoDB
+create table group_membership_req (groupName varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table groups (gid bigint not null auto_increment, dn varchar(255) not null unique, description varchar(255), parent bigint, must bit not null, restricted bit, primary key (gid)) type=InnoDB
+create table m (mapping_id bigint not null auto_increment, userid bigint not null, gid bigint not null, rid bigint, cid bigint, primary key (mapping_id), unique (userid, gid, rid)) type=InnoDB
+create table memb_req (id bigint not null auto_increment, creation_date datetime not null, evaluation_date datetime, status integer not null, confirm_id varchar(255) not null, dn varchar(255) not null, ca varchar(255) not null, cn varchar(255), mail varchar(255) not null, primary key (id)) type=InnoDB
+create table membership_rem_req (reason varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table personal_info (id bigint not null auto_increment, value varchar(255), visible bit, personal_info_type_id bigint not null, primary key (id)) type=InnoDB
+create table personal_info_type (id bigint not null auto_increment, description varchar(255), type varchar(255) not null unique, primary key (id)) type=InnoDB
+create table req (request_id bigint not null auto_increment, completionDate datetime, creationDate datetime, expirationDate datetime, status varchar(255) not null, requester_info_id bigint not null, primary key (request_id), unique (requester_info_id)) type=InnoDB
+create table requester_info (id bigint not null auto_increment, address varchar(255), certificateIssuer varchar(255) not null, certificateSubject varchar(255) not null, emailAddress varchar(255) not null, institution varchar(255), name varchar(255), phoneNumber varchar(255), surname varchar(255), voMember bit, primary key (id)) type=InnoDB
+create table requester_personal_info (requester_id bigint not null, pi_value varchar(255), pi_key varchar(255), primary key (requester_id, pi_key)) type=InnoDB
+create table role_attrs (a_id bigint not null, g_id bigint not null, r_id bigint not null, a_value varchar(255), primary key (a_id, g_id, r_id)) type=InnoDB
+create table role_membership_req (groupName varchar(255), roleName varchar(255), request_id bigint not null, primary key (request_id)) type=InnoDB
+create table roles (rid bigint not null auto_increment, role varchar(255) not null unique, primary key (rid)) type=InnoDB
+create table seqnumber (seq varchar(255) not null, primary key (seq)) type=InnoDB
+create table sign_aup_task (task_id bigint not null, aup_id bigint not null, primary key (task_id)) type=InnoDB
+create table tag_mapping (mapping_id bigint not null auto_increment, tag_id bigint not null, gid bigint not null, rid bigint, admin_id bigint not null, primary key (mapping_id), unique (tag_id, gid, rid, admin_id)) type=InnoDB
+create table tags (id bigint not null auto_increment, name varchar(255) not null unique, implicit bit not null, permissions integer not null, permissionsOnPath integer, primary key (id)) type=InnoDB
+create table task (task_id bigint not null auto_increment, completionDate datetime, creationDate datetime, expiryDate datetime, status varchar(255) not null, admin_id bigint, task_type_id bigint not null, usr_id bigint, primary key (task_id)) type=InnoDB
+create table task_log_record (id bigint not null auto_increment, adminDn varchar(255), creation_time datetime not null, event varchar(255) not null, userDn varchar(255), task_id bigint not null, primary key (id)) type=InnoDB
+create table task_type (id bigint not null auto_increment, description varchar(255), name varchar(255) not null unique, primary key (id)) type=InnoDB
+create table user_request_task (task_id bigint not null, req_id bigint not null, primary key (task_id)) type=InnoDB
+create table usr (userid bigint not null auto_increment, address varchar(255), creation_time datetime not null, dn varchar(255), email_address varchar(255) not null, end_time datetime not null, institution varchar(255), name varchar(255), phone_number varchar(255), surname varchar(255), suspended bit, suspension_reason varchar(255), suspension_reason_code varchar(255), ca smallint, primary key (userid)) type=InnoDB
+create table usr_attrs (a_id bigint not null, u_id bigint not null, a_value varchar(255), primary key (a_id, u_id)) type=InnoDB
+create table version (version integer not null, admin_version varchar(255), primary key (version)) type=InnoDB
+create table vo_membership_req (confirmId varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+alter table acl2 add index FK2D98E8720C9B10 (role_id), add constraint FK2D98E8720C9B10 foreign key (role_id) references roles (rid) on delete cascade
+alter table acl2 add index FK2D98E8FCFA8B04 (group_id), add constraint FK2D98E8FCFA8B04 foreign key (group_id) references groups (gid) on delete cascade
+alter table acl2_permissions add index FK35C6CFADD91CE8A3 (acl_id), add constraint FK35C6CFADD91CE8A3 foreign key (acl_id) references acl2 (acl_id)
+alter table acl2_permissions add index FK35C6CFADA4AD9904 (admin_id), add constraint FK35C6CFADA4AD9904 foreign key (admin_id) references admins (adminid)
+alter table admins add index FKAB3A67047C6FEB32 (ca), add constraint FKAB3A67047C6FEB32 foreign key (ca) references ca (cid)
+alter table aup_acc_record add index FKB1979B32EE2D4487 (usr_id), add constraint FKB1979B32EE2D4487 foreign key (usr_id) references usr (userid)
+alter table aup_acc_record add index FKB1979B32815F1678 (aup_version_id), add constraint FKB1979B32815F1678 foreign key (aup_version_id) references aup_version (id)
+alter table aup_version add index fk_aup_version_aup (aup_id), add constraint fk_aup_version_aup foreign key (aup_id) references aup (id) on delete cascade
+alter table certificate add index FK745F4197EE2D4487 (usr_id), add constraint FK745F4197EE2D4487 foreign key (usr_id) references usr (userid)
+alter table certificate add index FK745F419782107F70 (ca_id), add constraint FK745F419782107F70 foreign key (ca_id) references ca (cid)
+alter table certificate_request add index FK47CA53E7D75D60A4 (request_id), add constraint FK47CA53E7D75D60A4 foreign key (request_id) references req (request_id)
+alter table group_attrs add index FK40B1A2E2566C2A8F (a_id), add constraint FK40B1A2E2566C2A8F foreign key (a_id) references attributes (a_id)
+alter table group_attrs add index FK40B1A2E2DEFC581C (g_id), add constraint FK40B1A2E2DEFC581C foreign key (g_id) references groups (gid) on delete cascade
+alter table group_membership_req add index FKBD145E75D75D60A4 (request_id), add constraint FKBD145E75D75D60A4 foreign key (request_id) references req (request_id)
+alter table groups add index FKB63DD9D4A3771CD3 (parent), add constraint FKB63DD9D4A3771CD3 foreign key (parent) references groups (gid)
+alter table m add index fk_m_roles (rid), add constraint fk_m_roles foreign key (rid) references roles (rid) on delete cascade
+alter table m add index fk_m_groups (gid), add constraint fk_m_groups foreign key (gid) references groups (gid) on delete cascade
+alter table m add index fk_m_cap (cid), add constraint fk_m_cap foreign key (cid) references capabilities (cid)
+alter table m add index fk_m_usr (userid), add constraint fk_m_usr foreign key (userid) references usr (userid)
+alter table membership_rem_req add index FK1877BC10D75D60A4 (request_id), add constraint FK1877BC10D75D60A4 foreign key (request_id) references req (request_id)
+alter table personal_info add index FK229FDF4DA8D3C6BC (personal_info_type_id), add constraint FK229FDF4DA8D3C6BC foreign key (personal_info_type_id) references personal_info_type (id)
+alter table req add index FK1B89EC37E889D (requester_info_id), add constraint FK1B89EC37E889D foreign key (requester_info_id) references requester_info (id)
+alter table requester_personal_info add index FK7E3D7FCAD500B8D2 (requester_id), add constraint FK7E3D7FCAD500B8D2 foreign key (requester_id) references requester_info (id)
+alter table role_attrs add index FK6BDE9799566C2A8F (a_id), add constraint FK6BDE9799566C2A8F foreign key (a_id) references attributes (a_id)
+alter table role_attrs add index FK6BDE979920304994 (r_id), add constraint FK6BDE979920304994 foreign key (r_id) references roles (rid) on delete cascade
+alter table role_attrs add index FK6BDE9799DEFC581C (g_id), add constraint FK6BDE9799DEFC581C foreign key (g_id) references groups (gid)
+alter table role_membership_req add index FK3B9C79ED75D60A4 (request_id), add constraint FK3B9C79ED75D60A4 foreign key (request_id) references req (request_id)
+alter table sign_aup_task add index FK7FCB416A32B8C70C (task_id), add constraint FK7FCB416A32B8C70C foreign key (task_id) references task (task_id)
+alter table sign_aup_task add index FK7FCB416ADA1C6363 (aup_id), add constraint FK7FCB416ADA1C6363 foreign key (aup_id) references aup (id)
+alter table tag_mapping add index fk_tag_mapping_roles (rid), add constraint fk_tag_mapping_roles foreign key (rid) references roles (rid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_admins (admin_id), add constraint fk_tag_mapping_admins foreign key (admin_id) references admins (adminid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_groups (gid), add constraint fk_tag_mapping_groups foreign key (gid) references groups (gid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_tag (tag_id), add constraint fk_tag_mapping_tag foreign key (tag_id) references tags (id) on delete cascade
+alter table task add index FK3635859AD54C57 (task_type_id), add constraint FK3635859AD54C57 foreign key (task_type_id) references task_type (id)
+alter table task add index FK363585EE2D4487 (usr_id), add constraint FK363585EE2D4487 foreign key (usr_id) references usr (userid)
+alter table task add index FK363585A4AD9904 (admin_id), add constraint FK363585A4AD9904 foreign key (admin_id) references admins (adminid)
+alter table task_log_record add index FK77673CA632B8C70C (task_id), add constraint FK77673CA632B8C70C foreign key (task_id) references task (task_id)
+alter table user_request_task add index FKACB7D2932B8C70C (task_id), add constraint FKACB7D2932B8C70C foreign key (task_id) references task (task_id)
+alter table user_request_task add index FKACB7D299D73AC35 (req_id), add constraint FKACB7D299D73AC35 foreign key (req_id) references req (request_id)
+alter table usr add index FK1C5947C6FEB32 (ca), add constraint FK1C5947C6FEB32 foreign key (ca) references ca (cid)
+alter table usr_attrs add index FKA39E0E37566C2A8F (a_id), add constraint FKA39E0E37566C2A8F foreign key (a_id) references attributes (a_id)
+alter table usr_attrs add index FKA39E0E3720331206 (u_id), add constraint FKA39E0E3720331206 foreign key (u_id) references usr (userid)
+alter table vo_membership_req add index FK28EE8AFBD75D60A4 (request_id), add constraint FK28EE8AFBD75D60A4 foreign key (request_id) references req (request_id)
+Deploying voms database...
+PEM data not found in the stream and its end was reached
+java.io.IOException: PEM data not found in the stream and its end was reached
+	at eu.emi.security.authn.x509.impl.CertificateUtils.loadCertificateChain(CertificateUtils.java:271) ~[canl-1.1.0.jar:1.1.0]
+	at eu.emi.security.authn.x509.impl.CertificateUtils.loadCertificate(CertificateUtils.java:151) ~[canl-1.1.0.jar:1.1.0]
+	at org.glite.security.voms.admin.core.tasks.UpdateCATask.run(UpdateCATask.java:89) ~[voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.doDeploy(SchemaDeployer.java:977) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.execute(SchemaDeployer.java:215) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.<init>(SchemaDeployer.java:125) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.main(SchemaDeployer.java:1637) [voms-admin.jar:na]
+PEM data not found in the stream and its end was reached
+java.io.IOException: PEM data not found in the stream and its end was reached
+	at eu.emi.security.authn.x509.impl.CertificateUtils.loadCertificateChain(CertificateUtils.java:271) ~[canl-1.1.0.jar:1.1.0]
+	at eu.emi.security.authn.x509.impl.CertificateUtils.loadCertificate(CertificateUtils.java:151) ~[canl-1.1.0.jar:1.1.0]
+	at org.glite.security.voms.admin.core.tasks.UpdateCATask.run(UpdateCATask.java:89) ~[voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.doDeploy(SchemaDeployer.java:977) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.execute(SchemaDeployer.java:215) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.<init>(SchemaDeployer.java:125) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.main(SchemaDeployer.java:1637) [voms-admin.jar:na]
+Database deployed correctly!
+Adding VO administrator reading information from /etc/grid-security/vomscert.pem
+Admin '/C=IT/O=IGI/CN=jen01.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA' not found. It will be created...
+Adding ALL permissions on '/emi3' for admin '/C=IT/O=IGI/CN=jen01.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/Role=VO-Admin' for admin '/C=IT/O=IGI/CN=jen01.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+WARNING: No email was specified for this administrator! The new administrator will not receive VOMS Admin notifications
+Adding read-only access to authenticated clients on the VO.
+Checking that the database is writable...
+Database is writable.
+Granting read-only access to any authenticated user on group '/emi3'
+Granting read-only access to any authenticated user on role '/emi3/Role=VO-Admin'
+Configuring VOMS core service for vo emi3
+VOMS core service configured succesfully.
+VO emi3 configuration completed succesfully.
+[root@jen01.cnaf.infn.it ~]# yum -y install ca_INFN-CA-2006
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4697 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Package ca_INFN-CA-2006-1.52-1.noarch already installed and latest version
+Nothing to do
+[root@jen01.cnaf.infn.it ~]# voms-config-info-providers -s local -e
+Will install providers for voms-admin
+Creating conf file /etc/glite/info/service/glite-info-glue2-voms.conf
+Creating conf file /etc/glite/info/service/glite-info-service-voms.conf
+Creating conf file /etc/glite/info/service/glite-info-glue2-voms-admin.conf
+Creating conf file /etc/glite/info/service/glite-info-service-voms-admin.conf
+Create the /var/lib/bdii/gip/provider in case it doesn't exist
+Create the /var/lib/bdii/gip/provider/glite-info-glue2-provider-service-voms file
+Create the /var/lib/bdii/gip/provider/glite-info-provider-service-voms file
+Create the /var/lib/bdii/gip/provider/glite-info-provider-service-voms-admin file
+[root@jen01.cnaf.infn.it ~]# sed -i "s/slapd/slapd2.4/g" /etc/sysconfig/bdii
+[root@jen01.cnaf.infn.it ~]# sed -i "s/^#SLAPD=/SLAPD=/g" /etc/sysconfig/bdii
+[root@jen01.cnaf.infn.it ~]# service bdii start
+Starting BDII slapd: [60G[[0;32m  OK  [0;39m]
+Starting BDII update process: [60G[[0;32m  OK  [0;39m]
+[root@jen01.cnaf.infn.it ~]# fetch-crl -o /etc/grid-security/certificates -l /etc/grid-security/certificates
+[root@jen01.cnaf.infn.it ~]# service voms start
+Starting voms(emi3): [60G[[0;32m  OK  [0;39m]
+[root@jen01.cnaf.infn.it ~]# service voms-admin start
+Starting voms-admin( emi3 ): [60G[  [1;32mOK[0;39m  ]
+[root@jen01.cnaf.infn.it ~]# sleep 30
+[root@jen01.cnaf.infn.it ~]# voms-admin --vo emi3 list-groups
+ /emi3
+[root@jen01.cnaf.infn.it ~]# wget --no-check-certificate https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
+--2013-02-07 17:18:39--  https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
+Resolving raw.github.com... 199.27.76.130
+Connecting to raw.github.com|199.27.76.130|:443... connected.
+WARNING: certificate common name `*.a.ssl.fastly.net' doesn't match requested host name `raw.github.com'.
+HTTP request sent, awaiting response... 200 OK
+Length: 1186 (1.2K) [text/plain]
+Saving to: `populate-vo.sh'
+
+     0K .                                                     100% 23.1M=0s
+
+2013-02-07 17:18:40 (23.1 MB/s) - `populate-vo.sh' saved [1186/1186]
+
+[root@jen01.cnaf.infn.it ~]# sh populate-vo.sh emi3
+[root@jen01.cnaf.infn.it ~]# yum -y install voms-clients3
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4697 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients3.noarch 0:3.0.0-1.sl5 set to be updated
+--> Processing Dependency: voms-api-java3 for package: voms-clients3
+--> Processing Dependency: jakarta-commons-io for package: voms-clients3
+--> Running transaction check
+---> Package jakarta-commons-io.noarch 0:1.4-3.el5 set to be updated
+---> Package voms-api-java3.noarch 0:3.0.0-1.sl5 set to be updated
+--> Processing Dependency: bouncycastle146-mail for package: voms-api-java3
+--> Processing Dependency: canl-java for package: voms-api-java3
+--> Running transaction check
+---> Package bouncycastle146-mail.noarch 0:1.46-1 set to be updated
+--> Processing Dependency: bouncycastle146 = 1.46 for package: bouncycastle146-mail
+---> Package canl-java.noarch 0:1.1.0-1.sl5 set to be updated
+--> Running transaction check
+---> Package bouncycastle146.noarch 0:1.46-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                 Arch      Version          Repository             Size
+================================================================================
+Installing:
+ voms-clients3           noarch    3.0.0-1.sl5      VOMS                  124 k
+Installing for dependencies:
+ bouncycastle146         noarch    1.46-1.el5       EMI-3-testing-base    1.9 M
+ bouncycastle146-mail    noarch    1.46-1           VOMS                  475 k
+ canl-java               noarch    1.1.0-1.sl5      EMI-3-testing-base    262 k
+ jakarta-commons-io      noarch    1.4-3.el5        epel                  105 k
+ voms-api-java3          noarch    3.0.0-1.sl5      VOMS                  120 k
+
+Transaction Summary
+================================================================================
+Install       6 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 2.9 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           1.5 MB/s | 2.9 MB     00:02     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : bouncycastle146                                          1/6 
+  Installing     : jakarta-commons-io                                       2/6 
+  Installing     : canl-java                                                3/6 
+  Installing     : bouncycastle146-mail                                     4/6 
+  Installing     : voms-api-java3                                           5/6 
+  Installing     : voms-clients3                                            6/6 
+
+Installed:
+  voms-clients3.noarch 0:3.0.0-1.sl5                                            
+
+Dependency Installed:
+  bouncycastle146.noarch 0:1.46-1.el5   bouncycastle146-mail.noarch 0:1.46-1   
+  canl-java.noarch 0:1.1.0-1.sl5        jakarta-commons-io.noarch 0:1.4-3.el5  
+  voms-api-java3.noarch 0:3.0.0-1.sl5  
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# mkdir -p .globus
+[root@jen01.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.cert.pem .globus/usercert.pem
+[root@jen01.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.key.pem .globus/userkey.pem
+[root@jen01.cnaf.infn.it ~]# chmod 600 .globus/usercert.pem
+[root@jen01.cnaf.infn.it ~]# chmod 400 .globus/userkey.pem
+[root@jen01.cnaf.infn.it ~]# mkdir /etc/vomses
+[root@jen01.cnaf.infn.it ~]# cp /etc/voms-admin/emi3/vomses /etc/vomses/emi3
+[root@jen01.cnaf.infn.it ~]# mkdir /etc/grid-security/vomsdir/emi3
+[root@jen01.cnaf.infn.it ~]# cp /etc/voms-admin/emi3/lsc /etc/grid-security/vomsdir/emi3/jen01.cnaf.infn.it.lsc
+[root@jen01.cnaf.infn.it ~]# echo 'pass' | voms-proxy-init -voms emi3 --pwstdin
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Feb 08 05:19:06 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Feb 08 05:19:05 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Feb 08 05:19:04 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Feb 08 05:19:03 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Feb 08 05:19:02 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Feb 08 05:19:01 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Feb 08 05:19:00 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Feb 08 05:18:59 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Feb 08 05:18:58 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Feb 08 05:18:57 CET 2013
+[root@jen01.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen01.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen01.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Feb 08 05:18:56 CET 2013
+[root@jen01.cnaf.infn.it ~]# service vomses start
+Starting vomses: [60G[  [1;32mOK[0;39m  ]
+VOMS succesfully deployed!
