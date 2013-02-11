@@ -119,6 +119,9 @@ https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-api-java-upgrade-deployment-report.sl5_x86_64
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients-upgrade-deployment-report.sl5_x86_64
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/deb_amd64/voms-clients-clean-deployment-report.deb_amd_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/deb_amd64/voms-clients3-clean-deployment-report.deb_amd_64
+
 
 - YUM/APT Testing Repo file contents:
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment-report
@@ -130,6 +133,8 @@ https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-api-java-upgrade-deployment-report.sl5_x86_64
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients-upgrade-deployment-report.sl5_x86_64
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/deb_amd64/voms-clients3-clean-deployment-report.deb_amd_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/deb_amd64/voms-clients3-clean-deployment-report.deb_amd_64
 
 - YUM/APT Upgrade command:
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment-report
@@ -168,17 +173,19 @@ https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/
 ******************************
 N/A
 
+
 3. Unit Tests
 *****************
 
 - URL pointing to the results of the Unit Tests.
-http://radiohead.cnaf.infn.it:9999/job/voms-api-java_2_0_SNAPSHOT/lastSuccessfulBuild/testReport/
+http://radiohead.cnaf.infn.it:9999/view/SNAPSHOTS/job/voms-api-java_3_0_SNAPSHOT/
 
 - Code Coverage %, if available.
-N/A
+http://radiohead.cnaf.infn.it:9999/view/SNAPSHOTS/job/voms-api-java_3_0_SNAPSHOT/661/cobertura/?
 
 4. System tests 
 *********************
+
 - URL where the tests/testsuite can be accessed:
 https://github.com/italiangrid/voms-testsuite
 

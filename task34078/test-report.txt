@@ -4,15 +4,15 @@ EMI Test Report Template
 
 - Product: VOMS
 
-- Release Task: https://savannah.cern.ch/task/?34077
+- Release Task: https://savannah.cern.ch/task/?34078
 
 - ETICS Subsystem Configuration Name: emi.voms-EMI3
 
-- VCS Tag: 2_0_10,3_0_0
+- VCS Tag: 2_0_18, 3_0_0
 
 - EMI Major Release: EMI 3
 
-- Platforms: SL5_x86_64, SL6_x86_64, Deb6
+- Platforms: SL5_x86_64, SL6_x86_64
 
 - Author: Andrea Ceccanti
 
@@ -84,6 +84,7 @@ https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
 
+
 - YUM/APT Testing Repo file contents:
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment-report
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
@@ -108,19 +109,19 @@ https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/
 ******************************
 N/A
 
+
 3. Unit Tests
 *****************
 
-- URL pointing to the results of the Unit Tests.
-http://radiohead.cnaf.infn.it:9999/job/voms-api-java_2_0_SNAPSHOT/lastSuccessfulBuild/testReport/
-
-- Code Coverage %, if available.
 N/A
 
 4. System tests 
 *********************
+
 - URL where the tests/testsuite can be accessed:
 https://github.com/italiangrid/voms-testsuite
+https://twiki.cern.ch/twiki/pub/EMI/TestReportForTask18702/voms-admin-testsuite.tar.gz
+
 
 - URL where the test results can be accessed:
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl5_x86_64/emi-voms-mysql-clean-testsuite-results.tar.gz
@@ -131,3 +132,5 @@ https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-testsuite-results.sl6_64.tar.gz
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-clean-deployment-testsuite-results.tar.gz
 https://github.com/andreaceccanti/voms-certification-info/blob/master/task34077/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-testsuite-results.sl6_64.tar.gz
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34078/final-reports/sl5_x86_64/voms-admin-testsuite-results.sl5_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task34078/final-reports/sl6_x86_64/voms-admin-testsuite-results.sl6_64.txt
