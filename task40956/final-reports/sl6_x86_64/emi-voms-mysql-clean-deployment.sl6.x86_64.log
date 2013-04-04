@@ -1,0 +1,1000 @@
+emi-voms-mysql clean deployment test
+EMI repo URL: http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl6.repo
+VOMS repo URL: http://radiohead.cnaf.infn.it:9999/job/repo_voms_SL6/lastSuccessfulBuild/artifact/voms.repo
+[root@jen02.cnaf.infn.it ~]# wget -q http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl6.repo -O /etc/yum.repos.d/test_emi.repo
+[root@jen02.cnaf.infn.it ~]# wget -q http://radiohead.cnaf.infn.it:9999/job/repo_voms_SL6/lastSuccessfulBuild/artifact/voms.repo -O /etc/yum.repos.d/test_voms.repo
+[root@jen02.cnaf.infn.it ~]# echo >> /etc/yum.repos.d/test_voms.repo; echo 'priority=1' >> /etc/yum.repos.d/test_voms.repo
+[root@jen02.cnaf.infn.it ~]# yum clean all
+Loaded plugins: priorities, protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+Cleaning repos: CNAF-RHEL6-local EGI-trustanchors EMI-3-testing-base
+              : EMI-3-testing-third-party Oracle-11 VOMS core epel extras lemon
+              : puppetlabs-deps puppetlabs-products sl6x sl6x-security
+Cleaning up Everything
+[root@jen02.cnaf.infn.it ~]# yum -y install emi-release
+Loaded plugins: priorities, protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+7276 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:3.0.0-1.el6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch        Version             Repository               Size
+================================================================================
+Installing:
+ emi-release      noarch      3.0.0-1.el6         EMI-3-testing-base      5.1 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+
+Total download size: 5.1 k
+Installed size: 2.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : emi-release-3.0.0-1.el6.noarch                               1/1 
+  Verifying  : emi-release-3.0.0-1.el6.noarch                               1/1 
+
+Installed:
+  emi-release.noarch 0:3.0.0-1.el6                                              
+
+Complete!
+[root@jen02.cnaf.infn.it ~]# yum -y install emi-voms-mysql
+Loaded plugins: priorities, protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+7490 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-voms-mysql.noarch 0:1.1.0-1.el6 will be installed
+--> Processing Dependency: voms-admin-server for package: emi-voms-mysql-1.1.0-1.el6.noarch
+--> Processing Dependency: voms-mysql-plugin for package: emi-voms-mysql-1.1.0-1.el6.noarch
+--> Processing Dependency: fetch-crl for package: emi-voms-mysql-1.1.0-1.el6.noarch
+--> Processing Dependency: bdii for package: emi-voms-mysql-1.1.0-1.el6.noarch
+--> Processing Dependency: voms-server for package: emi-voms-mysql-1.1.0-1.el6.noarch
+--> Processing Dependency: glite-info-provider-service for package: emi-voms-mysql-1.1.0-1.el6.noarch
+--> Processing Dependency: voms-admin-client for package: emi-voms-mysql-1.1.0-1.el6.noarch
+--> Processing Dependency: mysql-server for package: emi-voms-mysql-1.1.0-1.el6.noarch
+--> Running transaction check
+---> Package bdii.noarch 0:5.2.17-1.el6 will be installed
+--> Processing Dependency: glue-schema >= 2.0.0 for package: bdii-5.2.17-1.el6.noarch
+--> Processing Dependency: openldap-servers for package: bdii-5.2.17-1.el6.noarch
+--> Processing Dependency: expect for package: bdii-5.2.17-1.el6.noarch
+--> Processing Dependency: policycoreutils-python for package: bdii-5.2.17-1.el6.noarch
+--> Processing Dependency: openldap-clients for package: bdii-5.2.17-1.el6.noarch
+---> Package fetch-crl.noarch 0:3.0.8-1.el6 will be installed
+--> Processing Dependency: perl(LWP) for package: fetch-crl-3.0.8-1.el6.noarch
+---> Package glite-info-provider-service.noarch 0:1.12.0-1.el6 will be installed
+---> Package mysql-server.x86_64 0:5.1.67-1.el6_3 will be installed
+--> Processing Dependency: mysql = 5.1.67-1.el6_3 for package: mysql-server-5.1.67-1.el6_3.x86_64
+--> Processing Dependency: perl-DBI for package: mysql-server-5.1.67-1.el6_3.x86_64
+--> Processing Dependency: perl-DBD-MySQL for package: mysql-server-5.1.67-1.el6_3.x86_64
+--> Processing Dependency: perl(DBI) for package: mysql-server-5.1.67-1.el6_3.x86_64
+---> Package voms-admin-client.noarch 0:2.0.18-1.el6 will be installed
+--> Processing Dependency: python-ZSI for package: voms-admin-client-2.0.18-1.el6.noarch
+--> Processing Dependency: PyXML for package: voms-admin-client-2.0.18-1.el6.noarch
+--> Processing Dependency: python-simplejson for package: voms-admin-client-2.0.18-1.el6.noarch
+---> Package voms-admin-server.noarch 0:3.1.0-1.el6 will be installed
+--> Processing Dependency: java-1.6.0-openjdk-devel for package: voms-admin-server-3.1.0-1.el6.noarch
+---> Package voms-mysql-plugin.x86_64 0:3.1.6-1.el6 will be installed
+---> Package voms-server.x86_64 0:2.0.10-1.el6 will be installed
+--> Processing Dependency: voms(x86-64) = 2.0.10-1.el6 for package: voms-server-2.0.10-1.el6.x86_64
+--> Processing Dependency: libvomsapi.so.1()(64bit) for package: voms-server-2.0.10-1.el6.x86_64
+--> Running transaction check
+---> Package PyXML.x86_64 0:0.8.4-19.el6 will be installed
+---> Package expect.x86_64 0:5.44.1.15-4.el6 will be installed
+--> Processing Dependency: libtcl8.5.so()(64bit) for package: expect-5.44.1.15-4.el6.x86_64
+---> Package glue-schema.noarch 0:2.0.10-1.el6 will be installed
+---> Package java-1.6.0-openjdk-devel.x86_64 1:1.6.0.0-1.57.1.11.9.el6_4 will be installed
+--> Processing Dependency: java-1.6.0-openjdk = 1:1.6.0.0-1.57.1.11.9.el6_4 for package: 1:java-1.6.0-openjdk-devel-1.6.0.0-1.57.1.11.9.el6_4.x86_64
+--> Processing Dependency: libjli.so(SUNWprivate_1.1)(64bit) for package: 1:java-1.6.0-openjdk-devel-1.6.0.0-1.57.1.11.9.el6_4.x86_64
+--> Processing Dependency: libjli.so()(64bit) for package: 1:java-1.6.0-openjdk-devel-1.6.0.0-1.57.1.11.9.el6_4.x86_64
+---> Package mysql.x86_64 0:5.1.67-1.el6_3 will be installed
+--> Processing Dependency: mysql-libs = 5.1.67-1.el6_3 for package: mysql-5.1.67-1.el6_3.x86_64
+---> Package openldap-clients.x86_64 0:2.4.23-31.el6 will be installed
+--> Processing Dependency: openldap = 2.4.23-31.el6 for package: openldap-clients-2.4.23-31.el6.x86_64
+---> Package openldap-servers.x86_64 0:2.4.23-31.el6 will be installed
+--> Processing Dependency: libltdl.so.7()(64bit) for package: openldap-servers-2.4.23-31.el6.x86_64
+---> Package perl-DBD-MySQL.x86_64 0:4.013-3.el6 will be installed
+---> Package perl-DBI.x86_64 0:1.609-4.el6 will be installed
+---> Package perl-libwww-perl.noarch 0:5.833-2.el6 will be installed
+--> Processing Dependency: perl-HTML-Parser >= 3.33 for package: perl-libwww-perl-5.833-2.el6.noarch
+--> Processing Dependency: mailcap for package: perl-libwww-perl-5.833-2.el6.noarch
+--> Processing Dependency: perl(URI::Heuristic) for package: perl-libwww-perl-5.833-2.el6.noarch
+--> Processing Dependency: perl(URI::URL) for package: perl-libwww-perl-5.833-2.el6.noarch
+--> Processing Dependency: perl(URI) for package: perl-libwww-perl-5.833-2.el6.noarch
+--> Processing Dependency: perl(HTML::Entities) for package: perl-libwww-perl-5.833-2.el6.noarch
+--> Processing Dependency: perl(Compress::Zlib) for package: perl-libwww-perl-5.833-2.el6.noarch
+---> Package policycoreutils-python.x86_64 0:2.0.83-19.30.el6 will be installed
+--> Processing Dependency: policycoreutils = 2.0.83-19.30.el6 for package: policycoreutils-python-2.0.83-19.30.el6.x86_64
+--> Processing Dependency: libsemanage-python >= 2.0.43-4 for package: policycoreutils-python-2.0.83-19.30.el6.x86_64
+--> Processing Dependency: audit-libs-python >= 1.4.2-1 for package: policycoreutils-python-2.0.83-19.30.el6.x86_64
+--> Processing Dependency: setools-libs-python for package: policycoreutils-python-2.0.83-19.30.el6.x86_64
+--> Processing Dependency: libselinux-python for package: policycoreutils-python-2.0.83-19.30.el6.x86_64
+--> Processing Dependency: libcgroup for package: policycoreutils-python-2.0.83-19.30.el6.x86_64
+---> Package python-ZSI.noarch 0:2.0-6.el6 will be installed
+---> Package python-simplejson.x86_64 0:2.0.9-3.1.el6 will be installed
+---> Package voms.x86_64 0:2.0.10-1.el6 will be installed
+--> Running transaction check
+---> Package audit-libs-python.x86_64 0:2.2-2.el6 will be installed
+---> Package java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.57.1.11.9.el6_4 will be installed
+--> Processing Dependency: jpackage-utils >= 1.7.3-1jpp.2 for package: 1:java-1.6.0-openjdk-1.6.0.0-1.57.1.11.9.el6_4.x86_64
+--> Processing Dependency: tzdata-java for package: 1:java-1.6.0-openjdk-1.6.0.0-1.57.1.11.9.el6_4.x86_64
+--> Processing Dependency: rhino for package: 1:java-1.6.0-openjdk-1.6.0.0-1.57.1.11.9.el6_4.x86_64
+--> Processing Dependency: libpulse.so.0(PULSE_0)(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.57.1.11.9.el6_4.x86_64
+--> Processing Dependency: libjpeg.so.62(LIBJPEG_6.2)(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.57.1.11.9.el6_4.x86_64
+--> Processing Dependency: libpulse.so.0()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.57.1.11.9.el6_4.x86_64
+--> Processing Dependency: libgif.so.4()(64bit) for package: 1:java-1.6.0-openjdk-1.6.0.0-1.57.1.11.9.el6_4.x86_64
+---> Package libcgroup.x86_64 0:0.37-7.el6 will be installed
+---> Package libselinux-python.x86_64 0:2.0.94-5.3.el6 will be installed
+---> Package libsemanage-python.x86_64 0:2.0.43-4.2.el6 will be installed
+--> Processing Dependency: libsemanage = 2.0.43-4.2.el6 for package: libsemanage-python-2.0.43-4.2.el6.x86_64
+---> Package libtool-ltdl.x86_64 0:2.2.6-15.5.el6 will be installed
+---> Package mailcap.noarch 0:2.1.31-2.el6 will be installed
+---> Package mysql-libs.x86_64 0:5.1.66-2.el6_3 will be updated
+---> Package mysql-libs.x86_64 0:5.1.67-1.el6_3 will be an update
+---> Package openldap.x86_64 0:2.4.23-26.el6_3.2 will be updated
+---> Package openldap.x86_64 0:2.4.23-31.el6 will be an update
+---> Package perl-Compress-Zlib.x86_64 0:2.020-130.el6_4 will be installed
+--> Processing Dependency: perl = 4:5.10.1-130.el6_4 for package: perl-Compress-Zlib-2.020-130.el6_4.x86_64
+--> Processing Dependency: perl(Compress::Raw::Zlib) >= 2.020 for package: perl-Compress-Zlib-2.020-130.el6_4.x86_64
+--> Processing Dependency: perl(IO::Uncompress::Gunzip) >= 2.020 for package: perl-Compress-Zlib-2.020-130.el6_4.x86_64
+--> Processing Dependency: perl(IO::Compress::Gzip) >= 2.020 for package: perl-Compress-Zlib-2.020-130.el6_4.x86_64
+--> Processing Dependency: perl(IO::Compress::Gzip::Constants) >= 2.020 for package: perl-Compress-Zlib-2.020-130.el6_4.x86_64
+--> Processing Dependency: perl(IO::Compress::Base::Common) >= 2.020 for package: perl-Compress-Zlib-2.020-130.el6_4.x86_64
+---> Package perl-HTML-Parser.x86_64 0:3.64-2.el6 will be installed
+--> Processing Dependency: perl(HTML::Tagset) >= 3.03 for package: perl-HTML-Parser-3.64-2.el6.x86_64
+--> Processing Dependency: perl(HTML::Tagset) for package: perl-HTML-Parser-3.64-2.el6.x86_64
+---> Package perl-URI.noarch 0:1.40-2.el6 will be installed
+---> Package policycoreutils.x86_64 0:2.0.83-19.24.el6 will be updated
+---> Package policycoreutils.x86_64 0:2.0.83-19.30.el6 will be an update
+---> Package setools-libs-python.x86_64 0:3.3.7-4.el6 will be installed
+--> Processing Dependency: setools-libs = 3.3.7-4.el6 for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libqpol.so.1(VERS_1.3)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libapol.so.4(VERS_4.1)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libseaudit.so.4(VERS_4.2)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libapol.so.4(VERS_4.0)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libpoldiff.so.1(VERS_1.2)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libpoldiff.so.1(VERS_1.3)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libqpol.so.1(VERS_1.2)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libqpol.so.1(VERS_1.4)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libsefs.so.4(VERS_4.0)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libseaudit.so.4(VERS_4.1)(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libseaudit.so.4()(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libsefs.so.4()(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libapol.so.4()(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libpoldiff.so.1()(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+--> Processing Dependency: libqpol.so.1()(64bit) for package: setools-libs-python-3.3.7-4.el6.x86_64
+---> Package tcl.x86_64 1:8.5.7-6.el6 will be installed
+--> Running transaction check
+---> Package giflib.x86_64 0:4.1.6-3.1.el6 will be installed
+---> Package jpackage-utils.noarch 0:1.7.5-3.12.el6 will be installed
+---> Package libjpeg.x86_64 0:6b-46.el6 will be obsoleted
+---> Package libjpeg-turbo.x86_64 0:1.2.1-1.el6 will be obsoleting
+---> Package libsemanage.x86_64 0:2.0.43-4.1.el6 will be updated
+---> Package libsemanage.x86_64 0:2.0.43-4.2.el6 will be an update
+---> Package perl.x86_64 4:5.10.1-127.el6 will be updated
+--> Processing Dependency: perl = 4:5.10.1-127.el6 for package: 1:perl-Module-Pluggable-3.90-127.el6.x86_64
+--> Processing Dependency: perl = 4:5.10.1-127.el6 for package: 3:perl-version-0.77-127.el6.x86_64
+--> Processing Dependency: perl = 4:5.10.1-127.el6 for package: 4:perl-libs-5.10.1-127.el6.x86_64
+--> Processing Dependency: perl = 4:5.10.1-127.el6 for package: 1:perl-Digest-SHA-5.47-127.el6.x86_64
+--> Processing Dependency: perl = 4:5.10.1-127.el6 for package: perl-Test-Simple-0.92-127.el6.x86_64
+--> Processing Dependency: perl = 4:5.10.1-127.el6 for package: 1:perl-Pod-Simple-3.13-127.el6.x86_64
+--> Processing Dependency: perl = 4:5.10.1-127.el6 for package: perl-CGI-3.51-127.el6.x86_64
+--> Processing Dependency: perl = 4:5.10.1-127.el6 for package: 1:perl-Pod-Escapes-1.04-127.el6.x86_64
+--> Processing Dependency: perl = 4:5.10.1-127.el6 for package: 4:perl-devel-5.10.1-127.el6.x86_64
+--> Processing Dependency: perl = 4:5.10.1-127.el6 for package: 1:perl-ExtUtils-ParseXS-2.2003.0-127.el6.x86_64
+--> Processing Dependency: perl = 4:5.10.1-127.el6 for package: perl-ExtUtils-MakeMaker-6.55-127.el6.x86_64
+--> Processing Dependency: perl = 4:5.10.1-127.el6 for package: perl-Test-Harness-3.17-127.el6.x86_64
+---> Package perl.x86_64 4:5.10.1-130.el6_4 will be an update
+---> Package perl-Compress-Raw-Zlib.x86_64 1:2.020-130.el6_4 will be installed
+---> Package perl-HTML-Tagset.noarch 0:3.20-4.el6 will be installed
+---> Package perl-IO-Compress-Base.x86_64 0:2.020-130.el6_4 will be installed
+---> Package perl-IO-Compress-Zlib.x86_64 0:2.020-130.el6_4 will be installed
+---> Package pulseaudio-libs.x86_64 0:0.9.21-14.el6_3 will be installed
+--> Processing Dependency: libsndfile.so.1(libsndfile.so.1.0)(64bit) for package: pulseaudio-libs-0.9.21-14.el6_3.x86_64
+--> Processing Dependency: libsndfile.so.1()(64bit) for package: pulseaudio-libs-0.9.21-14.el6_3.x86_64
+--> Processing Dependency: libasyncns.so.0()(64bit) for package: pulseaudio-libs-0.9.21-14.el6_3.x86_64
+---> Package rhino.noarch 0:1.7-0.7.r2.2.el6 will be installed
+--> Processing Dependency: jline for package: rhino-1.7-0.7.r2.2.el6.noarch
+---> Package setools-libs.x86_64 0:3.3.7-4.el6 will be installed
+---> Package tzdata-java.noarch 0:2013b-1.el6 will be installed
+--> Running transaction check
+---> Package jline.noarch 0:0.9.94-0.8.el6 will be installed
+---> Package libasyncns.x86_64 0:0.8-1.1.el6 will be installed
+---> Package libsndfile.x86_64 0:1.0.20-5.el6 will be installed
+--> Processing Dependency: libFLAC.so.8()(64bit) for package: libsndfile-1.0.20-5.el6.x86_64
+---> Package perl-CGI.x86_64 0:3.51-127.el6 will be updated
+---> Package perl-CGI.x86_64 0:3.51-130.el6_4 will be an update
+---> Package perl-Digest-SHA.x86_64 1:5.47-127.el6 will be updated
+---> Package perl-Digest-SHA.x86_64 1:5.47-130.el6_4 will be an update
+---> Package perl-ExtUtils-MakeMaker.x86_64 0:6.55-127.el6 will be updated
+---> Package perl-ExtUtils-MakeMaker.x86_64 0:6.55-130.el6_4 will be an update
+---> Package perl-ExtUtils-ParseXS.x86_64 1:2.2003.0-127.el6 will be updated
+---> Package perl-ExtUtils-ParseXS.x86_64 1:2.2003.0-130.el6_4 will be an update
+---> Package perl-Module-Pluggable.x86_64 1:3.90-127.el6 will be updated
+---> Package perl-Module-Pluggable.x86_64 1:3.90-130.el6_4 will be an update
+---> Package perl-Pod-Escapes.x86_64 1:1.04-127.el6 will be updated
+---> Package perl-Pod-Escapes.x86_64 1:1.04-130.el6_4 will be an update
+---> Package perl-Pod-Simple.x86_64 1:3.13-127.el6 will be updated
+---> Package perl-Pod-Simple.x86_64 1:3.13-130.el6_4 will be an update
+---> Package perl-Test-Harness.x86_64 0:3.17-127.el6 will be updated
+---> Package perl-Test-Harness.x86_64 0:3.17-130.el6_4 will be an update
+---> Package perl-Test-Simple.x86_64 0:0.92-127.el6 will be updated
+---> Package perl-Test-Simple.x86_64 0:0.92-130.el6_4 will be an update
+---> Package perl-devel.x86_64 4:5.10.1-127.el6 will be updated
+---> Package perl-devel.x86_64 4:5.10.1-130.el6_4 will be an update
+---> Package perl-libs.x86_64 4:5.10.1-127.el6 will be updated
+---> Package perl-libs.x86_64 4:5.10.1-130.el6_4 will be an update
+---> Package perl-version.x86_64 3:0.77-127.el6 will be updated
+---> Package perl-version.x86_64 3:0.77-130.el6_4 will be an update
+--> Running transaction check
+---> Package flac.x86_64 0:1.2.1-6.1.el6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                 Arch   Version                     Repository     Size
+================================================================================
+Installing:
+ emi-voms-mysql          noarch 1.1.0-1.el6                 EMI-3-base    2.5 k
+ libjpeg-turbo           x86_64 1.2.1-1.el6                 sl6x          173 k
+     replacing  libjpeg.x86_64 6b-46.el6
+Installing for dependencies:
+ PyXML                   x86_64 0.8.4-19.el6                sl6x          892 k
+ audit-libs-python       x86_64 2.2-2.el6                   sl6x           58 k
+ bdii                    noarch 5.2.17-1.el6                EMI-3-base     23 k
+ expect                  x86_64 5.44.1.15-4.el6             sl6x          255 k
+ fetch-crl               noarch 3.0.8-1.el6                 epel           45 k
+ flac                    x86_64 1.2.1-6.1.el6               sl6x          242 k
+ giflib                  x86_64 4.1.6-3.1.el6               sl6x           36 k
+ glite-info-provider-service
+                         noarch 1.12.0-1.el6                EMI-3-base     62 k
+ glue-schema             noarch 2.0.10-1.el6                EMI-3-base     31 k
+ java-1.6.0-openjdk      x86_64 1:1.6.0.0-1.57.1.11.9.el6_4 sl6x-security  25 M
+ java-1.6.0-openjdk-devel
+                         x86_64 1:1.6.0.0-1.57.1.11.9.el6_4 sl6x-security 8.5 M
+ jline                   noarch 0.9.94-0.8.el6              sl6x           85 k
+ jpackage-utils          noarch 1.7.5-3.12.el6              sl6x           58 k
+ libasyncns              x86_64 0.8-1.1.el6                 sl6x           23 k
+ libcgroup               x86_64 0.37-7.el6                  sl6x          110 k
+ libselinux-python       x86_64 2.0.94-5.3.el6              sl6x          201 k
+ libsemanage-python      x86_64 2.0.43-4.2.el6              sl6x           80 k
+ libsndfile              x86_64 1.0.20-5.el6                sl6x          232 k
+ libtool-ltdl            x86_64 2.2.6-15.5.el6              sl6x           43 k
+ mailcap                 noarch 2.1.31-2.el6                sl6x           26 k
+ mysql                   x86_64 5.1.67-1.el6_3              sl6x          885 k
+ mysql-server            x86_64 5.1.67-1.el6_3              sl6x          8.6 M
+ openldap-clients        x86_64 2.4.23-31.el6               sl6x          164 k
+ openldap-servers        x86_64 2.4.23-31.el6               sl6x          2.0 M
+ perl-Compress-Raw-Zlib  x86_64 1:2.020-130.el6_4           sl6x-security  67 k
+ perl-Compress-Zlib      x86_64 2.020-130.el6_4             sl6x-security  43 k
+ perl-DBD-MySQL          x86_64 4.013-3.el6                 sl6x          133 k
+ perl-DBI                x86_64 1.609-4.el6                 sl6x          704 k
+ perl-HTML-Parser        x86_64 3.64-2.el6                  sl6x          108 k
+ perl-HTML-Tagset        noarch 3.20-4.el6                  sl6x           15 k
+ perl-IO-Compress-Base   x86_64 2.020-130.el6_4             sl6x-security  67 k
+ perl-IO-Compress-Zlib   x86_64 2.020-130.el6_4             sl6x-security 133 k
+ perl-URI                noarch 1.40-2.el6                  sl6x          116 k
+ perl-libwww-perl        noarch 5.833-2.el6                 sl6x          386 k
+ policycoreutils-python  x86_64 2.0.83-19.30.el6            sl6x          341 k
+ pulseaudio-libs         x86_64 0.9.21-14.el6_3             sl6x          461 k
+ python-ZSI              noarch 2.0-6.el6                   epel          421 k
+ python-simplejson       x86_64 2.0.9-3.1.el6               sl6x          126 k
+ rhino                   noarch 1.7-0.7.r2.2.el6            sl6x          777 k
+ setools-libs            x86_64 3.3.7-4.el6                 sl6x          399 k
+ setools-libs-python     x86_64 3.3.7-4.el6                 sl6x          221 k
+ tcl                     x86_64 1:8.5.7-6.el6               sl6x          1.9 M
+ tzdata-java             noarch 2013b-1.el6                 sl6x-security 155 k
+ voms                    x86_64 2.0.10-1.el6                VOMS          136 k
+ voms-admin-client       noarch 2.0.18-1.el6                VOMS           68 k
+ voms-admin-server       noarch 3.1.0-1.el6                 VOMS           57 M
+ voms-mysql-plugin       x86_64 3.1.6-1.el6                 VOMS           24 k
+ voms-server             x86_64 2.0.10-1.el6                VOMS          171 k
+Updating for dependencies:
+ libsemanage             x86_64 2.0.43-4.2.el6              sl6x          103 k
+ mysql-libs              x86_64 5.1.67-1.el6_3              sl6x          1.2 M
+ openldap                x86_64 2.4.23-31.el6               sl6x          264 k
+ perl                    x86_64 4:5.10.1-130.el6_4          sl6x-security  10 M
+ perl-CGI                x86_64 3.51-130.el6_4              sl6x-security 207 k
+ perl-Digest-SHA         x86_64 1:5.47-130.el6_4            sl6x-security  62 k
+ perl-ExtUtils-MakeMaker x86_64 6.55-130.el6_4              sl6x-security 291 k
+ perl-ExtUtils-ParseXS   x86_64 1:2.2003.0-130.el6_4        sl6x-security  43 k
+ perl-Module-Pluggable   x86_64 1:3.90-130.el6_4            sl6x-security  38 k
+ perl-Pod-Escapes        x86_64 1:1.04-130.el6_4            sl6x-security  30 k
+ perl-Pod-Simple         x86_64 1:3.13-130.el6_4            sl6x-security 210 k
+ perl-Test-Harness       x86_64 3.17-130.el6_4              sl6x-security 229 k
+ perl-Test-Simple        x86_64 0.92-130.el6_4              sl6x-security 110 k
+ perl-devel              x86_64 4:5.10.1-130.el6_4          sl6x-security 420 k
+ perl-libs               x86_64 4:5.10.1-130.el6_4          sl6x-security 576 k
+ perl-version            x86_64 3:0.77-130.el6_4            sl6x-security  49 k
+ policycoreutils         x86_64 2.0.83-19.30.el6            sl6x          646 k
+
+Transaction Summary
+================================================================================
+Install      50 Package(s)
+Upgrade      17 Package(s)
+
+Total download size: 126 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           1.4 MB/s | 126 MB     01:29     
+warning: rpmts_HdrFromFdno: Header V3 DSA/SHA1 Signature, key ID df9e12ef: NOKEY
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-emi
+Importing GPG key 0xDF9E12EF:
+ Userid : Doina Cristina Aiftimiei (EMI Release Manager) <aiftim@pd.infn.it>
+ Package: emi-release-3.0.0-1.el6.noarch (@EMI-3-testing-base)
+ From   : /etc/pki/rpm-gpg/RPM-GPG-KEY-emi
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Updating   : 1:perl-Pod-Escapes-1.04-130.el6_4.x86_64                    1/85 
+  Updating   : 3:perl-version-0.77-130.el6_4.x86_64                        2/85 
+  Updating   : 4:perl-libs-5.10.1-130.el6_4.x86_64                         3/85 
+  Updating   : 1:perl-Module-Pluggable-3.90-130.el6_4.x86_64               4/85 
+  Updating   : 1:perl-Pod-Simple-3.13-130.el6_4.x86_64                     5/85 
+  Updating   : 4:perl-5.10.1-130.el6_4.x86_64                              6/85 
+  Updating   : mysql-libs-5.1.67-1.el6_3.x86_64                            7/85 
+  Installing : 1:perl-Compress-Raw-Zlib-2.020-130.el6_4.x86_64             8/85 
+  Installing : perl-DBI-1.609-4.el6.x86_64                                 9/85 
+  Installing : perl-IO-Compress-Base-2.020-130.el6_4.x86_64               10/85 
+  Updating   : openldap-2.4.23-31.el6.x86_64                              11/85 
+  Updating   : libsemanage-2.0.43-4.2.el6.x86_64                          12/85 
+  Updating   : policycoreutils-2.0.83-19.30.el6.x86_64                    13/85 
+  Installing : jpackage-utils-1.7.5-3.12.el6.noarch                       14/85 
+  Installing : PyXML-0.8.4-19.el6.x86_64                                  15/85 
+  Installing : python-ZSI-2.0-6.el6.noarch                                16/85 
+  Installing : libsemanage-python-2.0.43-4.2.el6.x86_64                   17/85 
+  Installing : openldap-clients-2.4.23-31.el6.x86_64                      18/85 
+  Installing : perl-IO-Compress-Zlib-2.020-130.el6_4.x86_64               19/85 
+  Installing : perl-Compress-Zlib-2.020-130.el6_4.x86_64                  20/85 
+  Installing : perl-DBD-MySQL-4.013-3.el6.x86_64                          21/85 
+  Installing : mysql-5.1.67-1.el6_3.x86_64                                22/85 
+  Installing : mysql-server-5.1.67-1.el6_3.x86_64                         23/85 
+  Updating   : 1:perl-ExtUtils-ParseXS-2.2003.0-130.el6_4.x86_64          24/85 
+  Updating   : perl-Test-Harness-3.17-130.el6_4.x86_64                    25/85 
+  Updating   : 4:perl-devel-5.10.1-130.el6_4.x86_64                       26/85 
+  Updating   : perl-ExtUtils-MakeMaker-6.55-130.el6_4.x86_64              27/85 
+  Installing : perl-HTML-Tagset-3.20-4.el6.noarch                         28/85 
+  Installing : perl-HTML-Parser-3.64-2.el6.x86_64                         29/85 
+  Installing : perl-URI-1.40-2.el6.noarch                                 30/85 
+  Installing : glite-info-provider-service-1.12.0-1.el6.noarch            31/85 
+  Installing : glue-schema-2.0.10-1.el6.noarch                            32/85 
+  Installing : 1:tcl-8.5.7-6.el6.x86_64                                   33/85 
+  Installing : expect-5.44.1.15-4.el6.x86_64                              34/85 
+  Installing : flac-1.2.1-6.1.el6.x86_64                                  35/85 
+  Installing : libsndfile-1.0.20-5.el6.x86_64                             36/85 
+  Installing : giflib-4.1.6-3.1.el6.x86_64                                37/85 
+  Installing : mailcap-2.1.31-2.el6.noarch                                38/85 
+  Installing : perl-libwww-perl-5.833-2.el6.noarch                        39/85 
+  Installing : fetch-crl-3.0.8-1.el6.noarch                               40/85 
+  Installing : tzdata-java-2013b-1.el6.noarch                             41/85 
+  Installing : libjpeg-turbo-1.2.1-1.el6.x86_64                           42/85 
+  Installing : libasyncns-0.8-1.1.el6.x86_64                              43/85 
+  Installing : pulseaudio-libs-0.9.21-14.el6_3.x86_64                     44/85 
+  Installing : setools-libs-3.3.7-4.el6.x86_64                            45/85 
+  Installing : setools-libs-python-3.3.7-4.el6.x86_64                     46/85 
+  Installing : libselinux-python-2.0.94-5.3.el6.x86_64                    47/85 
+  Installing : python-simplejson-2.0.9-3.1.el6.x86_64                     48/85 
+  Installing : voms-admin-client-2.0.18-1.el6.noarch                      49/85 
+  Installing : libcgroup-0.37-7.el6.x86_64                                50/85 
+  Installing : voms-2.0.10-1.el6.x86_64                                   51/85 
+  Installing : voms-server-2.0.10-1.el6.x86_64                            52/85 
+  Installing : voms-mysql-plugin-3.1.6-1.el6.x86_64                       53/85 
+  Installing : audit-libs-python-2.2-2.el6.x86_64                         54/85 
+  Installing : policycoreutils-python-2.0.83-19.30.el6.x86_64             55/85 
+  Installing : libtool-ltdl-2.2.6-15.5.el6.x86_64                         56/85 
+  Installing : openldap-servers-2.4.23-31.el6.x86_64                      57/85 
+  Installing : bdii-5.2.17-1.el6.noarch                                   58/85 
+  Installing : jline-0.9.94-0.8.el6.noarch                                59/85 
+  Installing : rhino-1.7-0.7.r2.2.el6.noarch                              60/85 
+  Installing : 1:java-1.6.0-openjdk-1.6.0.0-1.57.1.11.9.el6_4.x86_64      61/85 
+  Installing : 1:java-1.6.0-openjdk-devel-1.6.0.0-1.57.1.11.9.el6_4.x86   62/85 
+  Installing : voms-admin-server-3.1.0-1.el6.noarch                       63/85 
+  Installing : emi-voms-mysql-1.1.0-1.el6.noarch                          64/85 
+  Updating   : perl-Test-Simple-0.92-130.el6_4.x86_64                     65/85 
+  Updating   : 1:perl-Digest-SHA-5.47-130.el6_4.x86_64                    66/85 
+  Updating   : perl-CGI-3.51-130.el6_4.x86_64                             67/85 
+  Cleanup    : perl-Test-Simple-0.92-127.el6.x86_64                       68/85 
+  Cleanup    : perl-Test-Harness-3.17-127.el6.x86_64                      69/85 
+  Cleanup    : 1:perl-ExtUtils-ParseXS-2.2003.0-127.el6.x86_64            70/85 
+  Cleanup    : 4:perl-devel-5.10.1-127.el6.x86_64                         71/85 
+  Cleanup    : perl-ExtUtils-MakeMaker-6.55-127.el6.x86_64                72/85 
+  Cleanup    : perl-CGI-3.51-127.el6.x86_64                               73/85 
+  Cleanup    : policycoreutils-2.0.83-19.24.el6.x86_64                    74/85 
+  Cleanup    : 1:perl-Digest-SHA-5.47-127.el6.x86_64                      75/85 
+  Cleanup    : 1:perl-Module-Pluggable-3.90-127.el6.x86_64                76/85 
+  Cleanup    : 1:perl-Pod-Escapes-1.04-127.el6.x86_64                     77/85 
+  Cleanup    : 1:perl-Pod-Simple-3.13-127.el6.x86_64                      78/85 
+  Cleanup    : 3:perl-version-0.77-127.el6.x86_64                         79/85 
+  Cleanup    : 4:perl-libs-5.10.1-127.el6.x86_64                          80/85 
+  Cleanup    : 4:perl-5.10.1-127.el6.x86_64                               81/85 
+  Cleanup    : libsemanage-2.0.43-4.1.el6.x86_64                          82/85 
+  Cleanup    : openldap-2.4.23-26.el6_3.2.x86_64                          83/85 
+  Cleanup    : mysql-libs-5.1.66-2.el6_3.x86_64                           84/85 
+  Erasing    : libjpeg-6b-46.el6.x86_64                                   85/85 
+  Verifying  : jline-0.9.94-0.8.el6.noarch                                 1/85 
+  Verifying  : 1:perl-Compress-Raw-Zlib-2.020-130.el6_4.x86_64             2/85 
+  Verifying  : fetch-crl-3.0.8-1.el6.noarch                                3/85 
+  Verifying  : libtool-ltdl-2.2.6-15.5.el6.x86_64                          4/85 
+  Verifying  : perl-DBD-MySQL-4.013-3.el6.x86_64                           5/85 
+  Verifying  : emi-voms-mysql-1.1.0-1.el6.noarch                           6/85 
+  Verifying  : audit-libs-python-2.2-2.el6.x86_64                          7/85 
+  Verifying  : voms-2.0.10-1.el6.x86_64                                    8/85 
+  Verifying  : perl-DBI-1.609-4.el6.x86_64                                 9/85 
+  Verifying  : perl-ExtUtils-MakeMaker-6.55-130.el6_4.x86_64              10/85 
+  Verifying  : setools-libs-python-3.3.7-4.el6.x86_64                     11/85 
+  Verifying  : openldap-servers-2.4.23-31.el6.x86_64                      12/85 
+  Verifying  : 4:perl-5.10.1-130.el6_4.x86_64                             13/85 
+  Verifying  : rhino-1.7-0.7.r2.2.el6.noarch                              14/85 
+  Verifying  : perl-HTML-Tagset-3.20-4.el6.noarch                         15/85 
+  Verifying  : 3:perl-version-0.77-130.el6_4.x86_64                       16/85 
+  Verifying  : pulseaudio-libs-0.9.21-14.el6_3.x86_64                     17/85 
+  Verifying  : perl-Compress-Zlib-2.020-130.el6_4.x86_64                  18/85 
+  Verifying  : perl-libwww-perl-5.833-2.el6.noarch                        19/85 
+  Verifying  : libcgroup-0.37-7.el6.x86_64                                20/85 
+  Verifying  : PyXML-0.8.4-19.el6.x86_64                                  21/85 
+  Verifying  : python-simplejson-2.0.9-3.1.el6.x86_64                     22/85 
+  Verifying  : python-ZSI-2.0-6.el6.noarch                                23/85 
+  Verifying  : voms-admin-client-2.0.18-1.el6.noarch                      24/85 
+  Verifying  : 1:perl-ExtUtils-ParseXS-2.2003.0-130.el6_4.x86_64          25/85 
+  Verifying  : libselinux-python-2.0.94-5.3.el6.x86_64                    26/85 
+  Verifying  : 4:perl-libs-5.10.1-130.el6_4.x86_64                        27/85 
+  Verifying  : 1:perl-Digest-SHA-5.47-130.el6_4.x86_64                    28/85 
+  Verifying  : policycoreutils-2.0.83-19.30.el6.x86_64                    29/85 
+  Verifying  : 4:perl-devel-5.10.1-130.el6_4.x86_64                       30/85 
+  Verifying  : perl-Test-Simple-0.92-130.el6_4.x86_64                     31/85 
+  Verifying  : libsndfile-1.0.20-5.el6.x86_64                             32/85 
+  Verifying  : jpackage-utils-1.7.5-3.12.el6.noarch                       33/85 
+  Verifying  : perl-HTML-Parser-3.64-2.el6.x86_64                         34/85 
+  Verifying  : setools-libs-3.3.7-4.el6.x86_64                            35/85 
+  Verifying  : libasyncns-0.8-1.1.el6.x86_64                              36/85 
+  Verifying  : voms-server-2.0.10-1.el6.x86_64                            37/85 
+  Verifying  : libjpeg-turbo-1.2.1-1.el6.x86_64                           38/85 
+  Verifying  : policycoreutils-python-2.0.83-19.30.el6.x86_64             39/85 
+  Verifying  : perl-IO-Compress-Base-2.020-130.el6_4.x86_64               40/85 
+  Verifying  : perl-URI-1.40-2.el6.noarch                                 41/85 
+  Verifying  : tzdata-java-2013b-1.el6.noarch                             42/85 
+  Verifying  : mysql-libs-5.1.67-1.el6_3.x86_64                           43/85 
+  Verifying  : openldap-clients-2.4.23-31.el6.x86_64                      44/85 
+  Verifying  : mailcap-2.1.31-2.el6.noarch                                45/85 
+  Verifying  : expect-5.44.1.15-4.el6.x86_64                              46/85 
+  Verifying  : mysql-5.1.67-1.el6_3.x86_64                                47/85 
+  Verifying  : voms-admin-server-3.1.0-1.el6.noarch                       48/85 
+  Verifying  : mysql-server-5.1.67-1.el6_3.x86_64                         49/85 
+  Verifying  : perl-Test-Harness-3.17-130.el6_4.x86_64                    50/85 
+  Verifying  : 1:java-1.6.0-openjdk-1.6.0.0-1.57.1.11.9.el6_4.x86_64      51/85 
+  Verifying  : perl-IO-Compress-Zlib-2.020-130.el6_4.x86_64               52/85 
+  Verifying  : bdii-5.2.17-1.el6.noarch                                   53/85 
+  Verifying  : 1:perl-Pod-Simple-3.13-130.el6_4.x86_64                    54/85 
+  Verifying  : libsemanage-2.0.43-4.2.el6.x86_64                          55/85 
+  Verifying  : 1:perl-Module-Pluggable-3.90-130.el6_4.x86_64              56/85 
+  Verifying  : giflib-4.1.6-3.1.el6.x86_64                                57/85 
+  Verifying  : flac-1.2.1-6.1.el6.x86_64                                  58/85 
+  Verifying  : 1:java-1.6.0-openjdk-devel-1.6.0.0-1.57.1.11.9.el6_4.x86   59/85 
+  Verifying  : 1:perl-Pod-Escapes-1.04-130.el6_4.x86_64                   60/85 
+  Verifying  : perl-CGI-3.51-130.el6_4.x86_64                             61/85 
+  Verifying  : 1:tcl-8.5.7-6.el6.x86_64                                   62/85 
+  Verifying  : glue-schema-2.0.10-1.el6.noarch                            63/85 
+  Verifying  : openldap-2.4.23-31.el6.x86_64                              64/85 
+  Verifying  : libsemanage-python-2.0.43-4.2.el6.x86_64                   65/85 
+  Verifying  : voms-mysql-plugin-3.1.6-1.el6.x86_64                       66/85 
+  Verifying  : glite-info-provider-service-1.12.0-1.el6.noarch            67/85 
+  Verifying  : openldap-2.4.23-26.el6_3.2.x86_64                          68/85 
+  Verifying  : 1:perl-ExtUtils-ParseXS-2.2003.0-127.el6.x86_64            69/85 
+  Verifying  : perl-Test-Simple-0.92-127.el6.x86_64                       70/85 
+  Verifying  : 4:perl-libs-5.10.1-127.el6.x86_64                          71/85 
+  Verifying  : 1:perl-Pod-Simple-3.13-127.el6.x86_64                      72/85 
+  Verifying  : 1:perl-Pod-Escapes-1.04-127.el6.x86_64                     73/85 
+  Verifying  : 3:perl-version-0.77-127.el6.x86_64                         74/85 
+  Verifying  : perl-Test-Harness-3.17-127.el6.x86_64                      75/85 
+  Verifying  : policycoreutils-2.0.83-19.24.el6.x86_64                    76/85 
+  Verifying  : perl-ExtUtils-MakeMaker-6.55-127.el6.x86_64                77/85 
+  Verifying  : 1:perl-Module-Pluggable-3.90-127.el6.x86_64                78/85 
+  Verifying  : perl-CGI-3.51-127.el6.x86_64                               79/85 
+  Verifying  : libsemanage-2.0.43-4.1.el6.x86_64                          80/85 
+  Verifying  : mysql-libs-5.1.66-2.el6_3.x86_64                           81/85 
+  Verifying  : 4:perl-devel-5.10.1-127.el6.x86_64                         82/85 
+  Verifying  : libjpeg-6b-46.el6.x86_64                                   83/85 
+  Verifying  : 4:perl-5.10.1-127.el6.x86_64                               84/85 
+  Verifying  : 1:perl-Digest-SHA-5.47-127.el6.x86_64                      85/85 
+
+Installed:
+  emi-voms-mysql.noarch 0:1.1.0-1.el6     libjpeg-turbo.x86_64 0:1.2.1-1.el6    
+
+Dependency Installed:
+  PyXML.x86_64 0:0.8.4-19.el6                                                   
+  audit-libs-python.x86_64 0:2.2-2.el6                                          
+  bdii.noarch 0:5.2.17-1.el6                                                    
+  expect.x86_64 0:5.44.1.15-4.el6                                               
+  fetch-crl.noarch 0:3.0.8-1.el6                                                
+  flac.x86_64 0:1.2.1-6.1.el6                                                   
+  giflib.x86_64 0:4.1.6-3.1.el6                                                 
+  glite-info-provider-service.noarch 0:1.12.0-1.el6                             
+  glue-schema.noarch 0:2.0.10-1.el6                                             
+  java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.57.1.11.9.el6_4                         
+  java-1.6.0-openjdk-devel.x86_64 1:1.6.0.0-1.57.1.11.9.el6_4                   
+  jline.noarch 0:0.9.94-0.8.el6                                                 
+  jpackage-utils.noarch 0:1.7.5-3.12.el6                                        
+  libasyncns.x86_64 0:0.8-1.1.el6                                               
+  libcgroup.x86_64 0:0.37-7.el6                                                 
+  libselinux-python.x86_64 0:2.0.94-5.3.el6                                     
+  libsemanage-python.x86_64 0:2.0.43-4.2.el6                                    
+  libsndfile.x86_64 0:1.0.20-5.el6                                              
+  libtool-ltdl.x86_64 0:2.2.6-15.5.el6                                          
+  mailcap.noarch 0:2.1.31-2.el6                                                 
+  mysql.x86_64 0:5.1.67-1.el6_3                                                 
+  mysql-server.x86_64 0:5.1.67-1.el6_3                                          
+  openldap-clients.x86_64 0:2.4.23-31.el6                                       
+  openldap-servers.x86_64 0:2.4.23-31.el6                                       
+  perl-Compress-Raw-Zlib.x86_64 1:2.020-130.el6_4                               
+  perl-Compress-Zlib.x86_64 0:2.020-130.el6_4                                   
+  perl-DBD-MySQL.x86_64 0:4.013-3.el6                                           
+  perl-DBI.x86_64 0:1.609-4.el6                                                 
+  perl-HTML-Parser.x86_64 0:3.64-2.el6                                          
+  perl-HTML-Tagset.noarch 0:3.20-4.el6                                          
+  perl-IO-Compress-Base.x86_64 0:2.020-130.el6_4                                
+  perl-IO-Compress-Zlib.x86_64 0:2.020-130.el6_4                                
+  perl-URI.noarch 0:1.40-2.el6                                                  
+  perl-libwww-perl.noarch 0:5.833-2.el6                                         
+  policycoreutils-python.x86_64 0:2.0.83-19.30.el6                              
+  pulseaudio-libs.x86_64 0:0.9.21-14.el6_3                                      
+  python-ZSI.noarch 0:2.0-6.el6                                                 
+  python-simplejson.x86_64 0:2.0.9-3.1.el6                                      
+  rhino.noarch 0:1.7-0.7.r2.2.el6                                               
+  setools-libs.x86_64 0:3.3.7-4.el6                                             
+  setools-libs-python.x86_64 0:3.3.7-4.el6                                      
+  tcl.x86_64 1:8.5.7-6.el6                                                      
+  tzdata-java.noarch 0:2013b-1.el6                                              
+  voms.x86_64 0:2.0.10-1.el6                                                    
+  voms-admin-client.noarch 0:2.0.18-1.el6                                       
+  voms-admin-server.noarch 0:3.1.0-1.el6                                        
+  voms-mysql-plugin.x86_64 0:3.1.6-1.el6                                        
+  voms-server.x86_64 0:2.0.10-1.el6                                             
+
+Dependency Updated:
+  libsemanage.x86_64 0:2.0.43-4.2.el6                                           
+  mysql-libs.x86_64 0:5.1.67-1.el6_3                                            
+  openldap.x86_64 0:2.4.23-31.el6                                               
+  perl.x86_64 4:5.10.1-130.el6_4                                                
+  perl-CGI.x86_64 0:3.51-130.el6_4                                              
+  perl-Digest-SHA.x86_64 1:5.47-130.el6_4                                       
+  perl-ExtUtils-MakeMaker.x86_64 0:6.55-130.el6_4                               
+  perl-ExtUtils-ParseXS.x86_64 1:2.2003.0-130.el6_4                             
+  perl-Module-Pluggable.x86_64 1:3.90-130.el6_4                                 
+  perl-Pod-Escapes.x86_64 1:1.04-130.el6_4                                      
+  perl-Pod-Simple.x86_64 1:3.13-130.el6_4                                       
+  perl-Test-Harness.x86_64 0:3.17-130.el6_4                                     
+  perl-Test-Simple.x86_64 0:0.92-130.el6_4                                      
+  perl-devel.x86_64 4:5.10.1-130.el6_4                                          
+  perl-libs.x86_64 4:5.10.1-130.el6_4                                           
+  perl-version.x86_64 3:0.77-130.el6_4                                          
+  policycoreutils.x86_64 0:2.0.83-19.30.el6                                     
+
+Replaced:
+  libjpeg.x86_64 0:6b-46.el6                                                    
+
+Complete!
+[root@jen02.cnaf.infn.it ~]# service mysqld start
+Initializing MySQL database:  Installing MySQL system tables...
+OK
+Filling help tables...
+OK
+
+To start mysqld at boot time you have to copy
+support-files/mysql.server to the right place for your system
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+To do so, start the server, then issue the following commands:
+
+/usr/bin/mysqladmin -u root password 'new-password'
+/usr/bin/mysqladmin -u root -h jen02.cnaf.infn.it password 'new-password'
+
+Alternatively you can run:
+/usr/bin/mysql_secure_installation
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the manual for more instructions.
+
+You can start the MySQL daemon with:
+cd /usr ; /usr/bin/mysqld_safe &
+
+You can test the MySQL daemon with mysql-test-run.pl
+cd /usr/mysql-test ; perl mysql-test-run.pl
+
+Please report any problems with the /usr/bin/mysqlbug script!
+
+[60G[[0;32m  OK  [0;39m]
+Starting mysqld:  [60G[[0;32m  OK  [0;39m]
+[root@jen02.cnaf.infn.it ~]# sleep 5
+[root@jen02.cnaf.infn.it ~]# mysqladmin -u root password pwd
+[root@jen02.cnaf.infn.it ~]# mysqladmin -u root -h jen02.cnaf.infn.it password pwd
+[root@jen02.cnaf.infn.it ~]# voms-configure install --vo emi3     --core-port 15000     --hostname jen02.cnaf.infn.it     --createdb --deploy-database      --dbusername emi3_vo --dbpassword pwd     --mail-from andrea.ceccanti@cnaf.infn.it     --smtp-host postino.cnaf.infn.it     --dbapwd pwd
+Configuring VOMS admin service for vo emi3
+Creating VOMS services certificate in /etc/grid-security/vomscert.pem, /etc/grid-security/vomskey.pem
+Deploying database for VO emi3
+Creating database voms_emi3
+Granting user emi3_vo read/write access on database voms_emi3
+Done.
+Checking database connectivity...
+Database contacted succesfully
+Checking database existence...
+No voms-admin database found.
+Checking that the database is writable...
+Database is writable.
+create table acl2 (acl_id bigint not null auto_increment, group_id bigint not null, defaultACL bit not null, role_id bigint, primary key (acl_id), unique (group_id, defaultACL, role_id)) type=InnoDB
+create table acl2_permissions (acl_id bigint not null, permissions integer, admin_id bigint not null, primary key (acl_id, admin_id)) type=InnoDB
+create table admins (adminid bigint not null auto_increment, dn varchar(255) not null, email_address varchar(255), ca smallint not null, primary key (adminid), unique (dn, ca)) type=InnoDB
+create table attributes (a_id bigint not null auto_increment, a_name varchar(255) not null unique, a_desc text, a_uniq bit default 0, primary key (a_id)) type=InnoDB
+create table aup (id bigint not null auto_increment, name varchar(255) not null unique, description varchar(255), reacceptancePeriod integer not null, primary key (id)) type=InnoDB
+create table aup_acc_record (id bigint not null auto_increment, aup_version_id bigint not null, usr_id bigint not null, last_acceptance_date datetime not null, valid bit, primary key (id), unique (aup_version_id, usr_id)) type=InnoDB
+create table aup_version (id bigint not null auto_increment, aup_id bigint not null, version varchar(255) not null, url varchar(255), text varchar(255), creationTime datetime not null, lastForcedReacceptanceTime datetime, active bit not null, primary key (id), unique (aup_id, version)) type=InnoDB
+create table ca (cid smallint not null auto_increment, subject_string varchar(255) not null unique, description varchar(255), creation_time datetime not null, primary key (cid)) type=InnoDB
+create table capabilities (cid bigint not null auto_increment, capability varchar(255) not null, primary key (cid)) type=InnoDB
+create table certificate (id bigint not null auto_increment, creation_time datetime not null, subject_string varchar(255) not null, suspended bit not null, suspended_reason varchar(255), suspension_reason_code varchar(255), ca_id smallint not null, usr_id bigint not null, primary key (id), unique (ca_id, subject_string)) type=InnoDB
+create table certificate_request (certificate tinyblob, certificateIssuer varchar(255) not null, certificateSubject varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table group_attrs (a_id bigint not null, g_id bigint not null, a_value varchar(255), primary key (a_id, g_id)) type=InnoDB
+create table group_membership_req (groupName varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table groups (gid bigint not null auto_increment, dn varchar(255) not null unique, description varchar(255), parent bigint, must bit not null, restricted bit, primary key (gid)) type=InnoDB
+create table m (mapping_id bigint not null auto_increment, userid bigint not null, gid bigint not null, rid bigint, cid bigint, primary key (mapping_id), unique (userid, gid, rid)) type=InnoDB
+create table memb_req (id bigint not null auto_increment, creation_date datetime not null, evaluation_date datetime, status integer not null, confirm_id varchar(255) not null, dn varchar(255) not null, ca varchar(255) not null, cn varchar(255), mail varchar(255) not null, primary key (id)) type=InnoDB
+create table membership_rem_req (reason varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table personal_info (id bigint not null auto_increment, value varchar(255), visible bit, personal_info_type_id bigint not null, primary key (id)) type=InnoDB
+create table personal_info_type (id bigint not null auto_increment, description varchar(255), type varchar(255) not null unique, primary key (id)) type=InnoDB
+create table req (request_id bigint not null auto_increment, completionDate datetime, creationDate datetime, expirationDate datetime, status varchar(255) not null, requester_info_id bigint not null, primary key (request_id), unique (requester_info_id)) type=InnoDB
+create table requester_info (id bigint not null auto_increment, address varchar(255), certificateIssuer varchar(255) not null, certificateSubject varchar(255) not null, emailAddress varchar(255) not null, institution varchar(255), name varchar(255), phoneNumber varchar(255), surname varchar(255), voMember bit, primary key (id)) type=InnoDB
+create table requester_personal_info (requester_id bigint not null, pi_value varchar(255), pi_key varchar(255), primary key (requester_id, pi_key)) type=InnoDB
+create table role_attrs (a_id bigint not null, g_id bigint not null, r_id bigint not null, a_value varchar(255), primary key (a_id, g_id, r_id)) type=InnoDB
+create table role_membership_req (groupName varchar(255), roleName varchar(255), request_id bigint not null, primary key (request_id)) type=InnoDB
+create table roles (rid bigint not null auto_increment, role varchar(255) not null unique, primary key (rid)) type=InnoDB
+create table seqnumber (seq varchar(255) not null, primary key (seq)) type=InnoDB
+create table sign_aup_task (task_id bigint not null, aup_id bigint not null, primary key (task_id)) type=InnoDB
+create table tag_mapping (mapping_id bigint not null auto_increment, tag_id bigint not null, gid bigint not null, rid bigint, admin_id bigint not null, primary key (mapping_id), unique (tag_id, gid, rid, admin_id)) type=InnoDB
+create table tags (id bigint not null auto_increment, name varchar(255) not null unique, implicit bit not null, permissions integer not null, permissionsOnPath integer, primary key (id)) type=InnoDB
+create table task (task_id bigint not null auto_increment, completionDate datetime, creationDate datetime, expiryDate datetime, status varchar(255) not null, admin_id bigint, task_type_id bigint not null, usr_id bigint, primary key (task_id)) type=InnoDB
+create table task_log_record (id bigint not null auto_increment, adminDn varchar(255), creation_time datetime not null, event varchar(255) not null, userDn varchar(255), task_id bigint not null, primary key (id)) type=InnoDB
+create table task_type (id bigint not null auto_increment, description varchar(255), name varchar(255) not null unique, primary key (id)) type=InnoDB
+create table user_request_task (task_id bigint not null, req_id bigint not null, primary key (task_id)) type=InnoDB
+create table usr (userid bigint not null auto_increment, address varchar(255), creation_time datetime not null, dn varchar(255), email_address varchar(255) not null, end_time datetime not null, institution varchar(255), name varchar(255), phone_number varchar(255), surname varchar(255), suspended bit, suspension_reason varchar(255), suspension_reason_code varchar(255), ca smallint, primary key (userid)) type=InnoDB
+create table usr_attrs (a_id bigint not null, u_id bigint not null, a_value varchar(255), primary key (a_id, u_id)) type=InnoDB
+create table version (version integer not null, admin_version varchar(255), primary key (version)) type=InnoDB
+create table vo_membership_req (confirmId varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+alter table acl2 add index FK2D98E8720C9B10 (role_id), add constraint FK2D98E8720C9B10 foreign key (role_id) references roles (rid) on delete cascade
+alter table acl2 add index FK2D98E8FCFA8B04 (group_id), add constraint FK2D98E8FCFA8B04 foreign key (group_id) references groups (gid) on delete cascade
+alter table acl2_permissions add index FK35C6CFADD91CE8A3 (acl_id), add constraint FK35C6CFADD91CE8A3 foreign key (acl_id) references acl2 (acl_id)
+alter table acl2_permissions add index FK35C6CFADA4AD9904 (admin_id), add constraint FK35C6CFADA4AD9904 foreign key (admin_id) references admins (adminid)
+alter table admins add index FKAB3A67047C6FEB32 (ca), add constraint FKAB3A67047C6FEB32 foreign key (ca) references ca (cid)
+alter table aup_acc_record add index FKB1979B32EE2D4487 (usr_id), add constraint FKB1979B32EE2D4487 foreign key (usr_id) references usr (userid)
+alter table aup_acc_record add index FKB1979B32815F1678 (aup_version_id), add constraint FKB1979B32815F1678 foreign key (aup_version_id) references aup_version (id)
+alter table aup_version add index fk_aup_version_aup (aup_id), add constraint fk_aup_version_aup foreign key (aup_id) references aup (id) on delete cascade
+alter table certificate add index FK745F4197EE2D4487 (usr_id), add constraint FK745F4197EE2D4487 foreign key (usr_id) references usr (userid)
+alter table certificate add index FK745F419782107F70 (ca_id), add constraint FK745F419782107F70 foreign key (ca_id) references ca (cid)
+alter table certificate_request add index FK47CA53E7D75D60A4 (request_id), add constraint FK47CA53E7D75D60A4 foreign key (request_id) references req (request_id)
+alter table group_attrs add index FK40B1A2E2566C2A8F (a_id), add constraint FK40B1A2E2566C2A8F foreign key (a_id) references attributes (a_id)
+alter table group_attrs add index FK40B1A2E2DEFC581C (g_id), add constraint FK40B1A2E2DEFC581C foreign key (g_id) references groups (gid) on delete cascade
+alter table group_membership_req add index FKBD145E75D75D60A4 (request_id), add constraint FKBD145E75D75D60A4 foreign key (request_id) references req (request_id)
+alter table groups add index FKB63DD9D4A3771CD3 (parent), add constraint FKB63DD9D4A3771CD3 foreign key (parent) references groups (gid)
+alter table m add index fk_m_roles (rid), add constraint fk_m_roles foreign key (rid) references roles (rid) on delete cascade
+alter table m add index fk_m_groups (gid), add constraint fk_m_groups foreign key (gid) references groups (gid) on delete cascade
+alter table m add index fk_m_cap (cid), add constraint fk_m_cap foreign key (cid) references capabilities (cid)
+alter table m add index fk_m_usr (userid), add constraint fk_m_usr foreign key (userid) references usr (userid)
+alter table membership_rem_req add index FK1877BC10D75D60A4 (request_id), add constraint FK1877BC10D75D60A4 foreign key (request_id) references req (request_id)
+alter table personal_info add index FK229FDF4DA8D3C6BC (personal_info_type_id), add constraint FK229FDF4DA8D3C6BC foreign key (personal_info_type_id) references personal_info_type (id)
+alter table req add index FK1B89EC37E889D (requester_info_id), add constraint FK1B89EC37E889D foreign key (requester_info_id) references requester_info (id)
+alter table requester_personal_info add index FK7E3D7FCAD500B8D2 (requester_id), add constraint FK7E3D7FCAD500B8D2 foreign key (requester_id) references requester_info (id)
+alter table role_attrs add index FK6BDE9799566C2A8F (a_id), add constraint FK6BDE9799566C2A8F foreign key (a_id) references attributes (a_id)
+alter table role_attrs add index FK6BDE979920304994 (r_id), add constraint FK6BDE979920304994 foreign key (r_id) references roles (rid) on delete cascade
+alter table role_attrs add index FK6BDE9799DEFC581C (g_id), add constraint FK6BDE9799DEFC581C foreign key (g_id) references groups (gid)
+alter table role_membership_req add index FK3B9C79ED75D60A4 (request_id), add constraint FK3B9C79ED75D60A4 foreign key (request_id) references req (request_id)
+alter table sign_aup_task add index FK7FCB416A32B8C70C (task_id), add constraint FK7FCB416A32B8C70C foreign key (task_id) references task (task_id)
+alter table sign_aup_task add index FK7FCB416ADA1C6363 (aup_id), add constraint FK7FCB416ADA1C6363 foreign key (aup_id) references aup (id)
+alter table tag_mapping add index fk_tag_mapping_roles (rid), add constraint fk_tag_mapping_roles foreign key (rid) references roles (rid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_admins (admin_id), add constraint fk_tag_mapping_admins foreign key (admin_id) references admins (adminid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_groups (gid), add constraint fk_tag_mapping_groups foreign key (gid) references groups (gid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_tag (tag_id), add constraint fk_tag_mapping_tag foreign key (tag_id) references tags (id) on delete cascade
+alter table task add index FK3635859AD54C57 (task_type_id), add constraint FK3635859AD54C57 foreign key (task_type_id) references task_type (id)
+alter table task add index FK363585EE2D4487 (usr_id), add constraint FK363585EE2D4487 foreign key (usr_id) references usr (userid)
+alter table task add index FK363585A4AD9904 (admin_id), add constraint FK363585A4AD9904 foreign key (admin_id) references admins (adminid)
+alter table task_log_record add index FK77673CA632B8C70C (task_id), add constraint FK77673CA632B8C70C foreign key (task_id) references task (task_id)
+alter table user_request_task add index FKACB7D2932B8C70C (task_id), add constraint FKACB7D2932B8C70C foreign key (task_id) references task (task_id)
+alter table user_request_task add index FKACB7D299D73AC35 (req_id), add constraint FKACB7D299D73AC35 foreign key (req_id) references req (request_id)
+alter table usr add index FK1C5947C6FEB32 (ca), add constraint FK1C5947C6FEB32 foreign key (ca) references ca (cid)
+alter table usr_attrs add index FKA39E0E37566C2A8F (a_id), add constraint FKA39E0E37566C2A8F foreign key (a_id) references attributes (a_id)
+alter table usr_attrs add index FKA39E0E3720331206 (u_id), add constraint FKA39E0E3720331206 foreign key (u_id) references usr (userid)
+alter table vo_membership_req add index FK28EE8AFBD75D60A4 (request_id), add constraint FK28EE8AFBD75D60A4 foreign key (request_id) references req (request_id)
+Deploying voms database...
+PEM data not found in the stream and its end was reached
+java.io.IOException: PEM data not found in the stream and its end was reached
+	at eu.emi.security.authn.x509.impl.CertificateUtils.loadCertificateChain(CertificateUtils.java:271) ~[canl-1.1.0.jar:1.1.0]
+	at eu.emi.security.authn.x509.impl.CertificateUtils.loadCertificate(CertificateUtils.java:151) ~[canl-1.1.0.jar:1.1.0]
+	at org.glite.security.voms.admin.core.tasks.UpdateCATask.run(UpdateCATask.java:89) ~[voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.doDeploy(SchemaDeployer.java:977) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.execute(SchemaDeployer.java:215) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.<init>(SchemaDeployer.java:125) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.main(SchemaDeployer.java:1637) [voms-admin.jar:na]
+PEM data not found in the stream and its end was reached
+java.io.IOException: PEM data not found in the stream and its end was reached
+	at eu.emi.security.authn.x509.impl.CertificateUtils.loadCertificateChain(CertificateUtils.java:271) ~[canl-1.1.0.jar:1.1.0]
+	at eu.emi.security.authn.x509.impl.CertificateUtils.loadCertificate(CertificateUtils.java:151) ~[canl-1.1.0.jar:1.1.0]
+	at org.glite.security.voms.admin.core.tasks.UpdateCATask.run(UpdateCATask.java:89) ~[voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.doDeploy(SchemaDeployer.java:977) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.execute(SchemaDeployer.java:215) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.<init>(SchemaDeployer.java:125) [voms-admin.jar:na]
+	at org.glite.security.voms.admin.persistence.deployer.SchemaDeployer.main(SchemaDeployer.java:1637) [voms-admin.jar:na]
+Database deployed correctly!
+Adding VO administrator reading information from /etc/grid-security/vomscert.pem
+Admin '/C=IT/O=IGI/CN=jen02.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA' not found. It will be created...
+Adding ALL permissions on '/emi3' for admin '/C=IT/O=IGI/CN=jen02.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+Adding ALL permissions on role '/emi3/Role=VO-Admin' for admin '/C=IT/O=IGI/CN=jen02.cnaf.infn.it,/C=IT/O=IGI/CN=Test CA'
+WARNING: No email was specified for this administrator! The new administrator will not receive VOMS Admin notifications
+Adding read-only access to authenticated clients on the VO.
+Checking that the database is writable...
+Database is writable.
+Granting read-only access to any authenticated user on group '/emi3'
+Granting read-only access to any authenticated user on role '/emi3/Role=VO-Admin'
+Configuring VOMS core service for vo emi3
+VOMS core service configured succesfully.
+VO emi3 configuration completed succesfully.
+[root@jen02.cnaf.infn.it ~]# sed -i -e "s#localhost#jen02.cnaf.infn.it#g" /etc/voms-admin/voms-admin-server.properties
+[root@jen02.cnaf.infn.it ~]# yum -y install ca_INFN-CA-2006
+Loaded plugins: priorities, protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+7490 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Package ca_INFN-CA-2006-1.52-1.noarch already installed and latest version
+Nothing to do
+[root@jen02.cnaf.infn.it ~]# voms-config-info-providers -s local -e
+Will install providers for voms-admin
+Creating conf file /etc/glite/info/service/glite-info-glue2-voms.conf
+Creating conf file /etc/glite/info/service/glite-info-service-voms.conf
+Creating conf file /etc/glite/info/service/glite-info-glue2-voms-admin.conf
+Creating conf file /etc/glite/info/service/glite-info-service-voms-admin.conf
+Create the /var/lib/bdii/gip/provider in case it doesn't exist
+Create the /var/lib/bdii/gip/provider/glite-info-glue2-provider-service-voms file
+Create the /var/lib/bdii/gip/provider/glite-info-provider-service-voms file
+Create the /var/lib/bdii/gip/provider/glite-info-provider-service-voms-admin file
+[root@jen02.cnaf.infn.it ~]# service bdii start
+Starting BDII slapd: [60G[[0;32m  OK  [0;39m]
+Starting BDII update process: [60G[[0;32m  OK  [0;39m]
+[root@jen02.cnaf.infn.it ~]# fetch-crl -o /etc/grid-security/certificates -l /etc/grid-security/certificates
+VERBOSE(0) Download error http://www.pkigrid.unlp.edu.ar/pub/crl/cacrl.crl: Can't connect to www.pkigrid.unlp.edu.ar:80 (Bad hostname 'www.pkigrid.unlp.edu.ar') at /usr/share/perl5/LWP/Protocol/http.pm line 43.
+[root@jen02.cnaf.infn.it ~]# service voms start
+Starting voms(emi3): [60G[[0;32m  OK  [0;39m]
+[root@jen02.cnaf.infn.it ~]# service voms-admin start
+Deploying vo(emi3): [60G[  [1;32mOK[0;39m  ]
+Starting voms-admin: [60G[  [1;32mOK[0;39m  ]
+[root@jen02.cnaf.infn.it ~]# sleep 30
+[root@jen02.cnaf.infn.it ~]# voms-admin --vo emi3 list-groups
+ /emi3
+[root@jen02.cnaf.infn.it ~]# wget --no-check-certificate https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
+--2013-04-04 11:48:12--  https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
+Resolving raw.github.com... 199.27.76.133
+Connecting to raw.github.com|199.27.76.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1186 (1.2K) [text/plain]
+Saving to: “populate-vo.sh”
+
+     0K .                                                     100% 47.2M=0s
+
+2013-04-04 11:48:12 (47.2 MB/s) - “populate-vo.sh” saved [1186/1186]
+
+[root@jen02.cnaf.infn.it ~]# sh populate-vo.sh emi3
+[root@jen02.cnaf.infn.it ~]# yum -y install voms-clients3
+Loaded plugins: priorities, protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+7490 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients3.noarch 0:3.0.0-1.sl6 will be installed
+--> Processing Dependency: voms-api-java3 for package: voms-clients3-3.0.0-1.sl6.noarch
+--> Processing Dependency: jakarta-commons-io for package: voms-clients3-3.0.0-1.sl6.noarch
+--> Running transaction check
+---> Package jakarta-commons-io.noarch 0:1.4-3.el6 will be installed
+---> Package voms-api-java3.noarch 0:3.0.0-1.sl6 will be installed
+--> Processing Dependency: bouncycastle-mail for package: voms-api-java3-3.0.0-1.sl6.noarch
+--> Processing Dependency: canl-java for package: voms-api-java3-3.0.0-1.sl6.noarch
+--> Running transaction check
+---> Package bouncycastle-mail.noarch 0:1.46-1.el6 will be installed
+--> Processing Dependency: bouncycastle = 1.46 for package: bouncycastle-mail-1.46-1.el6.noarch
+---> Package canl-java.noarch 0:1.1.0-2.sl6 will be installed
+--> Running transaction check
+---> Package bouncycastle.noarch 0:1.46-1.el6 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                  Arch         Version           Repository        Size
+================================================================================
+Installing:
+ voms-clients3            noarch       3.0.0-1.sl6       VOMS             124 k
+Installing for dependencies:
+ bouncycastle             noarch       1.46-1.el6        epel             2.3 M
+ bouncycastle-mail        noarch       1.46-1.el6        VOMS             468 k
+ canl-java                noarch       1.1.0-2.sl6       EMI-3-base       261 k
+ jakarta-commons-io       noarch       1.4-3.el6         sl6x             104 k
+ voms-api-java3           noarch       3.0.0-1.sl6       VOMS             118 k
+
+Transaction Summary
+================================================================================
+Install       6 Package(s)
+
+Total download size: 3.4 M
+Installed size: 4.0 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           1.0 MB/s | 3.4 MB     00:03     
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : bouncycastle-1.46-1.el6.noarch                               1/6 
+  Installing : jakarta-commons-io-1.4-3.el6.noarch                          2/6 
+  Installing : canl-java-1.1.0-2.sl6.noarch                                 3/6 
+  Installing : bouncycastle-mail-1.46-1.el6.noarch                          4/6 
+  Installing : voms-api-java3-3.0.0-1.sl6.noarch                            5/6 
+  Installing : voms-clients3-3.0.0-1.sl6.noarch                             6/6 
+  Verifying  : voms-api-java3-3.0.0-1.sl6.noarch                            1/6 
+  Verifying  : canl-java-1.1.0-2.sl6.noarch                                 2/6 
+  Verifying  : jakarta-commons-io-1.4-3.el6.noarch                          3/6 
+  Verifying  : voms-clients3-3.0.0-1.sl6.noarch                             4/6 
+  Verifying  : bouncycastle-mail-1.46-1.el6.noarch                          5/6 
+  Verifying  : bouncycastle-1.46-1.el6.noarch                               6/6 
+
+Installed:
+  voms-clients3.noarch 0:3.0.0-1.sl6                                            
+
+Dependency Installed:
+  bouncycastle.noarch 0:1.46-1.el6      bouncycastle-mail.noarch 0:1.46-1.el6  
+  canl-java.noarch 0:1.1.0-2.sl6        jakarta-commons-io.noarch 0:1.4-3.el6  
+  voms-api-java3.noarch 0:3.0.0-1.sl6  
+
+Complete!
+[root@jen02.cnaf.infn.it ~]# mkdir -p .globus
+[root@jen02.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.cert.pem .globus/usercert.pem
+[root@jen02.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.key.pem .globus/userkey.pem
+[root@jen02.cnaf.infn.it ~]# chmod 600 .globus/usercert.pem
+[root@jen02.cnaf.infn.it ~]# chmod 400 .globus/userkey.pem
+[root@jen02.cnaf.infn.it ~]# mkdir /etc/vomses
+[root@jen02.cnaf.infn.it ~]# cp /etc/voms-admin/emi3/vomses /etc/vomses/emi3
+[root@jen02.cnaf.infn.it ~]# mkdir /etc/grid-security/vomsdir/emi3
+[root@jen02.cnaf.infn.it ~]# cp /etc/voms-admin/emi3/lsc /etc/grid-security/vomsdir/emi3/jen02.cnaf.infn.it.lsc
+[root@jen02.cnaf.infn.it ~]# echo 'pass' | voms-proxy-init -voms emi3 --pwstdin
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen02.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen02.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Thu Apr 04 23:48:50 CEST 2013
+[root@jen02.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen02.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen02.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Thu Apr 04 23:48:49 CEST 2013
+[root@jen02.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen02.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen02.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Thu Apr 04 23:48:48 CEST 2013
+[root@jen02.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen02.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen02.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Thu Apr 04 23:48:47 CEST 2013
+[root@jen02.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen02.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen02.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Thu Apr 04 23:48:46 CEST 2013
+[root@jen02.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen02.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen02.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Thu Apr 04 23:48:45 CEST 2013
+[root@jen02.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen02.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen02.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Thu Apr 04 23:48:44 CEST 2013
+[root@jen02.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen02.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen02.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Thu Apr 04 23:48:43 CEST 2013
+[root@jen02.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen02.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen02.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Thu Apr 04 23:48:42 CEST 2013
+[root@jen02.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen02.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen02.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Thu Apr 04 23:48:41 CEST 2013
+[root@jen02.cnaf.infn.it ~]# voms-proxy-init -voms emi3 -noregen
+Error for CA Certificate /etc/grid-security/certificates/0280e657.0: PEM data not found in the stream and its end was reached.
+Error for CA Certificate /etc/grid-security/certificates/a9b39f03.0: PEM data not found in the stream and its end was reached.
+Contacting jen02.cnaf.infn.it:15000 [/C=IT/O=IGI/CN=jen02.cnaf.infn.it] "emi3"...
+Remote VOMS server contacted succesfully.
+
+WARNING: proxy lifetime limited to issuing credential lifetime.
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Thu Apr 04 23:48:40 CEST 2013
+VOMS succesfully deployed!
