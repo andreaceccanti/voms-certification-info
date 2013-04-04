@@ -11,11 +11,11 @@
 
 - EMI Major Release: EMI 3
 
-- Platforms: SL5_x86_64, SL6_x86_64, Deb6
+- Platforms: SL5_x86_64, SL6_x86_64
 
 - Author: Andrea Ceccanti
 
-- Date: 07/02/2013
+- Date: 05/04/2013
 
 - Certification Report Template : v. 3.3
 
@@ -35,12 +35,12 @@
 4. Binary packages are available in EMI registered repo: 
     4.1. rpms [ Yes ]
     4.2. tarballs [ Yes ]
-    4.3. debs [ Yes ]
+    4.3. debs [ No ]
 
 5. Source packages are available in EMI registered repo: 
     5.1. rpms [ Yes ]
     5.2. tarballs [ Yes ]
-    5.3. debs [ Yes ]
+    5.3. debs [ No ]
 
 6. List of binary packages are specified in the Release Task: [ Yes ]
 7. List of source packages are specified in the Release Task: [ Yes ]
@@ -58,11 +58,11 @@ Testing
 
 12. The Test Report contains result/logs of :
       12.1. static code analysis: [ NA ]
-      12.2. unit tests: [ Yes ]
+      12.2. unit tests: [ NA ]
       12.3. deployment tests: [ Yes ]
-      12.4. functionality tests: [ Yes ]
-      12.5. regression tests: [ Yes ]
-      12.6. standard conformance tests: [ Yes ]
+      12.4. functionality tests: [ NA ]
+      12.5. regression tests: [ NA ]
+      12.6. standard conformance tests: [ NA ]
       12.7. performance tests: [ NA ]
       12.8. scalability tests: [ NA ]
 
