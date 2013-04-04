@@ -1,0 +1,2132 @@
+[root@omii004-vm02.cnaf.infn.it ~]# mkdir emi-release-package
+[root@omii004-vm02.cnaf.infn.it ~]# wget -P emi-release-package http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/x86_64/base/emi-release-2.0.0-1.sl5.noarch.rpm
+--2013-04-04 16:28:23--  http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/x86_64/base/emi-release-2.0.0-1.sl5.noarch.rpm
+Risoluzione di emisoft.web.cern.ch... 137.138.139.27
+Connessione a emisoft.web.cern.ch|137.138.139.27|:80... connesso.
+HTTP richiesta inviata, in attesa di risposta... 200 OK
+Lunghezza: 5189 (5,1K) [application/x-rpm]
+Salvataggio in: "emi-release-package/emi-release-2.0.0-1.sl5.noarch.rpm"
+
+     0K .....                                                 100%  330M=0s
+
+2013-04-04 16:28:23 (330 MB/s) - "emi-release-package/emi-release-2.0.0-1.sl5.noarch.rpm" salvato [5189/5189]
+
+[root@omii004-vm02.cnaf.infn.it ~]# yum -y localinstall --nogpgcheck emi-release-package/*.rpm
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Setting up Local Package Process
+Examining emi-release-package/emi-release-2.0.0-1.sl5.noarch.rpm: emi-release-2.0.0-1.sl5.noarch
+Marking emi-release-package/emi-release-2.0.0-1.sl5.noarch.rpm to be installed
+377 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:2.0.0-1.sl5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package       Arch     Version         Repository                         Size
+================================================================================
+Installing:
+ emi-release   noarch   2.0.0-1.sl5     /emi-release-2.0.0-1.sl5.noarch   2.7 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total size: 2.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : emi-release                                              1/1 
+
+Installed:
+  emi-release.noarch 0:2.0.0-1.sl5                                              
+
+Complete!
+[root@omii004-vm02.cnaf.infn.it ~]# yum clean all
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Cleaning up Everything
+[root@omii004-vm02.cnaf.infn.it ~]# yum -y install emi-voms-mysql
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+586 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-voms-mysql.x86_64 0:1.0.1-1.el5 set to be updated
+--> Processing Dependency: yaim-voms for package: emi-voms-mysql
+--> Processing Dependency: glite-yaim-bdii for package: emi-voms-mysql
+--> Processing Dependency: fetch-crl for package: emi-voms-mysql
+--> Processing Dependency: bdii for package: emi-voms-mysql
+--> Processing Dependency: voms-admin-server for package: emi-voms-mysql
+--> Processing Dependency: glite-info-provider-service for package: emi-voms-mysql
+--> Processing Dependency: voms-admin-client for package: emi-voms-mysql
+--> Processing Dependency: mysql-server for package: emi-voms-mysql
+--> Processing Dependency: voms-mysql-plugin for package: emi-voms-mysql
+--> Processing Dependency: voms-server for package: emi-voms-mysql
+--> Running transaction check
+---> Package bdii.noarch 0:5.2.12-1.el5 set to be updated
+--> Processing Dependency: glue-schema >= 2.0.0 for package: bdii
+--> Processing Dependency: openldap-servers for package: bdii
+--> Processing Dependency: expect for package: bdii
+--> Processing Dependency: openldap-clients for package: bdii
+---> Package fetch-crl.noarch 0:2.8.5-1.el5 set to be updated
+---> Package glite-info-provider-service.noarch 0:1.9.0-5.el5 set to be updated
+---> Package glite-yaim-bdii.noarch 0:4.3.11-1.el5 set to be updated
+---> Package mysql-server.x86_64 0:5.0.95-5.el5_9 set to be updated
+--> Processing Dependency: perl-DBD-MySQL for package: mysql-server
+---> Package voms-admin-client.noarch 0:2.0.17-1.el5 set to be updated
+--> Processing Dependency: python-ZSI for package: voms-admin-client
+--> Processing Dependency: PyXML for package: voms-admin-client
+--> Processing Dependency: python-simplejson for package: voms-admin-client
+---> Package voms-admin-server.noarch 0:2.7.0-1.el5 set to be updated
+--> Processing Dependency: bouncycastle >= 1.39 for package: voms-admin-server
+--> Processing Dependency: tomcat5 for package: voms-admin-server
+--> Processing Dependency: emi-trustmanager for package: voms-admin-server
+--> Processing Dependency: java for package: voms-admin-server
+--> Processing Dependency: emi-trustmanager-tomcat for package: voms-admin-server
+---> Package voms-mysql-plugin.x86_64 0:3.1.6-1.el5 set to be updated
+---> Package voms-server.x86_64 0:2.0.9-1.el5 set to be updated
+--> Processing Dependency: voms = 2.0.9-1.el5 for package: voms-server
+--> Processing Dependency: libvomsapi.so.1()(64bit) for package: voms-server
+---> Package yaim-voms.noarch 0:1.1.1-1.el5 set to be updated
+--> Processing Dependency: glite-yaim-core for package: yaim-voms
+--> Running transaction check
+---> Package PyXML.x86_64 0:0.8.4-6.el5 set to be updated
+---> Package bouncycastle.x86_64 0:1.45-6.el5 set to be updated
+--> Processing Dependency: jpackage-utils >= 1.7 for package: bouncycastle
+--> Processing Dependency: jpackage-utils >= 1.7 for package: bouncycastle
+--> Processing Dependency: jpackage-utils >= 1.5 for package: bouncycastle
+--> Processing Dependency: java-gcj-compat for package: bouncycastle
+--> Processing Dependency: java-gcj-compat for package: bouncycastle
+--> Processing Dependency: java-gcj for package: bouncycastle
+--> Processing Dependency: libgcj_bc.so.1()(64bit) for package: bouncycastle
+---> Package emi-trustmanager.noarch 0:3.1.4-1.sl5 set to be updated
+---> Package emi-trustmanager-tomcat.noarch 0:3.0.1-1.sl5 set to be updated
+--> Processing Dependency: log4j for package: emi-trustmanager-tomcat
+---> Package expect.x86_64 0:5.43.0-8.el5 set to be updated
+---> Package glite-yaim-core.noarch 0:5.1.0-1.sl5 set to be updated
+---> Package glue-schema.noarch 0:2.0.8-2.el5 set to be updated
+---> Package java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.36.1.11.9.el5_9 set to be updated
+--> Processing Dependency: libjpeg = 6b for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2(ALSA_0.9)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2(ALSA_0.9.0rc4)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libpng12.so.0(PNG12_0)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: tzdata-java for package: java-1.6.0-openjdk
+--> Processing Dependency: libfreetype.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXtst.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXrender.so.1()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libjpeg.so.62()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libpng12.so.0()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXi.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libgif.so.4()(64bit) for package: java-1.6.0-openjdk
+---> Package openldap-clients.x86_64 0:2.3.43-25.el5_8.1 set to be updated
+---> Package openldap-servers.x86_64 0:2.3.43-25.el5_8.1 set to be updated
+--> Processing Dependency: libltdl.so.3()(64bit) for package: openldap-servers
+---> Package perl-DBD-MySQL.x86_64 0:3.0007-2.el5 set to be updated
+---> Package python-ZSI.noarch 0:2.0-7.el5 set to be updated
+---> Package python-simplejson.x86_64 0:2.0.9-8.el5 set to be updated
+---> Package tomcat5.x86_64 0:5.5.23-0jpp.38.el5_9 set to be updated
+--> Processing Dependency: tomcat5-common-lib = 5.5.23-0jpp.38.el5_9 for package: tomcat5
+--> Processing Dependency: tomcat5-server-lib = 5.5.23-0jpp.38.el5_9 for package: tomcat5
+--> Processing Dependency: tomcat5-server-lib = 5.5.23-0jpp.38.el5_9 for package: tomcat5
+--> Processing Dependency: tomcat5-common-lib = 5.5.23-0jpp.38.el5_9 for package: tomcat5
+--> Processing Dependency: xerces-j2 >= 2.7.1 for package: tomcat5
+--> Processing Dependency: jakarta-commons-launcher >= 0.9 for package: tomcat5
+--> Processing Dependency: xml-commons-apis >= 1.3 for package: tomcat5
+--> Processing Dependency: jakarta-commons-daemon >= 1.0.1 for package: tomcat5
+---> Package voms.x86_64 0:2.0.9-1.el5 set to be updated
+--> Running transaction check
+---> Package alsa-lib.x86_64 0:1.0.17-1.el5 set to be updated
+---> Package freetype.x86_64 0:2.2.1-32.el5_9.1 set to be updated
+---> Package giflib.x86_64 0:4.1.3-7.3.3.el5 set to be updated
+---> Package jakarta-commons-daemon.x86_64 1:1.0.1-6jpp.1 set to be updated
+---> Package jakarta-commons-launcher.x86_64 0:0.9-6jpp.1 set to be updated
+---> Package java-1.4.2-gcj-compat.x86_64 0:1.4.2.0-40jpp.115 set to be updated
+--> Processing Dependency: zip for package: java-1.4.2-gcj-compat
+--> Processing Dependency: gjdoc for package: java-1.4.2-gcj-compat
+---> Package jpackage-utils.noarch 0:1.7.3-1jpp.3.el5 set to be updated
+---> Package libXi.x86_64 0:1.0.1-4.el5_4 set to be updated
+---> Package libXrender.x86_64 0:0.9.1-3.1 set to be updated
+---> Package libXtst.x86_64 0:1.0.1-3.1 set to be updated
+---> Package libgcj.x86_64 0:4.1.2-54.el5 set to be updated
+--> Processing Dependency: libart_lgpl >= 2.1.0 for package: libgcj
+--> Processing Dependency: gtk2 >= 2.4.0 for package: libgcj
+--> Processing Dependency: libgtk-x11-2.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libXrandr.so.2()(64bit) for package: libgcj
+--> Processing Dependency: libpangoft2-1.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libcairo.so.2()(64bit) for package: libgcj
+--> Processing Dependency: libpangocairo-1.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libatk-1.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libgdk-x11-2.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libpango-1.0.so.0()(64bit) for package: libgcj
+--> Processing Dependency: libgdk_pixbuf-2.0.so.0()(64bit) for package: libgcj
+---> Package libjpeg.x86_64 0:6b-37 set to be updated
+---> Package libpng.x86_64 2:1.2.10-17.el5_8 set to be updated
+---> Package libtool-ltdl.x86_64 0:1.5.22-7.el5_4 set to be updated
+---> Package log4j.x86_64 0:1.2.13-3jpp.2 set to be updated
+---> Package tomcat5-common-lib.x86_64 0:5.5.23-0jpp.38.el5_9 set to be updated
+--> Processing Dependency: tomcat5-jasper = 5.5.23-0jpp.38.el5_9 for package: tomcat5-common-lib
+--> Processing Dependency: tomcat5-jsp-2.0-api = 5.5.23-0jpp.38.el5_9 for package: tomcat5-common-lib
+--> Processing Dependency: tomcat5-servlet-2.4-api = 5.5.23-0jpp.38.el5_9 for package: tomcat5-common-lib
+--> Processing Dependency: tomcat5-jasper = 5.5.23-0jpp.38.el5_9 for package: tomcat5-common-lib
+--> Processing Dependency: tomcat5-jsp-2.0-api = 5.5.23-0jpp.38.el5_9 for package: tomcat5-common-lib
+--> Processing Dependency: tomcat5-servlet-2.4-api = 5.5.23-0jpp.38.el5_9 for package: tomcat5-common-lib
+--> Processing Dependency: jta >= 1.0.1 for package: tomcat5-common-lib
+--> Processing Dependency: mx4j >= 3.0.1 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-el >= 1.0 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-pool >= 1.2 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-logging >= 1.0.4 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-dbcp >= 1.2.1 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-dbcp >= 1.2.1 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-collections >= 3.1 for package: tomcat5-common-lib
+--> Processing Dependency: jaf >= 1.0.1 for package: tomcat5-common-lib
+--> Processing Dependency: ant >= 1.6 for package: tomcat5-common-lib
+--> Processing Dependency: mx4j >= 3.0.1 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-el >= 1.0 for package: tomcat5-common-lib
+--> Processing Dependency: eclipse-ecj >= 3.1.1 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-pool >= 1.2 for package: tomcat5-common-lib
+--> Processing Dependency: jaf >= 1.0.1 for package: tomcat5-common-lib
+--> Processing Dependency: javamail >= 1.3.1 for package: tomcat5-common-lib
+--> Processing Dependency: jta >= 1.0.1 for package: tomcat5-common-lib
+--> Processing Dependency: eclipse-ecj >= 3.1.1 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-logging >= 1.0.4 for package: tomcat5-common-lib
+--> Processing Dependency: jakarta-commons-collections >= 3.1 for package: tomcat5-common-lib
+--> Processing Dependency: javamail >= 1.3.1 for package: tomcat5-common-lib
+--> Processing Dependency: ant >= 1.6 for package: tomcat5-common-lib
+---> Package tomcat5-server-lib.x86_64 0:5.5.23-0jpp.38.el5_9 set to be updated
+--> Processing Dependency: regexp >= 1.3 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-digester >= 1.6 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-beanutils >= 1.7.0 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-modeler >= 1.1-8jpp.1.0.1 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-digester >= 1.6 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-beanutils >= 1.7.0 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-fileupload >= 1.0-1jpp for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-modeler >= 1.1-8jpp.1.0.1 for package: tomcat5-server-lib
+--> Processing Dependency: regexp >= 1.3 for package: tomcat5-server-lib
+--> Processing Dependency: jakarta-commons-fileupload >= 1.0-1jpp for package: tomcat5-server-lib
+---> Package tzdata-java.x86_64 0:2013b-1.el5 set to be updated
+---> Package xerces-j2.x86_64 0:2.7.1-7jpp.2.el5_4.2 set to be updated
+--> Processing Dependency: xml-commons-resolver >= 1.1 for package: xerces-j2
+---> Package xml-commons-apis.x86_64 0:1.3.02-0.b2.7jpp.10 set to be updated
+--> Processing Dependency: xml-commons = 1.3.02-0.b2.7jpp.10 for package: xml-commons-apis
+--> Running transaction check
+---> Package ant.x86_64 0:1.6.5-2jpp.2 set to be updated
+--> Processing Dependency: java-devel for package: ant
+---> Package atk.x86_64 0:1.12.2-1.fc6 set to be updated
+---> Package cairo.x86_64 0:1.2.4-5.el5 set to be updated
+--> Processing Dependency: libfontconfig.so.1()(64bit) for package: cairo
+---> Package classpathx-jaf.x86_64 0:1.0-9jpp.1 set to be updated
+---> Package classpathx-mail.x86_64 0:1.1.1-4jpp.2 set to be updated
+---> Package eclipse-ecj.x86_64 1:3.2.1-19.el5 set to be updated
+---> Package geronimo-specs-compat.x86_64 0:1.0-0.M2.2jpp.12 set to be updated
+--> Processing Dependency: geronimo-specs = 1.0-0.M2.2jpp.12 for package: geronimo-specs-compat
+---> Package gjdoc.x86_64 0:0.7.7-12.el5 set to be updated
+--> Processing Dependency: antlr for package: gjdoc
+---> Package gtk2.x86_64 0:2.10.4-29.el5 set to be updated
+--> Processing Dependency: libtiff >= 3.6.1 for package: gtk2
+--> Processing Dependency: hicolor-icon-theme for package: gtk2
+--> Processing Dependency: libtiff.so.3()(64bit) for package: gtk2
+--> Processing Dependency: libXcursor.so.1()(64bit) for package: gtk2
+--> Processing Dependency: libXinerama.so.1()(64bit) for package: gtk2
+--> Processing Dependency: libXfixes.so.3()(64bit) for package: gtk2
+--> Processing Dependency: libcups.so.2()(64bit) for package: gtk2
+---> Package jakarta-commons-beanutils.x86_64 0:1.7.0-5jpp.1 set to be updated
+---> Package jakarta-commons-collections.x86_64 0:3.2-2jpp.3 set to be updated
+---> Package jakarta-commons-dbcp.x86_64 0:1.2.1-7jpp.1 set to be updated
+---> Package jakarta-commons-digester.x86_64 0:1.7-5jpp.1 set to be updated
+---> Package jakarta-commons-el.x86_64 0:1.0-7jpp.1 set to be updated
+---> Package jakarta-commons-fileupload.x86_64 1:1.0-6jpp.1 set to be updated
+---> Package jakarta-commons-logging.x86_64 0:1.0.4-6jpp.1 set to be updated
+---> Package jakarta-commons-modeler.x86_64 0:1.1-8jpp.3.el5 set to be updated
+--> Processing Dependency: jaxp_transform_impl for package: jakarta-commons-modeler
+---> Package jakarta-commons-pool.x86_64 0:1.3-5jpp.1 set to be updated
+---> Package libXrandr.x86_64 0:1.1.1-3.3 set to be updated
+---> Package libart_lgpl.x86_64 0:2.3.17-4 set to be updated
+---> Package mx4j.x86_64 1:3.0.1-6jpp.4 set to be updated
+--> Processing Dependency: axis >= 1.1 for package: mx4j
+--> Processing Dependency: bcel >= 5.0 for package: mx4j
+---> Package pango.x86_64 0:1.14.9-8.el5_7.3 set to be updated
+--> Processing Dependency: bitstream-vera-fonts for package: pango
+--> Processing Dependency: libXft for package: pango
+--> Processing Dependency: libXft.so.2()(64bit) for package: pango
+---> Package regexp.x86_64 0:1.4-2jpp.2 set to be updated
+---> Package tomcat5-jasper.x86_64 0:5.5.23-0jpp.38.el5_9 set to be updated
+---> Package tomcat5-jsp-2.0-api.x86_64 0:5.5.23-0jpp.38.el5_9 set to be updated
+---> Package tomcat5-servlet-2.4-api.x86_64 0:5.5.23-0jpp.38.el5_9 set to be updated
+---> Package xml-commons.x86_64 0:1.3.02-0.b2.7jpp.10 set to be updated
+---> Package xml-commons-resolver.x86_64 0:1.1-1jpp.12 set to be updated
+---> Package zip.x86_64 0:2.31-2.el5 set to be updated
+--> Running transaction check
+---> Package antlr.x86_64 0:2.7.6-4jpp.2 set to be updated
+---> Package axis.x86_64 0:1.2.1-2jpp.7.el5_9 set to be updated
+--> Processing Dependency: jakarta-commons-discovery for package: axis
+--> Processing Dependency: jakarta-commons-httpclient for package: axis
+--> Processing Dependency: wsdl4j for package: axis
+---> Package bcel.x86_64 0:5.1-8jpp.1 set to be updated
+---> Package bitstream-vera-fonts.noarch 0:1.10-7 set to be updated
+---> Package cups-libs.x86_64 1:1.3.7-30.el5_9.3 set to be updated
+--> Processing Dependency: libgnutls.so.13(GNUTLS_1_3)(64bit) for package: cups-libs
+--> Processing Dependency: libgnutls.so.13()(64bit) for package: cups-libs
+---> Package fontconfig.x86_64 0:2.4.1-7.el5 set to be updated
+---> Package geronimo-specs.x86_64 0:1.0-0.M2.2jpp.12 set to be updated
+---> Package hicolor-icon-theme.noarch 0:0.9-2.1 set to be updated
+---> Package java-1.6.0-openjdk-devel.x86_64 1:1.6.0.0-1.36.1.11.9.el5_9 set to be updated
+---> Package libXcursor.x86_64 0:1.1.7-1.2 set to be updated
+---> Package libXfixes.x86_64 0:4.0.1-2.1 set to be updated
+---> Package libXft.x86_64 0:2.1.10-1.1 set to be updated
+---> Package libXinerama.x86_64 0:1.0.1-2.1 set to be updated
+---> Package libtiff.x86_64 0:3.8.2-18.el5_8 set to be updated
+---> Package xalan-j2.x86_64 0:2.7.0-6jpp.1 set to be updated
+--> Running transaction check
+---> Package gnutls.x86_64 0:1.4.1-10.el5_9.1 set to be updated
+---> Package jakarta-commons-discovery.x86_64 1:0.3-4jpp.1 set to be updated
+---> Package jakarta-commons-httpclient.x86_64 1:3.0-7jpp.2 set to be updated
+---> Package wsdl4j.x86_64 0:1.5.2-4jpp.1 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                     Arch   Version                 Repository     Size
+================================================================================
+Installing:
+ emi-voms-mysql              x86_64 1.0.1-1.el5             EMI-2-base    2.3 k
+Installing for dependencies:
+ PyXML                       x86_64 0.8.4-6.el5             sl5x          1.0 M
+ alsa-lib                    x86_64 1.0.17-1.el5            sl5x          414 k
+ ant                         x86_64 1.6.5-2jpp.2            sl5x          2.3 M
+ antlr                       x86_64 2.7.6-4jpp.2            sl5x          1.1 M
+ atk                         x86_64 1.12.2-1.fc6            sl5x          224 k
+ axis                        x86_64 1.2.1-2jpp.7.el5_9      sl5x-security 3.6 M
+ bcel                        x86_64 5.1-8jpp.1              sl5x          1.1 M
+ bdii                        noarch 5.2.12-1.el5            EMI-2-updates  22 k
+ bitstream-vera-fonts        noarch 1.10-7                  sl5x          343 k
+ bouncycastle                x86_64 1.45-6.el5              epel          4.0 M
+ cairo                       x86_64 1.2.4-5.el5             sl5x          386 k
+ classpathx-jaf              x86_64 1.0-9jpp.1              sl5x          111 k
+ classpathx-mail             x86_64 1.1.1-4jpp.2            sl5x          1.2 M
+ cups-libs                   x86_64 1:1.3.7-30.el5_9.3      sl5x-security 196 k
+ eclipse-ecj                 x86_64 1:3.2.1-19.el5          sl5x          9.0 M
+ emi-trustmanager            noarch 3.1.4-1.sl5             EMI-2-updates 277 k
+ emi-trustmanager-tomcat     noarch 3.0.1-1.sl5             EMI-2-base     30 k
+ expect                      x86_64 5.43.0-8.el5            sl5x          160 k
+ fetch-crl                   noarch 2.8.5-1.el5             epel           24 k
+ fontconfig                  x86_64 2.4.1-7.el5             sl5x          175 k
+ freetype                    x86_64 2.2.1-32.el5_9.1        sl5x-security 312 k
+ geronimo-specs              x86_64 1.0-0.M2.2jpp.12        sl5x          258 k
+ geronimo-specs-compat       x86_64 1.0-0.M2.2jpp.12        sl5x          5.4 k
+ giflib                      x86_64 4.1.3-7.3.3.el5         sl5x           39 k
+ gjdoc                       x86_64 0.7.7-12.el5            sl5x          885 k
+ glite-info-provider-service noarch 1.9.0-5.el5             EMI-2-updates  66 k
+ glite-yaim-bdii             noarch 4.3.11-1.el5            EMI-2-updates 9.5 k
+ glite-yaim-core             noarch 5.1.0-1.sl5             EMI-2-base    118 k
+ glue-schema                 noarch 2.0.8-2.el5             EMI-2-updates  34 k
+ gnutls                      x86_64 1.4.1-10.el5_9.1        sl5x-security 365 k
+ gtk2                        x86_64 2.10.4-29.el5           sl5x          6.6 M
+ hicolor-icon-theme          noarch 0.9-2.1                 sl5x           25 k
+ jakarta-commons-beanutils   x86_64 1.7.0-5jpp.1            sl5x          567 k
+ jakarta-commons-collections x86_64 3.2-2jpp.3              sl5x          1.2 M
+ jakarta-commons-daemon      x86_64 1:1.0.1-6jpp.1          sl5x           46 k
+ jakarta-commons-dbcp        x86_64 1.2.1-7jpp.1            sl5x          278 k
+ jakarta-commons-digester    x86_64 1.7-5jpp.1              sl5x          349 k
+ jakarta-commons-discovery   x86_64 1:0.3-4jpp.1            sl5x          150 k
+ jakarta-commons-el          x86_64 1.0-7jpp.1              sl5x          269 k
+ jakarta-commons-fileupload  x86_64 1:1.0-6jpp.1            sl5x           53 k
+ jakarta-commons-httpclient  x86_64 1:3.0-7jpp.2            sl5x-security 600 k
+ jakarta-commons-launcher    x86_64 0.9-6jpp.1              sl5x           97 k
+ jakarta-commons-logging     x86_64 1.0.4-6jpp.1            sl5x          115 k
+ jakarta-commons-modeler     x86_64 1.1-8jpp.3.el5          sl5x          259 k
+ jakarta-commons-pool        x86_64 1.3-5jpp.1              sl5x          142 k
+ java-1.4.2-gcj-compat       x86_64 1.4.2.0-40jpp.115       sl5x           29 k
+ java-1.6.0-openjdk          x86_64 1:1.6.0.0-1.36.1.11.9.el5_9
+                                                            sl5x-security  36 M
+ java-1.6.0-openjdk-devel    x86_64 1:1.6.0.0-1.36.1.11.9.el5_9
+                                                            sl5x-security  12 M
+ jpackage-utils              noarch 1.7.3-1jpp.3.el5        sl5x           61 k
+ libXcursor                  x86_64 1.1.7-1.2               sl5x           32 k
+ libXfixes                   x86_64 4.0.1-2.1               sl5x           15 k
+ libXft                      x86_64 2.1.10-1.1              sl5x           44 k
+ libXi                       x86_64 1.0.1-4.el5_4           sl5x           26 k
+ libXinerama                 x86_64 1.0.1-2.1               sl5x          9.8 k
+ libXrandr                   x86_64 1.1.1-3.3               sl5x           15 k
+ libXrender                  x86_64 0.9.1-3.1               sl5x           28 k
+ libXtst                     x86_64 1.0.1-3.1               sl5x           16 k
+ libart_lgpl                 x86_64 2.3.17-4                sl5x           75 k
+ libgcj                      x86_64 4.1.2-54.el5            sl5x           18 M
+ libjpeg                     x86_64 6b-37                   sl5x          139 k
+ libpng                      x86_64 2:1.2.10-17.el5_8       sl5x          235 k
+ libtiff                     x86_64 3.8.2-18.el5_8          sl5x          315 k
+ libtool-ltdl                x86_64 1.5.22-7.el5_4          sl5x           38 k
+ log4j                       x86_64 1.2.13-3jpp.2           sl5x          729 k
+ mx4j                        x86_64 1:3.0.1-6jpp.4          sl5x          2.7 M
+ mysql-server                x86_64 5.0.95-5.el5_9          sl5x-security 9.9 M
+ openldap-clients            x86_64 2.3.43-25.el5_8.1       sl5x          224 k
+ openldap-servers            x86_64 2.3.43-25.el5_8.1       sl5x          2.2 M
+ pango                       x86_64 1.14.9-8.el5_7.3        sl5x          338 k
+ perl-DBD-MySQL              x86_64 3.0007-2.el5            sl5x          147 k
+ python-ZSI                  noarch 2.0-7.el5               epel          574 k
+ python-simplejson           x86_64 2.0.9-8.el5             sl5x          141 k
+ regexp                      x86_64 1.4-2jpp.2              sl5x          102 k
+ tomcat5                     x86_64 5.5.23-0jpp.38.el5_9    sl5x-security 394 k
+ tomcat5-common-lib          x86_64 5.5.23-0jpp.38.el5_9    sl5x-security 226 k
+ tomcat5-jasper              x86_64 5.5.23-0jpp.38.el5_9    sl5x-security 1.1 M
+ tomcat5-jsp-2.0-api         x86_64 5.5.23-0jpp.38.el5_9    sl5x-security 105 k
+ tomcat5-server-lib          x86_64 5.5.23-0jpp.38.el5_9    sl5x-security 4.0 M
+ tomcat5-servlet-2.4-api     x86_64 5.5.23-0jpp.38.el5_9    sl5x-security 165 k
+ tzdata-java                 x86_64 2013b-1.el5             sl5x-security 184 k
+ voms                        x86_64 2.0.9-1.el5             EMI-2-updates 164 k
+ voms-admin-client           noarch 2.0.17-1.el5            EMI-2-base     91 k
+ voms-admin-server           noarch 2.7.0-1.el5             EMI-2-base     61 M
+ voms-mysql-plugin           x86_64 3.1.6-1.el5             EMI-2-base     29 k
+ voms-server                 x86_64 2.0.9-1.el5             EMI-2-updates 197 k
+ wsdl4j                      x86_64 1.5.2-4jpp.1            sl5x          428 k
+ xalan-j2                    x86_64 2.7.0-6jpp.1            sl5x          4.6 M
+ xerces-j2                   x86_64 2.7.1-7jpp.2.el5_4.2    sl5x          3.1 M
+ xml-commons                 x86_64 1.3.02-0.b2.7jpp.10     sl5x           19 k
+ xml-commons-apis            x86_64 1.3.02-0.b2.7jpp.10     sl5x          387 k
+ xml-commons-resolver        x86_64 1.1-1jpp.12             sl5x          170 k
+ yaim-voms                   noarch 1.1.1-1.el5             EMI-2-base     24 k
+ zip                         x86_64 2.31-2.el5              sl5x          135 k
+
+Transaction Summary
+================================================================================
+Install      94 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 199 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           1.9 MB/s | 199 MB     01:47     
+avvertimento: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID df9e12ef
+Importing GPG key 0xDF9E12EF "Doina Cristina Aiftimiei (EMI Release Manager) <aiftim@pd.infn.it>" from /etc/pki/rpm-gpg/RPM-GPG-KEY-emi
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : libXrender                                              1/94 
+  Installing     : freetype                                                2/94 
+  Installing     : fontconfig                                              3/94 
+  Installing     : libpng                                                  4/94 
+  Installing     : libjpeg                                                 5/94 
+  Installing     : cairo                                                   6/94 
+  Installing     : libtiff                                                 7/94 
+  Installing     : libXrandr                                               8/94 
+  Installing     : atk                                                     9/94 
+  Installing     : alsa-lib                                               10/94 
+  Installing     : libXtst                                                11/94 
+  Installing     : libXi                                                  12/94 
+  Installing     : PyXML                                                  13/94 
+  Installing     : libXfixes                                              14/94 
+  Installing     : zip                                                    15/94 
+  Installing     : libXcursor                                             16/94 
+  Installing     : libXft                                                 17/94 
+  Installing     : gnutls                                                 18/94 
+  Installing     : cups-libs                                              19/94 
+  Installing     : voms                                                   20/94 
+  Installing     : voms-server                                            21/94 
+  Installing     : voms-mysql-plugin                                      22/94 
+  Installing     : libtool-ltdl                                           23/94 
+  Installing     : openldap-servers                                       24/94 
+  Installing     : expect                                                 25/94 
+  Installing     : libart_lgpl                                            26/94 
+  Installing     : python-simplejson                                      27/94 
+  Installing     : perl-DBD-MySQL                                         28/94 
+  Installing     : mysql-server                                           29/94 
+  Installing     : giflib                                                 30/94 
+  Installing     : openldap-clients                                       31/94 
+  Installing     : libXinerama                                            32/94 
+  Installing     : jpackage-utils                                         33/94 
+  Installing     : xml-commons                                            34/94 
+  Installing     : python-ZSI                                             35/94 
+  Installing     : voms-admin-client                                      36/94 
+  Installing     : bitstream-vera-fonts                                   37/94 
+  Installing     : pango                                                  38/94 
+  Installing     : glite-info-provider-service                            39/94 
+  Installing     : glue-schema                                            40/94 
+  Installing     : bdii                                                   41/94 
+  Installing     : glite-yaim-core                                        42/94 
+  Installing     : yaim-voms                                              43/94 
+  Installing     : tzdata-java                                            44/94 
+  Installing     : hicolor-icon-theme                                     45/94 
+  Installing     : gtk2                                                   46/94 
+  Installing     : libgcj                                                 47/94 
+  Installing     : java-1.6.0-openjdk                                     48/94 
+  Installing     : java-1.6.0-openjdk-devel                               49/94 
+  Installing     : emi-trustmanager                                       50/94 
+  Installing     : glite-yaim-bdii                                        51/94 
+  Installing     : fetch-crl                                              52/94 
+  Installing     : java-1.4.2-gcj-compat                                  53/94 
+  Installing     : jakarta-commons-logging                                54/94 
+  Installing     : xml-commons-apis                                       55/94 
+  Installing     : tomcat5-servlet-2.4-api                                56/94 
+  Installing     : classpathx-jaf                                         57/94 
+  Installing     : jakarta-commons-collections                            58/94 
+  Installing     : jakarta-commons-beanutils                              59/94 
+  Installing     : classpathx-mail                                        60/94 
+  Installing     : jakarta-commons-digester                               61/94 
+  Installing     : tomcat5-jasper                                         62/94 
+  Installing     : jakarta-commons-pool                                   63/94 
+  Installing     : bouncycastle                                           64/94 
+  Installing     : jakarta-commons-el                                     65/94 
+  Installing     : regexp                                                 66/94 
+  Installing     : bcel                                                   67/94 
+  Installing     : jakarta-commons-dbcp                                   68/94 
+  Installing     : jakarta-commons-fileupload                             69/94 
+  Installing     : tomcat5-jsp-2.0-api                                    70/94 
+  Installing     : jakarta-commons-discovery                              71/94 
+  Installing     : jakarta-commons-httpclient                             72/94 
+  Installing     : jakarta-commons-launcher                               73/94 
+  Installing     : gjdoc                                                  74/94 
+  Installing     : jakarta-commons-daemon                                 75/94 
+  Installing     : eclipse-ecj                                            76/94 
+  Installing     : antlr                                                  77/94 
+  Installing     : xerces-j2                                              78/94 
+  Installing     : log4j                                                  79/94 
+  Installing     : xml-commons-resolver                                   80/94 
+  Installing     : xalan-j2                                               81/94 
+  Installing     : ant                                                    82/94 
+  Installing     : wsdl4j                                                 83/94 
+  Installing     : axis                                                   84/94 
+  Installing     : mx4j                                                   85/94 
+  Installing     : geronimo-specs                                         86/94 
+  Installing     : jakarta-commons-modeler                                87/94 
+  Installing     : tomcat5-server-lib                                     88/94 
+  Installing     : geronimo-specs-compat                                  89/94 
+  Installing     : tomcat5-common-lib                                     90/94 
+  Installing     : tomcat5                                                91/94 
+  Installing     : emi-trustmanager-tomcat                                92/94 
+  Installing     : voms-admin-server                                      93/94 
+  Installing     : emi-voms-mysql                                         94/94 
+
+Installed:
+  emi-voms-mysql.x86_64 0:1.0.1-1.el5                                           
+
+Dependency Installed:
+  PyXML.x86_64 0:0.8.4-6.el5                                                    
+  alsa-lib.x86_64 0:1.0.17-1.el5                                                
+  ant.x86_64 0:1.6.5-2jpp.2                                                     
+  antlr.x86_64 0:2.7.6-4jpp.2                                                   
+  atk.x86_64 0:1.12.2-1.fc6                                                     
+  axis.x86_64 0:1.2.1-2jpp.7.el5_9                                              
+  bcel.x86_64 0:5.1-8jpp.1                                                      
+  bdii.noarch 0:5.2.12-1.el5                                                    
+  bitstream-vera-fonts.noarch 0:1.10-7                                          
+  bouncycastle.x86_64 0:1.45-6.el5                                              
+  cairo.x86_64 0:1.2.4-5.el5                                                    
+  classpathx-jaf.x86_64 0:1.0-9jpp.1                                            
+  classpathx-mail.x86_64 0:1.1.1-4jpp.2                                         
+  cups-libs.x86_64 1:1.3.7-30.el5_9.3                                           
+  eclipse-ecj.x86_64 1:3.2.1-19.el5                                             
+  emi-trustmanager.noarch 0:3.1.4-1.sl5                                         
+  emi-trustmanager-tomcat.noarch 0:3.0.1-1.sl5                                  
+  expect.x86_64 0:5.43.0-8.el5                                                  
+  fetch-crl.noarch 0:2.8.5-1.el5                                                
+  fontconfig.x86_64 0:2.4.1-7.el5                                               
+  freetype.x86_64 0:2.2.1-32.el5_9.1                                            
+  geronimo-specs.x86_64 0:1.0-0.M2.2jpp.12                                      
+  geronimo-specs-compat.x86_64 0:1.0-0.M2.2jpp.12                               
+  giflib.x86_64 0:4.1.3-7.3.3.el5                                               
+  gjdoc.x86_64 0:0.7.7-12.el5                                                   
+  glite-info-provider-service.noarch 0:1.9.0-5.el5                              
+  glite-yaim-bdii.noarch 0:4.3.11-1.el5                                         
+  glite-yaim-core.noarch 0:5.1.0-1.sl5                                          
+  glue-schema.noarch 0:2.0.8-2.el5                                              
+  gnutls.x86_64 0:1.4.1-10.el5_9.1                                              
+  gtk2.x86_64 0:2.10.4-29.el5                                                   
+  hicolor-icon-theme.noarch 0:0.9-2.1                                           
+  jakarta-commons-beanutils.x86_64 0:1.7.0-5jpp.1                               
+  jakarta-commons-collections.x86_64 0:3.2-2jpp.3                               
+  jakarta-commons-daemon.x86_64 1:1.0.1-6jpp.1                                  
+  jakarta-commons-dbcp.x86_64 0:1.2.1-7jpp.1                                    
+  jakarta-commons-digester.x86_64 0:1.7-5jpp.1                                  
+  jakarta-commons-discovery.x86_64 1:0.3-4jpp.1                                 
+  jakarta-commons-el.x86_64 0:1.0-7jpp.1                                        
+  jakarta-commons-fileupload.x86_64 1:1.0-6jpp.1                                
+  jakarta-commons-httpclient.x86_64 1:3.0-7jpp.2                                
+  jakarta-commons-launcher.x86_64 0:0.9-6jpp.1                                  
+  jakarta-commons-logging.x86_64 0:1.0.4-6jpp.1                                 
+  jakarta-commons-modeler.x86_64 0:1.1-8jpp.3.el5                               
+  jakarta-commons-pool.x86_64 0:1.3-5jpp.1                                      
+  java-1.4.2-gcj-compat.x86_64 0:1.4.2.0-40jpp.115                              
+  java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.36.1.11.9.el5_9                         
+  java-1.6.0-openjdk-devel.x86_64 1:1.6.0.0-1.36.1.11.9.el5_9                   
+  jpackage-utils.noarch 0:1.7.3-1jpp.3.el5                                      
+  libXcursor.x86_64 0:1.1.7-1.2                                                 
+  libXfixes.x86_64 0:4.0.1-2.1                                                  
+  libXft.x86_64 0:2.1.10-1.1                                                    
+  libXi.x86_64 0:1.0.1-4.el5_4                                                  
+  libXinerama.x86_64 0:1.0.1-2.1                                                
+  libXrandr.x86_64 0:1.1.1-3.3                                                  
+  libXrender.x86_64 0:0.9.1-3.1                                                 
+  libXtst.x86_64 0:1.0.1-3.1                                                    
+  libart_lgpl.x86_64 0:2.3.17-4                                                 
+  libgcj.x86_64 0:4.1.2-54.el5                                                  
+  libjpeg.x86_64 0:6b-37                                                        
+  libpng.x86_64 2:1.2.10-17.el5_8                                               
+  libtiff.x86_64 0:3.8.2-18.el5_8                                               
+  libtool-ltdl.x86_64 0:1.5.22-7.el5_4                                          
+  log4j.x86_64 0:1.2.13-3jpp.2                                                  
+  mx4j.x86_64 1:3.0.1-6jpp.4                                                    
+  mysql-server.x86_64 0:5.0.95-5.el5_9                                          
+  openldap-clients.x86_64 0:2.3.43-25.el5_8.1                                   
+  openldap-servers.x86_64 0:2.3.43-25.el5_8.1                                   
+  pango.x86_64 0:1.14.9-8.el5_7.3                                               
+  perl-DBD-MySQL.x86_64 0:3.0007-2.el5                                          
+  python-ZSI.noarch 0:2.0-7.el5                                                 
+  python-simplejson.x86_64 0:2.0.9-8.el5                                        
+  regexp.x86_64 0:1.4-2jpp.2                                                    
+  tomcat5.x86_64 0:5.5.23-0jpp.38.el5_9                                         
+  tomcat5-common-lib.x86_64 0:5.5.23-0jpp.38.el5_9                              
+  tomcat5-jasper.x86_64 0:5.5.23-0jpp.38.el5_9                                  
+  tomcat5-jsp-2.0-api.x86_64 0:5.5.23-0jpp.38.el5_9                             
+  tomcat5-server-lib.x86_64 0:5.5.23-0jpp.38.el5_9                              
+  tomcat5-servlet-2.4-api.x86_64 0:5.5.23-0jpp.38.el5_9                         
+  tzdata-java.x86_64 0:2013b-1.el5                                              
+  voms.x86_64 0:2.0.9-1.el5                                                     
+  voms-admin-client.noarch 0:2.0.17-1.el5                                       
+  voms-admin-server.noarch 0:2.7.0-1.el5                                        
+  voms-mysql-plugin.x86_64 0:3.1.6-1.el5                                        
+  voms-server.x86_64 0:2.0.9-1.el5                                              
+  wsdl4j.x86_64 0:1.5.2-4jpp.1                                                  
+  xalan-j2.x86_64 0:2.7.0-6jpp.1                                                
+  xerces-j2.x86_64 0:2.7.1-7jpp.2.el5_4.2                                       
+  xml-commons.x86_64 0:1.3.02-0.b2.7jpp.10                                      
+  xml-commons-apis.x86_64 0:1.3.02-0.b2.7jpp.10                                 
+  xml-commons-resolver.x86_64 0:1.1-1jpp.12                                     
+  yaim-voms.noarch 0:1.1.1-1.el5                                                
+  zip.x86_64 0:2.31-2.el5                                                       
+
+Complete!
+[root@omii004-vm02.cnaf.infn.it ~]# yum -y install xml-commons-apis
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+586 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Package xml-commons-apis-1.3.02-0.b2.7jpp.10.x86_64 already installed and latest version
+Nothing to do
+[root@omii004-vm02.cnaf.infn.it ~]# yum -y install ca_INFN-CA-2006
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+586 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Package ca_INFN-CA-2006-1.52-1.noarch already installed and latest version
+Nothing to do
+[root@omii004-vm02.cnaf.infn.it ~]# mkdir siteinfo
+[root@omii004-vm02.cnaf.infn.it ~]# service mysqld start
+Inizializzazione del database MySQL:  Installing MySQL system tables...
+OK
+Filling help tables...
+OK
+
+To start mysqld at boot time you have to copy
+support-files/mysql.server to the right place for your system
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+To do so, start the server, then issue the following commands:
+/usr/bin/mysqladmin -u root password 'new-password'
+/usr/bin/mysqladmin -u root -h omii004-vm02.cnaf.infn.it password 'new-password'
+
+Alternatively you can run:
+/usr/bin/mysql_secure_installation
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the manual for more instructions.
+
+You can start the MySQL daemon with:
+cd /usr ; /usr/bin/mysqld_safe &
+
+You can test the MySQL daemon with mysql-test-run.pl
+cd mysql-test ; perl mysql-test-run.pl
+
+Please report any problems with the /usr/bin/mysqlbug script!
+
+The latest information about MySQL is available on the web at
+http://www.mysql.com
+Support MySQL by buying support/licenses at http://shop.mysql.com
+[60G[[0;32m  OK  [0;39m]
+Avvio di mysqld:  [60G[[0;32m  OK  [0;39m]
+[root@omii004-vm02.cnaf.infn.it ~]# sleep 5
+[root@omii004-vm02.cnaf.infn.it ~]# /usr/bin/mysqladmin -u root password pwd
+[root@omii004-vm02.cnaf.infn.it ~]# /usr/bin/mysqladmin -u root -h omii004-vm02.cnaf.infn.it password pwd
+[root@omii004-vm02.cnaf.infn.it ~]# cp site-info.def siteinfo
+[root@omii004-vm02.cnaf.infn.it ~]# /opt/glite/yaim/bin/yaim -c -s siteinfo/site-info.def -n VOMS
+   WARNING: 
+   WARNING: *****************************************************************************
+   WARNING: Your siteinfo directory is world readable. This is generally a bad idea      
+   WARNING: as configuration files may contain passwords and other sensitive information.
+   WARNING: *****************************************************************************
+   WARNING: 
+   INFO: Configuring HOST: omii004-vm02.cnaf.infn.it
+   INFO: Using site configuration file: siteinfo/site-info.def
+   INFO: 
+         ###################################################################
+         
+         .             /'.-. ')
+         .     yA,-"-,( ,m,:/ )   .oo.     oo    o      ooo  o.     .oo
+         .    /      .-Y a  a Y-.     8. .8'    8'8.     8    8b   d'8
+         .   /           ~ ~ /         8'    .8oo88.     8    8  8'  8
+         . (_/         '===='          8    .8'     8.   8    8  Y   8
+         .   Y,-''-,Yy,-.,/           o8o  o8o    o88o  o8o  o8o    o8o
+         .    I_))_) I_))_)
+         
+         
+         current working directory: /root
+         site-info.def date: Apr 4 16:33 siteinfo/site-info.def
+         yaim command: -c -s siteinfo/site-info.def -n VOMS
+         log file: /opt/glite/yaim/bin/../log/yaimlog
+         Thu Apr  4 16:33:46 CEST 2013 : /opt/glite/yaim/bin/yaim
+         
+         Installed YAIM versions:
+         glite-yaim-bdii 4.3.11-1
+         glite-yaim-core 5.1.0-1
+         yaim-voms 1.1.1-1.el5
+         
+         ####################################################################
+   INFO: The default location of the grid-env.(c)sh files will be: /usr/libexec
+   INFO: Sourcing the utilities in /opt/glite/yaim/functions/utils
+   INFO: Detecting environment
+   INFO: Executing function: config_host_certs_check 
+   INFO: Executing function: config_edgusers_check 
+   INFO: Executing function: config_add_pool_env_check 
+   INFO: Executing function: config_info_service_voms_check 
+   INFO: Executing function: config_info_service_voms_admin_check 
+   INFO: Executing function: config_glue2_info_service_voms_check 
+   INFO: Executing function: config_voms_check 
+   INFO: Detecting TOMCAT
+   INFO: Executing function: config_voms_logrotate_check 
+   INFO: Executing function: config_bdii_5.2_check 
+   INFO: Executing function: config_host_certs 
+   INFO: Executing function: config_edgusers 
+   INFO: Executing function: config_add_pool_env_setenv 
+   INFO: Executing function: config_add_pool_env 
+   INFO: Executing function: config_crl 
+   INFO: Now updating the CRLs - this may take a few minutes...
+Enabling periodic fetch-crl:  [60G[[0;32m  OK  [0;39m]
+   INFO: Executing function: config_info_service_voms_setenv 
+   INFO: Executing function: config_info_service_voms 
+   INFO: Executing function: config_info_service_voms_admin_setenv 
+   INFO: Executing function: config_info_service_voms_admin 
+   INFO: Executing function: config_glue2_info_service_voms_setenv 
+   INFO: Executing function: config_glue2_info_service_voms 
+   INFO: Executing function: config_voms_setenv 
+   INFO: Executing function: config_voms 
+   INFO: MySQL configuration
+   INFO: Detecting TOMCAT
+   INFO: Stop tomcat in case it's running
+Stopping tomcat5:    INFO: Copying hostcert to /etc/grid-security/tomcat-cert.pem for tomcat:root......
+   INFO: Copying hostkey to /etc/grid-security/tomcat-key.pem for tomcat:root...
+   INFO: Configuring /etc/tomcat5/server.xml...
+   INFO: Copying trustmanager log4j properties to tomcat configuration directory..
+   INFO: Linking log4j and bouncycastle jars to tomcat server lib directory..
+   INFO: Linking trustmanager jars to tomcat server lib directory...
+   INFO: Linking jakarta-commons-logging to tomcat server lib directory...
+   INFO: Defining JAVA_HOME in the Tomcat configuration file
+   INFO: Starting Tomcat
+Starting tomcat5: [60G[  OK  ]
+   INFO: Ready to start VOMS configuration
+voms-admin-configure, version 2.7.0
+
+Checking installation...
+Checking local installation...
+Installation ok.
+Setting up user credentials...
+Using host credentials (/etc/grid-security/hostcert.pem) since running as root.
+Setting defaults for the VOMS AA credentials
+AA certificates settings:
+cert:/etc/grid-security/tomcat-cert.pem
+key:/etc/grid-security/tomcat-key.pem
+Prefix: //usr
+Configuration dir: /etc/voms-admin
+Cheking input parameters
+Installing vo emi3
+Skipping voms core configuration creation
+Will not set read-only access for authenticated clients as the --skip-database option is set
+VO emi3 configured correctly.
+
+
+
+VO emi3 installation finished.
+ 
+You can start the voms services using the following commands:
+    //etc/init.d/voms start emi3
+    //etc/init.d/voms-admin start emi3
+   INFO: Checking VOMS database schema existence and deploying one if missing...
+Checking database connectivity...
+Database contacted succesfully
+Checking database existence...
+No voms-admin database found.
+Checking that the database is writable...
+Database is writable.
+create table acl2 (acl_id bigint not null auto_increment, group_id bigint not null, defaultACL bit not null, role_id bigint, primary key (acl_id), unique (group_id, defaultACL, role_id)) type=InnoDB
+create table acl2_permissions (acl_id bigint not null, permissions integer, admin_id bigint not null, primary key (acl_id, admin_id)) type=InnoDB
+create table admins (adminid bigint not null auto_increment, dn varchar(255) not null, email_address varchar(255), ca smallint not null, primary key (adminid), unique (dn, ca)) type=InnoDB
+create table attributes (a_id bigint not null auto_increment, a_name varchar(255) not null unique, a_desc text, a_uniq bit default 0, primary key (a_id)) type=InnoDB
+create table aup (id bigint not null auto_increment, name varchar(255) not null unique, description varchar(255), reacceptancePeriod integer not null, primary key (id)) type=InnoDB
+create table aup_acc_record (id bigint not null auto_increment, aup_version_id bigint not null, usr_id bigint not null, last_acceptance_date datetime not null, valid bit, primary key (id), unique (aup_version_id, usr_id)) type=InnoDB
+create table aup_version (id bigint not null auto_increment, aup_id bigint not null, version varchar(255) not null, url varchar(255), text varchar(255), creationTime datetime not null, lastForcedReacceptanceTime datetime, active bit not null, primary key (id), unique (aup_id, version)) type=InnoDB
+create table ca (cid smallint not null auto_increment, subject_string varchar(255) not null unique, description varchar(255), creation_time datetime not null, primary key (cid)) type=InnoDB
+create table capabilities (cid bigint not null auto_increment, capability varchar(255) not null, primary key (cid)) type=InnoDB
+create table certificate (id bigint not null auto_increment, creation_time datetime not null, subject_string varchar(255) not null, suspended bit not null, suspended_reason varchar(255), suspension_reason_code varchar(255), ca_id smallint not null, usr_id bigint not null, primary key (id), unique (ca_id, subject_string)) type=InnoDB
+create table certificate_request (certificate tinyblob, certificateIssuer varchar(255) not null, certificateSubject varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table group_attrs (a_id bigint not null, g_id bigint not null, a_value varchar(255), primary key (a_id, g_id)) type=InnoDB
+create table group_membership_req (groupName varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table groups (gid bigint not null auto_increment, dn varchar(255) not null unique, description varchar(255), parent bigint, must bit not null, restricted bit, primary key (gid)) type=InnoDB
+create table m (mapping_id bigint not null auto_increment, userid bigint not null, gid bigint not null, rid bigint, cid bigint, primary key (mapping_id), unique (userid, gid, rid)) type=InnoDB
+create table memb_req (id bigint not null auto_increment, creation_date datetime not null, evaluation_date datetime, status integer not null, confirm_id varchar(255) not null, dn varchar(255) not null, ca varchar(255) not null, cn varchar(255), mail varchar(255) not null, primary key (id)) type=InnoDB
+create table membership_rem_req (reason varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+create table personal_info (id bigint not null auto_increment, value varchar(255), visible bit, personal_info_type_id bigint not null, primary key (id)) type=InnoDB
+create table personal_info_type (id bigint not null auto_increment, description varchar(255), type varchar(255) not null unique, primary key (id)) type=InnoDB
+create table req (request_id bigint not null auto_increment, completionDate datetime, creationDate datetime, expirationDate datetime, status varchar(255) not null, requester_info_id bigint not null, primary key (request_id), unique (requester_info_id)) type=InnoDB
+create table requester_info (id bigint not null auto_increment, address varchar(255), certificateIssuer varchar(255) not null, certificateSubject varchar(255) not null, emailAddress varchar(255) not null, institution varchar(255), name varchar(255), phoneNumber varchar(255), surname varchar(255), voMember bit, primary key (id)) type=InnoDB
+create table requester_personal_info (requester_id bigint not null, pi_value varchar(255), pi_key varchar(255), primary key (requester_id, pi_key)) type=InnoDB
+create table role_attrs (a_id bigint not null, g_id bigint not null, r_id bigint not null, a_value varchar(255), primary key (a_id, g_id, r_id)) type=InnoDB
+create table role_membership_req (groupName varchar(255), roleName varchar(255), request_id bigint not null, primary key (request_id)) type=InnoDB
+create table roles (rid bigint not null auto_increment, role varchar(255) not null unique, primary key (rid)) type=InnoDB
+create table seqnumber (seq varchar(255) not null, primary key (seq)) type=InnoDB
+create table sign_aup_task (task_id bigint not null, aup_id bigint not null, primary key (task_id)) type=InnoDB
+create table tag_mapping (mapping_id bigint not null auto_increment, tag_id bigint not null, gid bigint not null, rid bigint, admin_id bigint not null, primary key (mapping_id), unique (tag_id, gid, rid, admin_id)) type=InnoDB
+create table tags (id bigint not null auto_increment, name varchar(255) not null unique, implicit bit not null, permissions integer not null, permissionsOnPath integer, primary key (id)) type=InnoDB
+create table task (task_id bigint not null auto_increment, completionDate datetime, creationDate datetime, expiryDate datetime, status varchar(255) not null, admin_id bigint, task_type_id bigint not null, usr_id bigint, primary key (task_id)) type=InnoDB
+create table task_log_record (id bigint not null auto_increment, adminDn varchar(255), creation_time datetime not null, event varchar(255) not null, userDn varchar(255), task_id bigint not null, primary key (id)) type=InnoDB
+create table task_type (id bigint not null auto_increment, description varchar(255), name varchar(255) not null unique, primary key (id)) type=InnoDB
+create table user_request_task (task_id bigint not null, req_id bigint not null, primary key (task_id)) type=InnoDB
+create table usr (userid bigint not null auto_increment, address varchar(255), creation_time datetime not null, dn varchar(255), email_address varchar(255) not null, end_time datetime not null, institution varchar(255), name varchar(255), phone_number varchar(255), surname varchar(255), suspended bit, suspension_reason varchar(255), suspension_reason_code varchar(255), ca smallint, primary key (userid)) type=InnoDB
+create table usr_attrs (a_id bigint not null, u_id bigint not null, a_value varchar(255), primary key (a_id, u_id)) type=InnoDB
+create table version (version integer not null, admin_version varchar(255), primary key (version)) type=InnoDB
+create table vo_membership_req (confirmId varchar(255) not null, request_id bigint not null, primary key (request_id)) type=InnoDB
+alter table acl2 add index FK2D98E8720C9B10 (role_id), add constraint FK2D98E8720C9B10 foreign key (role_id) references roles (rid) on delete cascade
+alter table acl2 add index FK2D98E8FCFA8B04 (group_id), add constraint FK2D98E8FCFA8B04 foreign key (group_id) references groups (gid) on delete cascade
+alter table acl2_permissions add index FK35C6CFADD91CE8A3 (acl_id), add constraint FK35C6CFADD91CE8A3 foreign key (acl_id) references acl2 (acl_id)
+alter table acl2_permissions add index FK35C6CFADA4AD9904 (admin_id), add constraint FK35C6CFADA4AD9904 foreign key (admin_id) references admins (adminid)
+alter table admins add index FKAB3A67047C6FEB32 (ca), add constraint FKAB3A67047C6FEB32 foreign key (ca) references ca (cid)
+alter table aup_acc_record add index FKB1979B32EE2D4487 (usr_id), add constraint FKB1979B32EE2D4487 foreign key (usr_id) references usr (userid)
+alter table aup_acc_record add index FKB1979B32815F1678 (aup_version_id), add constraint FKB1979B32815F1678 foreign key (aup_version_id) references aup_version (id)
+alter table aup_version add index fk_aup_version_aup (aup_id), add constraint fk_aup_version_aup foreign key (aup_id) references aup (id) on delete cascade
+alter table certificate add index FK745F4197EE2D4487 (usr_id), add constraint FK745F4197EE2D4487 foreign key (usr_id) references usr (userid)
+alter table certificate add index FK745F419782107F70 (ca_id), add constraint FK745F419782107F70 foreign key (ca_id) references ca (cid)
+alter table certificate_request add index FK47CA53E7D75D60A4 (request_id), add constraint FK47CA53E7D75D60A4 foreign key (request_id) references req (request_id)
+alter table group_attrs add index FK40B1A2E2566C2A8F (a_id), add constraint FK40B1A2E2566C2A8F foreign key (a_id) references attributes (a_id)
+alter table group_attrs add index FK40B1A2E2DEFC581C (g_id), add constraint FK40B1A2E2DEFC581C foreign key (g_id) references groups (gid) on delete cascade
+alter table group_membership_req add index FKBD145E75D75D60A4 (request_id), add constraint FKBD145E75D75D60A4 foreign key (request_id) references req (request_id)
+alter table groups add index FKB63DD9D4A3771CD3 (parent), add constraint FKB63DD9D4A3771CD3 foreign key (parent) references groups (gid)
+alter table m add index fk_m_roles (rid), add constraint fk_m_roles foreign key (rid) references roles (rid) on delete cascade
+alter table m add index fk_m_groups (gid), add constraint fk_m_groups foreign key (gid) references groups (gid) on delete cascade
+alter table m add index fk_m_cap (cid), add constraint fk_m_cap foreign key (cid) references capabilities (cid)
+alter table m add index fk_m_usr (userid), add constraint fk_m_usr foreign key (userid) references usr (userid)
+alter table membership_rem_req add index FK1877BC10D75D60A4 (request_id), add constraint FK1877BC10D75D60A4 foreign key (request_id) references req (request_id)
+alter table personal_info add index FK229FDF4DA8D3C6BC (personal_info_type_id), add constraint FK229FDF4DA8D3C6BC foreign key (personal_info_type_id) references personal_info_type (id)
+alter table req add index FK1B89EC37E889D (requester_info_id), add constraint FK1B89EC37E889D foreign key (requester_info_id) references requester_info (id)
+alter table requester_personal_info add index FK7E3D7FCAD500B8D2 (requester_id), add constraint FK7E3D7FCAD500B8D2 foreign key (requester_id) references requester_info (id)
+alter table role_attrs add index FK6BDE9799566C2A8F (a_id), add constraint FK6BDE9799566C2A8F foreign key (a_id) references attributes (a_id)
+alter table role_attrs add index FK6BDE979920304994 (r_id), add constraint FK6BDE979920304994 foreign key (r_id) references roles (rid) on delete cascade
+alter table role_attrs add index FK6BDE9799DEFC581C (g_id), add constraint FK6BDE9799DEFC581C foreign key (g_id) references groups (gid)
+alter table role_membership_req add index FK3B9C79ED75D60A4 (request_id), add constraint FK3B9C79ED75D60A4 foreign key (request_id) references req (request_id)
+alter table sign_aup_task add index FK7FCB416A32B8C70C (task_id), add constraint FK7FCB416A32B8C70C foreign key (task_id) references task (task_id)
+alter table sign_aup_task add index FK7FCB416ADA1C6363 (aup_id), add constraint FK7FCB416ADA1C6363 foreign key (aup_id) references aup (id)
+alter table tag_mapping add index fk_tag_mapping_roles (rid), add constraint fk_tag_mapping_roles foreign key (rid) references roles (rid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_admins (admin_id), add constraint fk_tag_mapping_admins foreign key (admin_id) references admins (adminid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_groups (gid), add constraint fk_tag_mapping_groups foreign key (gid) references groups (gid) on delete cascade
+alter table tag_mapping add index fk_tag_mapping_tag (tag_id), add constraint fk_tag_mapping_tag foreign key (tag_id) references tags (id) on delete cascade
+alter table task add index FK3635859AD54C57 (task_type_id), add constraint FK3635859AD54C57 foreign key (task_type_id) references task_type (id)
+alter table task add index FK363585EE2D4487 (usr_id), add constraint FK363585EE2D4487 foreign key (usr_id) references usr (userid)
+alter table task add index FK363585A4AD9904 (admin_id), add constraint FK363585A4AD9904 foreign key (admin_id) references admins (adminid)
+alter table task_log_record add index FK77673CA632B8C70C (task_id), add constraint FK77673CA632B8C70C foreign key (task_id) references task (task_id)
+alter table user_request_task add index FKACB7D2932B8C70C (task_id), add constraint FKACB7D2932B8C70C foreign key (task_id) references task (task_id)
+alter table user_request_task add index FKACB7D299D73AC35 (req_id), add constraint FKACB7D299D73AC35 foreign key (req_id) references req (request_id)
+alter table usr add index FK1C5947C6FEB32 (ca), add constraint FK1C5947C6FEB32 foreign key (ca) references ca (cid)
+alter table usr_attrs add index FKA39E0E37566C2A8F (a_id), add constraint FKA39E0E37566C2A8F foreign key (a_id) references attributes (a_id)
+alter table usr_attrs add index FKA39E0E3720331206 (u_id), add constraint FKA39E0E3720331206 foreign key (u_id) references usr (userid)
+alter table vo_membership_req add index FK28EE8AFBD75D60A4 (request_id), add constraint FK28EE8AFBD75D60A4 foreign key (request_id) references req (request_id)
+Deploying voms database...
+Database deployed correctly!
+   INFO: Opening the VO to all authenticated clients.
+Checking that the database is writable...
+Database is writable.
+Granting read-only access to any authenticated user on group '/emi3'
+Granting read-only access to any authenticated user on role '/emi3/Role=VO-Admin'
+   INFO: Adding default admin from /etc/grid-security/hostcert.pem
+   INFO: Ignoring email from the administrator certificate: /etc/grid-security/hostcert.pem
+Admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA' not found. It will be created...
+Adding ALL permissions on '/emi3' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/Role=VO-Admin' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Stopping vo emi3
+Starting vo emi3
+Stopping siblings webapp
+Starting siblings webapp
+   INFO: User and password for read-only database access for VOMS-CORE not specified.
+   INFO: Using the credentials for read-write access (VOMS-ADMIN).
+Stopping tomcat5: [60G[  OK  ]
+Starting tomcat5: [60G[  OK  ]
+Stopping voms(emi3): (already stopped)
+Starting voms(emi3): [60G[[0;32m  OK  [0;39m]
+   INFO: Executing function: config_voms_logrotate_setenv 
+   INFO: Executing function: config_voms_logrotate 
+   INFO: Executing function: config_bdii_5.2 
+Stopping BDII: BDII already stopped
+Starting BDII slapd: [60G[[0;32m  OK  [0;39m]
+Starting BDII update process: [60G[[0;32m  OK  [0;39m]
+[80G[  [1;32mOK[0;39m  ]   INFO: Configuration Complete.
+   INFO: YAIM terminated succesfully.
+[root@omii004-vm02.cnaf.infn.it ~]# sleep 10
+[root@omii004-vm02.cnaf.infn.it ~]# voms-admin --vo emi3 list-groups
+ /emi3
+[root@omii004-vm02.cnaf.infn.it ~]# wget --no-check-certificate https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
+--2013-04-04 16:36:21--  https://raw.github.com/valerioventuri/voms-deployment-test/master/populate-vo.sh
+Risoluzione di raw.github.com... 199.27.76.133
+Connessione a raw.github.com|199.27.76.133|:443... connesso.
+HTTP richiesta inviata, in attesa di risposta... 200 OK
+Lunghezza: 1186 (1,2K) [text/plain]
+Salvataggio in: "populate-vo.sh"
+
+     0K .                                                     100% 37,7M=0s
+
+2013-04-04 16:36:21 (37,7 MB/s) - "populate-vo.sh" salvato [1186/1186]
+
+[root@omii004-vm02.cnaf.infn.it ~]# sh populate-vo.sh emi3
+[root@omii004-vm02.cnaf.infn.it ~]# service voms stop
+Stopping voms(emi3): [60G[[0;32m  OK  [0;39m]
+[root@omii004-vm02.cnaf.infn.it ~]# service voms-admin stop
+Stopping vo emi3
+Stopping siblings webapp
+[root@omii004-vm02.cnaf.infn.it ~]# service tomcat5 stop
+Stopping tomcat5: [60G[  OK  ]
+[root@omii004-vm02.cnaf.infn.it ~]# yum -y remove emi-release
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Setting up Remove Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:2.0.0-1.sl5 set to be erased
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package             Arch           Version             Repository         Size
+================================================================================
+Removing:
+ emi-release         noarch         2.0.0-1.sl5         installed         2.7 k
+
+Transaction Summary
+================================================================================
+Remove        1 Package(s)
+Reinstall     0 Package(s)
+Downgrade     0 Package(s)
+
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Erasing        : emi-release                                              1/1 
+
+Removed:
+  emi-release.noarch 0:2.0.0-1.sl5                                              
+
+Complete!
+[root@omii004-vm02.cnaf.infn.it ~]# wget -q http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo -O /etc/yum.repos.d/test_emi.repo
+[root@omii004-vm02.cnaf.infn.it ~]# wget -q http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo -O /etc/yum.repos.d/test_voms.repo
+[root@omii004-vm02.cnaf.infn.it ~]# echo >> /etc/yum.repos.d/test_voms.repo; echo 'priority=1' >> /etc/yum.repos.d/test_voms.repo
+[root@omii004-vm02.cnaf.infn.it ~]# yum clean all
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+Cleaning up Everything
+[root@omii004-vm02.cnaf.infn.it ~]# yum -y install emi-release
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4701 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:3.0.0-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch        Version             Repository               Size
+================================================================================
+Installing:
+ emi-release      noarch      3.0.0-1.el5         EMI-3-testing-base      4.7 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 4.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : emi-release                                              1/1 
+
+Installed:
+  emi-release.noarch 0:3.0.0-1.el5                                              
+
+Complete!
+[root@omii004-vm02.cnaf.infn.it ~]# yum -y update
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4840 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Skipping security plugin, no data
+Reading version lock configuration
+Setting up Update Process
+Resolving Dependencies
+Skipping security plugin, no data
+--> Running transaction check
+---> Package bdii.noarch 0:5.2.17-1.el5 set to be updated
+--> Processing Dependency: openldap2.4-servers for package: bdii
+--> Processing Dependency: openldap2.4-clients for package: bdii
+---> Package emi-release.noarch 0:3.0.0-2.el5 set to be updated
+---> Package emi-voms-mysql.noarch 0:1.1.0-1.el5 set to be updated
+---> Package glite-ce-common-java.noarch 0:1.15.1-2.sl5 set to be updated
+--> Processing Dependency: axis2 for package: glite-ce-common-java
+--> Processing Dependency: mysql-connector-java for package: glite-ce-common-java
+--> Processing Dependency: jclassads for package: glite-ce-common-java
+--> Processing Dependency: voms-api-java for package: glite-ce-common-java
+---> Package glite-info-provider-service.noarch 0:1.12.0-1.el5 set to be updated
+---> Package glite-yaim-bdii.noarch 0:4.3.13-1.el5 set to be updated
+---> Package glite-yaim-core.noarch 0:5.1.1-1.sl5 set to be updated
+---> Package glue-schema.noarch 0:2.0.10-1.el5 set to be updated
+---> Package voms.x86_64 0:2.0.10-1 set to be updated
+---> Package voms-admin-client.noarch 0:2.0.18-1 set to be updated
+---> Package voms-admin-server.noarch 0:3.1.0-1 set to be updated
+--> Processing Dependency: python(abi) = 2.6 for package: voms-admin-server
+---> Package voms-server.x86_64 0:2.0.10-1 set to be updated
+--> Running transaction check
+---> Package axis2.noarch 0:1.6.1-1.emi set to be updated
+---> Package jclassads.noarch 0:2.4.0-3.sl5 set to be updated
+---> Package mysql-connector-java.x86_64 1:5.1.12-2.el5 set to be updated
+---> Package openldap2.4-clients.x86_64 0:2.4.22-1.el5 set to be updated
+--> Processing Dependency: lib64ldap2.4_2 = 2.4.22-1.el5 for package: openldap2.4-clients
+--> Processing Dependency: liblber-2.4.so.2()(64bit) for package: openldap2.4-clients
+--> Processing Dependency: libldap-2.4.so.2()(64bit) for package: openldap2.4-clients
+---> Package openldap2.4-servers.x86_64 0:2.4.22-1.el5 set to be updated
+--> Processing Dependency: cyrus-sasl = 2.1.22 for package: openldap2.4-servers
+--> Processing Dependency: openldap2.4-extra-schemas >= 1.3-7 for package: openldap2.4-servers
+--> Processing Dependency: openldap2.4-extra-schemas >= 1.3-7 for package: openldap2.4-servers
+--> Processing Dependency: libodbc.so.1()(64bit) for package: openldap2.4-servers
+---> Package python26.x86_64 0:2.6.8-2.el5 set to be updated
+--> Processing Dependency: libpython2.6.so.1.0()(64bit) for package: python26
+--> Processing Dependency: libffi.so.5()(64bit) for package: python26
+---> Package voms-api-java.noarch 0:2.0.10-1.el5 set to be updated
+--> Processing Dependency: jakarta-commons-cli for package: voms-api-java
+--> Processing Dependency: jakarta-commons-lang for package: voms-api-java
+--> Running transaction check
+---> Package cyrus-sasl.x86_64 0:2.1.22-7.el5_8.1 set to be updated
+---> Package jakarta-commons-cli.x86_64 0:1.0-6jpp_10.el5 set to be updated
+---> Package jakarta-commons-lang.x86_64 0:2.1-5jpp.1 set to be updated
+---> Package lib64ldap2.4_2.x86_64 0:2.4.22-1.el5 set to be updated
+--> Processing Dependency: openldap2.4 >= 2.1.25-4mdk for package: lib64ldap2.4_2
+---> Package libffi.x86_64 0:3.0.5-2.el5 set to be updated
+---> Package openldap2.4-extra-schemas.noarch 0:1.3-10.el5 set to be updated
+---> Package python26-libs.x86_64 0:2.6.8-2.el5 set to be updated
+---> Package unixODBC-libs.x86_64 0:2.2.11-10.el5 set to be updated
+--> Running transaction check
+---> Package openldap2.4.x86_64 0:2.4.22-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package              Arch   Version            Repository                 Size
+================================================================================
+Installing:
+ glite-ce-common-java noarch 1.15.1-2.sl5       EMI-3-testing-base        635 k
+     replacing  emi-trustmanager.noarch 3.1.4-1.sl5
+
+Updating:
+ bdii                 noarch 5.2.17-1.el5       EMI-3-base                 23 k
+ emi-release          noarch 3.0.0-2.el5        EMI-3-base                5.0 k
+ emi-voms-mysql       noarch 1.1.0-1.el5        EMI-3-base                2.4 k
+ glite-info-provider-service
+                      noarch 1.12.0-1.el5       EMI-3-base                 67 k
+ glite-yaim-bdii      noarch 4.3.13-1.el5       EMI-3-base                 11 k
+ glite-yaim-core      noarch 5.1.1-1.sl5        EMI-3-base                118 k
+ glue-schema          noarch 2.0.10-1.el5       EMI-3-base                 34 k
+ voms                 x86_64 2.0.10-1           VOMS                      164 k
+ voms-admin-client    noarch 2.0.18-1           VOMS                       93 k
+ voms-admin-server    noarch 3.1.0-1            VOMS                       57 M
+ voms-server          x86_64 2.0.10-1           VOMS                      198 k
+Installing for dependencies:
+ axis2                noarch 1.6.1-1.emi        EMI-3-testing-third-party  19 M
+ cyrus-sasl           x86_64 2.1.22-7.el5_8.1   sl5x                      1.2 M
+ jakarta-commons-cli  x86_64 1.0-6jpp_10.el5    epel                       76 k
+ jakarta-commons-lang x86_64 2.1-5jpp.1         sl5x                      508 k
+ jclassads            noarch 2.4.0-3.sl5        EMI-3-testing-third-party  95 k
+ lib64ldap2.4_2       x86_64 2.4.22-1.el5       EMI-3-testing-third-party 300 k
+ libffi               x86_64 3.0.5-2.el5        puppetlabs-deps            25 k
+ mysql-connector-java x86_64 1:5.1.12-2.el5     epel                      2.5 M
+ openldap2.4          x86_64 2.4.22-1.el5       EMI-3-testing-third-party  40 k
+ openldap2.4-clients  x86_64 2.4.22-1.el5       EMI-3-testing-third-party 298 k
+ openldap2.4-extra-schemas
+                      noarch 1.3-10.el5         EMI-3-testing-third-party  46 k
+ openldap2.4-servers  x86_64 2.4.22-1.el5       EMI-3-testing-third-party 2.1 M
+ python26             x86_64 2.6.8-2.el5        epel                      6.5 M
+ python26-libs        x86_64 2.6.8-2.el5        epel                      695 k
+ unixODBC-libs        x86_64 2.2.11-10.el5      sl5x                      554 k
+ voms-api-java        noarch 2.0.10-1.el5       EMI-3-base                155 k
+
+Transaction Summary
+================================================================================
+Install      17 Package(s)
+Upgrade      11 Package(s)
+
+Total download size: 92 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           3.6 MB/s |  92 MB     00:25     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Updating       : voms                                                    1/41 
+  Updating       : voms-server                                             2/41 
+  Installing     : jakarta-commons-lang                                    3/41 
+  Updating       : glite-info-provider-service                             4/41 
+  Updating       : glue-schema                                             5/41 
+  Updating       : voms-admin-client                                       6/41 
+  Installing     : jakarta-commons-cli                                     7/41 
+  Installing     : mysql-connector-java                                    8/41 
+  Installing     : cyrus-sasl                                              9/41 
+  Installing     : libffi                                                 10/41 
+  Installing     : unixODBC-libs                                          11/41 
+  Installing     : voms-api-java                                          12/41 
+  Installing     : jclassads                                              13/41 
+  Updating       : glite-yaim-bdii                                        14/41 
+  Installing     : axis2                                                  15/41 
+  Installing     : glite-ce-common-java                                   16/41 
+  Updating       : emi-release                                            17/41 
+  Updating       : glite-yaim-core                                        18/41 
+  Installing     : python26                                               19/41 
+  Installing     : python26-libs                                          20/41 
+  Installing     : lib64ldap2.4_2                                         21/41 
+  Updating       : voms-admin-server                                      22/41 
+  Installing     : openldap2.4-clients                                    23/41 
+  Installing     : openldap2.4                                            24/41 
+  Installing     : openldap2.4-extra-schemas                              25/41useradd: l'utente «ldap» esiste già
+Aggiunta dell'utente ldap al gruppo ldap
+ 
+  Installing     : openldap2.4-servers                                    26/41Generating self-signed certificate...
+To generate a self-signed certificate, you can use the utility
+/usr/share/openldap2.4/gencert.sh...
+ 
+  Updating       : bdii                                                   27/41 
+warning: /etc/bdii/bdii-slapd.conf saved as /etc/bdii/bdii-slapd.conf.rpmsave
+warning: /etc/bdii/bdii-top-slapd.conf saved as /etc/bdii/bdii-top-slapd.conf.rpmsave
+  Updating       : emi-voms-mysql                                         28/41Stopping potentially running voms-admin instances...
+Stopping voms-admin: (not running)[60G[[1;31mFAILED[0;39m]
+ 
+  Cleanup        : voms-admin-server                                      29/41 
+  Cleanup        : voms-admin-client                                      30/41 
+  Erasing        : emi-trustmanager                                       31/41 
+  Erasing        : emi-trustmanager-tomcat                                32/41 
+  Cleanup        : voms-server                                            33/41 
+  Cleanup        : glue-schema                                            34/41 
+  Cleanup        : glite-yaim-bdii                                        35/41 
+  Cleanup        : bdii                                                   36/41 
+  Cleanup        : glite-yaim-core                                        37/41 
+  Cleanup        : glite-info-provider-service                            38/41 
+  Cleanup        : emi-voms-mysql                                         39/41 
+  Cleanup        : emi-release                                            40/41 
+  Cleanup        : voms                                                   41/41 
+
+Installed:
+  glite-ce-common-java.noarch 0:1.15.1-2.sl5                                    
+
+Dependency Installed:
+  axis2.noarch 0:1.6.1-1.emi                                                    
+  cyrus-sasl.x86_64 0:2.1.22-7.el5_8.1                                          
+  jakarta-commons-cli.x86_64 0:1.0-6jpp_10.el5                                  
+  jakarta-commons-lang.x86_64 0:2.1-5jpp.1                                      
+  jclassads.noarch 0:2.4.0-3.sl5                                                
+  lib64ldap2.4_2.x86_64 0:2.4.22-1.el5                                          
+  libffi.x86_64 0:3.0.5-2.el5                                                   
+  mysql-connector-java.x86_64 1:5.1.12-2.el5                                    
+  openldap2.4.x86_64 0:2.4.22-1.el5                                             
+  openldap2.4-clients.x86_64 0:2.4.22-1.el5                                     
+  openldap2.4-extra-schemas.noarch 0:1.3-10.el5                                 
+  openldap2.4-servers.x86_64 0:2.4.22-1.el5                                     
+  python26.x86_64 0:2.6.8-2.el5                                                 
+  python26-libs.x86_64 0:2.6.8-2.el5                                            
+  unixODBC-libs.x86_64 0:2.2.11-10.el5                                          
+  voms-api-java.noarch 0:2.0.10-1.el5                                           
+
+Updated:
+  bdii.noarch 0:5.2.17-1.el5                                                    
+  emi-release.noarch 0:3.0.0-2.el5                                              
+  emi-voms-mysql.noarch 0:1.1.0-1.el5                                           
+  glite-info-provider-service.noarch 0:1.12.0-1.el5                             
+  glite-yaim-bdii.noarch 0:4.3.13-1.el5                                         
+  glite-yaim-core.noarch 0:5.1.1-1.sl5                                          
+  glue-schema.noarch 0:2.0.10-1.el5                                             
+  voms.x86_64 0:2.0.10-1                                                        
+  voms-admin-client.noarch 0:2.0.18-1                                           
+  voms-admin-server.noarch 0:3.1.0-1                                            
+  voms-server.x86_64 0:2.0.10-1                                                 
+
+Replaced:
+  emi-trustmanager.noarch 0:3.1.4-1.sl5                                         
+  emi-trustmanager-tomcat.noarch 0:3.0.1-1.sl5                                  
+
+Complete!
+[root@omii004-vm02.cnaf.infn.it ~]# yum -y remove tomcat5
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+Setting up Remove Process
+Resolving Dependencies
+--> Running transaction check
+---> Package tomcat5.x86_64 0:5.5.23-0jpp.38.el5_9 set to be erased
+--> Processing Dependency: tomcat5 for package: glite-ce-common-java
+--> Running transaction check
+---> Package glite-ce-common-java.noarch 0:1.15.1-2.sl5 set to be erased
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                 Arch      Version                   Repository    Size
+================================================================================
+Removing:
+ tomcat5                 x86_64    5.5.23-0jpp.38.el5_9      installed    940 k
+Removing for dependencies:
+ glite-ce-common-java    noarch    1.15.1-2.sl5              installed    707 k
+
+Transaction Summary
+================================================================================
+Remove        2 Package(s)
+Reinstall     0 Package(s)
+Downgrade     0 Package(s)
+
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Erasing        : glite-ce-common-java                                     1/2 
+  Erasing        : tomcat5                                                  2/2 
+avvertimento: /etc/tomcat5/tomcat5.conf salvato cme /etc/tomcat5/tomcat5.conf.rpmsave
+avvertimento: /etc/tomcat5/server.xml salvato cme /etc/tomcat5/server.xml.rpmsave
+
+Removed:
+  tomcat5.x86_64 0:5.5.23-0jpp.38.el5_9                                         
+
+Dependency Removed:
+  glite-ce-common-java.noarch 0:1.15.1-2.sl5                                    
+
+Complete!
+[root@omii004-vm02.cnaf.infn.it ~]# sed -i -e "s#localhost#omii004-vm02.cnaf.infn.it#g" /etc/voms-admin/voms-admin-server.properties
+[root@omii004-vm02.cnaf.infn.it ~]# sh reconfigure-voms.sh
+Configuring VOMS admin service for vo emi3
+Creating VOMS services certificate in /etc/grid-security/vomscert.pem, /etc/grid-security/vomskey.pem
+VOMS Admin service configuration for VO emi3 exists.
+Deploying database for VO emi3
+Checking database connectivity...
+Database contacted succesfully
+Checking database existence...
+Found existing voms-admin > 2.5.x database...
+Existing voms database found. Will not overwrite the database!
+Adding VO administrator reading information from /etc/grid-security/vomscert.pem
+Admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA' already exists in database...
+This admin will be granted full privileges on the VOMS database.
+Adding ALL permissions on '/emi3' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/Role=R1' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/Role=R2' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/Role=R3' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/Role=VO-Admin' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on '/emi3/G1' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G1/Role=R1' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G1/Role=R2' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G1/Role=R3' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G1/Role=VO-Admin' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on '/emi3/G2' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G2/Role=R1' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G2/Role=R2' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G2/Role=R3' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G2/Role=VO-Admin' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on '/emi3/G2/G3' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G2/G3/Role=R1' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G2/G3/Role=R2' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G2/G3/Role=R3' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G2/G3/Role=VO-Admin' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on '/emi3/G1/G4' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G1/G4/Role=R1' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G1/G4/Role=R2' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G1/G4/Role=R3' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G1/G4/Role=VO-Admin' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on '/emi3/G1/G4/G5' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G1/G4/G5/Role=R1' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G1/G4/G5/Role=R2' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G1/G4/G5/Role=R3' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+Adding ALL permissions on role '/emi3/G1/G4/G5/Role=VO-Admin' for admin '/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it,/C=IT/O=INFN/CN=INFN CA'
+WARNING: No email was specified for this administrator! The new administrator will not receive VOMS Admin notifications
+Adding read-only access to authenticated clients on the VO.
+Checking that the database is writable...
+Database is writable.
+Granting read-only access to any authenticated user on group '/emi3'
+Granting read-only access to any authenticated user on role '/emi3/Role=R1'
+Granting read-only access to any authenticated user on role '/emi3/Role=R2'
+Granting read-only access to any authenticated user on role '/emi3/Role=R3'
+Granting read-only access to any authenticated user on role '/emi3/Role=VO-Admin'
+Granting read-only access to any authenticated user on group '/emi3/G1'
+Granting read-only access to any authenticated user on role '/emi3/G1/Role=R1'
+Granting read-only access to any authenticated user on role '/emi3/G1/Role=R2'
+Granting read-only access to any authenticated user on role '/emi3/G1/Role=R3'
+Granting read-only access to any authenticated user on role '/emi3/G1/Role=VO-Admin'
+Granting read-only access to any authenticated user on group '/emi3/G2'
+Granting read-only access to any authenticated user on role '/emi3/G2/Role=R1'
+Granting read-only access to any authenticated user on role '/emi3/G2/Role=R2'
+Granting read-only access to any authenticated user on role '/emi3/G2/Role=R3'
+Granting read-only access to any authenticated user on role '/emi3/G2/Role=VO-Admin'
+Granting read-only access to any authenticated user on group '/emi3/G2/G3'
+Granting read-only access to any authenticated user on role '/emi3/G2/G3/Role=R1'
+Granting read-only access to any authenticated user on role '/emi3/G2/G3/Role=R2'
+Granting read-only access to any authenticated user on role '/emi3/G2/G3/Role=R3'
+Granting read-only access to any authenticated user on role '/emi3/G2/G3/Role=VO-Admin'
+Granting read-only access to any authenticated user on group '/emi3/G1/G4'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/Role=R1'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/Role=R2'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/Role=R3'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/Role=VO-Admin'
+Granting read-only access to any authenticated user on group '/emi3/G1/G4/G5'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/G5/Role=R1'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/G5/Role=R2'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/G5/Role=R3'
+Granting read-only access to any authenticated user on role '/emi3/G1/G4/G5/Role=VO-Admin'
+Configuring VOMS core service for vo emi3
+VOMS core service configuration for VO emi3 already exists.
+VOMS core service configured succesfully.
+VO emi3 configuration completed succesfully.
+[root@omii004-vm02.cnaf.infn.it ~]# service voms-admin start
+Deploying vo(emi3): [60G[  [1;32mOK[0;39m  ]
+Starting voms-admin: [60G[  [1;32mOK[0;39m  ]
+[root@omii004-vm02.cnaf.infn.it ~]# service voms start
+Starting voms(emi3): [60G[[0;32m  OK  [0;39m]
+[root@omii004-vm02.cnaf.infn.it ~]# sleep 20
+[root@omii004-vm02.cnaf.infn.it ~]# service bdii stop
+Stopping BDII: BDII already stopped
+[root@omii004-vm02.cnaf.infn.it ~]# voms-config-info-providers -s local -e
+Will install providers for voms-admin
+Creating conf file /etc/glite/info/service/glite-info-glue2-voms.conf
+Creating conf file /etc/glite/info/service/glite-info-service-voms.conf
+Creating conf file /etc/glite/info/service/glite-info-glue2-voms-admin.conf
+Creating conf file /etc/glite/info/service/glite-info-service-voms-admin.conf
+Create the /var/lib/bdii/gip/provider in case it doesn't exist
+Create the /var/lib/bdii/gip/provider/glite-info-glue2-provider-service-voms file
+Create the /var/lib/bdii/gip/provider/glite-info-provider-service-voms file
+Create the /var/lib/bdii/gip/provider/glite-info-provider-service-voms-admin file
+Reconfiguring BDII...
+[root@omii004-vm02.cnaf.infn.it ~]# cat /etc/sysconfig/bdii
+#SLAPD_CONF=/etc/bdii/bdii-slapd.conf
+SLAPD=/usr/sbin/slapd2.4
+#BDII_RAM_DISK=no
+[root@omii004-vm02.cnaf.infn.it ~]# service bdii start
+Starting BDII slapd: [60G[[0;32m  OK  [0;39m]
+Starting BDII update process: [60G[[0;32m  OK  [0;39m]
+[root@omii004-vm02.cnaf.infn.it ~]# yum -y install voms-clients3
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4840 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients3.noarch 0:3.0.0-1.sl5 set to be updated
+--> Processing Dependency: voms-api-java3 for package: voms-clients3
+--> Processing Dependency: jakarta-commons-io for package: voms-clients3
+--> Running transaction check
+---> Package jakarta-commons-io.noarch 0:1.4-3.el5 set to be updated
+---> Package voms-api-java3.noarch 0:3.0.0-1.sl5 set to be updated
+--> Processing Dependency: bouncycastle146-mail for package: voms-api-java3
+--> Processing Dependency: canl-java for package: voms-api-java3
+--> Running transaction check
+---> Package bouncycastle146-mail.noarch 0:1.46-1 set to be updated
+--> Processing Dependency: bouncycastle146 = 1.46 for package: bouncycastle146-mail
+---> Package canl-java.noarch 0:1.1.0-2.sl5 set to be updated
+--> Running transaction check
+---> Package bouncycastle146.noarch 0:1.46-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package                   Arch        Version            Repository       Size
+================================================================================
+Installing:
+ voms-clients3             noarch      3.0.0-1.sl5        VOMS            124 k
+Installing for dependencies:
+ bouncycastle146           noarch      1.46-1.el5         EMI-3-base      1.9 M
+ bouncycastle146-mail      noarch      1.46-1             VOMS            475 k
+ canl-java                 noarch      1.1.0-2.sl5        EMI-3-base      263 k
+ jakarta-commons-io        noarch      1.4-3.el5          epel            105 k
+ voms-api-java3            noarch      3.0.0-1.sl5        VOMS            120 k
+
+Transaction Summary
+================================================================================
+Install       6 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 2.9 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           2.6 MB/s | 2.9 MB     00:01     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : bouncycastle146                                          1/6 
+  Installing     : jakarta-commons-io                                       2/6 
+  Installing     : canl-java                                                3/6 
+  Installing     : bouncycastle146-mail                                     4/6 
+  Installing     : voms-api-java3                                           5/6 
+  Installing     : voms-clients3                                            6/6 
+
+Installed:
+  voms-clients3.noarch 0:3.0.0-1.sl5                                            
+
+Dependency Installed:
+  bouncycastle146.noarch 0:1.46-1.el5   bouncycastle146-mail.noarch 0:1.46-1   
+  canl-java.noarch 0:1.1.0-2.sl5        jakarta-commons-io.noarch 0:1.4-3.el5  
+  voms-api-java3.noarch 0:3.0.0-1.sl5  
+
+Complete!
+[root@omii004-vm02.cnaf.infn.it ~]# mkdir -p .globus
+[root@omii004-vm02.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.cert.pem .globus/usercert.pem
+[root@omii004-vm02.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.key.pem .globus/userkey.pem
+[root@omii004-vm02.cnaf.infn.it ~]# chmod 600 .globus/usercert.pem
+[root@omii004-vm02.cnaf.infn.it ~]# chmod 400 .globus/userkey.pem
+[root@omii004-vm02.cnaf.infn.it ~]# mkdir /etc/vomses
+[root@omii004-vm02.cnaf.infn.it ~]# cp /etc/voms-admin/emi3/vomses /etc/vomses/emi3
+[root@omii004-vm02.cnaf.infn.it ~]# mkdir /etc/grid-security/vomsdir/emi3
+[root@omii004-vm02.cnaf.infn.it ~]# cp /etc/voms-admin/emi3/lsc /etc/grid-security/vomsdir/emi3/omii004-vm02.cnaf.infn.it.lsc
+[root@omii004-vm02.cnaf.infn.it ~]# echo 'pass' | voms-proxy-init -voms emi3 --pwstdin --debug
+Loading CA Certificate /etc/grid-security/certificates/b3222f9e.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/b3222f9e.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/b3222f9e.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/9cd75e87.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/9cd75e87.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/9cd75e87.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/6cad3d39.0.
+Loading CA Certificate /etc/grid-security/certificates/3de400d0.0.
+Loading CA Certificate /etc/grid-security/certificates/69105f4f.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/69105f4f.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/69105f4f.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/3232b9bc.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/3232b9bc.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/3232b9bc.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/03b260e0.0.
+Loading CA Certificate /etc/grid-security/certificates/1691b9ba.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/1691b9ba.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/1691b9ba.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/cc800af0.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/cc800af0.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/cc800af0.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/dfcb9731.0.
+Loading CA Certificate /etc/grid-security/certificates/530f7122.0.
+Loading CA Certificate /etc/grid-security/certificates/c7a3bf7e.0.
+Loading CA Certificate /etc/grid-security/certificates/20b7db76.0.
+Loading CA Certificate /etc/grid-security/certificates/ce33db76.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/ce33db76.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/ce33db76.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/bfafd1bd.0.
+Loading CA Certificate /etc/grid-security/certificates/13ba0088.0.
+Loading CA Certificate /etc/grid-security/certificates/3c58f906.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/3c58f906.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/3c58f906.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/9ec3a561.0.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/9ec3a561.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/a02131f7.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/a02131f7.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/a02131f7.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/2f2f573f.0.
+Loading CA Certificate /etc/grid-security/certificates/080911ac.0.
+Loading CA Certificate /etc/grid-security/certificates/0119347c.0.
+Loading CA Certificate /etc/grid-security/certificates/74c6eaeb.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/74c6eaeb.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/74c6eaeb.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/07397040.0.
+Loading CA Certificate /etc/grid-security/certificates/edca0fc0.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/edca0fc0.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/edca0fc0.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/393f7863.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/393f7863.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/393f7863.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/b1159c4c.0.
+Loading CA Certificate /etc/grid-security/certificates/3154fd00.0.
+Loading CA Certificate /etc/grid-security/certificates/6e3b436b.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/6e3b436b.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/6e3b436b.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/94b468c6.0.
+Loading CA Certificate /etc/grid-security/certificates/d0b701c0.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/d0b701c0.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/d0b701c0.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/25694cc4.0.
+Loading CA Certificate /etc/grid-security/certificates/c48c63f3.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/c48c63f3.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/c48c63f3.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/e21dc0c0.0.
+Loading CA Certificate /etc/grid-security/certificates/5d674a88.0.
+Loading CA Certificate /etc/grid-security/certificates/b459ca48.0.
+Loading CA Certificate /etc/grid-security/certificates/524cae41.0.
+Loading CA Certificate /etc/grid-security/certificates/24c3ccde.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/24c3ccde.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/24c3ccde.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/82b36fca.0.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/82b36fca.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/2c0df5ae.0.
+Loading CA Certificate /etc/grid-security/certificates/d800b164.0.
+Loading CA Certificate /etc/grid-security/certificates/075047ca.0.
+Loading CA Certificate /etc/grid-security/certificates/cd536adc.0.
+Loading CA Certificate /etc/grid-security/certificates/522b8537.0.
+Loading CA Certificate /etc/grid-security/certificates/9b95bbf2.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/9b95bbf2.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/9b95bbf2.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/fdf90b95.0.
+Loading CA Certificate /etc/grid-security/certificates/16da7552.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/16da7552.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/16da7552.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/468d15b3.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/468d15b3.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/468d15b3.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/99f9f5a3.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/99f9f5a3.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/99f9f5a3.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/0a12b607.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/0a12b607.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/0a12b607.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/dc75341f.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/dc75341f.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/dc75341f.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/7721d4d3.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/7721d4d3.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/7721d4d3.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/126f0acf.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/126f0acf.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/126f0acf.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/12d0da68.0.
+Loading CA Certificate /etc/grid-security/certificates/722e5071.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/722e5071.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/722e5071.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/b2a87ac7.0.
+Loading CA Certificate /etc/grid-security/certificates/ee64a828.0.
+Loading CA Certificate /etc/grid-security/certificates/d1b603c3.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/d1b603c3.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/d1b603c3.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/4220f3a5.0.
+Loading CA Certificate /etc/grid-security/certificates/e580c4f9.0.
+Loading CA Certificate /etc/grid-security/certificates/709bed08.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/709bed08.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/709bed08.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/8a047de1.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/8a047de1.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/8a047de1.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/56084620.0.
+Loading CA Certificate /etc/grid-security/certificates/036b3363.0.
+Loading CA Certificate /etc/grid-security/certificates/82c2b224.0.
+Loading CA Certificate /etc/grid-security/certificates/0e635db3.0.
+Loading CA Certificate /etc/grid-security/certificates/719a853d.0.
+Loading CA Certificate /etc/grid-security/certificates/727146a8.0.
+Loading CA Certificate /etc/grid-security/certificates/1e12d831.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/1e12d831.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/1e12d831.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/dfb080e4.0.
+Loading CA Certificate /etc/grid-security/certificates/dd51b42a.0.
+Loading CA Certificate /etc/grid-security/certificates/10b10516.0.
+Loading CA Certificate /etc/grid-security/certificates/fc1898ec.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/fc1898ec.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/fc1898ec.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/e8ac4b61.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/e8ac4b61.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/e8ac4b61.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/11b4a5a2.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/11b4a5a2.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/11b4a5a2.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/8a661490.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/8a661490.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/8a661490.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/38f7145f.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/38f7145f.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/38f7145f.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/ba2f39ca.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/ba2f39ca.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/ba2f39ca.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/617ff41b.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/617ff41b.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/617ff41b.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/2ac09305.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/2ac09305.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/2ac09305.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/d38446c5.0.
+Loading CA Certificate /etc/grid-security/certificates/ff783690.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/ff783690.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/ff783690.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/1e3261e6.0.
+Loading CA Certificate /etc/grid-security/certificates/3f0f4285.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/3f0f4285.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/3f0f4285.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/bdf45114.0.
+Loading CA Certificate /etc/grid-security/certificates/30ffc224.0.
+Loading CA Certificate /etc/grid-security/certificates/578010ce.0.
+Loading CA Certificate /etc/grid-security/certificates/169d7f9c.0.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/169d7f9c.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/7022e3c4.0.
+Loading CA Certificate /etc/grid-security/certificates/d072977b.0.
+Loading CA Certificate /etc/grid-security/certificates/9c3efee6.0.
+Loading CA Certificate /etc/grid-security/certificates/157753a5.0.
+Loading CA Certificate /etc/grid-security/certificates/a87d9192.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/a87d9192.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/a87d9192.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/6fee79b0.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/6fee79b0.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/6fee79b0.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/f57f9e36.0.
+Loading CA Certificate /etc/grid-security/certificates/2376bd8e.0.
+Loading CA Certificate /etc/grid-security/certificates/d87163a8.0.
+Loading CA Certificate /etc/grid-security/certificates/b13cc6df.0.
+Loading CA Certificate /etc/grid-security/certificates/ef300431.0.
+Loading CA Certificate /etc/grid-security/certificates/09ff08b7.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/09ff08b7.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/09ff08b7.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/74a04bb6.0.
+Loading CA Certificate /etc/grid-security/certificates/e72045ce.0.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/e72045ce.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/03a1fa38.0.
+Loading CA Certificate /etc/grid-security/certificates/1f0e8352.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/1f0e8352.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/1f0e8352.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/87429ba3.0.
+Loading CA Certificate /etc/grid-security/certificates/9d772be7.0.
+Loading CA Certificate /etc/grid-security/certificates/d0c2a341.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/d0c2a341.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/d0c2a341.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/0a2bac92.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/0a2bac92.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/0a2bac92.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/684261aa.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/684261aa.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/684261aa.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/3d5be7bc.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/3d5be7bc.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/3d5be7bc.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/4b2783ac.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/4b2783ac.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/4b2783ac.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/dd4b34ea.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/dd4b34ea.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/dd4b34ea.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/ff430c7f.0.
+Loading CA Certificate /etc/grid-security/certificates/1b6f5ede.0.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/1b6f5ede.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/01b5d333.0.
+Loading CA Certificate /etc/grid-security/certificates/f4401b90.0.
+Loading CA Certificate /etc/grid-security/certificates/2eb756e6.0.
+Loading CA Certificate /etc/grid-security/certificates/e2023333.0.
+Loading CA Certificate /etc/grid-security/certificates/5cf9d536.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/5cf9d536.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/5cf9d536.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/b874affe.0.
+Loading CA Certificate /etc/grid-security/certificates/ff94d436.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/ff94d436.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/ff94d436.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/82a0ca89.0.
+Loading CA Certificate /etc/grid-security/certificates/1b2e5552.0.
+Loading CA Certificate /etc/grid-security/certificates/20ce830e.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/20ce830e.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/20ce830e.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/bffbd7d0.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/bffbd7d0.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/bffbd7d0.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/b93d6240.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/b93d6240.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/b93d6240.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/2a237f16.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/2a237f16.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/2a237f16.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/f2e89fe3.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/f2e89fe3.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/f2e89fe3.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/e5cc84c2.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/e5cc84c2.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/e5cc84c2.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/7d0d064a.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/7d0d064a.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/7d0d064a.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/089450c2.0.
+Loading CA Certificate /etc/grid-security/certificates/1e4f9475.0.
+Loading CA Certificate /etc/grid-security/certificates/a317c467.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/a317c467.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/a317c467.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/5e15f3bd.0.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/5e15f3bd.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/d82942ab.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/d82942ab.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/d82942ab.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/67707166.0.
+Loading CA Certificate /etc/grid-security/certificates/7b54708e.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/7b54708e.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/7b54708e.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/7ecb2657.0.
+Loading CA Certificate /etc/grid-security/certificates/b2771d44.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/b2771d44.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/b2771d44.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/d71343e8.0.
+Loading CA Certificate /etc/grid-security/certificates/d11f973e.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/d11f973e.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/d11f973e.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/d33760ec.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/d33760ec.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/d33760ec.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/30feecdf.0.
+Loading CA Certificate /etc/grid-security/certificates/58b08cb5.0.
+Loading CA Certificate /etc/grid-security/certificates/9dd23746.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/9dd23746.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/9dd23746.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/bca425d1.0.
+Loading CA Certificate /etc/grid-security/certificates/c5e082db.0.
+Loading CA Certificate /etc/grid-security/certificates/3fb4d8a6.0.
+Loading CA Certificate /etc/grid-security/certificates/9ff26ea4.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/9ff26ea4.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/9ff26ea4.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/d0cd0b27.0.
+Loading CA Certificate /etc/grid-security/certificates/1149214e.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/1149214e.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/1149214e.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/98ef0ee5.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/98ef0ee5.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/98ef0ee5.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/4798da47.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/4798da47.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/4798da47.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/18700496.0.
+Loading CA Certificate /etc/grid-security/certificates/55994d72.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/55994d72.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/55994d72.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/2f3fadf6.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/2f3fadf6.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/2f3fadf6.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/712ae4cc.0.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/712ae4cc.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/585d9326.0.
+Loading CA Certificate /etc/grid-security/certificates/d492aff2.0.
+Loading CA Certificate /etc/grid-security/certificates/ffc3d59b.0.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/ffc3d59b.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/163af95c.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/163af95c.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/163af95c.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/1d879c6c.0.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/1d879c6c.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/cc5645bd.0.
+Loading CA Certificate /etc/grid-security/certificates/4a96b1ea.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/4a96b1ea.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/4a96b1ea.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/33eb0f86.0.
+Loading CA Certificate /etc/grid-security/certificates/be87b272.0.
+Loading CA Certificate /etc/grid-security/certificates/f5ead794.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/f5ead794.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/f5ead794.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/4ce1cf99.0.
+Loading CA Certificate /etc/grid-security/certificates/7ed47087.0.
+Loading CA Certificate /etc/grid-security/certificates/295adc19.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/295adc19.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/295adc19.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/5bb7d63e.0.
+Loading CA Certificate /etc/grid-security/certificates/bb01cea1.0.
+Loading CA Certificate /etc/grid-security/certificates/83676c6b.0.
+Loading CA Certificate /etc/grid-security/certificates/75680d2e.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/75680d2e.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/75680d2e.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/679cff61.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/679cff61.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/679cff61.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/c7a717ce.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/c7a717ce.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/c7a717ce.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/7f4db168.0.
+Loading CA Certificate /etc/grid-security/certificates/2418a3f3.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/2418a3f3.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/2418a3f3.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/877af676.0.
+Loading CA Certificate /etc/grid-security/certificates/28a58577.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/28a58577.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/28a58577.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/0a49430a.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/0a49430a.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/0a49430a.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/da75f6a8.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/da75f6a8.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/da75f6a8.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/e8d818e6.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/e8d818e6.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/e8d818e6.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/02a45931.0.
+Loading CA Certificate /etc/grid-security/certificates/4d12be1d.0.
+Loading CA Certificate /etc/grid-security/certificates/b7bcb7b2.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/b7bcb7b2.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/b7bcb7b2.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/d3619baa.0.
+Loading CA Certificate /etc/grid-security/certificates/742edd45.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/742edd45.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/742edd45.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/b1ac0d46.0.
+Loading CA Certificate /etc/grid-security/certificates/7cef5492.0.
+Loading CA Certificate /etc/grid-security/certificates/e13e0fcf.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/e13e0fcf.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/e13e0fcf.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/86b6fa2c.0.
+Loading CA Certificate /etc/grid-security/certificates/3839294d.0.
+Loading CA Certificate /etc/grid-security/certificates/2694e4f2.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/2694e4f2.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/2694e4f2.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/10718cba.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/10718cba.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/10718cba.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/5a68802a.0.
+Loading CA Certificate /etc/grid-security/certificates/156a0f0f.0.
+Loading CA Certificate /etc/grid-security/certificates/71a89a47.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/71a89a47.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/71a89a47.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/1c3f2ca8.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/1c3f2ca8.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/1c3f2ca8.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/d254cc30.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/d254cc30.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/d254cc30.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/1f3834d0.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/1f3834d0.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/1f3834d0.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/afe55e66.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/afe55e66.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/afe55e66.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/9036db5e.0.
+Loading CA Certificate /etc/grid-security/certificates/a9082267.0.
+Loading EUGridPMA namespace /etc/grid-security/certificates/a9082267.namespaces.
+Loading EACL namespace (signing_policy) /etc/grid-security/certificates/a9082267.signing_policy.
+Loading CA Certificate /etc/grid-security/certificates/18bc5b05.0.
+Loading CA Certificate /etc/grid-security/certificates/60ef89df.0.
+Loading CRL /etc/grid-security/certificates/ce33db76.r0.
+Loading CRL /etc/grid-security/certificates/ce33db76.r0.
+Loading CRL /etc/grid-security/certificates/55994d72.r0.
+Loading CRL /etc/grid-security/certificates/55994d72.r0.
+Loading CRL /etc/grid-security/certificates/295adc19.r0.
+Loading CRL /etc/grid-security/certificates/295adc19.r0.
+Loading CRL /etc/grid-security/certificates/11b4a5a2.r0.
+Loading CRL /etc/grid-security/certificates/11b4a5a2.r0.
+Loading CRL /etc/grid-security/certificates/e8d818e6.r0.
+Loading CRL /etc/grid-security/certificates/e8d818e6.r0.
+Loading CRL /etc/grid-security/certificates/b7bcb7b2.r0.
+Loading CRL /etc/grid-security/certificates/b7bcb7b2.r0.
+Loading CRL /etc/grid-security/certificates/617ff41b.r0.
+Loading CRL /etc/grid-security/certificates/617ff41b.r0.
+Loading CRL /etc/grid-security/certificates/2418a3f3.r0.
+Loading CRL /etc/grid-security/certificates/2418a3f3.r0.
+Loading CRL /etc/grid-security/certificates/1d879c6c.r0.
+Loading CRL /etc/grid-security/certificates/1d879c6c.r0.
+Loading CRL /etc/grid-security/certificates/1b6f5ede.r0.
+Loading CRL /etc/grid-security/certificates/1b6f5ede.r0.
+Loading CRL /etc/grid-security/certificates/ff94d436.r0.
+Loading CRL /etc/grid-security/certificates/ff94d436.r0.
+Loading CRL /etc/grid-security/certificates/3232b9bc.r0.
+Loading CRL /etc/grid-security/certificates/3232b9bc.r0.
+Loading CRL /etc/grid-security/certificates/69105f4f.r0.
+Loading CRL /etc/grid-security/certificates/69105f4f.r0.
+Loading CRL /etc/grid-security/certificates/09ff08b7.r0.
+Loading CRL /etc/grid-security/certificates/09ff08b7.r0.
+Loading CRL /etc/grid-security/certificates/684261aa.r0.
+Loading CRL /etc/grid-security/certificates/684261aa.r0.
+Loading CRL /etc/grid-security/certificates/bffbd7d0.r0.
+Loading CRL /etc/grid-security/certificates/bffbd7d0.r0.
+Loading CRL /etc/grid-security/certificates/7d0d064a.r0.
+Loading CRL /etc/grid-security/certificates/7d0d064a.r0.
+Loading CRL /etc/grid-security/certificates/99f9f5a3.r0.
+Loading CRL /etc/grid-security/certificates/99f9f5a3.r0.
+Loading CRL /etc/grid-security/certificates/1149214e.r0.
+Loading CRL /etc/grid-security/certificates/1149214e.r0.
+Loading CRL /etc/grid-security/certificates/5cf9d536.r0.
+Loading CRL /etc/grid-security/certificates/5cf9d536.r0.
+Loading CRL /etc/grid-security/certificates/ba2f39ca.r0.
+Loading CRL /etc/grid-security/certificates/ba2f39ca.r0.
+Loading CRL /etc/grid-security/certificates/709bed08.r0.
+Loading CRL /etc/grid-security/certificates/709bed08.r0.
+Loading CRL /etc/grid-security/certificates/fc1898ec.r0.
+Loading CRL /etc/grid-security/certificates/fc1898ec.r0.
+Loading CRL /etc/grid-security/certificates/4798da47.r0.
+Loading CRL /etc/grid-security/certificates/4798da47.r0.
+Loading CRL /etc/grid-security/certificates/2f3fadf6.r0.
+Loading CRL /etc/grid-security/certificates/2f3fadf6.r0.
+Loading CRL /etc/grid-security/certificates/ffc3d59b.r0.
+Loading CRL /etc/grid-security/certificates/ffc3d59b.r0.
+Loading CRL /etc/grid-security/certificates/1c3f2ca8.r0.
+Loading CRL /etc/grid-security/certificates/1c3f2ca8.r0.
+Loading CRL /etc/grid-security/certificates/dd4b34ea.r0.
+Loading CRL /etc/grid-security/certificates/dd4b34ea.r0.
+Loading CRL /etc/grid-security/certificates/a02131f7.r0.
+Loading CRL /etc/grid-security/certificates/a02131f7.r0.
+Loading CRL /etc/grid-security/certificates/e13e0fcf.r0.
+Loading CRL /etc/grid-security/certificates/e13e0fcf.r0.
+Loading CRL /etc/grid-security/certificates/7b54708e.r0.
+Loading CRL /etc/grid-security/certificates/7b54708e.r0.
+Loading CRL /etc/grid-security/certificates/0a2bac92.r0.
+Loading CRL /etc/grid-security/certificates/0a2bac92.r0.
+Loading CRL /etc/grid-security/certificates/7721d4d3.r0.
+Loading CRL /etc/grid-security/certificates/7721d4d3.r0.
+Loading CRL /etc/grid-security/certificates/74c6eaeb.r0.
+Loading CRL /etc/grid-security/certificates/74c6eaeb.r0.
+Loading CRL /etc/grid-security/certificates/b3222f9e.r0.
+Loading CRL /etc/grid-security/certificates/b3222f9e.r0.
+Loading CRL /etc/grid-security/certificates/a87d9192.r0.
+Loading CRL /etc/grid-security/certificates/a87d9192.r0.
+Loading CRL /etc/grid-security/certificates/b93d6240.r0.
+Loading CRL /etc/grid-security/certificates/b93d6240.r0.
+Loading CRL /etc/grid-security/certificates/10718cba.r0.
+Loading CRL /etc/grid-security/certificates/10718cba.r0.
+Loading CRL /etc/grid-security/certificates/6fee79b0.r0.
+Loading CRL /etc/grid-security/certificates/6fee79b0.r0.
+Loading CRL /etc/grid-security/certificates/2ac09305.r0.
+Loading CRL /etc/grid-security/certificates/2ac09305.r0.
+Loading CRL /etc/grid-security/certificates/a9082267.r0.
+Loading CRL /etc/grid-security/certificates/a9082267.r0.
+Loading CRL /etc/grid-security/certificates/da75f6a8.r0.
+Loading CRL /etc/grid-security/certificates/da75f6a8.r0.
+Loading CRL /etc/grid-security/certificates/20ce830e.r0.
+Loading CRL /etc/grid-security/certificates/20ce830e.r0.
+Loading CRL /etc/grid-security/certificates/0a49430a.r0.
+Loading CRL /etc/grid-security/certificates/0a49430a.r0.
+Loading CRL /etc/grid-security/certificates/d0b701c0.r0.
+Loading CRL /etc/grid-security/certificates/d0b701c0.r0.
+Loading CRL /etc/grid-security/certificates/ff783690.r0.
+Loading CRL /etc/grid-security/certificates/ff783690.r0.
+Loading CRL /etc/grid-security/certificates/75680d2e.r0.
+Loading CRL /etc/grid-security/certificates/75680d2e.r0.
+Loading CRL /etc/grid-security/certificates/f2e89fe3.r0.
+Loading CRL /etc/grid-security/certificates/f2e89fe3.r0.
+Loading CRL /etc/grid-security/certificates/9b95bbf2.r0.
+Loading CRL /etc/grid-security/certificates/9b95bbf2.r0.
+Loading CRL /etc/grid-security/certificates/4b2783ac.r0.
+Loading CRL /etc/grid-security/certificates/4b2783ac.r0.
+Loading CRL /etc/grid-security/certificates/16da7552.r0.
+Loading CRL /etc/grid-security/certificates/16da7552.r0.
+Loading CRL /etc/grid-security/certificates/dc75341f.r0.
+Loading CRL /etc/grid-security/certificates/dc75341f.r0.
+Loading CRL /etc/grid-security/certificates/2a237f16.r0.
+Loading CRL /etc/grid-security/certificates/2a237f16.r0.
+Loading CRL /etc/grid-security/certificates/679cff61.r0.
+Loading CRL /etc/grid-security/certificates/679cff61.r0.
+Loading CRL /etc/grid-security/certificates/9dd23746.r0.
+Loading CRL /etc/grid-security/certificates/9dd23746.r0.
+Loading CRL /etc/grid-security/certificates/d254cc30.r0.
+Loading CRL /etc/grid-security/certificates/d254cc30.r0.
+Loading CRL /etc/grid-security/certificates/24c3ccde.r0.
+Loading CRL /etc/grid-security/certificates/24c3ccde.r0.
+Loading CRL /etc/grid-security/certificates/2694e4f2.r0.
+Loading CRL /etc/grid-security/certificates/2694e4f2.r0.
+Loading CRL /etc/grid-security/certificates/edca0fc0.r0.
+Loading CRL /etc/grid-security/certificates/edca0fc0.r0.
+Loading CRL /etc/grid-security/certificates/722e5071.r0.
+Loading CRL /etc/grid-security/certificates/722e5071.r0.
+Loading CRL /etc/grid-security/certificates/d33760ec.r0.
+Loading CRL /etc/grid-security/certificates/d33760ec.r0.
+Loading CRL /etc/grid-security/certificates/126f0acf.r0.
+Loading CRL /etc/grid-security/certificates/126f0acf.r0.
+Loading CRL /etc/grid-security/certificates/c7a717ce.r0.
+Loading CRL /etc/grid-security/certificates/c7a717ce.r0.
+Loading CRL /etc/grid-security/certificates/b2771d44.r0.
+Loading CRL /etc/grid-security/certificates/b2771d44.r0.
+Loading CRL /etc/grid-security/certificates/a317c467.r0.
+Loading CRL /etc/grid-security/certificates/a317c467.r0.
+Loading CRL /etc/grid-security/certificates/393f7863.r0.
+Loading CRL /etc/grid-security/certificates/393f7863.r0.
+Loading CRL /etc/grid-security/certificates/d11f973e.r0.
+Loading CRL /etc/grid-security/certificates/d11f973e.r0.
+Loading CRL /etc/grid-security/certificates/98ef0ee5.r0.
+Loading CRL /etc/grid-security/certificates/98ef0ee5.r0.
+Loading CRL /etc/grid-security/certificates/d82942ab.r0.
+Loading CRL /etc/grid-security/certificates/d82942ab.r0.
+Loading CRL /etc/grid-security/certificates/5e15f3bd.r0.
+Loading CRL /etc/grid-security/certificates/5e15f3bd.r0.
+Loading CRL /etc/grid-security/certificates/1691b9ba.r0.
+Loading CRL /etc/grid-security/certificates/1691b9ba.r0.
+Loading CRL /etc/grid-security/certificates/f5ead794.r0.
+Loading CRL /etc/grid-security/certificates/f5ead794.r0.
+Loading CRL /etc/grid-security/certificates/1f3834d0.r0.
+Loading CRL /etc/grid-security/certificates/1f3834d0.r0.
+Loading CRL /etc/grid-security/certificates/8a047de1.r0.
+Loading CRL /etc/grid-security/certificates/8a047de1.r0.
+Loading CRL /etc/grid-security/certificates/9cd75e87.r0.
+Loading CRL /etc/grid-security/certificates/9cd75e87.r0.
+Loading CRL /etc/grid-security/certificates/742edd45.r0.
+Loading CRL /etc/grid-security/certificates/742edd45.r0.
+Loading CRL /etc/grid-security/certificates/9ec3a561.r0.
+Loading CRL /etc/grid-security/certificates/9ec3a561.r0.
+Loading CRL /etc/grid-security/certificates/1f0e8352.r0.
+Loading CRL /etc/grid-security/certificates/1f0e8352.r0.
+Loading CRL /etc/grid-security/certificates/3f0f4285.r0.
+Loading CRL /etc/grid-security/certificates/3f0f4285.r0.
+Loading CRL /etc/grid-security/certificates/1e12d831.r0.
+Loading CRL /etc/grid-security/certificates/1e12d831.r0.
+Loading CRL /etc/grid-security/certificates/468d15b3.r0.
+Loading CRL /etc/grid-security/certificates/468d15b3.r0.
+Loading CRL /etc/grid-security/certificates/4a96b1ea.r0.
+Loading CRL /etc/grid-security/certificates/4a96b1ea.r0.
+Loading CRL /etc/grid-security/certificates/afe55e66.r0.
+Loading CRL /etc/grid-security/certificates/afe55e66.r0.
+Loading CRL /etc/grid-security/certificates/e72045ce.r0.
+Loading CRL /etc/grid-security/certificates/e72045ce.r0.
+Loading CRL /etc/grid-security/certificates/9ff26ea4.r0.
+Loading CRL /etc/grid-security/certificates/9ff26ea4.r0.
+Loading CRL /etc/grid-security/certificates/163af95c.r0.
+Loading CRL /etc/grid-security/certificates/163af95c.r0.
+Loading CRL /etc/grid-security/certificates/38f7145f.r0.
+Loading CRL /etc/grid-security/certificates/38f7145f.r0.
+Loading CRL /etc/grid-security/certificates/e5cc84c2.r0.
+Loading CRL /etc/grid-security/certificates/e5cc84c2.r0.
+Loading CRL /etc/grid-security/certificates/3c58f906.r0.
+Loading CRL /etc/grid-security/certificates/3c58f906.r0.
+Loading CRL /etc/grid-security/certificates/0a12b607.r0.
+Loading CRL /etc/grid-security/certificates/0a12b607.r0.
+Loading CRL /etc/grid-security/certificates/c48c63f3.r0.
+Loading CRL /etc/grid-security/certificates/c48c63f3.r0.
+Loading CRL /etc/grid-security/certificates/82b36fca.r0.
+Loading CRL /etc/grid-security/certificates/82b36fca.r0.
+Loading CRL /etc/grid-security/certificates/169d7f9c.r0.
+Loading CRL /etc/grid-security/certificates/169d7f9c.r0.
+Loading CRL /etc/grid-security/certificates/6e3b436b.r0.
+Loading CRL /etc/grid-security/certificates/6e3b436b.r0.
+Loading CRL /etc/grid-security/certificates/cc800af0.r0.
+Loading CRL /etc/grid-security/certificates/cc800af0.r0.
+Loading CRL /etc/grid-security/certificates/71a89a47.r0.
+Loading CRL /etc/grid-security/certificates/71a89a47.r0.
+Loading CRL /etc/grid-security/certificates/d1b603c3.r0.
+Loading CRL /etc/grid-security/certificates/d1b603c3.r0.
+Loading CRL /etc/grid-security/certificates/e8ac4b61.r0.
+Loading CRL /etc/grid-security/certificates/e8ac4b61.r0.
+Loading CRL /etc/grid-security/certificates/712ae4cc.r0.
+Loading CRL /etc/grid-security/certificates/712ae4cc.r0.
+Loading CRL /etc/grid-security/certificates/28a58577.r0.
+Loading CRL /etc/grid-security/certificates/28a58577.r0.
+Loading CRL /etc/grid-security/certificates/d0c2a341.r0.
+Loading CRL /etc/grid-security/certificates/d0c2a341.r0.
+Loading CRL /etc/grid-security/certificates/8a661490.r0.
+Loading CRL /etc/grid-security/certificates/8a661490.r0.
+Loading CRL /etc/grid-security/certificates/10b10516.r0.
+Looking for VOMS AA certificates in /etc/grid-security/vomsdir...
+Looking for LSC information in /etc/grid-security/vomsdir/emi3...
+Loaded LSC information from file /etc/grid-security/vomsdir/emi3/omii004-vm02.cnaf.infn.it.lsc: LSCFile [filename=/etc/grid-security/vomsdir/emi3/omii004-vm02.cnaf.infn.it.lsc, vo=emi3, hostname=omii004-vm02.cnaf.infn.it, certChainDescription=[/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it, /C=IT/O=INFN/CN=INFN CA]]
+Looking for VOMS AA certificates in /etc/grid-security/vomsdir/emi3...
+Looking for user credentials in [/root/.globus/userkey.pem, /root/.globus/usercert.pem]...
+Credentials loaded successfully [/root/.globus/userkey.pem, /root/.globus/usercert.pem]
+Looking for VOMSES information in /etc/vomses...
+Loaded vomses information 'VOMSServerInfo [alias=emi3, voName=emi3, URL=voms://omii004-vm02.cnaf.infn.it:15000, vomsServerDN=/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it]' from /etc/vomses.
+Contacting omii004-vm02.cnaf.infn.it:15000 [/C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it] "emi3"...
+Sent HTTP request for https://omii004-vm02.cnaf.infn.it:15000/generate-ac?fqans=/emi3&lifetime=43200
+Received VOMS response:
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<voms>
+<ac>MIIGqDCCBhECAQEwNqA0MC+kLTArMQswCQYDVQQGEwJJVDEMMAoGA1UEChMDSUdJ
+MQ4wDAYDVQQDEwV0ZXN0MAIBCaBkMGKkYDBeMQswCQYDVQQGEwJJVDENMAsGA1UE
+ChMESU5GTjENMAsGA1UECxMESG9zdDENMAsGA1UEBxMEQ05BRjEiMCAGA1UEAxMZ
+b21paTAwNC12bTAyLmNuYWYuaW5mbi5pdDANBgkqhkiG9w0BAQUFAAIRAMlchnuq
+5E7wn/DasH2IK10wIhgPMjAxMzA0MDQxNDM5NTlaGA8yMDEzMDQwNTAyMzk1OVow
+gdIwgc8GCisGAQQBvkVkZAQxgcAwgb2gKIYmZW1pMzovL29taWkwMDQtdm0wMi5j
+bmFmLmluZm4uaXQ6MTUwMDAwgZAEHy9lbWkzL1JvbGU9TlVMTC9DYXBhYmlsaXR5
+PU5VTEwEIi9lbWkzL0cxL1JvbGU9TlVMTC9DYXBhYmlsaXR5PU5VTEwEIi9lbWkz
+L0cyL1JvbGU9TlVMTC9DYXBhYmlsaXR5PU5VTEwEJS9lbWkzL0cyL0czL1JvbGU9
+TlVMTC9DYXBhYmlsaXR5PU5VTEwwggRRMIIEIQYKKwYBBAG+RWRkCgSCBBEwggQN
+MIIECTCCBAUwggLtoAMCAQICAmSgMA0GCSqGSIb3DQEBBQUAMC4xCzAJBgNVBAYT
+AklUMQ0wCwYDVQQKEwRJTkZOMRAwDgYDVQQDEwdJTkZOIENBMB4XDTEyMTEyNjE0
+MzYwMVoXDTEzMTEyNjE0MzYwMVowXjELMAkGA1UEBhMCSVQxDTALBgNVBAoTBElO
+Rk4xDTALBgNVBAsTBEhvc3QxDTALBgNVBAcTBENOQUYxIjAgBgNVBAMTGW9taWkw
+MDQtdm0wMi5jbmFmLmluZm4uaXQwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGB
+AOdMFNUfaqH5vAdblRac9acE5U8LkH8G5ICPhK96NZKTnfEqdRyIPaScQ7UJAh3t
+S4ptNC8AEoa/q6SWEb02qZv7wnzMtJzuYnjQNK36QSHSOZ0newGPBkfSluxhA8Ph
+fxn+/lXarB0AU81IAZyegjeKQrIbh9Vs2wmcss7acK6vAgMBAAGjggF/MIIBezAM
+BgNVHRMBAf8EAjAAMA4GA1UdDwEB/wQEAwIFoDA0BgNVHSUELTArBggrBgEFBQcD
+AQYIKwYBBQUHAwIGCisGAQQBgjcKAwMGCWCGSAGG+EIEATA9BgNVHR8ENjA0MDKg
+MKAuhixodHRwOi8vc2VjdXJpdHkuZmkuaW5mbi5pdC9DQS9JTkZOQ0FfY3JsLmRl
+cjAlBgNVHSAEHjAcMAwGCisGAQQB0SMKAQcwDAYKKoZIhvdMBQICATAdBgNVHQ4E
+FgQUIdRij3GKuuaNXUUQWjHn1ODZFNkwVgYDVR0jBE8wTYAU0WLzs3dyyC778nka
+bzdOJ58T1SChMqQwMC4xCzAJBgNVBAYTAklUMQ0wCwYDVQQKEwRJTkZOMRAwDgYD
+VQQDEwdJTkZOIENBggEAMEgGA1UdEQRBMD+CGW9taWkwMDQtdm0wMi5jbmFmLmlu
+Zm4uaXSBImdyaWQtb3BlcmF0aW9uc0BsaXN0cy5jbmFmLmluZm4uaXQwDQYJKoZI
+hvcNAQEFBQADggEBAJHrgBQXdOPhMSukYPrVr1TvIARJIDe26t7p4EiSTQZSJH6y
+XtWoA388P0zo4Ue6L9HN1qq5n/x1iMI6C1ymFBcq1t1lUTlUMqc9tlLMai2auNjw
+ABMRMw4wuN76VeFDVqLEJZZ/JyJn9nNSlgSLl58kpLGlB+qFpH0ed1BtW/g/EfgU
+0reAeTBGeD52OnaFL5MwbxNAkvRLHRnusfNHZn1S1eEU6S0UfIZ04fwZjFvl+5BO
+MsHIplqYNtqrIugIiFSAyVoBpqMB5CeKqkHQpX1VoR4rQ5JhkPQRU6lZbZ8vilVw
+bPpzDV8nGjqXmFXNlt5YOVWG48JrDdZ0Ekst3NEwCQYDVR04BAIFADAfBgNVHSME
+GDAWgBQh1GKPcYq65o1dRRBaMefU4NkU2TANBgkqhkiG9w0BAQUFAAOBgQC8W+3e
+rDZCwHhz5cLURz8w+ucrP7NMJHtDsQ18P7JOHsDdOYaT9yBPSeAQDD852R31g2Rr
+5kVE7gsLZYHSdyP3rmLJi3W/SOWI7sJ/sZtX2kLW3vi1Jo0QggrHB9TQmimW6o2J
+P+XBEAiWya/fr7Dh9dY8saAppONSf91a8OU88Q==
+</ac>
+</voms>
+
+Remote VOMS server contacted succesfully.
+
+VOMS AC validation for VO emi3 succeded.
+=== VO emi3 extension information ===
+VO        : emi3
+subject   : /C=IT/O=IGI/CN=test0
+issuer    : /C=IT/O=INFN/OU=Host/L=CNAF/CN=omii004-vm02.cnaf.infn.it
+attribute : /emi3/Role=NULL/Capability=NULL
+attribute : /emi3/G1/Role=NULL/Capability=NULL
+attribute : /emi3/G2/Role=NULL/Capability=NULL
+attribute : /emi3/G2/G3/Role=NULL/Capability=NULL
+timeleft  : 11:59:59
+uri       : omii004-vm02.cnaf.infn.it:15000
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Apr 05 04:39:59 CEST 2013
+VOMS succesfully upgraded!
