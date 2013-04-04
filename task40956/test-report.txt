@@ -2,21 +2,21 @@
 EMI Test Report Template 
 *********************************
 
-- Product: VOMS
+- Product: VOMS-Admin
 
-- Release Task: https://savannah.cern.ch/task/?34077
+- Release Task: https://savannah.cern.ch/task/?40956
 
 - ETICS Subsystem Configuration Name: emi.voms-EMI3
 
-- VCS Tag: 2_0_10,3_0_0
+- VCS Tag: 3_1_0
 
 - EMI Major Release: EMI 3
 
-- Platforms: SL5_x86_64, SL6_x86_64, Deb6
+- Platforms: SL5_x86_64, SL6_x86_64
 
 - Author: Andrea Ceccanti
 
-- Date: 8/2/2013
+- Date: 5/4/2013
 
 - Test Report Template : v. 3.2
 
@@ -48,28 +48,78 @@ Unit tests are part of the VOMS core functional test suite.
 
 1.1. Clean Installation
 -----------------------------
+
 - YUM/APT Testing Repo file contents:
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-mysql-clean-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-oracle-clean-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-mysql-clean-deployment.sl6.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-oracle-clean-deployment.sl6.x86_64.log
 
 - YUM/APT Install command:
 
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-mysql-clean-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-oracle-clean-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-mysql-clean-deployment.sl6.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-oracle-clean-deployment.sl6.x86_64.log
+
 - YUM/APT log:
 
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-mysql-clean-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-oracle-clean-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-mysql-clean-deployment.sl6.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-oracle-clean-deployment.sl6.x86_64.log
+
 - Configuration log:
+
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-mysql-clean-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-oracle-clean-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-mysql-clean-deployment.sl6.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-oracle-clean-deployment.sl6.x86_64.log
 
 1.2. Upgrade Installation
 --------------------------------
+
 - YUM/APT Production Repo file contents:
 
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-oracle-upgrade-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
 
 - YUM/APT Install command:
 
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-oracle-upgrade-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
+
 - YUM/APT Testing Repo file contents:
+
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-oracle-upgrade-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
 
 - YUM/APT Upgrade command:
 
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-oracle-upgrade-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
+
 - YUM/APT log:
 
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-oracle-upgrade-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
+
 - Configuration log:
+
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-mysql-upgrade-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl5_x86_64/emi-voms-oracle-upgrade-deployment.sl5.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-mysql-upgrade-deployment.sl6.x86_64.log
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/sl6_x86_64/emi-voms-oracle-upgrade-deployment.sl6.x86_64.log
 
 2. Static Code Analysis
 ******************************

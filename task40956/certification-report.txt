@@ -3,11 +3,11 @@
 **********************************
 - Product: VOMS
 
-- Release Task: https://savannah.cern.ch/task/?34077
+- Release Task: https://savannah.cern.ch/task/?40956
 
 - ETICS Subsystem Configuration Name: emi.voms-EMI3
 
-- VCS Tag: 2_0_10, 3_0_0
+- VCS Tag: 3_1_0
 
 - EMI Major Release: EMI 3
 
@@ -29,7 +29,7 @@
 2. VCS tag is available: [ Yes ]
 
 3. The ETICS configuration is available: [ Yes ]
-	3.1. The ETICS configuration is locked: [ No ]
+	3.1. The ETICS configuration is locked: [ Yes ]
 	3.2. The ETICS configuration can be built in ETICS without errors: [ Yes ]
 
 4. Binary packages are available in EMI registered repo: 
