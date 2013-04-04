@@ -1,13 +1,16 @@
 Features: 
 
-No new features are provided in this release.
+https://issues.infn.it:8443/browse/VOMS-235
 
 Bug Fixes:
 
 - Immediate: None
 
 - High
-https://issues.infn.it/browse/VOMS-131
+
+https://issues.infn.it:8443/browse/VOMS-231
+https://issues.infn.it:8443/browse/VOMS-230
+https://issues.infn.it:8443/browse/VOMS-229
 
 - Medium: None
 

@@ -1,0 +1,39 @@
+What's new 
+========== 
+
+This VOMS Admin release provides several bug fixes and a 
+new feature. 
+
+The following issues have been solved: 
+https://issues.infn.it:8443/browse/VOMS-231
+https://issues.infn.it:8443/browse/VOMS-230
+https://issues.infn.it:8443/browse/VOMS-229
+
+New features: 
+https://issues.infn.it:8443/browse/... 
+
+Installation and configuration 
+============================== 
+
+See the VOMS System Administrator guide: 
+https://github.com/italiangrid/voms/wiki/System-Administrator-guide
+
+A reconfiguration of the VOs is required after the installation of this 
+release. The above guide contains detailed information on how to upgrade 
+your existing VOMS installation. 
+
+Configuration changes 
+===================== 
+VOMS is no longer configured with YAIM. Check the VOMS System Administrator Guide 
+for defailed configuration instructions: https://github.com/italiangrid/voms/wiki/System-Administrator-guide
+
+Known issues 
+============ 
+None known at the moment. 
+Please refer to the VOMS known issues page: 
+https://github.com/italiangrid/voms/wiki/Known-issues
+
+Documentation changes 
+===================== 
+The documentation now lives on GITHUB. See: 
+https://github.com/italiangrid/voms/wiki

@@ -1,59 +1,11 @@
 RPMs:
 
-emi-voms-mysql-1.1.0-1.el6.noarch.rpm
-emi-voms-oracle-1.1.0-1.el6.noarch.rpm
-nagios-plugins-voms-1.0.0-1.el6.noarch.rpm
-voms-2.0.10-1.el6.x86_64.rpm
-voms-admin-client-2.0.18-1.el6.noarch.rpm
 voms-admin-server-3.0.0-1.el6.noarch.rpm
-voms-api-java-2.0.10-1.el6.noarch.rpm
-voms-api-java-javadoc-2.0.10-1.el6.noarch.rpm
-voms-api-java3-3.0.0-1.el6.noarch.rpm
-voms-api-java3-javadoc-3.0.0-1.el6.noarch.rpm
-voms-clients-2.0.10-1.el6.x86_64.rpm
-voms-clients3-3.0.0-1.el6.noarch.rpm
-voms-debuginfo-2.0.10-1.el6.x86_64.rpm
-voms-devel-2.0.10-1.el6.x86_64.rpm
-voms-doc-2.0.10-1.el6.noarch.rpm
-voms-mysql-plugin-3.1.6-1.el6.x86_64.rpm
-voms-mysql-plugin-debuginfo-3.1.6-1.el6.x86_64.rpm
-voms-oracle-plugin-3.1.15-2.el6.x86_64.rpm
-voms-oracle-plugin-debuginfo-3.1.15-2.el6.x86_64.rpm
-voms-server-2.0.10-1.el6.x86_64.rpm
 
 Source RPMs:
 
-emi-voms-mysql-1.1.0-1.src.rpm
-emi-voms-oracle-1.1.0-1.src.rpm
-nagios-plugins-voms-1.0.0-1.src.rpm
-voms-2.0.10-1.src.rpm
-voms-admin-client-2.0.18-1.src.rpm
 voms-admin-server-3.0.0-1.src.rpm
-voms-api-java-2.0.10-1.el6.src.rpm
-voms-api-java3-3.0.0-1.sl6.src.rpm
-voms-clients3-3.0.0-1.sl6.src.rpm
-voms-mysql-plugin-3.1.6-1.src.rpm
-voms-oracle-plugin-3.1.15-2.src.rpm
 
 Tarballs:
 
-emi-voms-mysql-1.1.0-1.el6.noarch.tar.gz
-emi-voms-oracle-1.1.0-1.el6.noarch.tar.gz
-nagios-plugins-voms-1.0.0-1.el6.noarch.tar.gz
-voms-2.0.10-1.el6.x86_64.tar.gz
-voms-admin-client-2.0.18-1.el6.noarch.tar.gz
 voms-admin-server-3.0.0-1.el6.noarch.tar.gz
-voms-api-java-2.0.10-1.el6.noarch.tar.gz
-voms-api-java-javadoc-2.0.10-1.el6.noarch.tar.gz
-voms-api-java3-3.0.0-1.el6.noarch.tar.gz
-voms-api-java3-javadoc-3.0.0-1.el6.noarch.tar.gz
-voms-clients-2.0.10-1.el6.x86_64.tar.gz
-voms-clients3-3.0.0-1.el6.noarch.tar.gz
-voms-debuginfo-2.0.10-1.el6.x86_64.tar.gz
-voms-devel-2.0.10-1.el6.x86_64.tar.gz
-voms-doc-2.0.10-1.el6.noarch.tar.gz
-voms-mysql-plugin-3.1.6-1.el6.x86_64.tar.gz
-voms-mysql-plugin-debuginfo-3.1.6-1.el6.x86_64.tar.gz
-voms-oracle-plugin-3.1.15-2.el6.x86_64.tar.gz
-voms-oracle-plugin-debuginfo-3.1.15-2.el6.x86_64.tar.gz
-voms-server-2.0.10-1.el6.x86_64.tar.gz
