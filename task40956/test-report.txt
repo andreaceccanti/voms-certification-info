@@ -28,14 +28,14 @@ Summary
    1.1. Clean Installation - PASS
    1.2. Upgrade Installation - PASS
 2. Static Code Analysis - NA
-3. Unit Tests Execution - YES
+3. Unit Tests Execution - NA
 4. System tests:
   4.1. Functionality tests - PASS
   4.2. Regression tests - PASS
-  4.3. Standard Conformance tests - YES
+  4.3. Standard Conformance tests - NA
   4.4. Performance tests - NA
   4.5. Scalability tests - NA
-  4.6. Integration tests - PASS
+  4.6. Integration tests - NA
 
 REMARKS:
 
@@ -139,7 +139,7 @@ N/A
 *********************
 
 - URL where the tests/testsuite can be accessed:
-N/A
+https://github.com/italiangrid/voms-admin-legacy-testsuite
 
 - URL where the test results can be accessed:
-N/A
+https://raw.github.com/andreaceccanti/voms-certification-info/master/task40956/final-reports/voms-admin-server-testsuite.log

@@ -1,0 +1,852 @@
+<pre>
+Fri Apr  5 16:06:10 CEST 2013
+<br>
+test VOMS-addMember:
+<br>
+VO=vo.7
+<br>
+Group=test_group
+<br>
+User=/usr/share/igi-test-ca/test0.cert.pem
+<br>
+SCENARIO: VO empty
+<br>
+Add non existing user in non existing group
+<br>
+SCENARIO: Create new group
+<br>
+Add non existing user in group test_group
+<br>
+SCENARIO: Create user
+<br>
+Add user in group test_group
+<br>
+SCENARIO: User is already a member of the group
+<br>
+Cleaning tasks
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:12 CEST 2013
+<br>
+test VOMS-assignRole:
+<br>
+VO=vo.7
+<br>
+Role=test_role
+<br>
+Group=test_group
+<br>
+User=/usr/share/igi-test-ca/test0.cert.pem
+<br>
+SCENARIO: VO empty
+<br>
+Assign non existing role of non existing user in non existing group
+<br>
+SCENARIO: Create new role
+<br>
+Assign role test_role in group test_group (group doesn't exist)
+<br>
+SCENARIO: Create new group
+<br>
+Assign role test_role in group test_group (user doesn't exist)
+<br>
+SCENARIO: Create user
+<br>
+Assign role test_role in group test_group (user doesn't have the role)
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:16 CEST 2013
+<br>
+Test VOMS-crAttribute:
+<br>
+VO=vo.7
+<br>
+Attribute=TEST_ATTRIBUTE
+Attribute value=TEST Attribute value
+Attribute description=Test Attribute description
+<br>
+SCENARIO: Attribute doesn't exist
+<br>
+Create new Attribute
+<br>
+Check created attribute
+OK
+<br>
+SCENARIO 2: Attribute already exists in the VO
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:17 CEST 2013
+<br>
+Test VOMS-crGroup:
+<br>
+VO=vo.7
+<br>
+Role=test_group
+<br>
+SCENARIO: Group doesn't exist
+<br>
+Create new group
+<br>
+Check group
+SCENARIO 2: Group already exists in the VO
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:18 CEST 2013
+<br>
+Test VOMS-crRole:
+<br>
+VO=vo.7
+<br>
+Role=test_role
+<br>
+SCENARIO: Role doesn't exist
+<br>
+Create new Role
+<br>
+Check role
+SCENARIO 2: Role already exists in the VO
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:19 CEST 2013
+<br>
+Test VOMS-crUser:
+<br>
+VO=vo.7
+<br>
+User=/usr/share/igi-test-ca/test0.cert.pem
+<br>
+DN=/C=IT/O=IGI/CN=test0
+CN=/
+CA=/C=IT/O=IGI/CN=Test CA
+<br>
+USER_SUBJECT: /C=IT/O=IGI/CN=test0
+USER_ISSUER: /C=IT/O=IGI/CN=Test CA
+SCENARIO: User doesn't exist
+<br>
+Create new user
+<br>
+Check DN
+<br>
+Check CN
+<br>
+Check CA
+<br>
+SCENARIO: User already exists in the VO
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:20 CEST 2013
+<br>
+Test VOMS-crUserNocert:
+<br>
+VO=vo.7
+<br>
+User=/Fake User DN
+<br>
+SCENARIO: User doesn't exist
+<br>
+Create new user
+<br>
+Check DN
+<br>
+Check CN
+<br>
+Check CA
+<br>
+SCENARIO: User already exists in the VO
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:21 CEST 2013
+<br>
+Test VOMS-delAttribute:
+<br>
+VO=vo.7
+<br>
+Attribute=TEST_ATTRIBUTE
+<br>
+SCENARIO: Attribute doesn't exist
+<br>
+Delete attribute
+<br>
+SCENARIO: Attribute already exists in the VO
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:22 CEST 2013
+<br>
+Test VOMS-delGroup:
+<br>
+VO=vo.7
+<br>
+Role=test_group
+<br>
+SCENARIO: Group doesn't exist
+<br>
+Delete Group
+<br>
+SCENARIO: Group already exists in the VO
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:24 CEST 2013
+<br>
+test VOMS-delGroupAttribute:
+<br>
+VO=vo.7
+<br>
+Attribute=TEST_ATTRIBUTE
+<br>
+Group=test_group
+<br>
+SCENARIO: VO empty
+<br>
+1. Delete-group-attribute without parameters
+OK
+2. Remove non existing Attribute of non existing group without attribute
+<br>
+OK
+3. Remove non existing Attribute of non existing group
+<br>
+voms-admin --vo=vo.7 --host vgrid02.cnaf.infn.it delete-group-attribute /vo.7/test_group TEST_ATTRIBUTE
+SCENARIO: Create group
+<br>Create group
+OK, delete-group-attribute
+Assign attribute to group
+<br>
+Check group's attribute
+<br>Delete groups attribute
+<br>Check deleted group attribute
+list-group-attributes
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:28 CEST 2013
+<br>
+Test VOMS-delRole:
+<br>
+VO=vo.7
+<br>
+Role=test_role
+<br>
+SCENARIO: Role doesn't exist
+<br>
+Delete Role
+<br>
+SCENARIO: Role already exists in the VO
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:29 CEST 2013
+<br>
+test VOMS-delRoleAttribute:
+<br>
+VO=vo.7
+<br>
+Attribute=TEST_ATTRIBUTE
+<br>
+Group=test_group
+<br>
+Role=test_role
+1. SCENARIO: VO empty
+<br>
+1.1.  Delete role attribute without parameters
+OK
+1.2.  Delete role attribute without parameters
+OK
+1.3. Remove non existing Attribute of non existing group and role without attribute
+<br>
+OK
+1.4. Remove non existing Attribute of non existing group and role
+<br>
+2. SCENARIO: Create group
+<br>Create group test_group
+2.1. delete-role-attribute
+2.2. create new Role test_role
+2.3. delete-role-attribute
+2.4. Assign attribute 'TEST_ATTRIBUTE' to Role 'test_role' in group 'test_group'
+<br>
+2.5. Check role's attribute
+<br>
+2.6. Delete role attribute
+<br>
+2.7. Check deleted role attribute
+list-role-attributes
+Complex command: voms-admin --vo=vo.7 --host vgrid02.cnaf.infn.it list-role-attributes /vo.7/test_group Role=test_role
+3. Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:33 CEST 2013
+<br>
+Test VOMS-delUser:
+<br>
+VO=vo.7
+<br>
+User=/usr/share/igi-test-ca/test0.cert.pem
+<br>
+DN=/C=IT/O=IGI/CN=test0
+<br>
+SCENARIO: User doesn't exist
+<br>
+Remove non existing user
+<br>
+SCENARIO: User already exists in the VO
+<br>
+Remove existing user
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:34 CEST 2013
+<br>
+test VOMS-delUserAttribute:
+<br>
+VO=vo.7
+<br>
+Attribute=TEST_ATTRIBUTE
+<br>
+User=/usr/share/igi-test-ca/test0.cert.pem
+<br>
+SCENARIO: VO empty
+<br>
+Remove non existing Attribute of non existing user
+<br>
+SCENARIO: Create user
+<br>Create user
+delete-user-attribute
+Assign attribute to user
+<br>
+Check user attribute
+<br>Delete user attribute
+<br>Check deleted user attribute
+list-user-attributes
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:36 CEST 2013
+<br>
+test VOMS-dismissRole:
+<br>
+VO=vo.7
+<br>
+Role=test_role
+<br>
+Group=test_group
+<br>
+User=/C=IT/O=IGI/CN=test0
+<br>
+SCENARIO: VO empty
+<br>
+Remove non existing role of non existing user in non existing group
+<br>
+SCENARIO: Create new role
+<br>
+Dismiss role test_role in group test_group (group doesn't exist)
+<br>
+SCENARIO: Create new group
+<br>
+Dismiss role test_role in group test_group (user doesn't exist)
+<br>
+SCENARIO: Create user
+<br>
+Dismiss role test_role in group test_group (user doesn't have the role)
+<br>
+SCENARIO: Assign role to user
+<br>
+Dismiss role test_role in group test_group
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:41 CEST 2013
+<br>
+Test VOMS-listAttributes:
+<br>
+VO=vo.7
+<br>
+SCENARIO: empty VO
+OK
+SCENARIO: Create 4 attributes : ATTRIBUTE_1, ATTRIBUTE_2, ATTRIBUTE_3, ATTRIBUTE_4
+<br>
+SCENARIO: List created new attributes
+<br>
+Check attributes
+<br>
+OK
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:43 CEST 2013
+<br>
+test VOMS-listGroupAttributes:
+<br>
+VO=vo.7
+<br>
+Attribute=TEST_ATTRIBUTE
+<br>
+Group=test_group
+<br>
+SCENARIO: VO empty
+<br>
+1. List non existing attributes without groupname
+<br>
+OK
+2. List non existing attributes of nonexisting group
+OK
+3. SCENARIO: Create group
+<br>
+4. List attributes (group doesn't have attributes)
+<br>
+OK
+5. SCENARIO: Set new group 3 attributes
+<br>
+6. List group attributes and check 3 assigned attributes
+<br>
+OK
+Cleaning tasks
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:47 CEST 2013
+<br>
+Test VOMS-listGroups:
+<br>
+VO=vo.7
+<br>
+CA=/C=IT/O=IGI/CN=Test CA
+<br>
+SCENARIO: Create 4 groups: GROUP1, GROUP2, GROUP3, GROUP4
+<br>
+SCENARIO: List groups
+<br>
+Check groups
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:50 CEST 2013
+<br>
+test VOMS-listMembers:
+<br>
+VO=vo.7
+<br>
+Group=test_group
+<br>
+User=
+<br>
+SCENARIO: VO empty
+<br>
+List non existing members of non existing group
+<br>
+SCENARIO: Create new group
+<br>
+List non existing members of group test_group
+<br>
+SCENARIO: Create users
+<br>
+Add members to group test_group
+<br>
+List members of group test_group
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:06:56 CEST 2013
+<br>
+test VOMS-listRoleAttributes:
+<br>
+VO=vo.7
+<br>
+Attribute=TEST_ATTRIBUTE
+<br>
+Group=test_group
+<br>
+Role=test_role
+<br>
+1. SCENARIO: VO empty
+<br>
+1.1.  List non existing role attributes without parameters
+<br>
+OK
+1.2. List non existing role attributes
+OK
+1.3. List non existing role attributes of nonexisting group
+OK
+2. SCENARIO: Create group
+<br>
+OK
+<br>
+2.1. create new Role
+2.2. List role attributes (role doesn't have attributes)
+<br>
+2.3. Set 3 attributes for role
+3. List role attributes
+<br>
+OK
+Cleaning tasks
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:07:01 CEST 2013
+<br>
+Test VOMS-listRoles:
+<br>
+VO=vo.7
+<br>
+Role=test_role
+<br>
+SCENARIO: Create 4 roles : ROLE1, ROLE2, ROLE3, ROLE4
+<br>
+SCENARIO: List roles
+<br>
+Check roles
+<br>
+Cleaning tasks
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:07:03 CEST 2013
+<br>
+Test VOMS-listSubgroups:
+VO=vo.7
+<br>
+SCENARIO: Create 4 groups: GROUP1, GROUP2, GROUP3, GROUP4
+<br>
+SCENARIO: List groups
+<br>
+Check 4 groups, 
+<br>
+Cleaning tasks
+Test OK
+<pre>
+Fri Apr  5 16:07:06 CEST 2013
+<br>
+test VOMS-listUserAttributes:
+<br>
+VO=vo.7
+<br>
+Attribute=TEST_ATTRIBUTE
+<br>
+User=/usr/share/igi-test-ca/test0.cert.pem
+<br>
+1. SCENARIO: VO empty
+<br>
+1.1. List non existing attributes of non existing user
+<br>
+OK
+OK
+2. SCENARIO: Create user
+<br>
+2.1. List attributes (user doesn't have attributes)
+<br>
+OK
+2.2. SCENARIO: Set new 3 user attributes
+<br>
+2.3. List user attributes
+<br>
+OK
+Cleaning tasks
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:07:10 CEST 2013
+<br>
+Test VOMS-listUserGroups:
+VO=vo.7
+Group=test_group
+User=
+<br>
+SCENARIO: VO empty
+<br>
+List non existing groups of non existing user
+<br>
+SCENARIO: Create user
+<br>
+List non existing groups of user
+<br>
+Main group: /vo.7
+VO group is always present
+SCENARIO: Create new group
+<br>
+Add user as member of group test_group
+<br>
+List existing group test_group of user
+<br>
+Cleaning tasks
+<br>
+Test OK
+<pre>
+Fri Apr  5 16:07:13 CEST 2013
+<br>
+test VOMS-listUserRoles:
+<br>
+VO=vo.7
+<br>
+Role=test_role
+<br>
+Group=test_group
+<br>
+User=
+<br>
+SCENARIO: VO empty
+<br>
+List non existing roles of non existing user
+<br>
+SCENARIO: Create user
+<br>
+List roles (user doesn't have roles)
+<br>
+SCENARIO: Create new role
+<br>
+List roles (user hasn't been assigned to role)
+<br>
+SCENARIO: Assign role to user
+<br>
+Assign role test_role in group test_group (group doesn't exist)
+<br>
+SCENARIO: Create new group
+<br>
+Assign role test_role in group test_group
+<br>
+Cleaning tasks
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:07:16 CEST 2013
+<br>
+Test VOMS-listUsers:
+<br>
+VO=vo.7
+<br>
+CA=/C=IT/O=IGI/CN=Test CA
+<br>
+User1: 
+User2: 
+User3: 
+User4: 
+User1: /C=IT/O=IGI/CN=test0
+User2: /C=IT/O=IGI/CN=test2
+User3: /C=IT/O=IGI/CN=test3
+User4: /C=IT/O=IGI/CN=test4
+SCENARIO: Create 4 users
+<br>
+SCENARIO: List users
+<br>
+Check DN
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:07:19 CEST 2013
+<br>
+test VOMS-listUsrWithRole:
+<br>
+VO=vo.7
+<br>
+Role=test_role
+<br>
+Group=test_group
+<br>
+User=/usr/share/igi-test-ca/test0.cert.pem
+<br>
+SCENARIO: VO empty
+<br>
+List non existing users of non existing role in non existing group
+<br>
+SCENARIO: Create new role
+<br>
+List non existing users of role test_role in non existing group
+<br>
+SCENARIO: Create new group
+<br>
+List non existing users of role test_role in group test_group
+<br>
+SCENARIO: Create user
+<br>
+User subject=/C=IT/O=IGI/CN=test0
+List users of role test_role in group test_group
+<br>
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:07:22 CEST 2013
+<br>
+test VOMS-RemoveMember:
+<br>
+VO=vo.7
+<br>
+Group=test_group
+<br>
+User=
+<br>
+SCENARIO: VO empty
+<br>
+Remove non existing member from non existing group
+<br>
+SCENARIO: Create new group
+<br>
+Remove non existing member from group test_group
+<br>
+SCENARIO: Create user
+<br>
+Add member to group test_group
+<br>
+Remove member from group test_group
+<br>
+Cleaning tasks
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:07:25 CEST 2013
+<br>
+test VOMS-setGroupAttribute:
+<br>
+VO=vo.7
+<br>
+Attribute=TEST_ATTRIBUTE
+<br>
+Attribute value=TEST Attribute value
+<br>
+Attribute description=Test Attribute description
+<br>
+Group=test_group
+<br>
+SCENARIO: VO empty
+<br>
+SCENARIO: Create group
+<br>
+OK, assign attribte  TEST_ATTRIBUTE, value=TEST Attribute value and description=Test Attribute description to new group test_group
+<br>
+1. set-group-attribute
+2. OK, list-group-attribute
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:07:27 CEST 2013
+<br>
+test VOMS-setRoleAttribute:
+<br>
+VO=vo.7
+<br>
+Attribute=TEST_ATTRIBUTE
+<br>
+Attribute value=TEST Attribute value
+<br>
+Attribute description=Test Attribute description
+<br>
+Group=test_group
+Role=test_role
+<br>
+1. SCENARIO: VO empty
+<br>
+1.1. set-role-attribute
+OK
+1.2. Set role attribute (without Role)
+OK
+1.3. Set role attribute (without attribute)
+OK
+1.4. Set role attribute for nonexisting group
+2. SCENARIO: Create group
+<br>
+2.1. set-role-attribute
+OK
+<br>
+2.2. create new Role
+2.3. set-role-attribute
+2.4.  OK, list-role-attributes
+2.5. Check result
+2.6. Check attribute
+2.6. Check attribute value
+OK
+Cleaning tasks
+<br>
+Test OK
+</pre>
+<pre>
+Fri Apr  5 16:07:30 CEST 2013
+<br>
+test VOMS-setUserAttribute:
+<br>
+VO=vo.7
+<br>
+Attribute=TEST_ATTRIBUTE
+<br>
+Attribute value=TEST Attribute value
+<br>
+Attribute description=Test Attribute description
+<br>
+User=/usr/share/igi-test-ca/test0.cert.pem
+<br>
+SCENARIO: VO empty
+<br>
+OK
+OK
+SCENARIO: Create user
+<br>
+Assign attribte  TEST_ATTRIBUTE, value=TEST Attribute value and description=Test Attribute description to new user /usr/share/igi-test-ca/test0.cert.pem
+<br>
+set-user-attribute
+list-user-attribute
+Cleaning tasks
+<br>
+Test OK
+</pre>
