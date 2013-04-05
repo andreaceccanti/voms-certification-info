@@ -5,7 +5,7 @@
 
 - Release Task: https://savannah.cern.ch/task/?40956
 
-- ETICS Subsystem Configuration Name: emi.voms-EMI3
+- ETICS Subsystem Configuration Name: emi.voms-task40956
 
 - VCS Tag: 3_1_0
 
