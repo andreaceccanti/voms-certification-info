@@ -1,0 +1,11 @@
+RPMs:
+
+voms-clients3-3.0.0-1.el6.noarch.rpm
+
+Source RPMs:
+
+voms-clients3-3.0.0-1.sl6.src.rpm
+
+Tarballs:
+
+voms-clients3-3.0.0-1.el6.noarch.tar.gz

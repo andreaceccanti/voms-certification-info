@@ -1,0 +1,91 @@
+*********************************
+EMI Test Report Template 
+*********************************
+
+- Product: VOMS
+
+- Release Task: https://savannah.cern.ch/task/?34077
+
+- ETICS Subsystem Configuration Name: emi.voms-EMI3
+
+- VCS Tag: 3_0_1
+
+- EMI Major Release: EMI 3
+
+- Platforms: SL5_x86_64, SL6_x86_64, Deb6
+
+- Author: Andrea Ceccanti
+
+- Date: 8/2/2013
+
+- Test Report Template : v. 3.2
+
+*************
+Summary 
+*************
+
+1. Deployment tests: 
+   1.1. Clean Installation - PASS
+   1.2. Upgrade Installation - PASS
+2. Static Code Analysis - NA
+3. Unit Tests Execution - YES
+4. System tests:
+  4.1. Functionality tests - PASS
+  4.2. Regression tests - PASS
+  4.3. Standard Conformance tests - YES
+  4.4. Performance tests - NA
+  4.5. Scalability tests - NA
+  4.6. Integration tests - PASS
+
+REMARKS:
+
+Unit tests are part of the VOMS core functional test suite.
+
+*************************** Detailed Testing Report ***************************************
+
+1. Deployment log 
+************************
+
+1.1. Clean Installation
+-----------------------------
+- YUM/APT Testing Repo file contents:
+
+- YUM/APT Install command:
+
+- YUM/APT log:
+
+- Configuration log:
+
+1.2. Upgrade Installation
+--------------------------------
+- YUM/APT Production Repo file contents:
+
+- YUM/APT Install command:
+
+- YUM/APT Testing Repo file contents:
+
+- YUM/APT Upgrade command:
+
+- YUM/APT log:
+
+- Configuration log:
+
+2. Static Code Analysis
+******************************
+
+N/A
+
+3. Unit Tests
+*****************
+
+- URL pointing to the results of the Unit Tests.
+
+- Code Coverage %, if available.
+
+
+4. System tests 
+*********************
+
+- URL where the tests/testsuite can be accessed:
+
+- URL where the test results can be accessed:

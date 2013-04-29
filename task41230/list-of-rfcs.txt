@@ -1,0 +1,15 @@
+Features: 
+
+No new features are provided in this release.
+
+Bug Fixes:
+
+- Immediate: None
+
+- High
+https://issues.infn.it:8443/browse/VOMS-256
+
+- Medium:
+https://issues.infn.it:8443/browse/VOMS-258
+
+- Low: None

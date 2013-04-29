@@ -1,0 +1,386 @@
+[root@jen01.cnaf.infn.it ~]# mkdir emi-release-package
+[root@jen01.cnaf.infn.it ~]# wget -P emi-release-package http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/x86_64/base/emi-release-2.0.0-1.sl5.noarch.rpm
+--2013-01-24 15:16:30--  http://emisoft.web.cern.ch/emisoft/dist/EMI/2/sl5/x86_64/base/emi-release-2.0.0-1.sl5.noarch.rpm
+Resolving emisoft.web.cern.ch... 137.138.139.27
+Connecting to emisoft.web.cern.ch|137.138.139.27|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5189 (5.1K) [application/x-rpm]
+Saving to: `emi-release-package/emi-release-2.0.0-1.sl5.noarch.rpm'
+
+     0K .....                                                 100%  183M=0s
+
+2013-01-24 15:16:30 (183 MB/s) - `emi-release-package/emi-release-2.0.0-1.sl5.noarch.rpm' saved [5189/5189]
+
+[root@jen01.cnaf.infn.it ~]# yum -y localinstall emi-release-package/*.rpm
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Setting up Local Package Process
+Examining emi-release-package/emi-release-2.0.0-1.sl5.noarch.rpm: emi-release-2.0.0-1.sl5.noarch
+Marking emi-release-package/emi-release-2.0.0-1.sl5.noarch.rpm to be installed
+615 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:2.0.0-1.sl5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package       Arch     Version         Repository                         Size
+================================================================================
+Installing:
+ emi-release   noarch   2.0.0-1.sl5     /emi-release-2.0.0-1.sl5.noarch   2.7 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total size: 2.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : emi-release                                              1/1 
+
+Installed:
+  emi-release.noarch 0:2.0.0-1.sl5                                              
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum clean all
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Cleaning up Everything
+[root@jen01.cnaf.infn.it ~]# yum -y install voms-clients
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+448 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients.x86_64 0:2.0.9-1.el5 set to be updated
+--> Processing Dependency: voms = 2.0.9-1.el5 for package: voms-clients
+--> Processing Dependency: libvomsapi.so.1()(64bit) for package: voms-clients
+--> Running transaction check
+---> Package voms.x86_64 0:2.0.9-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package            Arch         Version              Repository           Size
+================================================================================
+Installing:
+ voms-clients       x86_64       2.0.9-1.el5          EMI-2-updates       172 k
+Installing for dependencies:
+ voms               x86_64       2.0.9-1.el5          EMI-2-updates       164 k
+
+Transaction Summary
+================================================================================
+Install       2 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 336 k
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                           680 kB/s | 336 kB     00:00     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : voms                                                     1/2 
+  Installing     : voms-clients                                             2/2 
+
+Installed:
+  voms-clients.x86_64 0:2.0.9-1.el5                                             
+
+Dependency Installed:
+  voms.x86_64 0:2.0.9-1.el5                                                     
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# mkdir -p .globus
+[root@jen01.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.cert.pem .globus/usercert.pem
+[root@jen01.cnaf.infn.it ~]# cp /usr/share/igi-test-ca/test0.key.pem .globus/userkey.pem
+[root@jen01.cnaf.infn.it ~]# chmod 600 .globus/usercert.pem
+[root@jen01.cnaf.infn.it ~]# chmod 400 .globus/userkey.pem
+[root@jen01.cnaf.infn.it ~]# echo pass | voms-proxy-init --pwstdin --cert .globus/usercert.pem --key .globus/userkey.pem
+Your identity: /C=IT/O=IGI/CN=test0
+Creating proxy ........................................ Done
+
+Your proxy is valid until Fri Jan 25 03:17:04 2013
+[root@jen01.cnaf.infn.it ~]# yum -y remove emi-release
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Setting up Remove Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:2.0.0-1.sl5 set to be erased
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package             Arch           Version             Repository         Size
+================================================================================
+Removing:
+ emi-release         noarch         2.0.0-1.sl5         installed         2.7 k
+
+Transaction Summary
+================================================================================
+Remove        1 Package(s)
+Reinstall     0 Package(s)
+Downgrade     0 Package(s)
+
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Erasing        : emi-release                                              1/1 
+
+Removed:
+  emi-release.noarch 0:2.0.0-1.sl5                                              
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# wget -q http://eticssoft.web.cern.ch/eticssoft/mock/emi-3-rc-sl5.repo -O /etc/yum.repos.d/test_emi.repo
+[root@jen01.cnaf.infn.it ~]# wget -q http://radiohead.cnaf.infn.it:9999/view/REPOS/job/repo_voms_SL5/lastSuccessfulBuild/artifact/voms.repo -O /etc/yum.repos.d/test_voms.repo
+[root@jen01.cnaf.infn.it ~]# echo >> /etc/yum.repos.d/test_voms.repo; echo 'priority=1' >> /etc/yum.repos.d/test_voms.repo
+[root@jen01.cnaf.infn.it ~]# yum clean all
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+Cleaning up Everything
+[root@jen01.cnaf.infn.it ~]# yum -y install emi-release
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4538 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package emi-release.noarch 0:3.0.0-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch        Version             Repository               Size
+================================================================================
+Installing:
+ emi-release      noarch      3.0.0-1.el5         EMI-3-testing-base      4.7 k
+
+Transaction Summary
+================================================================================
+Install       1 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 4.7 k
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : emi-release                                              1/1 
+
+Installed:
+  emi-release.noarch 0:3.0.0-1.el5                                              
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum -y remove voms-clients
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+Setting up Remove Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients.x86_64 0:2.0.9-1.el5 set to be erased
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package             Arch          Version               Repository        Size
+================================================================================
+Removing:
+ voms-clients        x86_64        2.0.9-1.el5           installed        375 k
+
+Transaction Summary
+================================================================================
+Remove        1 Package(s)
+Reinstall     0 Package(s)
+Downgrade     0 Package(s)
+
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Erasing        : voms-clients                                             1/1 
+
+Removed:
+  voms-clients.x86_64 0:2.0.9-1.el5                                             
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# yum -y install voms-clients3
+Loaded plugins: downloadonly, kernel-module, priorities, protect-packages,
+              : protectbase, security, verify, versionlock
+Repository EGI-trustanchors is listed more than once in the configuration
+4653 packages excluded due to repository priority protections
+0 packages excluded due to repository protections
+Reading version lock configuration
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package voms-clients3.noarch 0:3.0.0-1.sl5 set to be updated
+--> Processing Dependency: jpackage-utils for package: voms-clients3
+--> Processing Dependency: voms-api-java3 for package: voms-clients3
+--> Processing Dependency: java-1.6.0-openjdk for package: voms-clients3
+--> Processing Dependency: jakarta-commons-io for package: voms-clients3
+--> Running transaction check
+---> Package jakarta-commons-io.noarch 0:1.4-3.el5 set to be updated
+---> Package java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.30.1.11.5.el5 set to be updated
+--> Processing Dependency: libjpeg = 6b for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2(ALSA_0.9)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2(ALSA_0.9.0rc4)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libpng12.so.0(PNG12_0)(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: tzdata-java for package: java-1.6.0-openjdk
+--> Processing Dependency: libfreetype.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXtst.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXrender.so.1()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libasound.so.2()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libjpeg.so.62()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libpng12.so.0()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libXi.so.6()(64bit) for package: java-1.6.0-openjdk
+--> Processing Dependency: libgif.so.4()(64bit) for package: java-1.6.0-openjdk
+---> Package jpackage-utils.noarch 0:1.7.3-1jpp.3.el5 set to be updated
+---> Package voms-api-java3.noarch 0:3.0.0-1.sl5 set to be updated
+--> Processing Dependency: bouncycastle146-mail for package: voms-api-java3
+--> Processing Dependency: canl-java for package: voms-api-java3
+--> Running transaction check
+---> Package alsa-lib.x86_64 0:1.0.17-1.el5 set to be updated
+---> Package bouncycastle146-mail.noarch 0:1.46-1 set to be updated
+--> Processing Dependency: bouncycastle146 = 1.46 for package: bouncycastle146-mail
+---> Package canl-java.noarch 0:1.1.0-1.sl5 set to be updated
+---> Package freetype.x86_64 0:2.2.1-32.el5_9.1 set to be updated
+---> Package giflib.x86_64 0:4.1.3-7.3.3.el5 set to be updated
+---> Package libXi.x86_64 0:1.0.1-4.el5_4 set to be updated
+---> Package libXrender.x86_64 0:0.9.1-3.1 set to be updated
+---> Package libXtst.x86_64 0:1.0.1-3.1 set to be updated
+---> Package libjpeg.x86_64 0:6b-37 set to be updated
+---> Package libpng.x86_64 2:1.2.10-17.el5_8 set to be updated
+---> Package tzdata-java.x86_64 0:2012j-1.el5 set to be updated
+--> Running transaction check
+---> Package bouncycastle146.noarch 0:1.46-1.el5 set to be updated
+--> Finished Dependency Resolution
+Beginning Kernel Module Plugin
+Finished Kernel Module Plugin
+
+Dependencies Resolved
+
+================================================================================
+ Package              Arch   Version                   Repository          Size
+================================================================================
+Installing:
+ voms-clients3        noarch 3.0.0-1.sl5               VOMS               124 k
+Installing for dependencies:
+ alsa-lib             x86_64 1.0.17-1.el5              sl5x               414 k
+ bouncycastle146      noarch 1.46-1.el5                EMI-3-testing-base 1.9 M
+ bouncycastle146-mail noarch 1.46-1                    VOMS               475 k
+ canl-java            noarch 1.1.0-1.sl5               EMI-3-testing-base 263 k
+ freetype             x86_64 2.2.1-32.el5_9.1          sl5x-security      312 k
+ giflib               x86_64 4.1.3-7.3.3.el5           sl5x                39 k
+ jakarta-commons-io   noarch 1.4-3.el5                 epel               105 k
+ java-1.6.0-openjdk   x86_64 1:1.6.0.0-1.30.1.11.5.el5 sl5x                36 M
+ jpackage-utils       noarch 1.7.3-1jpp.3.el5          sl5x                61 k
+ libXi                x86_64 1.0.1-4.el5_4             sl5x                26 k
+ libXrender           x86_64 0.9.1-3.1                 sl5x                28 k
+ libXtst              x86_64 1.0.1-3.1                 sl5x                16 k
+ libjpeg              x86_64 6b-37                     sl5x               139 k
+ libpng               x86_64 2:1.2.10-17.el5_8         sl5x               235 k
+ tzdata-java          x86_64 2012j-1.el5               sl5x-security      183 k
+ voms-api-java3       noarch 3.0.0-1.sl5               VOMS               120 k
+
+Transaction Summary
+================================================================================
+Install      17 Package(s)
+Upgrade       0 Package(s)
+
+Total download size: 41 M
+Downloading Packages:
+--------------------------------------------------------------------------------
+Total                                            11 MB/s |  41 MB     00:03     
+Running rpm_check_debug
+Running Transaction Test
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing     : libXtst                                                 1/17 
+  Installing     : giflib                                                  2/17 
+  Installing     : libpng                                                  3/17 
+  Installing     : libjpeg                                                 4/17 
+  Installing     : freetype                                                5/17 
+  Installing     : libXi                                                   6/17 
+  Installing     : libXrender                                              7/17 
+  Installing     : alsa-lib                                                8/17 
+  Installing     : jpackage-utils                                          9/17 
+  Installing     : jakarta-commons-io                                     10/17 
+  Installing     : tzdata-java                                            11/17 
+  Installing     : java-1.6.0-openjdk                                     12/17 
+  Installing     : bouncycastle146                                        13/17 
+  Installing     : bouncycastle146-mail                                   14/17 
+  Installing     : canl-java                                              15/17 
+  Installing     : voms-api-java3                                         16/17 
+  Installing     : voms-clients3                                          17/17 
+
+Installed:
+  voms-clients3.noarch 0:3.0.0-1.sl5                                            
+
+Dependency Installed:
+  alsa-lib.x86_64 0:1.0.17-1.el5                                                
+  bouncycastle146.noarch 0:1.46-1.el5                                           
+  bouncycastle146-mail.noarch 0:1.46-1                                          
+  canl-java.noarch 0:1.1.0-1.sl5                                                
+  freetype.x86_64 0:2.2.1-32.el5_9.1                                            
+  giflib.x86_64 0:4.1.3-7.3.3.el5                                               
+  jakarta-commons-io.noarch 0:1.4-3.el5                                         
+  java-1.6.0-openjdk.x86_64 1:1.6.0.0-1.30.1.11.5.el5                           
+  jpackage-utils.noarch 0:1.7.3-1jpp.3.el5                                      
+  libXi.x86_64 0:1.0.1-4.el5_4                                                  
+  libXrender.x86_64 0:0.9.1-3.1                                                 
+  libXtst.x86_64 0:1.0.1-3.1                                                    
+  libjpeg.x86_64 0:6b-37                                                        
+  libpng.x86_64 2:1.2.10-17.el5_8                                               
+  tzdata-java.x86_64 0:2012j-1.el5                                              
+  voms-api-java3.noarch 0:3.0.0-1.sl5                                           
+
+Complete!
+[root@jen01.cnaf.infn.it ~]# mkdir -p /etc/grid-security/vomsdir
+[root@jen01.cnaf.infn.it ~]# cp /etc/grid-security/hostcert.pem /etc/grid-security/vomsdir
+[root@jen01.cnaf.infn.it ~]# echo pass | voms-proxy-init --pwstdin --cert .globus/usercert.pem --key .globus/userkey.pem
+
+Created proxy in /tmp/x509up_u0.
+
+Your proxy is valid until Fri Jan 25 03:19:01 CET 2013
+VOMS clients succesfully upgraded!

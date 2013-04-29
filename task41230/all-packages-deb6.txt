@@ -1,0 +1,22 @@
+Debs:
+
+voms-clients3_3.0.0-1_all.deb
+voms-clients3_3.0.0-1_all.deb
+
+Source packages:
+
+voms-clients3_3.0.0-1.debian.tar.gz
+voms-clients3_3.0.0-1.debian.tar.gz
+
+voms-clients3_3.0.0-1.dsc
+voms-clients3_3.0.0-1.dsc
+
+voms-clients3_3.0.0.orig.tar.gz
+voms-clients3_3.0.0.orig.tar.gz
+
+Tarballs:
+
+voms-clients3_3.0.0-1.debian.tar.gz
+voms-clients3_3.0.0-1.debian.tar.gz
+voms-clients3_3.0.0-1_all.tar.gz
+voms-clients3_3.0.0-1_all.tar.gz
