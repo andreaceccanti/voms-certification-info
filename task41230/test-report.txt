@@ -49,26 +49,50 @@ Unit tests are part of the VOMS core functional test suite.
 1.1. Clean Installation
 -----------------------------
 - YUM/APT Testing Repo file contents:
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl5_x86_64/voms-clients3-clean-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl6_x86_64/voms-clients3-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/deb_amd64/voms-clients3-clean-deployment-report.deb_amd_64
 
 - YUM/APT Install command:
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl5_x86_64/voms-clients3-clean-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl6_x86_64/voms-clients3-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/deb_amd64/voms-clients3-clean-deployment-report.deb_amd_64
 
 - YUM/APT log:
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl5_x86_64/voms-clients3-clean-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl6_x86_64/voms-clients3-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/deb_amd64/voms-clients3-clean-deployment-report.deb_amd_64
 
 - Configuration log:
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl5_x86_64/voms-clients3-clean-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl6_x86_64/voms-clients3-clean-deployment.sl6_64.log
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/deb_amd64/voms-clients3-clean-deployment-report.deb_amd_64
 
 1.2. Upgrade Installation
 --------------------------------
 - YUM/APT Production Repo file contents:
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl6_x86_64/voms-clients3-upgrade-deployment.sl6_64.log
 
 - YUM/APT Install command:
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl6_x86_64/voms-clients3-upgrade-deployment.sl6_64.log
 
 - YUM/APT Testing Repo file contents:
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl6_x86_64/voms-clients3-upgrade-deployment.sl6_64.log
 
 - YUM/APT Upgrade command:
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl6_x86_64/voms-clients3-upgrade-deployment.sl6_64.log
 
 - YUM/APT log:
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl6_x86_64/voms-clients3-upgrade-deployment.sl6_64.log
 
 - Configuration log:
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl5_x86_64/voms-clients3-upgrade-deployment-report.sl5_x86_64
+https://github.com/andreaceccanti/voms-certification-info/blob/master/task41230/final-reports/sl6_x86_64/voms-clients3-upgrade-deployment.sl6_64.log
 
 2. Static Code Analysis
 ******************************
