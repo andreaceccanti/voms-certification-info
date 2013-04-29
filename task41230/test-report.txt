@@ -4,9 +4,9 @@ EMI Test Report Template
 
 - Product: VOMS
 
-- Release Task: https://savannah.cern.ch/task/?34077
+- Release Task: https://savannah.cern.ch/task/?41230
 
-- ETICS Subsystem Configuration Name: emi.voms-EMI3
+- ETICS Subsystem Configuration Name: emi.voms-task41230
 
 - VCS Tag: 3_0_1
 
@@ -14,9 +14,9 @@ EMI Test Report Template
 
 - Platforms: SL5_x86_64, SL6_x86_64, Deb6
 
-- Author: Andrea Ceccanti
+- Author: Valerio Venturi
 
-- Date: 8/2/2013
+- Date: 29/4/2013
 
 - Test Report Template : v. 3.2
 
@@ -78,14 +78,18 @@ N/A
 3. Unit Tests
 *****************
 
-- URL pointing to the results of the Unit Tests.
+- URL pointing to the results of the Unit Tests
+http://radiohead.cnaf.infn.it:9999/job/voms-clients_3_0-SNAPSHOT/lastSuccessfulBuild/testReport/
 
-- Code Coverage %, if available.
+- Code Coverage %, if available
 
+N/A
 
 4. System tests 
 *********************
 
 - URL where the tests/testsuite can be accessed:
+https://github.com/italiangrid/voms-testsuite
 
 - URL where the test results can be accessed:
+http://radiohead.cnaf.infn.it:9999/job/robot_voms-testsuite/lastSuccessfulBuild/robot/?
