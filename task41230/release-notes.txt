@@ -17,7 +17,7 @@ Known issues
 ============ 
 None known at the moment. 
 Please refer to the VOMS known issues page: 
-https://github.com/italiangrid/voms... 
+https://github.com/italiangrid/voms/wiki/Known-issues
 
 Documentation changes 
 ===================== 
