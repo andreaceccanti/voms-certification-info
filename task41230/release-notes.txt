@@ -1,0 +1,24 @@
+What's new 
+========== 
+This voms-clients3 release provides fixes for the following two issues
+https://issues.infn.it:8443/browse/VOMS-256
+https://issues.infn.it:8443/browse/VOMS-258
+
+Installation and configuration 
+============================== 
+These release does not introduce changes in the installation and configuration, which are described 
+https://github.com/italiangrid/voms/wiki/VOMS-clients-guide
+
+Configuration changes 
+===================== 
+No changes.
+
+Known issues 
+============ 
+None known at the moment. 
+Please refer to the VOMS known issues page: 
+https://github.com/italiangrid/voms... 
+
+Documentation changes 
+===================== 
+No changes.
